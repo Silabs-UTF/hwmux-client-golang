@@ -5861,8 +5861,8 @@ components:
         permissions:
           default:
           - delete
-          - change
           - view
+          - change
           - add
           items:
             $ref: '#/components/schemas/PermissionsEnum'
@@ -6193,8 +6193,8 @@ components:
         permissions:
           default:
           - delete
-          - change
           - view
+          - change
           - add
           items:
             $ref: '#/components/schemas/PermissionsEnum'

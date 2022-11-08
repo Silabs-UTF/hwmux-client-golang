@@ -4560,8 +4560,8 @@ components:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
           - delete
-          - change
           - view
+          - change
           - add
     PatchedRoom:
       type: object
@@ -4806,8 +4806,8 @@ components:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
           - delete
-          - change
           - view
+          - change
           - add
       required:
       - id

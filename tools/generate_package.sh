@@ -11,4 +11,4 @@ fi
 
 rm -rf ../docs && rm -rf ../hwmux_client
 curl https://hwmux.silabs.net/schema/download -o hwmux.yaml
-docker compose run --rm openapi-generator-cli generate -i /local/tools/hwmux.yaml -g go --additional-properties=projectName=hwmux-client-golang,packageVersion=$PACKAGE_VERSION -o /local/
+docker compose run --rm openapi-generator-cli generate -i /local/tools/hwmux.yaml -g go --additional-properties=projectName=hwmux-client-golang,packageVersion=$PACKAGE_VERSION,packageName=hwmux -o /local/
