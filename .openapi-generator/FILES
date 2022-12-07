@@ -37,10 +37,12 @@ docs/Log.md
 docs/LoggedInUser.md
 docs/LogsApi.md
 docs/NestedDeviceGroup.md
+docs/ObjectPermissions.md
 docs/PaginatedDeviceGroupList.md
 docs/PaginatedDeviceSerializerPublicList.md
 docs/PaginatedLabelList.md
 docs/PaginatedLogList.md
+docs/PaginatedLoggedInUserList.md
 docs/PaginatedPartFamilyList.md
 docs/PaginatedPartList.md
 docs/PaginatedPermissionGroupList.md
@@ -53,6 +55,8 @@ docs/PartFamily.md
 docs/PartsApi.md
 docs/PatchedDeviceGroupSerializerWithDevicePk.md
 docs/PatchedLabelSerializerWithPermissions.md
+docs/PatchedLoggedInUser.md
+docs/PatchedObjectPermissions.md
 docs/PatchedPart.md
 docs/PatchedPartFamily.md
 docs/PatchedResourcePermissions.md
@@ -74,6 +78,7 @@ docs/SigninApi.md
 docs/SignoutApi.md
 docs/Site.md
 docs/SitesApi.md
+docs/Token.md
 docs/TokenAuthApi.md
 docs/User.md
 docs/UserApi.md
@@ -93,10 +98,12 @@ model_location_serializer_write_only.go
 model_log.go
 model_logged_in_user.go
 model_nested_device_group.go
+model_object_permissions.go
 model_paginated_device_group_list.go
 model_paginated_device_serializer_public_list.go
 model_paginated_label_list.go
 model_paginated_log_list.go
+model_paginated_logged_in_user_list.go
 model_paginated_part_family_list.go
 model_paginated_part_list.go
 model_paginated_permission_group_list.go
@@ -107,6 +114,8 @@ model_part.go
 model_part_family.go
 model_patched_device_group_serializer_with_device_pk.go
 model_patched_label_serializer_with_permissions.go
+model_patched_logged_in_user.go
+model_patched_object_permissions.go
 model_patched_part.go
 model_patched_part_family.go
 model_patched_resource_permissions.go
@@ -121,6 +130,7 @@ model_reservation_session_serializer_read_only_owner.go
 model_resource_permissions.go
 model_room.go
 model_site.go
+model_token.go
 model_user.go
 model_write_only_device.go
 response.go

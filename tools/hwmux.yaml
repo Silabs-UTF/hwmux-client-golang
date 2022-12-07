@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.5.0
+  version: 2.8.0
 paths:
   /api-token-auth/:
     post:
@@ -272,6 +272,181 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/devices/{id}/permissions/:
+    get:
+      operationId: devices_permissions_retrieve
+      description: |-
+        Get the object-level permissions for this resource. Will return
+        user permissions and user group permissions separately. User permissions
+         will not include those derived from user group membership.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    put:
+      operationId: devices_permissions_update
+      description: Update the object-level permissions for this resource.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    patch:
+      operationId: devices_permissions_partial_update
+      description: |-
+        Partially update the object-level permissions for this resource.
+        Can omit top-level fields to leave unchanged.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
   /api/devices/{id}/release/:
     put:
       operationId: devices_release_update
@@ -778,6 +953,181 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/groups/{id}/permissions/:
+    get:
+      operationId: groups_permissions_retrieve
+      description: |-
+        Get the object-level permissions for this resource. Will return
+        user permissions and user group permissions separately. User permissions
+         will not include those derived from user group membership.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    put:
+      operationId: groups_permissions_update
+      description: Update the object-level permissions for this resource.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    patch:
+      operationId: groups_permissions_partial_update
+      description: |-
+        Partially update the object-level permissions for this resource.
+        Can omit top-level fields to leave unchanged.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
   /api/groups/{id}/release/:
     put:
       operationId: groups_release_update
@@ -1133,6 +1483,181 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/labels/{id}/permissions/:
+    get:
+      operationId: labels_permissions_retrieve
+      description: |-
+        Get the object-level permissions for this resource. Will return
+        user permissions and user group permissions separately. User permissions
+         will not include those derived from user group membership.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    put:
+      operationId: labels_permissions_update
+      description: Update the object-level permissions for this resource.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    patch:
+      operationId: labels_permissions_partial_update
+      description: |-
+        Partially update the object-level permissions for this resource.
+        Can omit top-level fields to leave unchanged.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
   /api/labels/{id}/reserve_any/:
     put:
       operationId: labels_reserve_any_update
@@ -3624,9 +4149,48 @@ paths:
       responses:
         '204':
           description: No response body
-  /api/user/current/:
+  /api/user/:
     get:
-      operationId: user_current_list
+      operationId: user_list
+      parameters:
+      - in: query
+        name: email
+        schema:
+          type: string
+      - in: query
+        name: first_name
+        schema:
+          type: string
+      - in: query
+        name: last_name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: user_group
+        schema:
+          type: string
+      - in: query
+        name: username
+        schema:
+          type: string
       tags:
       - user
       security:
@@ -3637,9 +4201,190 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/LoggedInUser'
+                $ref: '#/components/schemas/PaginatedLoggedInUserList'
+          description: ''
+    post:
+      operationId: user_create
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+  /api/user/{username}/:
+    get:
+      operationId: user_retrieve
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+    put:
+      operationId: user_update
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+    patch:
+      operationId: user_partial_update
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLoggedInUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLoggedInUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLoggedInUser'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+    delete:
+      operationId: user_destroy
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/user/current/:
+    get:
+      operationId: user_current_retrieve
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+  /api/user/current/token/:
+    get:
+      operationId: user_current_token_retrieve
+      description: "Gets the current user's API token. Generates one if none available.\n\
+        \        "
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
+    post:
+      operationId: user_current_token_create
+      description: |-
+        Generates new API token for the current user. The old tokens become
+        invalid.
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
           description: ''
   /callback/:
     get:
@@ -4164,6 +4909,11 @@ components:
           items:
             type: string
           readOnly: true
+        is_superuser:
+          type: boolean
+          title: Superuser status
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
       required:
       - groups
       - username
@@ -4189,6 +4939,18 @@ components:
           writeOnly: true
       required:
       - name
+    ObjectPermissions:
+      type: object
+      properties:
+        users:
+          type: object
+          additionalProperties: {}
+        user_groups:
+          type: object
+          additionalProperties: {}
+      required:
+      - user_groups
+      - users
     PaginatedDeviceGroupList:
       type: object
       properties:
@@ -4269,6 +5031,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Log'
+    PaginatedLoggedInUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoggedInUser'
     PaginatedPartFamilyList:
       type: object
       properties:
@@ -4497,6 +5279,49 @@ components:
           type: object
           additionalProperties: {}
           nullable: true
+    PatchedLoggedInUser:
+      type: object
+      properties:
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        is_staff:
+          type: boolean
+          title: Staff status
+          description: Designates whether the user can log into this admin site.
+        groups:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        is_superuser:
+          type: boolean
+          title: Superuser status
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+    PatchedObjectPermissions:
+      type: object
+      properties:
+        users:
+          type: object
+          additionalProperties: {}
+        user_groups:
+          type: object
+          additionalProperties: {}
     PatchedPart:
       type: object
       description: Serializer for the Part model
@@ -4559,10 +5384,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
+          - add
+          - change
           - delete
           - view
-          - change
-          - add
     PatchedRoom:
       type: object
       description: Serializer for the Room model
@@ -4805,10 +5630,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
+          - add
+          - change
           - delete
           - view
-          - change
-          - add
       required:
       - id
     Room:
@@ -4859,6 +5684,19 @@ components:
       - lat
       - lon
       - name
+    Token:
+      type: object
+      properties:
+        key:
+          type: string
+          maxLength: 40
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created
+      - key
     User:
       type: object
       description: |-

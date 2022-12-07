@@ -10,6 +10,9 @@ Method | HTTP request | Description
 [**DevicesListMyList**](DevicesApi.md#DevicesListMyList) | **Get** /api/devices/list_my/ | 
 [**DevicesLocationRetrieve**](DevicesApi.md#DevicesLocationRetrieve) | **Get** /api/devices/{device_pk}/location/ | 
 [**DevicesPartialUpdate**](DevicesApi.md#DevicesPartialUpdate) | **Patch** /api/devices/{id}/ | 
+[**DevicesPermissionsPartialUpdate**](DevicesApi.md#DevicesPermissionsPartialUpdate) | **Patch** /api/devices/{id}/permissions/ | 
+[**DevicesPermissionsRetrieve**](DevicesApi.md#DevicesPermissionsRetrieve) | **Get** /api/devices/{id}/permissions/ | 
+[**DevicesPermissionsUpdate**](DevicesApi.md#DevicesPermissionsUpdate) | **Put** /api/devices/{id}/permissions/ | 
 [**DevicesReleaseUpdate**](DevicesApi.md#DevicesReleaseUpdate) | **Put** /api/devices/{id}/release/ | 
 [**DevicesReserveUpdate**](DevicesApi.md#DevicesReserveUpdate) | **Put** /api/devices/{id}/reserve/ | 
 [**DevicesRetrieve**](DevicesApi.md#DevicesRetrieve) | **Get** /api/devices/{id}/ | 
@@ -469,6 +472,220 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WriteOnlyDevice**](WriteOnlyDevice.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DevicesPermissionsPartialUpdate
+
+> ObjectPermissions DevicesPermissionsPartialUpdate(ctx, id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device.
+    patchedObjectPermissions := *openapiclient.NewPatchedObjectPermissions() // PatchedObjectPermissions |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DevicesApi.DevicesPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesPermissionsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DevicesPermissionsPartialUpdate`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesPermissionsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDevicesPermissionsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedObjectPermissions** | [**PatchedObjectPermissions**](PatchedObjectPermissions.md) |  | 
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DevicesPermissionsRetrieve
+
+> ObjectPermissions DevicesPermissionsRetrieve(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DevicesApi.DevicesPermissionsRetrieve(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesPermissionsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DevicesPermissionsRetrieve`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesPermissionsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDevicesPermissionsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DevicesPermissionsUpdate
+
+> ObjectPermissions DevicesPermissionsUpdate(ctx, id).ObjectPermissions(objectPermissions).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device.
+    objectPermissions := *openapiclient.NewObjectPermissions(map[string]interface{}{"key": interface{}(123)}, map[string]interface{}{"key": interface{}(123)}) // ObjectPermissions | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DevicesApi.DevicesPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesPermissionsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DevicesPermissionsUpdate`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesPermissionsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDevicesPermissionsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **objectPermissions** | [**ObjectPermissions**](ObjectPermissions.md) |  | 
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
 
 ### Authorization
 

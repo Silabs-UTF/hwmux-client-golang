@@ -14,33 +14,33 @@ import (
 	"encoding/json"
 )
 
-// PaginatedDeviceGroupList struct for PaginatedDeviceGroupList
-type PaginatedDeviceGroupList struct {
+// PaginatedLoggedInUserList struct for PaginatedLoggedInUserList
+type PaginatedLoggedInUserList struct {
 	Count *int32 `json:"count,omitempty"`
 	Next NullableString `json:"next,omitempty"`
 	Previous NullableString `json:"previous,omitempty"`
-	Results []DeviceGroup `json:"results,omitempty"`
+	Results []LoggedInUser `json:"results,omitempty"`
 }
 
-// NewPaginatedDeviceGroupList instantiates a new PaginatedDeviceGroupList object
+// NewPaginatedLoggedInUserList instantiates a new PaginatedLoggedInUserList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPaginatedDeviceGroupList() *PaginatedDeviceGroupList {
-	this := PaginatedDeviceGroupList{}
+func NewPaginatedLoggedInUserList() *PaginatedLoggedInUserList {
+	this := PaginatedLoggedInUserList{}
 	return &this
 }
 
-// NewPaginatedDeviceGroupListWithDefaults instantiates a new PaginatedDeviceGroupList object
+// NewPaginatedLoggedInUserListWithDefaults instantiates a new PaginatedLoggedInUserList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewPaginatedDeviceGroupListWithDefaults() *PaginatedDeviceGroupList {
-	this := PaginatedDeviceGroupList{}
+func NewPaginatedLoggedInUserListWithDefaults() *PaginatedLoggedInUserList {
+	this := PaginatedLoggedInUserList{}
 	return &this
 }
 
 // GetCount returns the Count field value if set, zero value otherwise.
-func (o *PaginatedDeviceGroupList) GetCount() int32 {
+func (o *PaginatedLoggedInUserList) GetCount() int32 {
 	if o == nil || isNil(o.Count) {
 		var ret int32
 		return ret
@@ -50,7 +50,7 @@ func (o *PaginatedDeviceGroupList) GetCount() int32 {
 
 // GetCountOk returns a tuple with the Count field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PaginatedDeviceGroupList) GetCountOk() (*int32, bool) {
+func (o *PaginatedLoggedInUserList) GetCountOk() (*int32, bool) {
 	if o == nil || isNil(o.Count) {
     return nil, false
 	}
@@ -58,7 +58,7 @@ func (o *PaginatedDeviceGroupList) GetCountOk() (*int32, bool) {
 }
 
 // HasCount returns a boolean if a field has been set.
-func (o *PaginatedDeviceGroupList) HasCount() bool {
+func (o *PaginatedLoggedInUserList) HasCount() bool {
 	if o != nil && !isNil(o.Count) {
 		return true
 	}
@@ -67,12 +67,12 @@ func (o *PaginatedDeviceGroupList) HasCount() bool {
 }
 
 // SetCount gets a reference to the given int32 and assigns it to the Count field.
-func (o *PaginatedDeviceGroupList) SetCount(v int32) {
+func (o *PaginatedLoggedInUserList) SetCount(v int32) {
 	o.Count = &v
 }
 
 // GetNext returns the Next field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PaginatedDeviceGroupList) GetNext() string {
+func (o *PaginatedLoggedInUserList) GetNext() string {
 	if o == nil || isNil(o.Next.Get()) {
 		var ret string
 		return ret
@@ -83,7 +83,7 @@ func (o *PaginatedDeviceGroupList) GetNext() string {
 // GetNextOk returns a tuple with the Next field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PaginatedDeviceGroupList) GetNextOk() (*string, bool) {
+func (o *PaginatedLoggedInUserList) GetNextOk() (*string, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *PaginatedDeviceGroupList) GetNextOk() (*string, bool) {
 }
 
 // HasNext returns a boolean if a field has been set.
-func (o *PaginatedDeviceGroupList) HasNext() bool {
+func (o *PaginatedLoggedInUserList) HasNext() bool {
 	if o != nil && o.Next.IsSet() {
 		return true
 	}
@@ -100,21 +100,21 @@ func (o *PaginatedDeviceGroupList) HasNext() bool {
 }
 
 // SetNext gets a reference to the given NullableString and assigns it to the Next field.
-func (o *PaginatedDeviceGroupList) SetNext(v string) {
+func (o *PaginatedLoggedInUserList) SetNext(v string) {
 	o.Next.Set(&v)
 }
 // SetNextNil sets the value for Next to be an explicit nil
-func (o *PaginatedDeviceGroupList) SetNextNil() {
+func (o *PaginatedLoggedInUserList) SetNextNil() {
 	o.Next.Set(nil)
 }
 
 // UnsetNext ensures that no value is present for Next, not even an explicit nil
-func (o *PaginatedDeviceGroupList) UnsetNext() {
+func (o *PaginatedLoggedInUserList) UnsetNext() {
 	o.Next.Unset()
 }
 
 // GetPrevious returns the Previous field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PaginatedDeviceGroupList) GetPrevious() string {
+func (o *PaginatedLoggedInUserList) GetPrevious() string {
 	if o == nil || isNil(o.Previous.Get()) {
 		var ret string
 		return ret
@@ -125,7 +125,7 @@ func (o *PaginatedDeviceGroupList) GetPrevious() string {
 // GetPreviousOk returns a tuple with the Previous field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PaginatedDeviceGroupList) GetPreviousOk() (*string, bool) {
+func (o *PaginatedLoggedInUserList) GetPreviousOk() (*string, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *PaginatedDeviceGroupList) GetPreviousOk() (*string, bool) {
 }
 
 // HasPrevious returns a boolean if a field has been set.
-func (o *PaginatedDeviceGroupList) HasPrevious() bool {
+func (o *PaginatedLoggedInUserList) HasPrevious() bool {
 	if o != nil && o.Previous.IsSet() {
 		return true
 	}
@@ -142,23 +142,23 @@ func (o *PaginatedDeviceGroupList) HasPrevious() bool {
 }
 
 // SetPrevious gets a reference to the given NullableString and assigns it to the Previous field.
-func (o *PaginatedDeviceGroupList) SetPrevious(v string) {
+func (o *PaginatedLoggedInUserList) SetPrevious(v string) {
 	o.Previous.Set(&v)
 }
 // SetPreviousNil sets the value for Previous to be an explicit nil
-func (o *PaginatedDeviceGroupList) SetPreviousNil() {
+func (o *PaginatedLoggedInUserList) SetPreviousNil() {
 	o.Previous.Set(nil)
 }
 
 // UnsetPrevious ensures that no value is present for Previous, not even an explicit nil
-func (o *PaginatedDeviceGroupList) UnsetPrevious() {
+func (o *PaginatedLoggedInUserList) UnsetPrevious() {
 	o.Previous.Unset()
 }
 
 // GetResults returns the Results field value if set, zero value otherwise.
-func (o *PaginatedDeviceGroupList) GetResults() []DeviceGroup {
+func (o *PaginatedLoggedInUserList) GetResults() []LoggedInUser {
 	if o == nil || isNil(o.Results) {
-		var ret []DeviceGroup
+		var ret []LoggedInUser
 		return ret
 	}
 	return o.Results
@@ -166,7 +166,7 @@ func (o *PaginatedDeviceGroupList) GetResults() []DeviceGroup {
 
 // GetResultsOk returns a tuple with the Results field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PaginatedDeviceGroupList) GetResultsOk() ([]DeviceGroup, bool) {
+func (o *PaginatedLoggedInUserList) GetResultsOk() ([]LoggedInUser, bool) {
 	if o == nil || isNil(o.Results) {
     return nil, false
 	}
@@ -174,7 +174,7 @@ func (o *PaginatedDeviceGroupList) GetResultsOk() ([]DeviceGroup, bool) {
 }
 
 // HasResults returns a boolean if a field has been set.
-func (o *PaginatedDeviceGroupList) HasResults() bool {
+func (o *PaginatedLoggedInUserList) HasResults() bool {
 	if o != nil && !isNil(o.Results) {
 		return true
 	}
@@ -182,12 +182,12 @@ func (o *PaginatedDeviceGroupList) HasResults() bool {
 	return false
 }
 
-// SetResults gets a reference to the given []DeviceGroup and assigns it to the Results field.
-func (o *PaginatedDeviceGroupList) SetResults(v []DeviceGroup) {
+// SetResults gets a reference to the given []LoggedInUser and assigns it to the Results field.
+func (o *PaginatedLoggedInUserList) SetResults(v []LoggedInUser) {
 	o.Results = v
 }
 
-func (o PaginatedDeviceGroupList) MarshalJSON() ([]byte, error) {
+func (o PaginatedLoggedInUserList) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Count) {
 		toSerialize["count"] = o.Count
@@ -204,38 +204,38 @@ func (o PaginatedDeviceGroupList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullablePaginatedDeviceGroupList struct {
-	value *PaginatedDeviceGroupList
+type NullablePaginatedLoggedInUserList struct {
+	value *PaginatedLoggedInUserList
 	isSet bool
 }
 
-func (v NullablePaginatedDeviceGroupList) Get() *PaginatedDeviceGroupList {
+func (v NullablePaginatedLoggedInUserList) Get() *PaginatedLoggedInUserList {
 	return v.value
 }
 
-func (v *NullablePaginatedDeviceGroupList) Set(val *PaginatedDeviceGroupList) {
+func (v *NullablePaginatedLoggedInUserList) Set(val *PaginatedLoggedInUserList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullablePaginatedDeviceGroupList) IsSet() bool {
+func (v NullablePaginatedLoggedInUserList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullablePaginatedDeviceGroupList) Unset() {
+func (v *NullablePaginatedLoggedInUserList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullablePaginatedDeviceGroupList(val *PaginatedDeviceGroupList) *NullablePaginatedDeviceGroupList {
-	return &NullablePaginatedDeviceGroupList{value: val, isSet: true}
+func NewNullablePaginatedLoggedInUserList(val *PaginatedLoggedInUserList) *NullablePaginatedLoggedInUserList {
+	return &NullablePaginatedLoggedInUserList{value: val, isSet: true}
 }
 
-func (v NullablePaginatedDeviceGroupList) MarshalJSON() ([]byte, error) {
+func (v NullablePaginatedLoggedInUserList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullablePaginatedDeviceGroupList) UnmarshalJSON(src []byte) error {
+func (v *NullablePaginatedLoggedInUserList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

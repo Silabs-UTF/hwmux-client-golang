@@ -14,65 +14,71 @@ import (
 	"encoding/json"
 )
 
-// LoggedInUser struct for LoggedInUser
-type LoggedInUser struct {
+// PatchedLoggedInUser struct for PatchedLoggedInUser
+type PatchedLoggedInUser struct {
 	// Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
-	Username string `json:"username"`
+	Username *string `json:"username,omitempty"`
 	Email *string `json:"email,omitempty"`
 	FirstName *string `json:"first_name,omitempty"`
 	LastName *string `json:"last_name,omitempty"`
 	// Designates whether the user can log into this admin site.
 	IsStaff *bool `json:"is_staff,omitempty"`
-	Groups []string `json:"groups"`
+	Groups []string `json:"groups,omitempty"`
 	// Designates that this user has all permissions without explicitly assigning them.
 	IsSuperuser *bool `json:"is_superuser,omitempty"`
 }
 
-// NewLoggedInUser instantiates a new LoggedInUser object
+// NewPatchedLoggedInUser instantiates a new PatchedLoggedInUser object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLoggedInUser(username string, groups []string) *LoggedInUser {
-	this := LoggedInUser{}
-	this.Username = username
-	this.Groups = groups
+func NewPatchedLoggedInUser() *PatchedLoggedInUser {
+	this := PatchedLoggedInUser{}
 	return &this
 }
 
-// NewLoggedInUserWithDefaults instantiates a new LoggedInUser object
+// NewPatchedLoggedInUserWithDefaults instantiates a new PatchedLoggedInUser object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewLoggedInUserWithDefaults() *LoggedInUser {
-	this := LoggedInUser{}
+func NewPatchedLoggedInUserWithDefaults() *PatchedLoggedInUser {
+	this := PatchedLoggedInUser{}
 	return &this
 }
 
-// GetUsername returns the Username field value
-func (o *LoggedInUser) GetUsername() string {
-	if o == nil {
+// GetUsername returns the Username field value if set, zero value otherwise.
+func (o *PatchedLoggedInUser) GetUsername() string {
+	if o == nil || isNil(o.Username) {
 		var ret string
 		return ret
 	}
-
-	return o.Username
+	return *o.Username
 }
 
-// GetUsernameOk returns a tuple with the Username field value
+// GetUsernameOk returns a tuple with the Username field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoggedInUser) GetUsernameOk() (*string, bool) {
-	if o == nil {
+func (o *PatchedLoggedInUser) GetUsernameOk() (*string, bool) {
+	if o == nil || isNil(o.Username) {
     return nil, false
 	}
-	return &o.Username, true
+	return o.Username, true
 }
 
-// SetUsername sets field value
-func (o *LoggedInUser) SetUsername(v string) {
-	o.Username = v
+// HasUsername returns a boolean if a field has been set.
+func (o *PatchedLoggedInUser) HasUsername() bool {
+	if o != nil && !isNil(o.Username) {
+		return true
+	}
+
+	return false
+}
+
+// SetUsername gets a reference to the given string and assigns it to the Username field.
+func (o *PatchedLoggedInUser) SetUsername(v string) {
+	o.Username = &v
 }
 
 // GetEmail returns the Email field value if set, zero value otherwise.
-func (o *LoggedInUser) GetEmail() string {
+func (o *PatchedLoggedInUser) GetEmail() string {
 	if o == nil || isNil(o.Email) {
 		var ret string
 		return ret
@@ -82,7 +88,7 @@ func (o *LoggedInUser) GetEmail() string {
 
 // GetEmailOk returns a tuple with the Email field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoggedInUser) GetEmailOk() (*string, bool) {
+func (o *PatchedLoggedInUser) GetEmailOk() (*string, bool) {
 	if o == nil || isNil(o.Email) {
     return nil, false
 	}
@@ -90,7 +96,7 @@ func (o *LoggedInUser) GetEmailOk() (*string, bool) {
 }
 
 // HasEmail returns a boolean if a field has been set.
-func (o *LoggedInUser) HasEmail() bool {
+func (o *PatchedLoggedInUser) HasEmail() bool {
 	if o != nil && !isNil(o.Email) {
 		return true
 	}
@@ -99,12 +105,12 @@ func (o *LoggedInUser) HasEmail() bool {
 }
 
 // SetEmail gets a reference to the given string and assigns it to the Email field.
-func (o *LoggedInUser) SetEmail(v string) {
+func (o *PatchedLoggedInUser) SetEmail(v string) {
 	o.Email = &v
 }
 
 // GetFirstName returns the FirstName field value if set, zero value otherwise.
-func (o *LoggedInUser) GetFirstName() string {
+func (o *PatchedLoggedInUser) GetFirstName() string {
 	if o == nil || isNil(o.FirstName) {
 		var ret string
 		return ret
@@ -114,7 +120,7 @@ func (o *LoggedInUser) GetFirstName() string {
 
 // GetFirstNameOk returns a tuple with the FirstName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoggedInUser) GetFirstNameOk() (*string, bool) {
+func (o *PatchedLoggedInUser) GetFirstNameOk() (*string, bool) {
 	if o == nil || isNil(o.FirstName) {
     return nil, false
 	}
@@ -122,7 +128,7 @@ func (o *LoggedInUser) GetFirstNameOk() (*string, bool) {
 }
 
 // HasFirstName returns a boolean if a field has been set.
-func (o *LoggedInUser) HasFirstName() bool {
+func (o *PatchedLoggedInUser) HasFirstName() bool {
 	if o != nil && !isNil(o.FirstName) {
 		return true
 	}
@@ -131,12 +137,12 @@ func (o *LoggedInUser) HasFirstName() bool {
 }
 
 // SetFirstName gets a reference to the given string and assigns it to the FirstName field.
-func (o *LoggedInUser) SetFirstName(v string) {
+func (o *PatchedLoggedInUser) SetFirstName(v string) {
 	o.FirstName = &v
 }
 
 // GetLastName returns the LastName field value if set, zero value otherwise.
-func (o *LoggedInUser) GetLastName() string {
+func (o *PatchedLoggedInUser) GetLastName() string {
 	if o == nil || isNil(o.LastName) {
 		var ret string
 		return ret
@@ -146,7 +152,7 @@ func (o *LoggedInUser) GetLastName() string {
 
 // GetLastNameOk returns a tuple with the LastName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoggedInUser) GetLastNameOk() (*string, bool) {
+func (o *PatchedLoggedInUser) GetLastNameOk() (*string, bool) {
 	if o == nil || isNil(o.LastName) {
     return nil, false
 	}
@@ -154,7 +160,7 @@ func (o *LoggedInUser) GetLastNameOk() (*string, bool) {
 }
 
 // HasLastName returns a boolean if a field has been set.
-func (o *LoggedInUser) HasLastName() bool {
+func (o *PatchedLoggedInUser) HasLastName() bool {
 	if o != nil && !isNil(o.LastName) {
 		return true
 	}
@@ -163,12 +169,12 @@ func (o *LoggedInUser) HasLastName() bool {
 }
 
 // SetLastName gets a reference to the given string and assigns it to the LastName field.
-func (o *LoggedInUser) SetLastName(v string) {
+func (o *PatchedLoggedInUser) SetLastName(v string) {
 	o.LastName = &v
 }
 
 // GetIsStaff returns the IsStaff field value if set, zero value otherwise.
-func (o *LoggedInUser) GetIsStaff() bool {
+func (o *PatchedLoggedInUser) GetIsStaff() bool {
 	if o == nil || isNil(o.IsStaff) {
 		var ret bool
 		return ret
@@ -178,7 +184,7 @@ func (o *LoggedInUser) GetIsStaff() bool {
 
 // GetIsStaffOk returns a tuple with the IsStaff field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoggedInUser) GetIsStaffOk() (*bool, bool) {
+func (o *PatchedLoggedInUser) GetIsStaffOk() (*bool, bool) {
 	if o == nil || isNil(o.IsStaff) {
     return nil, false
 	}
@@ -186,7 +192,7 @@ func (o *LoggedInUser) GetIsStaffOk() (*bool, bool) {
 }
 
 // HasIsStaff returns a boolean if a field has been set.
-func (o *LoggedInUser) HasIsStaff() bool {
+func (o *PatchedLoggedInUser) HasIsStaff() bool {
 	if o != nil && !isNil(o.IsStaff) {
 		return true
 	}
@@ -195,36 +201,44 @@ func (o *LoggedInUser) HasIsStaff() bool {
 }
 
 // SetIsStaff gets a reference to the given bool and assigns it to the IsStaff field.
-func (o *LoggedInUser) SetIsStaff(v bool) {
+func (o *PatchedLoggedInUser) SetIsStaff(v bool) {
 	o.IsStaff = &v
 }
 
-// GetGroups returns the Groups field value
-func (o *LoggedInUser) GetGroups() []string {
-	if o == nil {
+// GetGroups returns the Groups field value if set, zero value otherwise.
+func (o *PatchedLoggedInUser) GetGroups() []string {
+	if o == nil || isNil(o.Groups) {
 		var ret []string
 		return ret
 	}
-
 	return o.Groups
 }
 
-// GetGroupsOk returns a tuple with the Groups field value
+// GetGroupsOk returns a tuple with the Groups field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoggedInUser) GetGroupsOk() ([]string, bool) {
-	if o == nil {
+func (o *PatchedLoggedInUser) GetGroupsOk() ([]string, bool) {
+	if o == nil || isNil(o.Groups) {
     return nil, false
 	}
 	return o.Groups, true
 }
 
-// SetGroups sets field value
-func (o *LoggedInUser) SetGroups(v []string) {
+// HasGroups returns a boolean if a field has been set.
+func (o *PatchedLoggedInUser) HasGroups() bool {
+	if o != nil && !isNil(o.Groups) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroups gets a reference to the given []string and assigns it to the Groups field.
+func (o *PatchedLoggedInUser) SetGroups(v []string) {
 	o.Groups = v
 }
 
 // GetIsSuperuser returns the IsSuperuser field value if set, zero value otherwise.
-func (o *LoggedInUser) GetIsSuperuser() bool {
+func (o *PatchedLoggedInUser) GetIsSuperuser() bool {
 	if o == nil || isNil(o.IsSuperuser) {
 		var ret bool
 		return ret
@@ -234,7 +248,7 @@ func (o *LoggedInUser) GetIsSuperuser() bool {
 
 // GetIsSuperuserOk returns a tuple with the IsSuperuser field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LoggedInUser) GetIsSuperuserOk() (*bool, bool) {
+func (o *PatchedLoggedInUser) GetIsSuperuserOk() (*bool, bool) {
 	if o == nil || isNil(o.IsSuperuser) {
     return nil, false
 	}
@@ -242,7 +256,7 @@ func (o *LoggedInUser) GetIsSuperuserOk() (*bool, bool) {
 }
 
 // HasIsSuperuser returns a boolean if a field has been set.
-func (o *LoggedInUser) HasIsSuperuser() bool {
+func (o *PatchedLoggedInUser) HasIsSuperuser() bool {
 	if o != nil && !isNil(o.IsSuperuser) {
 		return true
 	}
@@ -251,13 +265,13 @@ func (o *LoggedInUser) HasIsSuperuser() bool {
 }
 
 // SetIsSuperuser gets a reference to the given bool and assigns it to the IsSuperuser field.
-func (o *LoggedInUser) SetIsSuperuser(v bool) {
+func (o *PatchedLoggedInUser) SetIsSuperuser(v bool) {
 	o.IsSuperuser = &v
 }
 
-func (o LoggedInUser) MarshalJSON() ([]byte, error) {
+func (o PatchedLoggedInUser) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if !isNil(o.Username) {
 		toSerialize["username"] = o.Username
 	}
 	if !isNil(o.Email) {
@@ -272,7 +286,7 @@ func (o LoggedInUser) MarshalJSON() ([]byte, error) {
 	if !isNil(o.IsStaff) {
 		toSerialize["is_staff"] = o.IsStaff
 	}
-	if true {
+	if !isNil(o.Groups) {
 		toSerialize["groups"] = o.Groups
 	}
 	if !isNil(o.IsSuperuser) {
@@ -281,38 +295,38 @@ func (o LoggedInUser) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableLoggedInUser struct {
-	value *LoggedInUser
+type NullablePatchedLoggedInUser struct {
+	value *PatchedLoggedInUser
 	isSet bool
 }
 
-func (v NullableLoggedInUser) Get() *LoggedInUser {
+func (v NullablePatchedLoggedInUser) Get() *PatchedLoggedInUser {
 	return v.value
 }
 
-func (v *NullableLoggedInUser) Set(val *LoggedInUser) {
+func (v *NullablePatchedLoggedInUser) Set(val *PatchedLoggedInUser) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableLoggedInUser) IsSet() bool {
+func (v NullablePatchedLoggedInUser) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableLoggedInUser) Unset() {
+func (v *NullablePatchedLoggedInUser) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableLoggedInUser(val *LoggedInUser) *NullableLoggedInUser {
-	return &NullableLoggedInUser{value: val, isSet: true}
+func NewNullablePatchedLoggedInUser(val *PatchedLoggedInUser) *NullablePatchedLoggedInUser {
+	return &NullablePatchedLoggedInUser{value: val, isSet: true}
 }
 
-func (v NullableLoggedInUser) MarshalJSON() ([]byte, error) {
+func (v NullablePatchedLoggedInUser) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableLoggedInUser) UnmarshalJSON(src []byte) error {
+func (v *NullablePatchedLoggedInUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

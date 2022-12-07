@@ -11,6 +11,9 @@ Method | HTTP request | Description
 [**GroupsList**](GroupsApi.md#GroupsList) | **Get** /api/groups/ | 
 [**GroupsMyList**](GroupsApi.md#GroupsMyList) | **Get** /api/groups/my/ | 
 [**GroupsPartialUpdate**](GroupsApi.md#GroupsPartialUpdate) | **Patch** /api/groups/{id}/ | 
+[**GroupsPermissionsPartialUpdate**](GroupsApi.md#GroupsPermissionsPartialUpdate) | **Patch** /api/groups/{id}/permissions/ | 
+[**GroupsPermissionsRetrieve**](GroupsApi.md#GroupsPermissionsRetrieve) | **Get** /api/groups/{id}/permissions/ | 
+[**GroupsPermissionsUpdate**](GroupsApi.md#GroupsPermissionsUpdate) | **Put** /api/groups/{id}/permissions/ | 
 [**GroupsReleaseByNameUpdate**](GroupsApi.md#GroupsReleaseByNameUpdate) | **Put** /api/groups/{group_name}/release_by_name/ | 
 [**GroupsReleaseUpdate**](GroupsApi.md#GroupsReleaseUpdate) | **Put** /api/groups/{id}/release/ | 
 [**GroupsReserveByNameUpdate**](GroupsApi.md#GroupsReserveByNameUpdate) | **Put** /api/groups/{group_name}/reserve_by_name/ | 
@@ -499,6 +502,220 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DeviceGroupSerializerWithDevicePk**](DeviceGroupSerializerWithDevicePk.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupsPermissionsPartialUpdate
+
+> ObjectPermissions GroupsPermissionsPartialUpdate(ctx, id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device group.
+    patchedObjectPermissions := *openapiclient.NewPatchedObjectPermissions() // PatchedObjectPermissions |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupsApi.GroupsPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsPermissionsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GroupsPermissionsPartialUpdate`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsPermissionsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupsPermissionsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedObjectPermissions** | [**PatchedObjectPermissions**](PatchedObjectPermissions.md) |  | 
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupsPermissionsRetrieve
+
+> ObjectPermissions GroupsPermissionsRetrieve(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device group.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupsApi.GroupsPermissionsRetrieve(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsPermissionsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GroupsPermissionsRetrieve`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsPermissionsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupsPermissionsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupsPermissionsUpdate
+
+> ObjectPermissions GroupsPermissionsUpdate(ctx, id).ObjectPermissions(objectPermissions).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device group.
+    objectPermissions := *openapiclient.NewObjectPermissions(map[string]interface{}{"key": interface{}(123)}, map[string]interface{}{"key": interface{}(123)}) // ObjectPermissions | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupsApi.GroupsPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsPermissionsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GroupsPermissionsUpdate`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsPermissionsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupsPermissionsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **objectPermissions** | [**ObjectPermissions**](ObjectPermissions.md) |  | 
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
 
 ### Authorization
 

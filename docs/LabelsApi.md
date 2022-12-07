@@ -8,6 +8,9 @@ Method | HTTP request | Description
 [**LabelsDestroy**](LabelsApi.md#LabelsDestroy) | **Delete** /api/labels/{id}/ | 
 [**LabelsList**](LabelsApi.md#LabelsList) | **Get** /api/labels/ | 
 [**LabelsPartialUpdate**](LabelsApi.md#LabelsPartialUpdate) | **Patch** /api/labels/{id}/ | 
+[**LabelsPermissionsPartialUpdate**](LabelsApi.md#LabelsPermissionsPartialUpdate) | **Patch** /api/labels/{id}/permissions/ | 
+[**LabelsPermissionsRetrieve**](LabelsApi.md#LabelsPermissionsRetrieve) | **Get** /api/labels/{id}/permissions/ | 
+[**LabelsPermissionsUpdate**](LabelsApi.md#LabelsPermissionsUpdate) | **Put** /api/labels/{id}/permissions/ | 
 [**LabelsReserveAnyUpdate**](LabelsApi.md#LabelsReserveAnyUpdate) | **Put** /api/labels/{id}/reserve_any/ | 
 [**LabelsRetrieve**](LabelsApi.md#LabelsRetrieve) | **Get** /api/labels/{id}/ | 
 [**LabelsUpdate**](LabelsApi.md#LabelsUpdate) | **Put** /api/labels/{id}/ | 
@@ -279,6 +282,220 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LabelSerializerWithPermissions**](LabelSerializerWithPermissions.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LabelsPermissionsPartialUpdate
+
+> ObjectPermissions LabelsPermissionsPartialUpdate(ctx, id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device group label.
+    patchedObjectPermissions := *openapiclient.NewPatchedObjectPermissions() // PatchedObjectPermissions |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LabelsApi.LabelsPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsPermissionsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `LabelsPermissionsPartialUpdate`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsPermissionsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device group label. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLabelsPermissionsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedObjectPermissions** | [**PatchedObjectPermissions**](PatchedObjectPermissions.md) |  | 
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LabelsPermissionsRetrieve
+
+> ObjectPermissions LabelsPermissionsRetrieve(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device group label.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LabelsApi.LabelsPermissionsRetrieve(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsPermissionsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `LabelsPermissionsRetrieve`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsPermissionsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device group label. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLabelsPermissionsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LabelsPermissionsUpdate
+
+> ObjectPermissions LabelsPermissionsUpdate(ctx, id).ObjectPermissions(objectPermissions).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device group label.
+    objectPermissions := *openapiclient.NewObjectPermissions(map[string]interface{}{"key": interface{}(123)}, map[string]interface{}{"key": interface{}(123)}) // ObjectPermissions | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.LabelsApi.LabelsPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsPermissionsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `LabelsPermissionsUpdate`: ObjectPermissions
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsPermissionsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device group label. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLabelsPermissionsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **objectPermissions** | [**ObjectPermissions**](ObjectPermissions.md) |  | 
+
+### Return type
+
+[**ObjectPermissions**](ObjectPermissions.md)
 
 ### Authorization
 
