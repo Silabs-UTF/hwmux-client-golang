@@ -5,6 +5,7 @@ All URIs are relative to *https://hwmux.silabs.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PermissionsGroupsCreate**](PermissionsApi.md#PermissionsGroupsCreate) | **Post** /api/permissions/groups/ | 
+[**PermissionsGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDestroy) | **Delete** /api/permissions/groups/{name}/ | 
 [**PermissionsGroupsDeviceGroupsCreate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsCreate) | **Post** /api/permissions/groups/{group_name}/device_groups/ | 
 [**PermissionsGroupsDeviceGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDeviceGroupsDestroy) | **Delete** /api/permissions/groups/{group_name}/device_groups/{id}/ | 
 [**PermissionsGroupsDeviceGroupsList**](PermissionsApi.md#PermissionsGroupsDeviceGroupsList) | **Get** /api/permissions/groups/{group_name}/device_groups/ | 
@@ -21,7 +22,9 @@ Method | HTTP request | Description
 [**PermissionsGroupsLabelsPartialUpdate**](PermissionsApi.md#PermissionsGroupsLabelsPartialUpdate) | **Patch** /api/permissions/groups/{group_name}/labels/{id}/ | 
 [**PermissionsGroupsLabelsUpdate**](PermissionsApi.md#PermissionsGroupsLabelsUpdate) | **Put** /api/permissions/groups/{group_name}/labels/{id}/ | 
 [**PermissionsGroupsList**](PermissionsApi.md#PermissionsGroupsList) | **Get** /api/permissions/groups/ | 
+[**PermissionsGroupsPartialUpdate**](PermissionsApi.md#PermissionsGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name}/ | 
 [**PermissionsGroupsRetrieve**](PermissionsApi.md#PermissionsGroupsRetrieve) | **Get** /api/permissions/groups/{name}/ | 
+[**PermissionsGroupsUpdate**](PermissionsApi.md#PermissionsGroupsUpdate) | **Put** /api/permissions/groups/{name}/ | 
 [**PermissionsGroupsUsersCreate**](PermissionsApi.md#PermissionsGroupsUsersCreate) | **Post** /api/permissions/groups/{group_name}/users/ | 
 [**PermissionsGroupsUsersDestroy**](PermissionsApi.md#PermissionsGroupsUsersDestroy) | **Delete** /api/permissions/groups/{group_name}/users/{username}/ | 
 
@@ -85,6 +88,72 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PermissionsGroupsDestroy
+
+> PermissionsGroupsDestroy(ctx, name).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    name := "name_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDestroy(context.Background(), name).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**name** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPermissionsGroupsDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1230,6 +1299,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## PermissionsGroupsPartialUpdate
+
+> PermissionGroup PermissionsGroupsPartialUpdate(ctx, name).PatchedPermissionGroup(patchedPermissionGroup).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    name := "name_example" // string | 
+    patchedPermissionGroup := *openapiclient.NewPatchedPermissionGroup() // PatchedPermissionGroup |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsPartialUpdate(context.Background(), name).PatchedPermissionGroup(patchedPermissionGroup).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PermissionsGroupsPartialUpdate`: PermissionGroup
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**name** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPermissionsGroupsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedPermissionGroup** | [**PatchedPermissionGroup**](PatchedPermissionGroup.md) |  | 
+
+### Return type
+
+[**PermissionGroup**](PermissionGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## PermissionsGroupsRetrieve
 
 > PermissionGroup PermissionsGroupsRetrieve(ctx, name).Execute()
@@ -1291,6 +1430,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PermissionsGroupsUpdate
+
+> PermissionGroup PermissionsGroupsUpdate(ctx, name).PermissionGroup(permissionGroup).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    name := "name_example" // string | 
+    permissionGroup := *openapiclient.NewPermissionGroup(int32(123), []string{"Permissions_example"}, "Name_example") // PermissionGroup | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUpdate(context.Background(), name).PermissionGroup(permissionGroup).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PermissionsGroupsUpdate`: PermissionGroup
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**name** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPermissionsGroupsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **permissionGroup** | [**PermissionGroup**](PermissionGroup.md) |  | 
+
+### Return type
+
+[**PermissionGroup**](PermissionGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

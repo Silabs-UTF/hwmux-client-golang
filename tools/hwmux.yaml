@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.8.0
+  version: 2.9.0
 paths:
   /api-token-auth/:
     post:
@@ -3015,6 +3015,85 @@ paths:
               schema:
                 $ref: '#/components/schemas/PermissionGroup'
           description: ''
+    put:
+      operationId: permissions_groups_update
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    patch:
+      operationId: permissions_groups_partial_update
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    delete:
+      operationId: permissions_groups_destroy
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
   /api/reservations/:
     get:
       operationId: reservations_list
@@ -5374,6 +5453,20 @@ components:
           type: object
           additionalProperties: {}
           title: Additional data
+    PatchedPermissionGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        permissions:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 150
     PatchedResourcePermissions:
       type: object
       properties:
@@ -5385,9 +5478,9 @@ components:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
           - add
-          - change
-          - delete
           - view
+          - delete
+          - change
     PatchedRoom:
       type: object
       description: Serializer for the Room model
@@ -5631,9 +5724,9 @@ components:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
           - add
-          - change
-          - delete
           - view
+          - delete
+          - change
       required:
       - id
     Room:

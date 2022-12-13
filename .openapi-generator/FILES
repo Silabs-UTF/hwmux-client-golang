@@ -59,6 +59,7 @@ docs/PatchedLoggedInUser.md
 docs/PatchedObjectPermissions.md
 docs/PatchedPart.md
 docs/PatchedPartFamily.md
+docs/PatchedPermissionGroup.md
 docs/PatchedResourcePermissions.md
 docs/PatchedRoom.md
 docs/PatchedSite.md
@@ -118,6 +119,7 @@ model_patched_logged_in_user.go
 model_patched_object_permissions.go
 model_patched_part.go
 model_patched_part_family.go
+model_patched_permission_group.go
 model_patched_resource_permissions.go
 model_patched_room.go
 model_patched_site.go

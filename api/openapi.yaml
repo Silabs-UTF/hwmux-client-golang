@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.8.0
+  version: 2.9.0
 servers:
 - description: HW Mux Server
   url: https://hwmux.silabs.net
@@ -3448,6 +3448,24 @@ paths:
       tags:
       - permissions
   /api/permissions/groups/{name}/:
+    delete:
+      operationId: permissions_groups_destroy
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No response body
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      tags:
+      - permissions
     get:
       operationId: permissions_groups_retrieve
       parameters:
@@ -3458,6 +3476,73 @@ paths:
         schema:
           type: string
         style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ""
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      tags:
+      - permissions
+    patch:
+      operationId: permissions_groups_partial_update
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ""
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      tags:
+      - permissions
+    put:
+      operationId: permissions_groups_update
+      parameters:
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+        required: true
       responses:
         "200":
           content:
@@ -6765,6 +6850,26 @@ components:
           title: Additional data
           type: object
       type: object
+    PatchedPermissionGroup:
+      example:
+        permissions:
+        - permissions
+        - permissions
+        name: name
+        id: 0
+      properties:
+        id:
+          readOnly: true
+          type: integer
+        permissions:
+          items:
+            type: string
+          readOnly: true
+          type: array
+        name:
+          maxLength: 150
+          type: string
+      type: object
     PatchedResourcePermissions:
       example:
         permissions:
@@ -6777,9 +6882,9 @@ components:
         permissions:
           default:
           - add
-          - change
-          - delete
           - view
+          - delete
+          - change
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -7109,9 +7214,9 @@ components:
         permissions:
           default:
           - add
-          - change
-          - delete
           - view
+          - delete
+          - change
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
