@@ -1,4 +1,4 @@
-module stash.silabs.com/iot_infra_sw/hwmux-client-golang
+module github.com/Silabs-UTF/hwmux-client-golang
 
 go 1.13
 
