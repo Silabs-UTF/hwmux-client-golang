@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Devices** | Pointer to **[]int32** |  | [optional] 
 **IsReserved** | **NullableBool** |  | [readonly] 
+**Online** | **bool** |  | [readonly] 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Name** | **string** |  | 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewDeviceGroupSerializerWithDevicePk
 
-`func NewDeviceGroupSerializerWithDevicePk(id int32, isReserved NullableBool, name string, ) *DeviceGroupSerializerWithDevicePk`
+`func NewDeviceGroupSerializerWithDevicePk(id int32, isReserved NullableBool, online bool, name string, ) *DeviceGroupSerializerWithDevicePk`
 
 NewDeviceGroupSerializerWithDevicePk instantiates a new DeviceGroupSerializerWithDevicePk object
 This constructor will assign default values to properties that have it defined,
@@ -105,6 +106,26 @@ SetIsReserved sets IsReserved field to given value.
 `func (o *DeviceGroupSerializerWithDevicePk) UnsetIsReserved()`
 
 UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
+### GetOnline
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetOnline() bool`
+
+GetOnline returns the Online field if non-nil, zero value otherwise.
+
+### GetOnlineOk
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetOnlineOk() (*bool, bool)`
+
+GetOnlineOk returns a tuple with the Online field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnline
+
+`func (o *DeviceGroupSerializerWithDevicePk) SetOnline(v bool)`
+
+SetOnline sets Online field to given value.
+
+
 ### GetPermissionGroups
 
 `func (o *DeviceGroupSerializerWithDevicePk) GetPermissionGroups() []string`

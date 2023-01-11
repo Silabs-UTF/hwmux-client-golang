@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.9.0
+  version: 2.11.0
 servers:
 - description: HW Mux Server
   url: https://hwmux.silabs.net
@@ -2736,13 +2736,121 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/device_groups/:
+  /api/permissions/groups/{name_or_id}/:
+    delete:
+      operationId: permissions_groups_destroy
+      parameters:
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No response body
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      tags:
+      - permissions
+    get:
+      operationId: permissions_groups_retrieve
+      parameters:
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ""
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      tags:
+      - permissions
+    patch:
+      operationId: permissions_groups_partial_update
+      parameters:
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ""
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      tags:
+      - permissions
+    put:
+      operationId: permissions_groups_update
+      parameters:
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ""
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      tags:
+      - permissions
+  /api/permissions/groups/{name_or_id}/device_groups/:
     get:
       operationId: permissions_groups_device_groups_list
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
@@ -2805,7 +2913,7 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
@@ -2840,17 +2948,10 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/device_groups/{id}/:
+  /api/permissions/groups/{name_or_id}/device_groups/{id}/:
     delete:
       operationId: permissions_groups_device_groups_destroy
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device group.
         explode: false
         in: path
@@ -2858,6 +2959,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       responses:
         "204":
@@ -2870,13 +2978,6 @@ paths:
     patch:
       operationId: permissions_groups_device_groups_partial_update
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device group.
         explode: false
         in: path
@@ -2884,6 +2985,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       requestBody:
         content:
@@ -2911,13 +3019,6 @@ paths:
     put:
       operationId: permissions_groups_device_groups_update
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device group.
         explode: false
         in: path
@@ -2925,6 +3026,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       requestBody:
         content:
@@ -2950,13 +3058,13 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/devices/:
+  /api/permissions/groups/{name_or_id}/devices/:
     get:
       operationId: permissions_groups_devices_list
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
@@ -3019,7 +3127,7 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
@@ -3054,17 +3162,10 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/devices/{id}/:
+  /api/permissions/groups/{name_or_id}/devices/{id}/:
     delete:
       operationId: permissions_groups_devices_destroy
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device.
         explode: false
         in: path
@@ -3072,6 +3173,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       responses:
         "204":
@@ -3084,13 +3192,6 @@ paths:
     patch:
       operationId: permissions_groups_devices_partial_update
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device.
         explode: false
         in: path
@@ -3098,6 +3199,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       requestBody:
         content:
@@ -3125,13 +3233,6 @@ paths:
     put:
       operationId: permissions_groups_devices_update
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device.
         explode: false
         in: path
@@ -3139,6 +3240,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       requestBody:
         content:
@@ -3164,13 +3272,13 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/labels/:
+  /api/permissions/groups/{name_or_id}/labels/:
     get:
       operationId: permissions_groups_labels_list
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
@@ -3233,7 +3341,7 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
@@ -3268,17 +3376,10 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/labels/{id}/:
+  /api/permissions/groups/{name_or_id}/labels/{id}/:
     delete:
       operationId: permissions_groups_labels_destroy
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device group label.
         explode: false
         in: path
@@ -3286,6 +3387,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       responses:
         "204":
@@ -3298,13 +3406,6 @@ paths:
     patch:
       operationId: permissions_groups_labels_partial_update
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device group label.
         explode: false
         in: path
@@ -3312,6 +3413,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       requestBody:
         content:
@@ -3339,13 +3447,6 @@ paths:
     put:
       operationId: permissions_groups_labels_update
       parameters:
-      - explode: false
-        in: path
-        name: group_name
-        required: true
-        schema:
-          type: string
-        style: simple
       - description: A unique integer value identifying this device group label.
         explode: false
         in: path
@@ -3353,6 +3454,13 @@ paths:
         required: true
         schema:
           type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: name_or_id
+        required: true
+        schema:
+          type: string
         style: simple
       requestBody:
         content:
@@ -3378,13 +3486,13 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/users/:
+  /api/permissions/groups/{name_or_id}/users/:
     post:
       operationId: permissions_groups_users_create
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
@@ -3419,20 +3527,20 @@ paths:
       - tokenAuth: []
       tags:
       - permissions
-  /api/permissions/groups/{group_name}/users/{username}/:
+  /api/permissions/groups/{name_or_id}/users/{username_or_id}/:
     delete:
       operationId: permissions_groups_users_destroy
       parameters:
       - explode: false
         in: path
-        name: group_name
+        name: name_or_id
         required: true
         schema:
           type: string
         style: simple
       - explode: false
         in: path
-        name: username
+        name: username_or_id
         required: true
         schema:
           description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
@@ -3442,114 +3550,6 @@ paths:
       responses:
         "204":
           description: No response body
-      security:
-      - cookieAuth: []
-      - tokenAuth: []
-      tags:
-      - permissions
-  /api/permissions/groups/{name}/:
-    delete:
-      operationId: permissions_groups_destroy
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: No response body
-      security:
-      - cookieAuth: []
-      - tokenAuth: []
-      tags:
-      - permissions
-    get:
-      operationId: permissions_groups_retrieve
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PermissionGroup'
-          description: ""
-      security:
-      - cookieAuth: []
-      - tokenAuth: []
-      tags:
-      - permissions
-    patch:
-      operationId: permissions_groups_partial_update
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchedPermissionGroup'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PatchedPermissionGroup'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PatchedPermissionGroup'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PermissionGroup'
-          description: ""
-      security:
-      - cookieAuth: []
-      - tokenAuth: []
-      tags:
-      - permissions
-    put:
-      operationId: permissions_groups_update
-      parameters:
-      - explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PermissionGroup'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PermissionGroup'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PermissionGroup'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PermissionGroup'
-          description: ""
       security:
       - cookieAuth: []
       - tokenAuth: []
@@ -3998,9 +3998,6 @@ paths:
       - reservations
   /api/reservations/actionable/:
     get:
-      description: |-
-        Returns all reservations that are queued, holding resources or
-        recently expired
       operationId: reservations_actionable_list
       parameters:
       - explode: true
@@ -4242,8 +4239,6 @@ paths:
       - reservations
   /api/reservations/active/:
     get:
-      description: "Returns all reservations that currently hold resources for the\
-        \ user\n        "
       operationId: reservations_active_list
       parameters:
       - explode: true
@@ -4277,6 +4272,16 @@ paths:
         required: false
         schema:
           format: uuid
+          type: string
+        style: form
+      - description: Filter out reservations that expired before the specified datetime.
+          Defaults to 24 hours prior.
+        explode: true
+        in: query
+        name: max_history
+        required: false
+        schema:
+          format: date-time
           type: string
         style: form
       - description: Which field to use when ordering the results.
@@ -5075,13 +5080,13 @@ paths:
       - tokenAuth: []
       tags:
       - user
-  /api/user/{username}/:
+  /api/user/{username_or_id}/:
     delete:
       operationId: user_destroy
       parameters:
       - explode: false
         in: path
-        name: username
+        name: username_or_id
         required: true
         schema:
           description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
@@ -5101,7 +5106,7 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: username
+        name: username_or_id
         required: true
         schema:
           description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
@@ -5125,7 +5130,7 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: username
+        name: username_or_id
         required: true
         schema:
           description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
@@ -5160,7 +5165,7 @@ paths:
       parameters:
       - explode: false
         in: path
-        name: username
+        name: username_or_id
         required: true
         schema:
           description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
@@ -5493,6 +5498,7 @@ components:
           sn_or_name: sn_or_name
           uri: uri
         name: name
+        online: true
         id: 0
       properties:
         id:
@@ -5505,6 +5511,9 @@ components:
           type: array
         is_reserved:
           nullable: true
+          readOnly: true
+          type: boolean
+        online:
           readOnly: true
           type: boolean
         name:
@@ -5520,6 +5529,7 @@ components:
       - id
       - is_reserved
       - name
+      - online
       type: object
     DeviceGroupSerializerWithDevicePk:
       example:
@@ -5533,6 +5543,7 @@ components:
         - permission_groups
         - permission_groups
         name: name
+        online: true
         id: 0
       properties:
         id:
@@ -5544,6 +5555,9 @@ components:
           type: array
         is_reserved:
           nullable: true
+          readOnly: true
+          type: boolean
+        online:
           readOnly: true
           type: boolean
         permission_groups:
@@ -5563,6 +5577,7 @@ components:
       - id
       - is_reserved
       - name
+      - online
       type: object
     DeviceSerializerPublic:
       description: Serializes Device querysets to JSON
@@ -5882,16 +5897,21 @@ components:
       type: object
     LoggedInUser:
       example:
+        password: password
         is_superuser: true
         is_staff: true
         last_name: last_name
         groups:
         - groups
         - groups
+        id: 0
         first_name: first_name
         email: email
         username: username
       properties:
+        id:
+          readOnly: true
+          type: integer
         username:
           description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
             \ only."
@@ -5923,8 +5943,14 @@ components:
             assigning them.
           title: Superuser status
           type: boolean
+        password:
+          maxLength: 128
+          type: string
+          writeOnly: true
       required:
       - groups
+      - id
+      - password
       - username
       type: object
     NestedDeviceGroup:
@@ -6061,6 +6087,7 @@ components:
             sn_or_name: sn_or_name
             uri: uri
           name: name
+          online: true
           id: 0
         - is_reserved: true
           metadata:
@@ -6101,6 +6128,7 @@ components:
             sn_or_name: sn_or_name
             uri: uri
           name: name
+          online: true
           id: 0
       properties:
         count:
@@ -6278,21 +6306,25 @@ components:
         previous: http://api.example.org/accounts/?page=2
         count: 123
         results:
-        - is_superuser: true
+        - password: password
+          is_superuser: true
           is_staff: true
           last_name: last_name
           groups:
           - groups
           - groups
+          id: 0
           first_name: first_name
           email: email
           username: username
-        - is_superuser: true
+        - password: password
+          is_superuser: true
           is_staff: true
           last_name: last_name
           groups:
           - groups
           - groups
+          id: 0
           first_name: first_name
           email: email
           username: username
@@ -6664,6 +6696,7 @@ components:
         - permission_groups
         - permission_groups
         name: name
+        online: true
         id: 0
       properties:
         id:
@@ -6675,6 +6708,9 @@ components:
           type: array
         is_reserved:
           nullable: true
+          readOnly: true
+          type: boolean
+        online:
           readOnly: true
           type: boolean
         permission_groups:
@@ -6727,16 +6763,21 @@ components:
       type: object
     PatchedLoggedInUser:
       example:
+        password: password
         is_superuser: true
         is_staff: true
         last_name: last_name
         groups:
         - groups
         - groups
+        id: 0
         first_name: first_name
         email: email
         username: username
       properties:
+        id:
+          readOnly: true
+          type: integer
         username:
           description: "Required. 150 characters or fewer. Letters, digits and @/./+/-/_\
             \ only."
@@ -6768,6 +6809,10 @@ components:
             assigning them.
           title: Superuser status
           type: boolean
+        password:
+          maxLength: 128
+          type: string
+          writeOnly: true
       type: object
     PatchedObjectPermissions:
       example:
@@ -6883,8 +6928,8 @@ components:
           default:
           - add
           - view
-          - delete
           - change
+          - delete
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -7215,8 +7260,8 @@ components:
           default:
           - add
           - view
-          - delete
           - change
+          - delete
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array

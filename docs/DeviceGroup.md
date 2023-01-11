@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Devices** | [**[]LightDevice**](LightDevice.md) |  | [readonly] 
 **IsReserved** | **NullableBool** |  | [readonly] 
+**Online** | **bool** |  | [readonly] 
 **Name** | **string** |  | 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewDeviceGroup
 
-`func NewDeviceGroup(id int32, devices []LightDevice, isReserved NullableBool, name string, ) *DeviceGroup`
+`func NewDeviceGroup(id int32, devices []LightDevice, isReserved NullableBool, online bool, name string, ) *DeviceGroup`
 
 NewDeviceGroup instantiates a new DeviceGroup object
 This constructor will assign default values to properties that have it defined,
@@ -99,6 +100,26 @@ SetIsReserved sets IsReserved field to given value.
 `func (o *DeviceGroup) UnsetIsReserved()`
 
 UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
+### GetOnline
+
+`func (o *DeviceGroup) GetOnline() bool`
+
+GetOnline returns the Online field if non-nil, zero value otherwise.
+
+### GetOnlineOk
+
+`func (o *DeviceGroup) GetOnlineOk() (*bool, bool)`
+
+GetOnlineOk returns a tuple with the Online field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnline
+
+`func (o *DeviceGroup) SetOnline(v bool)`
+
+SetOnline sets Online field to given value.
+
+
 ### GetName
 
 `func (o *DeviceGroup) GetName() string`

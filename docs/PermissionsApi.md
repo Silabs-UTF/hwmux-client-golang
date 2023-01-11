@@ -5,28 +5,28 @@ All URIs are relative to *https://hwmux.silabs.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PermissionsGroupsCreate**](PermissionsApi.md#PermissionsGroupsCreate) | **Post** /api/permissions/groups/ | 
-[**PermissionsGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDestroy) | **Delete** /api/permissions/groups/{name}/ | 
-[**PermissionsGroupsDeviceGroupsCreate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsCreate) | **Post** /api/permissions/groups/{group_name}/device_groups/ | 
-[**PermissionsGroupsDeviceGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDeviceGroupsDestroy) | **Delete** /api/permissions/groups/{group_name}/device_groups/{id}/ | 
-[**PermissionsGroupsDeviceGroupsList**](PermissionsApi.md#PermissionsGroupsDeviceGroupsList) | **Get** /api/permissions/groups/{group_name}/device_groups/ | 
-[**PermissionsGroupsDeviceGroupsPartialUpdate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsPartialUpdate) | **Patch** /api/permissions/groups/{group_name}/device_groups/{id}/ | 
-[**PermissionsGroupsDeviceGroupsUpdate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsUpdate) | **Put** /api/permissions/groups/{group_name}/device_groups/{id}/ | 
-[**PermissionsGroupsDevicesCreate**](PermissionsApi.md#PermissionsGroupsDevicesCreate) | **Post** /api/permissions/groups/{group_name}/devices/ | 
-[**PermissionsGroupsDevicesDestroy**](PermissionsApi.md#PermissionsGroupsDevicesDestroy) | **Delete** /api/permissions/groups/{group_name}/devices/{id}/ | 
-[**PermissionsGroupsDevicesList**](PermissionsApi.md#PermissionsGroupsDevicesList) | **Get** /api/permissions/groups/{group_name}/devices/ | 
-[**PermissionsGroupsDevicesPartialUpdate**](PermissionsApi.md#PermissionsGroupsDevicesPartialUpdate) | **Patch** /api/permissions/groups/{group_name}/devices/{id}/ | 
-[**PermissionsGroupsDevicesUpdate**](PermissionsApi.md#PermissionsGroupsDevicesUpdate) | **Put** /api/permissions/groups/{group_name}/devices/{id}/ | 
-[**PermissionsGroupsLabelsCreate**](PermissionsApi.md#PermissionsGroupsLabelsCreate) | **Post** /api/permissions/groups/{group_name}/labels/ | 
-[**PermissionsGroupsLabelsDestroy**](PermissionsApi.md#PermissionsGroupsLabelsDestroy) | **Delete** /api/permissions/groups/{group_name}/labels/{id}/ | 
-[**PermissionsGroupsLabelsList**](PermissionsApi.md#PermissionsGroupsLabelsList) | **Get** /api/permissions/groups/{group_name}/labels/ | 
-[**PermissionsGroupsLabelsPartialUpdate**](PermissionsApi.md#PermissionsGroupsLabelsPartialUpdate) | **Patch** /api/permissions/groups/{group_name}/labels/{id}/ | 
-[**PermissionsGroupsLabelsUpdate**](PermissionsApi.md#PermissionsGroupsLabelsUpdate) | **Put** /api/permissions/groups/{group_name}/labels/{id}/ | 
+[**PermissionsGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsDeviceGroupsCreate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsCreate) | **Post** /api/permissions/groups/{name_or_id}/device_groups/ | 
+[**PermissionsGroupsDeviceGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDeviceGroupsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
+[**PermissionsGroupsDeviceGroupsList**](PermissionsApi.md#PermissionsGroupsDeviceGroupsList) | **Get** /api/permissions/groups/{name_or_id}/device_groups/ | 
+[**PermissionsGroupsDeviceGroupsPartialUpdate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
+[**PermissionsGroupsDeviceGroupsUpdate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsUpdate) | **Put** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
+[**PermissionsGroupsDevicesCreate**](PermissionsApi.md#PermissionsGroupsDevicesCreate) | **Post** /api/permissions/groups/{name_or_id}/devices/ | 
+[**PermissionsGroupsDevicesDestroy**](PermissionsApi.md#PermissionsGroupsDevicesDestroy) | **Delete** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
+[**PermissionsGroupsDevicesList**](PermissionsApi.md#PermissionsGroupsDevicesList) | **Get** /api/permissions/groups/{name_or_id}/devices/ | 
+[**PermissionsGroupsDevicesPartialUpdate**](PermissionsApi.md#PermissionsGroupsDevicesPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
+[**PermissionsGroupsDevicesUpdate**](PermissionsApi.md#PermissionsGroupsDevicesUpdate) | **Put** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
+[**PermissionsGroupsLabelsCreate**](PermissionsApi.md#PermissionsGroupsLabelsCreate) | **Post** /api/permissions/groups/{name_or_id}/labels/ | 
+[**PermissionsGroupsLabelsDestroy**](PermissionsApi.md#PermissionsGroupsLabelsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
+[**PermissionsGroupsLabelsList**](PermissionsApi.md#PermissionsGroupsLabelsList) | **Get** /api/permissions/groups/{name_or_id}/labels/ | 
+[**PermissionsGroupsLabelsPartialUpdate**](PermissionsApi.md#PermissionsGroupsLabelsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
+[**PermissionsGroupsLabelsUpdate**](PermissionsApi.md#PermissionsGroupsLabelsUpdate) | **Put** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
 [**PermissionsGroupsList**](PermissionsApi.md#PermissionsGroupsList) | **Get** /api/permissions/groups/ | 
-[**PermissionsGroupsPartialUpdate**](PermissionsApi.md#PermissionsGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name}/ | 
-[**PermissionsGroupsRetrieve**](PermissionsApi.md#PermissionsGroupsRetrieve) | **Get** /api/permissions/groups/{name}/ | 
-[**PermissionsGroupsUpdate**](PermissionsApi.md#PermissionsGroupsUpdate) | **Put** /api/permissions/groups/{name}/ | 
-[**PermissionsGroupsUsersCreate**](PermissionsApi.md#PermissionsGroupsUsersCreate) | **Post** /api/permissions/groups/{group_name}/users/ | 
-[**PermissionsGroupsUsersDestroy**](PermissionsApi.md#PermissionsGroupsUsersDestroy) | **Delete** /api/permissions/groups/{group_name}/users/{username}/ | 
+[**PermissionsGroupsPartialUpdate**](PermissionsApi.md#PermissionsGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsRetrieve**](PermissionsApi.md#PermissionsGroupsRetrieve) | **Get** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsUpdate**](PermissionsApi.md#PermissionsGroupsUpdate) | **Put** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsUsersCreate**](PermissionsApi.md#PermissionsGroupsUsersCreate) | **Post** /api/permissions/groups/{name_or_id}/users/ | 
+[**PermissionsGroupsUsersDestroy**](PermissionsApi.md#PermissionsGroupsUsersDestroy) | **Delete** /api/permissions/groups/{name_or_id}/users/{username_or_id}/ | 
 
 
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDestroy
 
-> PermissionsGroupsDestroy(ctx, name).Execute()
+> PermissionsGroupsDestroy(ctx, nameOrId).Execute()
 
 
 
@@ -113,11 +113,11 @@ import (
 )
 
 func main() {
-    name := "name_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDestroy(context.Background(), name).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDestroy(context.Background(), nameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -131,7 +131,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**name** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDeviceGroupsCreate
 
-> PermissionGroup PermissionsGroupsDeviceGroupsCreate(ctx, groupName).ResourcePermissions(resourcePermissions).Execute()
+> PermissionGroup PermissionsGroupsDeviceGroupsCreate(ctx, nameOrId).ResourcePermissions(resourcePermissions).Execute()
 
 
 
@@ -179,12 +179,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     resourcePermissions := []openapiclient.ResourcePermissions{*openapiclient.NewResourcePermissions(int32(123))} // []ResourcePermissions | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsCreate(context.Background(), groupName).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -200,7 +200,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDeviceGroupsDestroy
 
-> PermissionsGroupsDeviceGroupsDestroy(ctx, groupName, id).Execute()
+> PermissionsGroupsDeviceGroupsDestroy(ctx, id, nameOrId).Execute()
 
 
 
@@ -249,12 +249,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device group.
+    nameOrId := "nameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsDestroy(context.Background(), groupName, id).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsDestroy(context.Background(), id, nameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -268,8 +268,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device group. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDeviceGroupsList
 
-> PaginatedDeviceGroupList PermissionsGroupsDeviceGroupsList(ctx, groupName).Page(page).Perms(perms).Execute()
+> PaginatedDeviceGroupList PermissionsGroupsDeviceGroupsList(ctx, nameOrId).Page(page).Perms(perms).Execute()
 
 
 
@@ -318,13 +318,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
     perms := "view" // string | Permission types. Only entities with all permissions defined here will be fetched. Defaults to all permissions. (optional) (default to "view,change,add,delete")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsList(context.Background(), groupName).Page(page).Perms(perms).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -340,7 +340,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDeviceGroupsPartialUpdate
 
-> ResourcePermissions PermissionsGroupsDeviceGroupsPartialUpdate(ctx, groupName, id).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+> ResourcePermissions PermissionsGroupsDeviceGroupsPartialUpdate(ctx, id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
 
 
 
@@ -390,13 +390,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device group.
+    nameOrId := "nameOrId_example" // string | 
     patchedResourcePermissions := *openapiclient.NewPatchedResourcePermissions() // PatchedResourcePermissions |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsPartialUpdate(context.Background(), groupName, id).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -412,8 +412,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device group. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDeviceGroupsUpdate
 
-> PermissionGroup PermissionsGroupsDeviceGroupsUpdate(ctx, groupName, id).ResourcePermissions(resourcePermissions).Execute()
+> PermissionGroup PermissionsGroupsDeviceGroupsUpdate(ctx, id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
 
 
 
@@ -463,13 +463,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device group.
+    nameOrId := "nameOrId_example" // string | 
     resourcePermissions := *openapiclient.NewResourcePermissions(int32(123)) // ResourcePermissions | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsUpdate(context.Background(), groupName, id).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -485,8 +485,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device group. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDevicesCreate
 
-> PermissionGroup PermissionsGroupsDevicesCreate(ctx, groupName).ResourcePermissions(resourcePermissions).Execute()
+> PermissionGroup PermissionsGroupsDevicesCreate(ctx, nameOrId).ResourcePermissions(resourcePermissions).Execute()
 
 
 
@@ -536,12 +536,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     resourcePermissions := []openapiclient.ResourcePermissions{*openapiclient.NewResourcePermissions(int32(123))} // []ResourcePermissions | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesCreate(context.Background(), groupName).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -557,7 +557,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDevicesDestroy
 
-> PermissionsGroupsDevicesDestroy(ctx, groupName, id).Execute()
+> PermissionsGroupsDevicesDestroy(ctx, id, nameOrId).Execute()
 
 
 
@@ -606,12 +606,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device.
+    nameOrId := "nameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesDestroy(context.Background(), groupName, id).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesDestroy(context.Background(), id, nameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -625,8 +625,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -658,7 +658,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDevicesList
 
-> PaginatedDeviceSerializerPublicList PermissionsGroupsDevicesList(ctx, groupName).Page(page).Perms(perms).Execute()
+> PaginatedDeviceSerializerPublicList PermissionsGroupsDevicesList(ctx, nameOrId).Page(page).Perms(perms).Execute()
 
 
 
@@ -675,13 +675,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
     perms := "view" // string | Permission types. Only entities with all permissions defined here will be fetched. Defaults to all permissions. (optional) (default to "view,change,add,delete")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesList(context.Background(), groupName).Page(page).Perms(perms).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -697,7 +697,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDevicesPartialUpdate
 
-> ResourcePermissions PermissionsGroupsDevicesPartialUpdate(ctx, groupName, id).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+> ResourcePermissions PermissionsGroupsDevicesPartialUpdate(ctx, id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
 
 
 
@@ -747,13 +747,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device.
+    nameOrId := "nameOrId_example" // string | 
     patchedResourcePermissions := *openapiclient.NewPatchedResourcePermissions() // PatchedResourcePermissions |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesPartialUpdate(context.Background(), groupName, id).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -769,8 +769,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -803,7 +803,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsDevicesUpdate
 
-> PermissionGroup PermissionsGroupsDevicesUpdate(ctx, groupName, id).ResourcePermissions(resourcePermissions).Execute()
+> PermissionGroup PermissionsGroupsDevicesUpdate(ctx, id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
 
 
 
@@ -820,13 +820,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device.
+    nameOrId := "nameOrId_example" // string | 
     resourcePermissions := *openapiclient.NewResourcePermissions(int32(123)) // ResourcePermissions | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesUpdate(context.Background(), groupName, id).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -842,8 +842,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -876,7 +876,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsLabelsCreate
 
-> PermissionGroup PermissionsGroupsLabelsCreate(ctx, groupName).ResourcePermissions(resourcePermissions).Execute()
+> PermissionGroup PermissionsGroupsLabelsCreate(ctx, nameOrId).ResourcePermissions(resourcePermissions).Execute()
 
 
 
@@ -893,12 +893,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     resourcePermissions := []openapiclient.ResourcePermissions{*openapiclient.NewResourcePermissions(int32(123))} // []ResourcePermissions | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsCreate(context.Background(), groupName).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -914,7 +914,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -946,7 +946,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsLabelsDestroy
 
-> PermissionsGroupsLabelsDestroy(ctx, groupName, id).Execute()
+> PermissionsGroupsLabelsDestroy(ctx, id, nameOrId).Execute()
 
 
 
@@ -963,12 +963,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device group label.
+    nameOrId := "nameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsDestroy(context.Background(), groupName, id).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsDestroy(context.Background(), id, nameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -982,8 +982,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device group label. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1015,7 +1015,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsLabelsList
 
-> PaginatedLabelList PermissionsGroupsLabelsList(ctx, groupName).Page(page).Perms(perms).Execute()
+> PaginatedLabelList PermissionsGroupsLabelsList(ctx, nameOrId).Page(page).Perms(perms).Execute()
 
 
 
@@ -1032,13 +1032,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
     perms := "view" // string | Permission types. Only entities with all permissions defined here will be fetched. Defaults to all permissions. (optional) (default to "view,change,add,delete")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsList(context.Background(), groupName).Page(page).Perms(perms).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1054,7 +1054,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1087,7 +1087,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsLabelsPartialUpdate
 
-> ResourcePermissions PermissionsGroupsLabelsPartialUpdate(ctx, groupName, id).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+> ResourcePermissions PermissionsGroupsLabelsPartialUpdate(ctx, id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
 
 
 
@@ -1104,13 +1104,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device group label.
+    nameOrId := "nameOrId_example" // string | 
     patchedResourcePermissions := *openapiclient.NewPatchedResourcePermissions() // PatchedResourcePermissions |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsPartialUpdate(context.Background(), groupName, id).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1126,8 +1126,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device group label. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1160,7 +1160,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsLabelsUpdate
 
-> PermissionGroup PermissionsGroupsLabelsUpdate(ctx, groupName, id).ResourcePermissions(resourcePermissions).Execute()
+> PermissionGroup PermissionsGroupsLabelsUpdate(ctx, id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
 
 
 
@@ -1177,13 +1177,13 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
     id := int32(56) // int32 | A unique integer value identifying this device group label.
+    nameOrId := "nameOrId_example" // string | 
     resourcePermissions := *openapiclient.NewResourcePermissions(int32(123)) // ResourcePermissions | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsUpdate(context.Background(), groupName, id).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1199,8 +1199,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
 **id** | **int32** | A unique integer value identifying this device group label. | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1301,7 +1301,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsPartialUpdate
 
-> PermissionGroup PermissionsGroupsPartialUpdate(ctx, name).PatchedPermissionGroup(patchedPermissionGroup).Execute()
+> PermissionGroup PermissionsGroupsPartialUpdate(ctx, nameOrId).PatchedPermissionGroup(patchedPermissionGroup).Execute()
 
 
 
@@ -1318,12 +1318,12 @@ import (
 )
 
 func main() {
-    name := "name_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     patchedPermissionGroup := *openapiclient.NewPatchedPermissionGroup() // PatchedPermissionGroup |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsPartialUpdate(context.Background(), name).PatchedPermissionGroup(patchedPermissionGroup).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsPartialUpdate(context.Background(), nameOrId).PatchedPermissionGroup(patchedPermissionGroup).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1339,7 +1339,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**name** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1371,7 +1371,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsRetrieve
 
-> PermissionGroup PermissionsGroupsRetrieve(ctx, name).Execute()
+> PermissionGroup PermissionsGroupsRetrieve(ctx, nameOrId).Execute()
 
 
 
@@ -1388,11 +1388,11 @@ import (
 )
 
 func main() {
-    name := "name_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsRetrieve(context.Background(), name).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsRetrieve(context.Background(), nameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1408,7 +1408,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**name** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1439,7 +1439,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsUpdate
 
-> PermissionGroup PermissionsGroupsUpdate(ctx, name).PermissionGroup(permissionGroup).Execute()
+> PermissionGroup PermissionsGroupsUpdate(ctx, nameOrId).PermissionGroup(permissionGroup).Execute()
 
 
 
@@ -1456,12 +1456,12 @@ import (
 )
 
 func main() {
-    name := "name_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     permissionGroup := *openapiclient.NewPermissionGroup(int32(123), []string{"Permissions_example"}, "Name_example") // PermissionGroup | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUpdate(context.Background(), name).PermissionGroup(permissionGroup).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUpdate(context.Background(), nameOrId).PermissionGroup(permissionGroup).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1477,7 +1477,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**name** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1509,7 +1509,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsUsersCreate
 
-> PermissionGroup PermissionsGroupsUsersCreate(ctx, groupName).User(user).Execute()
+> PermissionGroup PermissionsGroupsUsersCreate(ctx, nameOrId).User(user).Execute()
 
 
 
@@ -1526,12 +1526,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
     user := []openapiclient.User{*openapiclient.NewUser("Username_example")} // []User | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUsersCreate(context.Background(), groupName).User(user).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUsersCreate(context.Background(), nameOrId).User(user).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsUsersCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1547,7 +1547,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
+**nameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -1579,7 +1579,7 @@ Name | Type | Description  | Notes
 
 ## PermissionsGroupsUsersDestroy
 
-> PermissionsGroupsUsersDestroy(ctx, groupName, username).Execute()
+> PermissionsGroupsUsersDestroy(ctx, nameOrId, usernameOrId).Execute()
 
 
 
@@ -1596,12 +1596,12 @@ import (
 )
 
 func main() {
-    groupName := "groupName_example" // string | 
-    username := "username_example" // string | 
+    nameOrId := "nameOrId_example" // string | 
+    usernameOrId := "usernameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUsersDestroy(context.Background(), groupName, username).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUsersDestroy(context.Background(), nameOrId, usernameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsUsersDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1615,8 +1615,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**groupName** | **string** |  | 
-**username** | **string** |  | 
+**nameOrId** | **string** |  | 
+**usernameOrId** | **string** |  | 
 
 ### Other Parameters
 

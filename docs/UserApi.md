@@ -8,11 +8,11 @@ Method | HTTP request | Description
 [**UserCurrentRetrieve**](UserApi.md#UserCurrentRetrieve) | **Get** /api/user/current/ | 
 [**UserCurrentTokenCreate**](UserApi.md#UserCurrentTokenCreate) | **Post** /api/user/current/token/ | 
 [**UserCurrentTokenRetrieve**](UserApi.md#UserCurrentTokenRetrieve) | **Get** /api/user/current/token/ | 
-[**UserDestroy**](UserApi.md#UserDestroy) | **Delete** /api/user/{username}/ | 
+[**UserDestroy**](UserApi.md#UserDestroy) | **Delete** /api/user/{username_or_id}/ | 
 [**UserList**](UserApi.md#UserList) | **Get** /api/user/ | 
-[**UserPartialUpdate**](UserApi.md#UserPartialUpdate) | **Patch** /api/user/{username}/ | 
-[**UserRetrieve**](UserApi.md#UserRetrieve) | **Get** /api/user/{username}/ | 
-[**UserUpdate**](UserApi.md#UserUpdate) | **Put** /api/user/{username}/ | 
+[**UserPartialUpdate**](UserApi.md#UserPartialUpdate) | **Patch** /api/user/{username_or_id}/ | 
+[**UserRetrieve**](UserApi.md#UserRetrieve) | **Get** /api/user/{username_or_id}/ | 
+[**UserUpdate**](UserApi.md#UserUpdate) | **Put** /api/user/{username_or_id}/ | 
 
 
 
@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-    loggedInUser := *openapiclient.NewLoggedInUser("Username_example", []string{"Groups_example"}) // LoggedInUser | 
+    loggedInUser := *openapiclient.NewLoggedInUser(int32(123), "Username_example", []string{"Groups_example"}, "Password_example") // LoggedInUser | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -263,7 +263,7 @@ Other parameters are passed through a pointer to a apiUserCurrentTokenRetrieveRe
 
 ## UserDestroy
 
-> UserDestroy(ctx, username).Execute()
+> UserDestroy(ctx, usernameOrId).Execute()
 
 
 
@@ -280,11 +280,11 @@ import (
 )
 
 func main() {
-    username := "username_example" // string | 
+    usernameOrId := "usernameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UserDestroy(context.Background(), username).Execute()
+    resp, r, err := apiClient.UserApi.UserDestroy(context.Background(), usernameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -298,7 +298,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string** |  | 
+**usernameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ## UserPartialUpdate
 
-> LoggedInUser UserPartialUpdate(ctx, username).PatchedLoggedInUser(patchedLoggedInUser).Execute()
+> LoggedInUser UserPartialUpdate(ctx, usernameOrId).PatchedLoggedInUser(patchedLoggedInUser).Execute()
 
 
 
@@ -424,12 +424,12 @@ import (
 )
 
 func main() {
-    username := "username_example" // string | 
+    usernameOrId := "usernameOrId_example" // string | 
     patchedLoggedInUser := *openapiclient.NewPatchedLoggedInUser() // PatchedLoggedInUser |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UserPartialUpdate(context.Background(), username).PatchedLoggedInUser(patchedLoggedInUser).Execute()
+    resp, r, err := apiClient.UserApi.UserPartialUpdate(context.Background(), usernameOrId).PatchedLoggedInUser(patchedLoggedInUser).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -445,7 +445,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string** |  | 
+**usernameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 
 ## UserRetrieve
 
-> LoggedInUser UserRetrieve(ctx, username).Execute()
+> LoggedInUser UserRetrieve(ctx, usernameOrId).Execute()
 
 
 
@@ -494,11 +494,11 @@ import (
 )
 
 func main() {
-    username := "username_example" // string | 
+    usernameOrId := "usernameOrId_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UserRetrieve(context.Background(), username).Execute()
+    resp, r, err := apiClient.UserApi.UserRetrieve(context.Background(), usernameOrId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -514,7 +514,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string** |  | 
+**usernameOrId** | **string** |  | 
 
 ### Other Parameters
 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 
 ## UserUpdate
 
-> LoggedInUser UserUpdate(ctx, username).LoggedInUser(loggedInUser).Execute()
+> LoggedInUser UserUpdate(ctx, usernameOrId).LoggedInUser(loggedInUser).Execute()
 
 
 
@@ -562,12 +562,12 @@ import (
 )
 
 func main() {
-    username := "username_example" // string | 
-    loggedInUser := *openapiclient.NewLoggedInUser("Username_example", []string{"Groups_example"}) // LoggedInUser | 
+    usernameOrId := "usernameOrId_example" // string | 
+    loggedInUser := *openapiclient.NewLoggedInUser(int32(123), "Username_example", []string{"Groups_example"}, "Password_example") // LoggedInUser | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserApi.UserUpdate(context.Background(), username).LoggedInUser(loggedInUser).Execute()
+    resp, r, err := apiClient.UserApi.UserUpdate(context.Background(), usernameOrId).LoggedInUser(loggedInUser).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -583,7 +583,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**username** | **string** |  | 
+**usernameOrId** | **string** |  | 
 
 ### Other Parameters
 
