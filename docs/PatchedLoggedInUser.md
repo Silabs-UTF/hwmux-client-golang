@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | Pointer to **int32** |  | [optional] [readonly] 
 **Username** | Pointer to **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | [optional] 
 **Email** | Pointer to **string** |  | [optional] 
 **FirstName** | Pointer to **string** |  | [optional] 
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 **IsStaff** | Pointer to **bool** | Designates whether the user can log into this admin site. | [optional] 
 **Groups** | Pointer to **[]string** |  | [optional] [readonly] 
 **IsSuperuser** | Pointer to **bool** | Designates that this user has all permissions without explicitly assigning them. | [optional] 
+**Password** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -30,6 +32,31 @@ will change when the set of required properties is changed
 NewPatchedLoggedInUserWithDefaults instantiates a new PatchedLoggedInUser object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *PatchedLoggedInUser) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *PatchedLoggedInUser) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *PatchedLoggedInUser) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+### HasId
+
+`func (o *PatchedLoggedInUser) HasId() bool`
+
+HasId returns a boolean if a field has been set.
 
 ### GetUsername
 
@@ -205,6 +232,31 @@ SetIsSuperuser sets IsSuperuser field to given value.
 `func (o *PatchedLoggedInUser) HasIsSuperuser() bool`
 
 HasIsSuperuser returns a boolean if a field has been set.
+
+### GetPassword
+
+`func (o *PatchedLoggedInUser) GetPassword() string`
+
+GetPassword returns the Password field if non-nil, zero value otherwise.
+
+### GetPasswordOk
+
+`func (o *PatchedLoggedInUser) GetPasswordOk() (*string, bool)`
+
+GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPassword
+
+`func (o *PatchedLoggedInUser) SetPassword(v string)`
+
+SetPassword sets Password field to given value.
+
+### HasPassword
+
+`func (o *PatchedLoggedInUser) HasPassword() bool`
+
+HasPassword returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

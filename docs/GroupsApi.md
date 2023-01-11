@@ -118,7 +118,7 @@ import (
 )
 
 func main() {
-    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
+    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1103,7 +1103,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device group.
-    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
+    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **int32** |  | [readonly] 
 **Username** | **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | 
 **Email** | Pointer to **string** |  | [optional] 
 **FirstName** | Pointer to **string** |  | [optional] 
@@ -11,12 +12,13 @@ Name | Type | Description | Notes
 **IsStaff** | Pointer to **bool** | Designates whether the user can log into this admin site. | [optional] 
 **Groups** | **[]string** |  | [readonly] 
 **IsSuperuser** | Pointer to **bool** | Designates that this user has all permissions without explicitly assigning them. | [optional] 
+**Password** | **string** |  | 
 
 ## Methods
 
 ### NewLoggedInUser
 
-`func NewLoggedInUser(username string, groups []string, ) *LoggedInUser`
+`func NewLoggedInUser(id int32, username string, groups []string, password string, ) *LoggedInUser`
 
 NewLoggedInUser instantiates a new LoggedInUser object
 This constructor will assign default values to properties that have it defined,
@@ -30,6 +32,26 @@ will change when the set of required properties is changed
 NewLoggedInUserWithDefaults instantiates a new LoggedInUser object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *LoggedInUser) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *LoggedInUser) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *LoggedInUser) SetId(v int32)`
+
+SetId sets Id field to given value.
+
 
 ### GetUsername
 
@@ -195,6 +217,26 @@ SetIsSuperuser sets IsSuperuser field to given value.
 `func (o *LoggedInUser) HasIsSuperuser() bool`
 
 HasIsSuperuser returns a boolean if a field has been set.
+
+### GetPassword
+
+`func (o *LoggedInUser) GetPassword() string`
+
+GetPassword returns the Password field if non-nil, zero value otherwise.
+
+### GetPasswordOk
+
+`func (o *LoggedInUser) GetPasswordOk() (*string, bool)`
+
+GetPasswordOk returns a tuple with the Password field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPassword
+
+`func (o *LoggedInUser) SetPassword(v string)`
+
+SetPassword sets Password field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

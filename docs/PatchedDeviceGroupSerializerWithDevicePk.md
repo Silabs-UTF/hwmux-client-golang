@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int32** |  | [optional] [readonly] 
 **Devices** | Pointer to **[]int32** |  | [optional] 
 **IsReserved** | Pointer to **NullableBool** |  | [optional] [readonly] 
+**Online** | Pointer to **bool** |  | [optional] [readonly] 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -115,6 +116,31 @@ HasIsReserved returns a boolean if a field has been set.
 `func (o *PatchedDeviceGroupSerializerWithDevicePk) UnsetIsReserved()`
 
 UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
+### GetOnline
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetOnline() bool`
+
+GetOnline returns the Online field if non-nil, zero value otherwise.
+
+### GetOnlineOk
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetOnlineOk() (*bool, bool)`
+
+GetOnlineOk returns a tuple with the Online field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOnline
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetOnline(v bool)`
+
+SetOnline sets Online field to given value.
+
+### HasOnline
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) HasOnline() bool`
+
+HasOnline returns a boolean if a field has been set.
+
 ### GetPermissionGroups
 
 `func (o *PatchedDeviceGroupSerializerWithDevicePk) GetPermissionGroups() []string`
