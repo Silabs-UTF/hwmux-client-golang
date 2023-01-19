@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.11.0
+  version: 2.12.0
 paths:
   /api-token-auth/:
     post:
@@ -4418,6 +4418,57 @@ paths:
       responses:
         '204':
           description: No response body
+  /api/user/{username_or_id}/token/:
+    get:
+      operationId: user_token_retrieve
+      description: |-
+        Gets the current user's API token. Generates one if none available.
+        Requires superuser status or model permissions.
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
+    post:
+      operationId: user_token_create
+      description: |-
+        Generates new API token for the given user. The old tokens become
+        invalid. Requires superuser status or model permissions.
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
   /api/user/current/:
     get:
       operationId: user_current_retrieve
@@ -5506,10 +5557,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - add
-          - view
-          - change
           - delete
+          - view
+          - add
+          - change
     PatchedRoom:
       type: object
       description: Serializer for the Room model
@@ -5752,10 +5803,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - add
-          - view
-          - change
           - delete
+          - view
+          - add
+          - change
       required:
       - id
     Room:

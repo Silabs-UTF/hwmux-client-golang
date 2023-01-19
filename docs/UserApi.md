@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**UserList**](UserApi.md#UserList) | **Get** /api/user/ | 
 [**UserPartialUpdate**](UserApi.md#UserPartialUpdate) | **Patch** /api/user/{username_or_id}/ | 
 [**UserRetrieve**](UserApi.md#UserRetrieve) | **Get** /api/user/{username_or_id}/ | 
+[**UserTokenCreate**](UserApi.md#UserTokenCreate) | **Post** /api/user/{username_or_id}/token/ | 
+[**UserTokenRetrieve**](UserApi.md#UserTokenRetrieve) | **Get** /api/user/{username_or_id}/token/ | 
 [**UserUpdate**](UserApi.md#UserUpdate) | **Put** /api/user/{username_or_id}/ | 
 
 
@@ -528,6 +530,146 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LoggedInUser**](LoggedInUser.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserTokenCreate
+
+> Token UserTokenCreate(ctx, usernameOrId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    usernameOrId := "usernameOrId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserApi.UserTokenCreate(context.Background(), usernameOrId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserTokenCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UserTokenCreate`: Token
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserTokenCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**usernameOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserTokenCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**Token**](Token.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UserTokenRetrieve
+
+> Token UserTokenRetrieve(ctx, usernameOrId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    usernameOrId := "usernameOrId_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.UserApi.UserTokenRetrieve(context.Background(), usernameOrId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserTokenRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UserTokenRetrieve`: Token
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserTokenRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**usernameOrId** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUserTokenRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**Token**](Token.md)
 
 ### Authorization
 
