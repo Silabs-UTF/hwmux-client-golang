@@ -8,9 +8,14 @@ Name | Type | Description | Notes
 **Owner** | [**NullableReservationSessionSerializerReadOnlyOwner**](ReservationSessionSerializerReadOnlyOwner.md) |  | 
 **IsSatisfied** | **bool** |  | [readonly] 
 **ResponseMessage** | **string** |  | [readonly] 
-**Status** | **string** |  | [readonly] 
+**Status** | **NullableString** |  | [readonly] 
+**QueuePosition** | **NullableInt32** |  | [readonly] 
+**Queue** | **[]string** |  | [readonly] 
+**ResourceData** | **map[string]interface{}** |  | [readonly] 
 **Details** | **string** |  | [readonly] 
 **UseWatchdog** | Pointer to **bool** |  | [optional] 
+**InvertPriority** | **bool** |  | [readonly] 
+**CancelExisting** | **NullableBool** |  | [readonly] 
 **TRequested** | **time.Time** |  | [readonly] 
 **TSatisfied** | **NullableTime** |  | [readonly] 
 **TCompleted** | **NullableTime** |  | [readonly] 
@@ -26,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewReservationSessionSerializerReadOnly
 
-`func NewReservationSessionSerializerReadOnly(id string, owner NullableReservationSessionSerializerReadOnlyOwner, isSatisfied bool, responseMessage string, status string, details string, tRequested time.Time, tSatisfied NullableTime, tCompleted NullableTime, tLeaseExpires NullableTime, metadata map[string]interface{}, rDevices []int32, rDeviceGroups []int32, rDeviceGroupLabels []int32, aDevices []int32, aDeviceGroups []int32, ) *ReservationSessionSerializerReadOnly`
+`func NewReservationSessionSerializerReadOnly(id string, owner NullableReservationSessionSerializerReadOnlyOwner, isSatisfied bool, responseMessage string, status NullableString, queuePosition NullableInt32, queue []string, resourceData map[string]interface{}, details string, invertPriority bool, cancelExisting NullableBool, tRequested time.Time, tSatisfied NullableTime, tCompleted NullableTime, tLeaseExpires NullableTime, metadata map[string]interface{}, rDevices []int32, rDeviceGroups []int32, rDeviceGroupLabels []int32, aDevices []int32, aDeviceGroups []int32, ) *ReservationSessionSerializerReadOnly`
 
 NewReservationSessionSerializerReadOnly instantiates a new ReservationSessionSerializerReadOnly object
 This constructor will assign default values to properties that have it defined,
@@ -151,6 +156,106 @@ and a boolean to check if the value has been set.
 SetStatus sets Status field to given value.
 
 
+### SetStatusNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *ReservationSessionSerializerReadOnly) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
+### GetQueuePosition
+
+`func (o *ReservationSessionSerializerReadOnly) GetQueuePosition() int32`
+
+GetQueuePosition returns the QueuePosition field if non-nil, zero value otherwise.
+
+### GetQueuePositionOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetQueuePositionOk() (*int32, bool)`
+
+GetQueuePositionOk returns a tuple with the QueuePosition field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueuePosition
+
+`func (o *ReservationSessionSerializerReadOnly) SetQueuePosition(v int32)`
+
+SetQueuePosition sets QueuePosition field to given value.
+
+
+### SetQueuePositionNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetQueuePositionNil(b bool)`
+
+ SetQueuePositionNil sets the value for QueuePosition to be an explicit nil
+
+### UnsetQueuePosition
+`func (o *ReservationSessionSerializerReadOnly) UnsetQueuePosition()`
+
+UnsetQueuePosition ensures that no value is present for QueuePosition, not even an explicit nil
+### GetQueue
+
+`func (o *ReservationSessionSerializerReadOnly) GetQueue() []string`
+
+GetQueue returns the Queue field if non-nil, zero value otherwise.
+
+### GetQueueOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetQueueOk() (*[]string, bool)`
+
+GetQueueOk returns a tuple with the Queue field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueue
+
+`func (o *ReservationSessionSerializerReadOnly) SetQueue(v []string)`
+
+SetQueue sets Queue field to given value.
+
+
+### SetQueueNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetQueueNil(b bool)`
+
+ SetQueueNil sets the value for Queue to be an explicit nil
+
+### UnsetQueue
+`func (o *ReservationSessionSerializerReadOnly) UnsetQueue()`
+
+UnsetQueue ensures that no value is present for Queue, not even an explicit nil
+### GetResourceData
+
+`func (o *ReservationSessionSerializerReadOnly) GetResourceData() map[string]interface{}`
+
+GetResourceData returns the ResourceData field if non-nil, zero value otherwise.
+
+### GetResourceDataOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetResourceDataOk() (*map[string]interface{}, bool)`
+
+GetResourceDataOk returns a tuple with the ResourceData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceData
+
+`func (o *ReservationSessionSerializerReadOnly) SetResourceData(v map[string]interface{})`
+
+SetResourceData sets ResourceData field to given value.
+
+
+### SetResourceDataNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetResourceDataNil(b bool)`
+
+ SetResourceDataNil sets the value for ResourceData to be an explicit nil
+
+### UnsetResourceData
+`func (o *ReservationSessionSerializerReadOnly) UnsetResourceData()`
+
+UnsetResourceData ensures that no value is present for ResourceData, not even an explicit nil
 ### GetDetails
 
 `func (o *ReservationSessionSerializerReadOnly) GetDetails() string`
@@ -196,6 +301,56 @@ SetUseWatchdog sets UseWatchdog field to given value.
 
 HasUseWatchdog returns a boolean if a field has been set.
 
+### GetInvertPriority
+
+`func (o *ReservationSessionSerializerReadOnly) GetInvertPriority() bool`
+
+GetInvertPriority returns the InvertPriority field if non-nil, zero value otherwise.
+
+### GetInvertPriorityOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetInvertPriorityOk() (*bool, bool)`
+
+GetInvertPriorityOk returns a tuple with the InvertPriority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInvertPriority
+
+`func (o *ReservationSessionSerializerReadOnly) SetInvertPriority(v bool)`
+
+SetInvertPriority sets InvertPriority field to given value.
+
+
+### GetCancelExisting
+
+`func (o *ReservationSessionSerializerReadOnly) GetCancelExisting() bool`
+
+GetCancelExisting returns the CancelExisting field if non-nil, zero value otherwise.
+
+### GetCancelExistingOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetCancelExistingOk() (*bool, bool)`
+
+GetCancelExistingOk returns a tuple with the CancelExisting field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCancelExisting
+
+`func (o *ReservationSessionSerializerReadOnly) SetCancelExisting(v bool)`
+
+SetCancelExisting sets CancelExisting field to given value.
+
+
+### SetCancelExistingNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetCancelExistingNil(b bool)`
+
+ SetCancelExistingNil sets the value for CancelExisting to be an explicit nil
+
+### UnsetCancelExisting
+`func (o *ReservationSessionSerializerReadOnly) UnsetCancelExisting()`
+
+UnsetCancelExisting ensures that no value is present for CancelExisting, not even an explicit nil
 ### GetTRequested
 
 `func (o *ReservationSessionSerializerReadOnly) GetTRequested() time.Time`

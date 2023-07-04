@@ -72,6 +72,7 @@ docs/ReservationSessionSerializerReadOnly.md
 docs/ReservationSessionSerializerReadOnlyOwner.md
 docs/ReservationsApi.md
 docs/ResourcePermissions.md
+docs/ResourceStatusRequest.md
 docs/Room.md
 docs/RoomsApi.md
 docs/SchemaApi.md
@@ -79,6 +80,7 @@ docs/SigninApi.md
 docs/SignoutApi.md
 docs/Site.md
 docs/SitesApi.md
+docs/StatusEnum.md
 docs/Token.md
 docs/TokenAuthApi.md
 docs/User.md
@@ -130,8 +132,10 @@ model_reservation_request.go
 model_reservation_session_serializer_read_only.go
 model_reservation_session_serializer_read_only_owner.go
 model_resource_permissions.go
+model_resource_status_request.go
 model_room.go
 model_site.go
+model_status_enum.go
 model_token.go
 model_user.go
 model_write_only_device.go

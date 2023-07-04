@@ -14,9 +14,11 @@ Name | Type | Description | Notes
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
+**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
 **LastUpdate** | Pointer to **time.Time** |  | [optional] [readonly] 
 **DateCreated** | Pointer to **time.Time** |  | [optional] [readonly] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**WstkPart** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
 
@@ -317,6 +319,31 @@ SetOnline sets Online field to given value.
 
 HasOnline returns a boolean if a field has been set.
 
+### GetStatus
+
+`func (o *PatchedWriteOnlyDevice) GetStatus() StatusEnum`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *PatchedWriteOnlyDevice) GetStatusOk() (*StatusEnum, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *PatchedWriteOnlyDevice) SetStatus(v StatusEnum)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *PatchedWriteOnlyDevice) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
 ### GetLastUpdate
 
 `func (o *PatchedWriteOnlyDevice) GetLastUpdate() time.Time`
@@ -392,6 +419,41 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### GetWstkPart
+
+`func (o *PatchedWriteOnlyDevice) GetWstkPart() string`
+
+GetWstkPart returns the WstkPart field if non-nil, zero value otherwise.
+
+### GetWstkPartOk
+
+`func (o *PatchedWriteOnlyDevice) GetWstkPartOk() (*string, bool)`
+
+GetWstkPartOk returns a tuple with the WstkPart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWstkPart
+
+`func (o *PatchedWriteOnlyDevice) SetWstkPart(v string)`
+
+SetWstkPart sets WstkPart field to given value.
+
+### HasWstkPart
+
+`func (o *PatchedWriteOnlyDevice) HasWstkPart() bool`
+
+HasWstkPart returns a boolean if a field has been set.
+
+### SetWstkPartNil
+
+`func (o *PatchedWriteOnlyDevice) SetWstkPartNil(b bool)`
+
+ SetWstkPartNil sets the value for WstkPart to be an explicit nil
+
+### UnsetWstkPart
+`func (o *PatchedWriteOnlyDevice) UnsetWstkPart()`
+
+UnsetWstkPart ensures that no value is present for WstkPart, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

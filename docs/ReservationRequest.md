@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **RDeviceGroupLabels** | Pointer to **[]int32** |  | [optional] 
 **UseWatchdog** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**InvertPriority** | Pointer to **bool** |  | [optional] [default to false]
 
 ## Methods
 
@@ -179,6 +180,31 @@ SetMetadata sets Metadata field to given value.
 `func (o *ReservationRequest) HasMetadata() bool`
 
 HasMetadata returns a boolean if a field has been set.
+
+### GetInvertPriority
+
+`func (o *ReservationRequest) GetInvertPriority() bool`
+
+GetInvertPriority returns the InvertPriority field if non-nil, zero value otherwise.
+
+### GetInvertPriorityOk
+
+`func (o *ReservationRequest) GetInvertPriorityOk() (*bool, bool)`
+
+GetInvertPriorityOk returns a tuple with the InvertPriority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInvertPriority
+
+`func (o *ReservationRequest) SetInvertPriority(v bool)`
+
+SetInvertPriority sets InvertPriority field to given value.
+
+### HasInvertPriority
+
+`func (o *ReservationRequest) HasInvertPriority() bool`
+
+HasInvertPriority returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

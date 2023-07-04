@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**DevicesRetrieve**](DevicesApi.md#DevicesRetrieve) | **Get** /api/devices/{id}/ | 
 [**DevicesSearchList**](DevicesApi.md#DevicesSearchList) | **Get** /api/devices/search/ | 
 [**DevicesSetOfflineCreate**](DevicesApi.md#DevicesSetOfflineCreate) | **Post** /api/devices/set_offline/ | 
+[**DevicesStatusCreate**](DevicesApi.md#DevicesStatusCreate) | **Post** /api/devices/{id}/status/ | 
 [**DevicesUpdate**](DevicesApi.md#DevicesUpdate) | **Put** /api/devices/{id}/ | 
 
 
@@ -159,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## DevicesList
 
-> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Uri(uri).UriIsnull(uriIsnull).Execute()
+> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -180,6 +181,7 @@ import (
 
 func main() {
     dateCreated := time.Now() // time.Time |  (optional)
+    idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -192,12 +194,14 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
+    status := "status_example" // string |  (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
+    wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Uri(uri).UriIsnull(uriIsnull).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -219,6 +223,7 @@ Other parameters are passed through a pointer to a apiDevicesListRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateCreated** | **time.Time** |  | 
+ **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -231,8 +236,10 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
+ **status** | **string** |  | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
+ **wstkPart** | **string** |  | 
 
 ### Return type
 
@@ -254,7 +261,7 @@ Name | Type | Description  | Notes
 
 ## DevicesListMyList
 
-> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Uri(uri).UriIsnull(uriIsnull).Execute()
+> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -275,6 +282,7 @@ import (
 
 func main() {
     dateCreated := time.Now() // time.Time |  (optional)
+    idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -287,12 +295,14 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
+    status := "status_example" // string |  (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
+    wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Uri(uri).UriIsnull(uriIsnull).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesListMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -314,6 +324,7 @@ Other parameters are passed through a pointer to a apiDevicesListMyListRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateCreated** | **time.Time** |  | 
+ **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -326,8 +337,10 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
+ **status** | **string** |  | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
+ **wstkPart** | **string** |  | 
 
 ### Return type
 
@@ -915,7 +928,7 @@ Name | Type | Description  | Notes
 
 ## DevicesSearchList
 
-> PaginatedDeviceSerializerPublicList DevicesSearchList(ctx).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Uri(uri).UriIsnull(uriIsnull).Execute()
+> PaginatedDeviceSerializerPublicList DevicesSearchList(ctx).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -937,6 +950,7 @@ import (
 func main() {
     searchKeyValuePairs := "part_no=unknown&is_soc=True" // string | 
     dateCreated := time.Now() // time.Time |  (optional)
+    idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -949,12 +963,14 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
+    status := "status_example" // string |  (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
+    wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Uri(uri).UriIsnull(uriIsnull).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesSearchList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -977,6 +993,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **searchKeyValuePairs** | **string** |  | 
  **dateCreated** | **time.Time** |  | 
+ **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -989,8 +1006,10 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
+ **status** | **string** |  | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
+ **wstkPart** | **string** |  | 
 
 ### Return type
 
@@ -1062,6 +1081,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**WriteOnlyDevice**](WriteOnlyDevice.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DevicesStatusCreate
+
+> ResourceStatusRequest DevicesStatusCreate(ctx, id).ResourceStatusRequest(resourceStatusRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device.
+    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.StatusEnum("ACTIVE")) // ResourceStatusRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.DevicesApi.DevicesStatusCreate(context.Background(), id).ResourceStatusRequest(resourceStatusRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesStatusCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DevicesStatusCreate`: ResourceStatusRequest
+    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesStatusCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDevicesStatusCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **resourceStatusRequest** | [**ResourceStatusRequest**](ResourceStatusRequest.md) |  | 
+
+### Return type
+
+[**ResourceStatusRequest**](ResourceStatusRequest.md)
 
 ### Authorization
 

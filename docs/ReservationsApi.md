@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## ReservationsActionableList
 
-> PaginatedReservationSessionSerializerReadOnlyList ReservationsActionableList(ctx).ADeviceGroups(aDeviceGroups).ADevices(aDevices).Details(details).Id(id).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+> PaginatedReservationSessionSerializerReadOnlyList ReservationsActionableList(ctx).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
 
 
 
@@ -39,8 +39,14 @@ import (
 func main() {
     aDeviceGroups := []int32{int32(123)} // []int32 |  (optional)
     aDevices := []int32{int32(123)} // []int32 |  (optional)
+    cancelExisting := true // bool |  (optional)
     details := "details_example" // string |  (optional)
+    device := float32(8.14) // float32 |  (optional)
+    deviceGroup := float32(8.14) // float32 |  (optional)
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+    includeResourceData := true // bool | Whether to include the detailed data for all resources related to the reservation. (optional) (default to false)
+    invertPriority := true // bool |  (optional)
+    label := float32(8.14) // float32 |  (optional)
     maxHistory := time.Now() // time.Time | Filter out reservations that expired before the specified datetime. Defaults to 24 hours prior. (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     owner := int32(56) // int32 |  (optional)
@@ -49,6 +55,7 @@ func main() {
     rDeviceGroups := []int32{int32(123)} // []int32 |  (optional)
     rDevices := []int32{int32(123)} // []int32 |  (optional)
     search := "search_example" // string | A search term. (optional)
+    status := "status_example" // string |  (optional)
     tCompleted := time.Now() // time.Time |  (optional)
     tCompletedAfter := time.Now() // time.Time |  (optional)
     tCompletedBefore := time.Now() // time.Time |  (optional)
@@ -68,7 +75,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsActionableList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).Details(details).Id(id).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+    resp, r, err := apiClient.ReservationsApi.ReservationsActionableList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsActionableList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -91,8 +98,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aDeviceGroups** | **[]int32** |  | 
  **aDevices** | **[]int32** |  | 
+ **cancelExisting** | **bool** |  | 
  **details** | **string** |  | 
+ **device** | **float32** |  | 
+ **deviceGroup** | **float32** |  | 
  **id** | **string** |  | 
+ **includeResourceData** | **bool** | Whether to include the detailed data for all resources related to the reservation. | [default to false]
+ **invertPriority** | **bool** |  | 
+ **label** | **float32** |  | 
  **maxHistory** | **time.Time** | Filter out reservations that expired before the specified datetime. Defaults to 24 hours prior. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **owner** | **int32** |  | 
@@ -101,6 +114,7 @@ Name | Type | Description  | Notes
  **rDeviceGroups** | **[]int32** |  | 
  **rDevices** | **[]int32** |  | 
  **search** | **string** | A search term. | 
+ **status** | **string** |  | 
  **tCompleted** | **time.Time** |  | 
  **tCompletedAfter** | **time.Time** |  | 
  **tCompletedBefore** | **time.Time** |  | 
@@ -138,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## ReservationsActiveList
 
-> PaginatedReservationSessionSerializerReadOnlyList ReservationsActiveList(ctx).ADeviceGroups(aDeviceGroups).ADevices(aDevices).Details(details).Id(id).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+> PaginatedReservationSessionSerializerReadOnlyList ReservationsActiveList(ctx).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
 
 
 
@@ -158,8 +172,14 @@ import (
 func main() {
     aDeviceGroups := []int32{int32(123)} // []int32 |  (optional)
     aDevices := []int32{int32(123)} // []int32 |  (optional)
+    cancelExisting := true // bool |  (optional)
     details := "details_example" // string |  (optional)
+    device := float32(8.14) // float32 |  (optional)
+    deviceGroup := float32(8.14) // float32 |  (optional)
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+    includeResourceData := true // bool | Whether to include the detailed data for all resources related to the reservation. (optional) (default to false)
+    invertPriority := true // bool |  (optional)
+    label := float32(8.14) // float32 |  (optional)
     maxHistory := time.Now() // time.Time | Filter out reservations that expired before the specified datetime. Defaults to 24 hours prior. (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     owner := int32(56) // int32 |  (optional)
@@ -168,6 +188,7 @@ func main() {
     rDeviceGroups := []int32{int32(123)} // []int32 |  (optional)
     rDevices := []int32{int32(123)} // []int32 |  (optional)
     search := "search_example" // string | A search term. (optional)
+    status := "status_example" // string |  (optional)
     tCompleted := time.Now() // time.Time |  (optional)
     tCompletedAfter := time.Now() // time.Time |  (optional)
     tCompletedBefore := time.Now() // time.Time |  (optional)
@@ -187,7 +208,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsActiveList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).Details(details).Id(id).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+    resp, r, err := apiClient.ReservationsApi.ReservationsActiveList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsActiveList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -210,8 +231,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aDeviceGroups** | **[]int32** |  | 
  **aDevices** | **[]int32** |  | 
+ **cancelExisting** | **bool** |  | 
  **details** | **string** |  | 
+ **device** | **float32** |  | 
+ **deviceGroup** | **float32** |  | 
  **id** | **string** |  | 
+ **includeResourceData** | **bool** | Whether to include the detailed data for all resources related to the reservation. | [default to false]
+ **invertPriority** | **bool** |  | 
+ **label** | **float32** |  | 
  **maxHistory** | **time.Time** | Filter out reservations that expired before the specified datetime. Defaults to 24 hours prior. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **owner** | **int32** |  | 
@@ -220,6 +247,7 @@ Name | Type | Description  | Notes
  **rDeviceGroups** | **[]int32** |  | 
  **rDevices** | **[]int32** |  | 
  **search** | **string** | A search term. | 
+ **status** | **string** |  | 
  **tCompleted** | **time.Time** |  | 
  **tCompletedAfter** | **time.Time** |  | 
  **tCompletedBefore** | **time.Time** |  | 
@@ -391,7 +419,7 @@ Name | Type | Description  | Notes
 
 ## ReservationsList
 
-> PaginatedReservationSessionSerializerReadOnlyList ReservationsList(ctx).ADeviceGroups(aDeviceGroups).ADevices(aDevices).Details(details).Id(id).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+> PaginatedReservationSessionSerializerReadOnlyList ReservationsList(ctx).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
 
 
 
@@ -411,8 +439,14 @@ import (
 func main() {
     aDeviceGroups := []int32{int32(123)} // []int32 |  (optional)
     aDevices := []int32{int32(123)} // []int32 |  (optional)
+    cancelExisting := true // bool |  (optional)
     details := "details_example" // string |  (optional)
+    device := float32(8.14) // float32 |  (optional)
+    deviceGroup := float32(8.14) // float32 |  (optional)
     id := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+    includeResourceData := true // bool | Whether to include the detailed data for all resources related to the reservation. (optional) (default to false)
+    invertPriority := true // bool |  (optional)
+    label := float32(8.14) // float32 |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     owner := int32(56) // int32 |  (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
@@ -420,6 +454,7 @@ func main() {
     rDeviceGroups := []int32{int32(123)} // []int32 |  (optional)
     rDevices := []int32{int32(123)} // []int32 |  (optional)
     search := "search_example" // string | A search term. (optional)
+    status := "status_example" // string |  (optional)
     tCompleted := time.Now() // time.Time |  (optional)
     tCompletedAfter := time.Now() // time.Time |  (optional)
     tCompletedBefore := time.Now() // time.Time |  (optional)
@@ -439,7 +474,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).Details(details).Id(id).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+    resp, r, err := apiClient.ReservationsApi.ReservationsList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -462,8 +497,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aDeviceGroups** | **[]int32** |  | 
  **aDevices** | **[]int32** |  | 
+ **cancelExisting** | **bool** |  | 
  **details** | **string** |  | 
+ **device** | **float32** |  | 
+ **deviceGroup** | **float32** |  | 
  **id** | **string** |  | 
+ **includeResourceData** | **bool** | Whether to include the detailed data for all resources related to the reservation. | [default to false]
+ **invertPriority** | **bool** |  | 
+ **label** | **float32** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **owner** | **int32** |  | 
  **page** | **int32** | A page number within the paginated result set. | 
@@ -471,6 +512,7 @@ Name | Type | Description  | Notes
  **rDeviceGroups** | **[]int32** |  | 
  **rDevices** | **[]int32** |  | 
  **search** | **string** | A search term. | 
+ **status** | **string** |  | 
  **tCompleted** | **time.Time** |  | 
  **tCompletedAfter** | **time.Time** |  | 
  **tCompletedBefore** | **time.Time** |  | 
