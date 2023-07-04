@@ -1,4 +1,4 @@
-module github.com/Silabs-UTF/hwmux-client-golang
+module github.com/Silabs-UTF/hwmux-client-golang/v2
 
 go 1.13
 
