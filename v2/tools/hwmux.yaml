@@ -1,0 +1,6321 @@
+openapi: 3.0.3
+info:
+  title: HW Mux Reservation System
+  version: 2.19.0
+paths:
+  /api-token-auth/:
+    post:
+      operationId: _token_auth_create
+      tags:
+      - -token-auth
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+          description: ''
+  /api/devices/:
+    get:
+      operationId: devices_list
+      description: Create or update with permissions field support
+      parameters:
+      - in: query
+        name: date_created
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: is_wstk
+        schema:
+          type: boolean
+      - in: query
+        name: last_update
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: online
+        schema:
+          type: boolean
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: part
+        schema:
+          type: string
+      - in: query
+        name: part_family
+        schema:
+          type: string
+          title: Part family name
+      - in: query
+        name: room
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: site
+        schema:
+          type: string
+      - in: query
+        name: sn_or_name
+        schema:
+          type: string
+      - in: query
+        name: sn_or_name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - DISABLED
+          - OFFLINE
+      - in: query
+        name: uri
+        schema:
+          type: string
+      - in: query
+        name: uri__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: wstk_part
+        schema:
+          type: string
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceSerializerPublicList'
+          description: ''
+    post:
+      operationId: devices_create
+      description: Create or update with permissions field support
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WriteOnlyDevice'
+          description: ''
+  /api/devices/{device_pk}/location/:
+    get:
+      operationId: devices_location_retrieve
+      parameters:
+      - in: path
+        name: device_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+          description: ''
+  /api/devices/{id}/:
+    get:
+      operationId: devices_retrieve
+      description: Create or update with permissions field support
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceSerializerPublic'
+          description: ''
+    put:
+      operationId: devices_update
+      description: Create or update with permissions field support
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WriteOnlyDevice'
+          description: ''
+    patch:
+      operationId: devices_partial_update
+      description: Create or update with permissions field support
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWriteOnlyDevice'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedWriteOnlyDevice'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedWriteOnlyDevice'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WriteOnlyDevice'
+          description: ''
+    delete:
+      operationId: devices_destroy
+      description: Create or update with permissions field support
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/devices/{id}/permissions/:
+    get:
+      operationId: devices_permissions_retrieve
+      description: |-
+        Get the object-level permissions for this resource. Will return
+        user permissions and user group permissions separately. User permissions
+         will not include those derived from user group membership.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    put:
+      operationId: devices_permissions_update
+      description: Update the object-level permissions for this resource.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    patch:
+      operationId: devices_permissions_partial_update
+      description: |-
+        Partially update the object-level permissions for this resource.
+        Can omit top-level fields to leave unchanged.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+  /api/devices/{id}/release/:
+    put:
+      operationId: devices_release_update
+      description: Release a device
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceSerializerPublic'
+          description: ''
+  /api/devices/{id}/reserve/:
+    put:
+      operationId: devices_reserve_update
+      description: Reserve a device
+      parameters:
+      - in: query
+        name: details
+        schema:
+          type: string
+        description: Additional information such as the jenkins job URL
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceSerializerPublic'
+          description: ''
+  /api/devices/{id}/status/:
+    post:
+      operationId: devices_status_create
+      description: |-
+        Modify the device status.
+        A comment is required unless the new status is ACTIVE.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusRequest'
+          description: ''
+  /api/devices/list_my/:
+    get:
+      operationId: devices_list_my_list
+      description: Get devices owned by authenticated user
+      parameters:
+      - in: query
+        name: date_created
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: is_wstk
+        schema:
+          type: boolean
+      - in: query
+        name: last_update
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: online
+        schema:
+          type: boolean
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: part
+        schema:
+          type: string
+      - in: query
+        name: part_family
+        schema:
+          type: string
+          title: Part family name
+      - in: query
+        name: room
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: site
+        schema:
+          type: string
+      - in: query
+        name: sn_or_name
+        schema:
+          type: string
+      - in: query
+        name: sn_or_name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - DISABLED
+          - OFFLINE
+      - in: query
+        name: uri
+        schema:
+          type: string
+      - in: query
+        name: uri__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: wstk_part
+        schema:
+          type: string
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceSerializerPublicList'
+          description: ''
+  /api/devices/search/:
+    get:
+      operationId: devices_search_list
+      description: |-
+        Search by any key-value pair in the device. Search includes nested key-value pairs in the metadata or any other fields in the serialized representation of the device.
+
+        Comparison operations can be specified by doing: key__{oper}=value. Supported operations:
+
+        eq: equals, neq: not equals, re: regular expression, gt: greater than, gte, greater than or equals, lt: less than, lte, less than or equals, in: contains
+      parameters:
+      - in: query
+        name: date_created
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: is_wstk
+        schema:
+          type: boolean
+      - in: query
+        name: last_update
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: online
+        schema:
+          type: boolean
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: part
+        schema:
+          type: string
+      - in: query
+        name: part_family
+        schema:
+          type: string
+          title: Part family name
+      - in: query
+        name: room
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: search_key_value_pairs
+        schema:
+          type: string
+        required: true
+        examples:
+          PartNoAndMetadata:
+            value: part_no=unknown&is_soc=True
+            summary: part_no and metadata
+            description: Search by the part_no and by a key-value pair in a metadata
+              field
+          LastUpdateRegex:
+            value: last_update__re=^2021
+            summary: last_update regex
+            description: Search by a regular expression matches the last_update field
+          LocationDescContains:
+            value: location_desc__in=Boston
+            summary: location_desc contains
+            description: Search by whether a string is in the loc_desc field
+      - in: query
+        name: site
+        schema:
+          type: string
+      - in: query
+        name: sn_or_name
+        schema:
+          type: string
+      - in: query
+        name: sn_or_name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - DISABLED
+          - OFFLINE
+      - in: query
+        name: uri
+        schema:
+          type: string
+      - in: query
+        name: uri__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: wstk_part
+        schema:
+          type: string
+      tags:
+      - devices
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceSerializerPublicList'
+          description: ''
+  /api/devices/set_offline/:
+    post:
+      operationId: devices_set_offline_create
+      description: |-
+        Sets all devices offline which haven't been updated
+        in the last hour
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/WriteOnlyDevice'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WriteOnlyDevice'
+          description: ''
+  /api/groups/:
+    get:
+      operationId: groups_list
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: query
+        name: devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: enable_ahs
+        schema:
+          type: boolean
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceGroupList'
+          description: ''
+    post:
+      operationId: groups_create
+      description: Viewset for DeviceGroup model
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          description: ''
+  /api/groups/{group_name}/release_by_name/:
+    put:
+      operationId: groups_release_by_name_update
+      parameters:
+      - in: path
+        name: group_name
+        schema:
+          type: string
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroup'
+          description: ''
+  /api/groups/{group_name}/reserve_by_name/:
+    put:
+      operationId: groups_reserve_by_name_update
+      parameters:
+      - in: query
+        name: details
+        schema:
+          type: string
+        description: Additional information such as the jenkins job URL
+      - in: path
+        name: group_name
+        schema:
+          type: string
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroup'
+          description: ''
+  /api/groups/{id}/:
+    get:
+      operationId: groups_retrieve
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroup'
+          description: ''
+    put:
+      operationId: groups_update
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          description: ''
+    patch:
+      operationId: groups_partial_update
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDeviceGroupSerializerWithDevicePk'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedDeviceGroupSerializerWithDevicePk'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedDeviceGroupSerializerWithDevicePk'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          description: ''
+    delete:
+      operationId: groups_destroy
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/groups/{id}/permissions/:
+    get:
+      operationId: groups_permissions_retrieve
+      description: |-
+        Get the object-level permissions for this resource. Will return
+        user permissions and user group permissions separately. User permissions
+         will not include those derived from user group membership.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    put:
+      operationId: groups_permissions_update
+      description: Update the object-level permissions for this resource.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    patch:
+      operationId: groups_permissions_partial_update
+      description: |-
+        Partially update the object-level permissions for this resource.
+        Can omit top-level fields to leave unchanged.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+  /api/groups/{id}/release/:
+    put:
+      operationId: groups_release_update
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroup'
+          description: ''
+  /api/groups/{id}/reserve/:
+    put:
+      operationId: groups_reserve_update
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: query
+        name: details
+        schema:
+          type: string
+        description: Additional information such as the jenkins job URL
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroup'
+          description: ''
+  /api/groups/{id}/status/:
+    post:
+      operationId: groups_status_create
+      description: |-
+        Modify the device status.
+        A comment is required unless the new status is ACTIVE.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusRequest'
+          description: ''
+  /api/groups/available/:
+    get:
+      operationId: groups_available_list
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: query
+        name: devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: enable_ahs
+        schema:
+          type: boolean
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceGroupList'
+          description: ''
+  /api/groups/create-with-devices:
+    post:
+      operationId: groups_create_with_devices_create
+      description: Create or update with permissions field support
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NestedDeviceGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NestedDeviceGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/NestedDeviceGroup'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroup'
+          description: ''
+  /api/groups/my/:
+    get:
+      operationId: groups_my_list
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: query
+        name: devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: enable_ahs
+        schema:
+          type: boolean
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceGroupList'
+          description: ''
+  /api/labels/:
+    get:
+      operationId: labels_list
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: query
+        name: device_groups
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLabelList'
+          description: ''
+    post:
+      operationId: labels_create
+      description: Viewset for DeviceGroup model
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LabelSerializerWithPermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LabelSerializerWithPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LabelSerializerWithPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelSerializerWithPermissions'
+          description: ''
+  /api/labels/{id}/:
+    get:
+      operationId: labels_retrieve
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Label'
+          description: ''
+    put:
+      operationId: labels_update
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LabelSerializerWithPermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LabelSerializerWithPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LabelSerializerWithPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelSerializerWithPermissions'
+          description: ''
+    patch:
+      operationId: labels_partial_update
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLabelSerializerWithPermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLabelSerializerWithPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLabelSerializerWithPermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelSerializerWithPermissions'
+          description: ''
+    delete:
+      operationId: labels_destroy
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/labels/{id}/permissions/:
+    get:
+      operationId: labels_permissions_retrieve
+      description: |-
+        Get the object-level permissions for this resource. Will return
+        user permissions and user group permissions separately. User permissions
+         will not include those derived from user group membership.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    put:
+      operationId: labels_permissions_update
+      description: Update the object-level permissions for this resource.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ObjectPermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+    patch:
+      operationId: labels_permissions_partial_update
+      description: |-
+        Partially update the object-level permissions for this resource.
+        Can omit top-level fields to leave unchanged.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+            examples:
+              FullPermissionsForAUserAndAUserGroup:
+                value:
+                  users:
+                    user1:
+                    - view
+                    - change
+                    - add
+                    - delete
+                  user_groups:
+                    Team 2:
+                    - view
+                    - change
+                    - add
+                    - delete
+                summary: Full permissions example
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedObjectPermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPermissions'
+              examples:
+                FullPermissionsForAUserAndAUserGroup:
+                  value:
+                    users:
+                      user1:
+                      - view
+                      - change
+                      - add
+                      - delete
+                    user_groups:
+                      Team 2:
+                      - view
+                      - change
+                      - add
+                      - delete
+                  summary: Full permissions example
+          description: ''
+  /api/labels/{id}/reserve_any/:
+    put:
+      operationId: labels_reserve_any_update
+      description: Viewset for DeviceGroup model
+      parameters:
+      - in: query
+        name: details
+        schema:
+          type: string
+        description: Additional information such as the jenkins job URL
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceGroup'
+          description: ''
+  /api/logs/:
+    get:
+      operationId: logs_list
+      parameters:
+      - in: query
+        name: caused_by
+        schema:
+          type: integer
+      - in: query
+        name: date_after
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: date_before
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: datetime
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: details
+        schema:
+          type: string
+      - in: query
+        name: device
+        schema:
+          type: integer
+      - in: query
+        name: device__sn_or_name
+        schema:
+          type: string
+      - in: query
+        name: device_group
+        schema:
+          type: integer
+      - in: query
+        name: device_group__name
+        schema:
+          type: string
+      - in: query
+        name: device_group_label
+        schema:
+          type: integer
+      - in: query
+        name: event
+        schema:
+          type: string
+          enum:
+          - CR
+          - ERR
+          - MOD
+          - 'OFF'
+          - 'ON'
+          - QUE
+          - REL
+          - RES
+      - in: query
+        name: owner
+        schema:
+          type: string
+        description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+          only.
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - logs
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLogList'
+          description: ''
+  /api/logs/{id}:
+    delete:
+      operationId: logs_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - logs
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/logs/{id}/:
+    get:
+      operationId: logs_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this log.
+        required: true
+      tags:
+      - logs
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Log'
+          description: ''
+  /api/part-families/:
+    get:
+      operationId: part_families_list
+      parameters:
+      - in: query
+        name: description
+        schema:
+          type: string
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: regex_pattern
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - part-families
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPartFamilyList'
+          description: ''
+    post:
+      operationId: part_families_create
+      tags:
+      - part-families
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartFamily'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PartFamily'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PartFamily'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartFamily'
+          description: ''
+  /api/part-families/{part_family_pk}/parts/:
+    get:
+      operationId: part_families_parts_list
+      parameters:
+      - in: query
+        name: board_no
+        schema:
+          type: string
+      - in: query
+        name: chip_no
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: part_family
+        schema:
+          type: string
+          title: Part family name
+      - in: path
+        name: part_family_pk
+        schema:
+          type: string
+        required: true
+      - in: query
+        name: part_no
+        schema:
+          type: string
+      - in: query
+        name: revision
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: variant
+        schema:
+          type: string
+      tags:
+      - part-families
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPartList'
+          description: ''
+    post:
+      operationId: part_families_parts_create
+      parameters:
+      - in: path
+        name: part_family_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - part-families
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Part'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Part'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Part'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Part'
+          description: ''
+  /api/part-families/{part_family_pk}/parts/{id}/:
+    get:
+      operationId: part_families_parts_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: part_family_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - part-families
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Part'
+          description: ''
+    put:
+      operationId: part_families_parts_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: part_family_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - part-families
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Part'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Part'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Part'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Part'
+          description: ''
+    patch:
+      operationId: part_families_parts_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: part_family_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - part-families
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPart'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPart'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPart'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Part'
+          description: ''
+    delete:
+      operationId: part_families_parts_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: part_family_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - part-families
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/part-families/{name}/:
+    get:
+      operationId: part_families_retrieve
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+          title: Part family name
+        description: A unique value identifying this part family.
+        required: true
+      tags:
+      - part-families
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartFamily'
+          description: ''
+    put:
+      operationId: part_families_update
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+          title: Part family name
+        description: A unique value identifying this part family.
+        required: true
+      tags:
+      - part-families
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartFamily'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PartFamily'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PartFamily'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartFamily'
+          description: ''
+    patch:
+      operationId: part_families_partial_update
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+          title: Part family name
+        description: A unique value identifying this part family.
+        required: true
+      tags:
+      - part-families
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPartFamily'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPartFamily'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPartFamily'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PartFamily'
+          description: ''
+    delete:
+      operationId: part_families_destroy
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+          title: Part family name
+        description: A unique value identifying this part family.
+        required: true
+      tags:
+      - part-families
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/parts/:
+    get:
+      operationId: parts_list
+      parameters:
+      - in: query
+        name: board_no
+        schema:
+          type: string
+      - in: query
+        name: chip_no
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: part_family
+        schema:
+          type: string
+          title: Part family name
+      - in: query
+        name: part_no
+        schema:
+          type: string
+      - in: query
+        name: revision
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: variant
+        schema:
+          type: string
+      tags:
+      - parts
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPartList'
+          description: ''
+  /api/parts/{part_no}/:
+    get:
+      operationId: parts_retrieve
+      parameters:
+      - in: path
+        name: part_no
+        schema:
+          type: string
+        description: A unique value identifying this part.
+        required: true
+      tags:
+      - parts
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Part'
+          description: ''
+  /api/permissions/groups/:
+    get:
+      operationId: permissions_groups_list
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPermissionGroupList'
+          description: ''
+    post:
+      operationId: permissions_groups_create
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+  /api/permissions/groups/{name_or_id}/:
+    get:
+      operationId: permissions_groups_retrieve
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+          pattern: '[^/]+'
+        required: true
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    put:
+      operationId: permissions_groups_update
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+          pattern: '[^/]+'
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PermissionGroup'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    patch:
+      operationId: permissions_groups_partial_update
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+          pattern: '[^/]+'
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPermissionGroup'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    delete:
+      operationId: permissions_groups_destroy
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+          pattern: '[^/]+'
+        required: true
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/permissions/groups/{name_or_id}/device_groups/:
+    get:
+      operationId: permissions_groups_device_groups_list
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: perms
+        schema:
+          type: string
+          enum:
+          - add
+          - add,delete
+          - change
+          - change,add
+          - change,add,delete
+          - change,delete
+          - delete
+          - view
+          - view,add
+          - view,add,delete
+          - view,change
+          - view,change,add
+          - view,change,add,delete
+          - view,change,delete
+          - view,delete
+          default: view,change,add,delete
+        description: Permission types. Only entities with all permissions defined
+          here will be fetched. Defaults to all permissions.
+        examples:
+          EntitiesWithViewPermissions:
+            value: view
+            summary: Entities with view permissions
+          EntitiesWithViewAndChangePermissions:
+            value: view,change
+            summary: Entities with view and change permissions
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceGroupList'
+          description: ''
+    post:
+      operationId: permissions_groups_device_groups_create
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+          multipart/form-data:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+  /api/permissions/groups/{name_or_id}/device_groups/{id}/:
+    put:
+      operationId: permissions_groups_device_groups_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    patch:
+      operationId: permissions_groups_device_groups_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePermissions'
+          description: ''
+    delete:
+      operationId: permissions_groups_device_groups_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/permissions/groups/{name_or_id}/devices/:
+    get:
+      operationId: permissions_groups_devices_list
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: perms
+        schema:
+          type: string
+          enum:
+          - add
+          - add,delete
+          - change
+          - change,add
+          - change,add,delete
+          - change,delete
+          - delete
+          - view
+          - view,add
+          - view,add,delete
+          - view,change
+          - view,change,add
+          - view,change,add,delete
+          - view,change,delete
+          - view,delete
+          default: view,change,add,delete
+        description: Permission types. Only entities with all permissions defined
+          here will be fetched. Defaults to all permissions.
+        examples:
+          EntitiesWithViewPermissions:
+            value: view
+            summary: Entities with view permissions
+          EntitiesWithViewAndChangePermissions:
+            value: view,change
+            summary: Entities with view and change permissions
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDeviceSerializerPublicList'
+          description: ''
+    post:
+      operationId: permissions_groups_devices_create
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+          multipart/form-data:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+  /api/permissions/groups/{name_or_id}/devices/{id}/:
+    put:
+      operationId: permissions_groups_devices_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    patch:
+      operationId: permissions_groups_devices_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePermissions'
+          description: ''
+    delete:
+      operationId: permissions_groups_devices_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/permissions/groups/{name_or_id}/labels/:
+    get:
+      operationId: permissions_groups_labels_list
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: perms
+        schema:
+          type: string
+          enum:
+          - add
+          - add,delete
+          - change
+          - change,add
+          - change,add,delete
+          - change,delete
+          - delete
+          - view
+          - view,add
+          - view,add,delete
+          - view,change
+          - view,change,add
+          - view,change,add,delete
+          - view,change,delete
+          - view,delete
+          default: view,change,add,delete
+        description: Permission types. Only entities with all permissions defined
+          here will be fetched. Defaults to all permissions.
+        examples:
+          EntitiesWithViewPermissions:
+            value: view
+            summary: Entities with view permissions
+          EntitiesWithViewAndChangePermissions:
+            value: view,change
+            summary: Entities with view and change permissions
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLabelList'
+          description: ''
+    post:
+      operationId: permissions_groups_labels_create
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+          multipart/form-data:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ResourcePermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+  /api/permissions/groups/{name_or_id}/labels/{id}/:
+    put:
+      operationId: permissions_groups_labels_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourcePermissions'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+    patch:
+      operationId: permissions_groups_labels_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedResourcePermissions'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourcePermissions'
+          description: ''
+    delete:
+      operationId: permissions_groups_labels_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group label.
+        required: true
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/permissions/groups/{name_or_id}/users/:
+    post:
+      operationId: permissions_groups_users_create
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      tags:
+      - permissions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionGroup'
+          description: ''
+  /api/permissions/groups/{name_or_id}/users/{username_or_id}/:
+    delete:
+      operationId: permissions_groups_users_destroy
+      parameters:
+      - in: path
+        name: name_or_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - permissions
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/reservations/:
+    get:
+      operationId: reservations_list
+      parameters:
+      - in: query
+        name: a_device_groups
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: a_devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: cancel_existing
+        schema:
+          type: boolean
+      - in: query
+        name: details
+        schema:
+          type: string
+      - in: query
+        name: device
+        schema:
+          type: number
+      - in: query
+        name: device_group
+        schema:
+          type: number
+      - in: query
+        name: id
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: include_resource_data
+        schema:
+          type: boolean
+          default: false
+        description: Whether to include the detailed data for all resources related
+          to the reservation.
+      - in: query
+        name: invert_priority
+        schema:
+          type: boolean
+      - in: query
+        name: label
+        schema:
+          type: number
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: r_device_group_labels
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: r_device_groups
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: r_devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ''
+          - ACT
+          - EXP
+          - FIN
+          - QUE
+      - in: query
+        name: t_completed
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: t_lease_expires
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: t_requested
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_requested__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_requested__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: use_watchdog
+        schema:
+          type: boolean
+      tags:
+      - reservations
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedReservationSessionSerializerReadOnlyList'
+          description: ''
+    post:
+      operationId: reservations_create
+      tags:
+      - reservations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservationRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReservationRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReservationRequest'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+          description: ''
+  /api/reservations/{id}/:
+    get:
+      operationId: reservations_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this reservation session.
+        required: true
+      tags:
+      - reservations
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+          description: ''
+    put:
+      operationId: reservations_update
+      description: Check queue status or renew lease if reservation is ongoing
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this reservation session.
+        required: true
+      tags:
+      - reservations
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+          description: ''
+  /api/reservations/{id}/cancel/:
+    put:
+      operationId: reservations_cancel_update
+      description: Release the reservation
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this reservation session.
+        required: true
+      tags:
+      - reservations
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+          description: ''
+  /api/reservations/{id}/metadata/:
+    put:
+      operationId: reservations_metadata_update
+      description: |-
+        Update the reservation metadata. Use PUT to replace the existing data
+        entirely and PATCH to update without deleting existing values.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this reservation session.
+        required: true
+      tags:
+      - reservations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+          description: ''
+    patch:
+      operationId: reservations_metadata_partial_update
+      description: |-
+        Update the reservation metadata. Use PUT to replace the existing data
+        entirely and PATCH to update without deleting existing values.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this reservation session.
+        required: true
+      tags:
+      - reservations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+          description: ''
+  /api/reservations/{id}/release/:
+    put:
+      operationId: reservations_release_update
+      description: Release the reservation
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this reservation session.
+        required: true
+      tags:
+      - reservations
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+          description: ''
+  /api/reservations/actionable/:
+    get:
+      operationId: reservations_actionable_list
+      parameters:
+      - in: query
+        name: a_device_groups
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: a_devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: cancel_existing
+        schema:
+          type: boolean
+      - in: query
+        name: details
+        schema:
+          type: string
+      - in: query
+        name: device
+        schema:
+          type: number
+      - in: query
+        name: device_group
+        schema:
+          type: number
+      - in: query
+        name: id
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: include_resource_data
+        schema:
+          type: boolean
+          default: false
+        description: Whether to include the detailed data for all resources related
+          to the reservation.
+      - in: query
+        name: invert_priority
+        schema:
+          type: boolean
+      - in: query
+        name: label
+        schema:
+          type: number
+      - in: query
+        name: max_history
+        schema:
+          type: string
+          format: date-time
+        description: Filter out reservations that expired before the specified datetime.
+          Defaults to 24 hours prior.
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: r_device_group_labels
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: r_device_groups
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: r_devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ''
+          - ACT
+          - EXP
+          - FIN
+          - QUE
+      - in: query
+        name: t_completed
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: t_lease_expires
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: t_requested
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_requested__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_requested__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: use_watchdog
+        schema:
+          type: boolean
+      tags:
+      - reservations
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedReservationSessionSerializerReadOnlyList'
+          description: ''
+  /api/reservations/active/:
+    get:
+      operationId: reservations_active_list
+      parameters:
+      - in: query
+        name: a_device_groups
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: a_devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: cancel_existing
+        schema:
+          type: boolean
+      - in: query
+        name: details
+        schema:
+          type: string
+      - in: query
+        name: device
+        schema:
+          type: number
+      - in: query
+        name: device_group
+        schema:
+          type: number
+      - in: query
+        name: id
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: include_resource_data
+        schema:
+          type: boolean
+          default: false
+        description: Whether to include the detailed data for all resources related
+          to the reservation.
+      - in: query
+        name: invert_priority
+        schema:
+          type: boolean
+      - in: query
+        name: label
+        schema:
+          type: number
+      - in: query
+        name: max_history
+        schema:
+          type: string
+          format: date-time
+        description: Filter out reservations that expired before the specified datetime.
+          Defaults to 24 hours prior.
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: integer
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: query
+        name: r_device_group_labels
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: r_device_groups
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: r_devices
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ''
+          - ACT
+          - EXP
+          - FIN
+          - QUE
+      - in: query
+        name: t_completed
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_completed__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: t_lease_expires
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_lease_expires__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: t_requested
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_requested__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_requested__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__after
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__before
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: t_satisfied__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: use_watchdog
+        schema:
+          type: boolean
+      tags:
+      - reservations
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedReservationSessionSerializerReadOnlyList'
+          description: ''
+  /api/rooms/:
+    get:
+      operationId: rooms_list
+      parameters:
+      - in: query
+        name: description
+        schema:
+          type: string
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: site
+        schema:
+          type: string
+      tags:
+      - rooms
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRoomList'
+          description: ''
+  /api/rooms/{name}/:
+    get:
+      operationId: rooms_retrieve
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        description: A unique value identifying this room.
+        required: true
+      tags:
+      - rooms
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+          description: ''
+  /api/sites/:
+    get:
+      operationId: sites_list
+      parameters:
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - sites
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSiteList'
+          description: ''
+    post:
+      operationId: sites_create
+      tags:
+      - sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Site'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Site'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Site'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+          description: ''
+  /api/sites/{name}/:
+    get:
+      operationId: sites_retrieve
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        description: A unique value identifying this site.
+        required: true
+      tags:
+      - sites
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+          description: ''
+    put:
+      operationId: sites_update
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        description: A unique value identifying this site.
+        required: true
+      tags:
+      - sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Site'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Site'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Site'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+          description: ''
+    patch:
+      operationId: sites_partial_update
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        description: A unique value identifying this site.
+        required: true
+      tags:
+      - sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedSite'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedSite'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Site'
+          description: ''
+    delete:
+      operationId: sites_destroy
+      parameters:
+      - in: path
+        name: name
+        schema:
+          type: string
+        description: A unique value identifying this site.
+        required: true
+      tags:
+      - sites
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/sites/{site_pk}/rooms/:
+    get:
+      operationId: sites_rooms_list
+      parameters:
+      - in: query
+        name: description
+        schema:
+          type: string
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: site
+        schema:
+          type: string
+      - in: path
+        name: site_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - sites
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRoomList'
+          description: ''
+    post:
+      operationId: sites_rooms_create
+      parameters:
+      - in: path
+        name: site_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Room'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+          description: ''
+  /api/sites/{site_pk}/rooms/{id}/:
+    get:
+      operationId: sites_rooms_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: site_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - sites
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+          description: ''
+    put:
+      operationId: sites_rooms_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: site_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Room'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Room'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Room'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+          description: ''
+    patch:
+      operationId: sites_rooms_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: site_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - sites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedRoom'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedRoom'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedRoom'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+          description: ''
+    delete:
+      operationId: sites_rooms_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: site_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - sites
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/user/:
+    get:
+      operationId: user_list
+      parameters:
+      - in: query
+        name: email
+        schema:
+          type: string
+      - in: query
+        name: first_name
+        schema:
+          type: string
+      - in: query
+        name: last_name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: user_group
+        schema:
+          type: string
+      - in: query
+        name: username
+        schema:
+          type: string
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLoggedInUserList'
+          description: ''
+    post:
+      operationId: user_create
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+  /api/user/{username_or_id}/:
+    get:
+      operationId: user_retrieve
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+    put:
+      operationId: user_update
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LoggedInUser'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+    patch:
+      operationId: user_partial_update
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLoggedInUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLoggedInUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLoggedInUser'
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+    delete:
+      operationId: user_destroy
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/user/{username_or_id}/token/:
+    get:
+      operationId: user_token_retrieve
+      description: |-
+        Gets the current user's API token. Generates one if none available.
+        Requires superuser status or model permissions.
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
+    post:
+      operationId: user_token_create
+      description: |-
+        Generates new API token for the given user. The old tokens become
+        invalid. Requires superuser status or model permissions.
+      parameters:
+      - in: path
+        name: username_or_id
+        schema:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        required: true
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
+  /api/user/current/:
+    get:
+      operationId: user_current_retrieve
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoggedInUser'
+          description: ''
+  /api/user/current/token/:
+    get:
+      operationId: user_current_token_retrieve
+      description: "Gets the current user's API token. Generates one if none available.\n\
+        \        "
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
+    post:
+      operationId: user_current_token_create
+      description: |-
+        Generates new API token for the current user. The old tokens become
+        invalid.
+      tags:
+      - user
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+          description: ''
+  /callback/:
+    get:
+      operationId: callback_retrieve
+      description: |-
+        Uses the auth token to get user data to store in the session
+        and create a Django Auth user
+      tags:
+      - callback
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /schema/download:
+    get:
+      operationId: schema_download_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /signin/:
+    get:
+      operationId: signin_retrieve
+      description: Gets the auth flow and redirects to the authority uri
+      tags:
+      - signin
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /signout/:
+    get:
+      operationId: signout_retrieve
+      description: Logs the user out of the session
+      tags:
+      - signout
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  schemas:
+    AuthToken:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        token:
+          type: string
+          readOnly: true
+      required:
+      - password
+      - token
+      - username
+    DeviceGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/LightDevice'
+          readOnly: true
+        is_reserved:
+          type: boolean
+          nullable: true
+          readOnly: true
+        online:
+          type: boolean
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        enable_ahs:
+          type: boolean
+        metadata:
+          type: object
+          additionalProperties: {}
+          nullable: true
+      required:
+      - devices
+      - id
+      - is_reserved
+      - name
+      - online
+    DeviceGroupSerializerWithDevicePk:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        devices:
+          type: array
+          items:
+            type: integer
+        is_reserved:
+          type: boolean
+          nullable: true
+          readOnly: true
+        online:
+          type: boolean
+          readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        enable_ahs:
+          type: boolean
+        metadata:
+          type: object
+          additionalProperties: {}
+          nullable: true
+      required:
+      - id
+      - is_reserved
+      - name
+      - online
+    DeviceSerializerPublic:
+      type: object
+      description: Serializes Device querysets to JSON
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        part:
+          $ref: '#/components/schemas/Part'
+        loc_desc:
+          type: string
+          readOnly: true
+        is_reserved:
+          type: boolean
+          nullable: true
+          readOnly: true
+        sn_or_name:
+          type: string
+          nullable: true
+          title: Device name or serial number
+          maxLength: 255
+        is_wstk:
+          type: boolean
+          title: If the device is a WSTK
+        uri:
+          type: string
+          nullable: true
+          maxLength: 255
+        online:
+          type: boolean
+          title: Is online
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        last_update:
+          type: string
+          format: date-time
+          readOnly: true
+        date_created:
+          type: string
+          format: date-time
+          readOnly: true
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        wstk_part:
+          type: string
+          nullable: true
+          title: WSTK part number
+      required:
+      - date_created
+      - id
+      - is_reserved
+      - last_update
+      - loc_desc
+      - part
+    EventEnum:
+      enum:
+      - RES
+      - REL
+      - 'OFF'
+      - 'ON'
+      - CR
+      - MOD
+      - QUE
+      - ERR
+      type: string
+    Label:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        device_groups:
+          type: array
+          items:
+            type: integer
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        metadata:
+          type: object
+          additionalProperties: {}
+          nullable: true
+      required:
+      - device_groups
+      - id
+      - name
+    LabelSerializerWithPermissions:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        device_groups:
+          type: array
+          items:
+            type: integer
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        metadata:
+          type: object
+          additionalProperties: {}
+          nullable: true
+      required:
+      - device_groups
+      - id
+      - name
+    LightDevice:
+      type: object
+      description: A lightweight device representation used in the DeviceGroup serializer
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        sn_or_name:
+          type: string
+          nullable: true
+          title: Device name or serial number
+          maxLength: 255
+        uri:
+          type: string
+          nullable: true
+          maxLength: 255
+        is_wstk:
+          type: boolean
+          title: If the device is a WSTK
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        online:
+          type: boolean
+          title: Is online
+        part:
+          $ref: '#/components/schemas/Part'
+        location:
+          type: integer
+      required:
+      - id
+      - location
+      - part
+    Location:
+      type: object
+      description: Serializer for the Location model
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        room:
+          allOf:
+          - $ref: '#/components/schemas/Room'
+          readOnly: true
+        description:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        device:
+          type: integer
+          title: Physical location of the device
+      required:
+      - device
+      - id
+      - room
+    LocationSerializerWriteOnly:
+      type: object
+      description: Serializer for the Location model
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        room:
+          type: string
+        description:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+      required:
+      - id
+      - room
+    Log:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        owner:
+          type: string
+          readOnly: true
+        device:
+          type: string
+          format: uri
+          readOnly: true
+          nullable: true
+        device_group:
+          type: string
+          format: uri
+          readOnly: true
+          nullable: true
+        event:
+          $ref: '#/components/schemas/EventEnum'
+        datetime:
+          type: string
+          format: date-time
+          readOnly: true
+        details:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        device_group_label:
+          type: integer
+          nullable: true
+        caused_by:
+          type: integer
+          nullable: true
+      required:
+      - datetime
+      - device
+      - device_group
+      - event
+      - id
+      - owner
+    LoggedInUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        is_staff:
+          type: boolean
+          title: Staff status
+          description: Designates whether the user can log into this admin site.
+        groups:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        is_superuser:
+          type: boolean
+          title: Superuser status
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+      required:
+      - groups
+      - id
+      - password
+      - username
+    NestedDeviceGroup:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/WriteOnlyDevice'
+        metadata:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+      required:
+      - name
+    ObjectPermissions:
+      type: object
+      properties:
+        users:
+          type: object
+          additionalProperties: {}
+        user_groups:
+          type: object
+          additionalProperties: {}
+      required:
+      - user_groups
+      - users
+    PaginatedDeviceGroupList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceGroup'
+    PaginatedDeviceSerializerPublicList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceSerializerPublic'
+    PaginatedLabelList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+    PaginatedLogList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Log'
+    PaginatedLoggedInUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LoggedInUser'
+    PaginatedPartFamilyList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PartFamily'
+    PaginatedPartList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Part'
+    PaginatedPermissionGroupList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionGroup'
+    PaginatedReservationSessionSerializerReadOnlyList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
+    PaginatedRoomList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
+    PaginatedSiteList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Site'
+    Part:
+      type: object
+      description: Serializer for the Part model
+      properties:
+        part_no:
+          type: string
+          readOnly: true
+          pattern: ^[-a-zA-Z0-9_]+$
+        part_family:
+          allOf:
+          - $ref: '#/components/schemas/PartFamily'
+          readOnly: true
+        board_no:
+          type: string
+          nullable: true
+          maxLength: 255
+        variant:
+          type: string
+          default: ''
+          maxLength: 255
+        revision:
+          type: string
+          default: ''
+          maxLength: 255
+        chip_no:
+          type: string
+          nullable: true
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+      required:
+      - board_no
+      - part_family
+      - part_no
+    PartFamily:
+      type: object
+      description: Serializer for the PartFamily model
+      properties:
+        name:
+          type: string
+          title: Part family name
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        regex_pattern:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+      required:
+      - name
+    PatchedDeviceGroupSerializerWithDevicePk:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        devices:
+          type: array
+          items:
+            type: integer
+        is_reserved:
+          type: boolean
+          nullable: true
+          readOnly: true
+        online:
+          type: boolean
+          readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        enable_ahs:
+          type: boolean
+        metadata:
+          type: object
+          additionalProperties: {}
+          nullable: true
+    PatchedLabelSerializerWithPermissions:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        device_groups:
+          type: array
+          items:
+            type: integer
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        metadata:
+          type: object
+          additionalProperties: {}
+          nullable: true
+    PatchedLoggedInUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        is_staff:
+          type: boolean
+          title: Staff status
+          description: Designates whether the user can log into this admin site.
+        groups:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        is_superuser:
+          type: boolean
+          title: Superuser status
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+    PatchedObjectPermissions:
+      type: object
+      properties:
+        users:
+          type: object
+          additionalProperties: {}
+        user_groups:
+          type: object
+          additionalProperties: {}
+    PatchedPart:
+      type: object
+      description: Serializer for the Part model
+      properties:
+        part_no:
+          type: string
+          readOnly: true
+          pattern: ^[-a-zA-Z0-9_]+$
+        part_family:
+          allOf:
+          - $ref: '#/components/schemas/PartFamily'
+          readOnly: true
+        board_no:
+          type: string
+          nullable: true
+          maxLength: 255
+        variant:
+          type: string
+          default: ''
+          maxLength: 255
+        revision:
+          type: string
+          default: ''
+          maxLength: 255
+        chip_no:
+          type: string
+          nullable: true
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+    PatchedPartFamily:
+      type: object
+      description: Serializer for the PartFamily model
+      properties:
+        name:
+          type: string
+          title: Part family name
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        regex_pattern:
+          type: string
+          nullable: true
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+    PatchedPermissionGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        permissions:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 150
+    PatchedResourcePermissions:
+      type: object
+      properties:
+        id:
+          type: integer
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionsEnum'
+          default:
+          - view
+          - add
+          - delete
+          - change
+    PatchedRoom:
+      type: object
+      description: Serializer for the Room model
+      properties:
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        site:
+          type: string
+          readOnly: true
+        description:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+    PatchedSite:
+      type: object
+      description: Serializer for the Site model
+      properties:
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+          maxLength: 255
+        lon:
+          type: number
+          format: float
+          title: Longitude in WGS84
+        lat:
+          type: number
+          format: float
+          title: Latitude in WGS84
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+    PatchedWriteOnlyDevice:
+      type: object
+      description: Serializes Device querysets to JSON
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        part:
+          type: string
+        loc_desc:
+          type: string
+          readOnly: true
+        is_reserved:
+          type: boolean
+          nullable: true
+          readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+        location:
+          $ref: '#/components/schemas/LocationSerializerWriteOnly'
+        sn_or_name:
+          type: string
+          nullable: true
+          title: Device name or serial number
+          maxLength: 255
+        is_wstk:
+          type: boolean
+          title: If the device is a WSTK
+        uri:
+          type: string
+          nullable: true
+          maxLength: 255
+        online:
+          type: boolean
+          title: Is online
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        last_update:
+          type: string
+          format: date-time
+          readOnly: true
+        date_created:
+          type: string
+          format: date-time
+          readOnly: true
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        wstk_part:
+          type: string
+          nullable: true
+          title: WSTK part number
+    PermissionGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        permissions:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        name:
+          type: string
+          maxLength: 150
+      required:
+      - id
+      - name
+      - permissions
+    PermissionsEnum:
+      enum:
+      - view
+      - change
+      - add
+      - delete
+      type: string
+    ReservationRequest:
+      type: object
+      properties:
+        details:
+          type: string
+          maxLength: 255
+        r_devices:
+          type: array
+          items:
+            type: integer
+        r_device_groups:
+          type: array
+          items:
+            type: integer
+        r_device_group_labels:
+          type: array
+          items:
+            type: integer
+        use_watchdog:
+          type: boolean
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        invert_priority:
+          type: boolean
+          default: false
+    ReservationSessionSerializerReadOnly:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+          nullable: true
+        is_satisfied:
+          type: boolean
+          readOnly: true
+        response_message:
+          type: string
+          readOnly: true
+        status:
+          type: string
+          readOnly: true
+          nullable: true
+        queue_position:
+          type: integer
+          nullable: true
+          readOnly: true
+        queue:
+          type: array
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+        resource_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
+        details:
+          type: string
+          readOnly: true
+        use_watchdog:
+          type: boolean
+        invert_priority:
+          type: boolean
+          readOnly: true
+        cancel_existing:
+          type: boolean
+          readOnly: true
+          nullable: true
+        t_requested:
+          type: string
+          format: date-time
+          readOnly: true
+        t_satisfied:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        t_completed:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        t_lease_expires:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        metadata:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+          title: Additional data
+        r_devices:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        r_device_groups:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        r_device_group_labels:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        a_devices:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+        a_device_groups:
+          type: array
+          items:
+            type: integer
+          readOnly: true
+      required:
+      - a_device_groups
+      - a_devices
+      - cancel_existing
+      - details
+      - id
+      - invert_priority
+      - is_satisfied
+      - metadata
+      - owner
+      - queue
+      - queue_position
+      - r_device_group_labels
+      - r_device_groups
+      - r_devices
+      - resource_data
+      - response_message
+      - status
+      - t_completed
+      - t_lease_expires
+      - t_requested
+      - t_satisfied
+    ResourcePermissions:
+      type: object
+      properties:
+        id:
+          type: integer
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionsEnum'
+          default:
+          - view
+          - add
+          - delete
+          - change
+      required:
+      - id
+    ResourceStatusRequest:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        metadata:
+          type: object
+          additionalProperties: {}
+        comment:
+          type: string
+      required:
+      - status
+    Room:
+      type: object
+      description: Serializer for the Room model
+      properties:
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        site:
+          type: string
+          readOnly: true
+        description:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+      required:
+      - name
+      - site
+    Site:
+      type: object
+      description: Serializer for the Site model
+      properties:
+        name:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+          maxLength: 255
+        lon:
+          type: number
+          format: float
+          title: Longitude in WGS84
+        lat:
+          type: number
+          format: float
+          title: Latitude in WGS84
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+      required:
+      - lat
+      - lon
+      - name
+    StatusEnum:
+      enum:
+      - ACTIVE
+      - DISABLED
+      - OFFLINE
+      type: string
+    Token:
+      type: object
+      properties:
+        key:
+          type: string
+          maxLength: 40
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created
+      - key
+    User:
+      type: object
+      description: |-
+        Used for showing username of the person currently
+        owning the device instead of showing user id.
+      properties:
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+      required:
+      - username
+    WriteOnlyDevice:
+      type: object
+      description: Serializes Device querysets to JSON
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        part:
+          type: string
+        loc_desc:
+          type: string
+          readOnly: true
+        is_reserved:
+          type: boolean
+          nullable: true
+          readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
+        location:
+          $ref: '#/components/schemas/LocationSerializerWriteOnly'
+        sn_or_name:
+          type: string
+          nullable: true
+          title: Device name or serial number
+          maxLength: 255
+        is_wstk:
+          type: boolean
+          title: If the device is a WSTK
+        uri:
+          type: string
+          nullable: true
+          maxLength: 255
+        online:
+          type: boolean
+          title: Is online
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        last_update:
+          type: string
+          format: date-time
+          readOnly: true
+        date_created:
+          type: string
+          format: date-time
+          readOnly: true
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        wstk_part:
+          type: string
+          nullable: true
+          title: WSTK part number
+      required:
+      - date_created
+      - id
+      - is_reserved
+      - last_update
+      - loc_desc
+      - location
+      - part
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"
+servers:
+- url: https://hwmux.silabs.net
+  description: HW Mux Server

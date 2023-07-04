@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+
+  openapi-generator-cli:
+    image: openapitools/openapi-generator-cli:v6.2.1
+    volumes:
+      - ../:/local
