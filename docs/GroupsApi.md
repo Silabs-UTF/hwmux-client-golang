@@ -19,13 +19,14 @@ Method | HTTP request | Description
 [**GroupsReserveByNameUpdate**](GroupsApi.md#GroupsReserveByNameUpdate) | **Put** /api/groups/{group_name}/reserve_by_name/ | 
 [**GroupsReserveUpdate**](GroupsApi.md#GroupsReserveUpdate) | **Put** /api/groups/{id}/reserve/ | 
 [**GroupsRetrieve**](GroupsApi.md#GroupsRetrieve) | **Get** /api/groups/{id}/ | 
+[**GroupsStatusCreate**](GroupsApi.md#GroupsStatusCreate) | **Post** /api/groups/{id}/status/ | 
 [**GroupsUpdate**](GroupsApi.md#GroupsUpdate) | **Put** /api/groups/{id}/ | 
 
 
 
 ## GroupsAvailableList
 
-> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -45,6 +46,8 @@ import (
 
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
+    enableAhs := true // bool |  (optional)
+    idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
@@ -52,7 +55,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsAvailableList(context.Background()).Devices(devices).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsAvailableList(context.Background()).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsAvailableList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -74,6 +77,8 @@ Other parameters are passed through a pointer to a apiGroupsAvailableListRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **devices** | **[]int32** |  | 
+ **enableAhs** | **bool** |  | 
+ **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
@@ -299,7 +304,7 @@ Name | Type | Description  | Notes
 
 ## GroupsList
 
-> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -319,6 +324,8 @@ import (
 
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
+    enableAhs := true // bool |  (optional)
+    idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
@@ -326,7 +333,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Devices(devices).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -348,6 +355,8 @@ Other parameters are passed through a pointer to a apiGroupsListRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **devices** | **[]int32** |  | 
+ **enableAhs** | **bool** |  | 
+ **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
@@ -373,7 +382,7 @@ Name | Type | Description  | Notes
 
 ## GroupsMyList
 
-> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -393,6 +402,8 @@ import (
 
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
+    enableAhs := true // bool |  (optional)
+    idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
@@ -400,7 +411,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsMyList(context.Background()).Devices(devices).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsMyList(context.Background()).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -422,6 +433,8 @@ Other parameters are passed through a pointer to a apiGroupsMyListRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **devices** | **[]int32** |  | 
+ **enableAhs** | **bool** |  | 
+ **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
@@ -1074,6 +1087,78 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GroupsStatusCreate
+
+> ResourceStatusRequest GroupsStatusCreate(ctx, id).ResourceStatusRequest(resourceStatusRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := int32(56) // int32 | A unique integer value identifying this device group.
+    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.StatusEnum("ACTIVE")) // ResourceStatusRequest | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupsApi.GroupsStatusCreate(context.Background(), id).ResourceStatusRequest(resourceStatusRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsStatusCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GroupsStatusCreate`: ResourceStatusRequest
+    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsStatusCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this device group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupsStatusCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **resourceStatusRequest** | [**ResourceStatusRequest**](ResourceStatusRequest.md) |  | 
+
+### Return type
+
+[**ResourceStatusRequest**](ResourceStatusRequest.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Online** | Pointer to **bool** |  | [optional] [readonly] 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
+**EnableAhs** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -190,6 +191,31 @@ SetName sets Name field to given value.
 `func (o *PatchedDeviceGroupSerializerWithDevicePk) HasName() bool`
 
 HasName returns a boolean if a field has been set.
+
+### GetEnableAhs
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetEnableAhs() bool`
+
+GetEnableAhs returns the EnableAhs field if non-nil, zero value otherwise.
+
+### GetEnableAhsOk
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetEnableAhsOk() (*bool, bool)`
+
+GetEnableAhsOk returns a tuple with the EnableAhs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhs
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetEnableAhs(v bool)`
+
+SetEnableAhs sets EnableAhs field to given value.
+
+### HasEnableAhs
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) HasEnableAhs() bool`
+
+HasEnableAhs returns a boolean if a field has been set.
 
 ### GetMetadata
 

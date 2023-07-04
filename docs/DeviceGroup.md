@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **IsReserved** | **NullableBool** |  | [readonly] 
 **Online** | **bool** |  | [readonly] 
 **Name** | **string** |  | 
+**EnableAhs** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -139,6 +140,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetEnableAhs
+
+`func (o *DeviceGroup) GetEnableAhs() bool`
+
+GetEnableAhs returns the EnableAhs field if non-nil, zero value otherwise.
+
+### GetEnableAhsOk
+
+`func (o *DeviceGroup) GetEnableAhsOk() (*bool, bool)`
+
+GetEnableAhsOk returns a tuple with the EnableAhs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhs
+
+`func (o *DeviceGroup) SetEnableAhs(v bool)`
+
+SetEnableAhs sets EnableAhs field to given value.
+
+### HasEnableAhs
+
+`func (o *DeviceGroup) HasEnableAhs() bool`
+
+HasEnableAhs returns a boolean if a field has been set.
 
 ### GetMetadata
 

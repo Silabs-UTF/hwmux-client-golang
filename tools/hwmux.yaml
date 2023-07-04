@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.12.0
+  version: 2.19.0
 paths:
   /api-token-auth/:
     post:
@@ -40,6 +40,15 @@ paths:
         schema:
           type: string
           format: date-time
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
       - in: query
         name: is_wstk
         schema:
@@ -97,6 +106,14 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - DISABLED
+          - OFFLINE
+      - in: query
         name: uri
         schema:
           type: string
@@ -104,6 +121,10 @@ paths:
         name: uri__isnull
         schema:
           type: boolean
+      - in: query
+        name: wstk_part
+        schema:
+          type: string
       tags:
       - devices
       security:
@@ -498,6 +519,43 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeviceSerializerPublic'
           description: ''
+  /api/devices/{id}/status/:
+    post:
+      operationId: devices_status_create
+      description: |-
+        Modify the device status.
+        A comment is required unless the new status is ACTIVE.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device.
+        required: true
+      tags:
+      - devices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusRequest'
+          description: ''
   /api/devices/list_my/:
     get:
       operationId: devices_list_my_list
@@ -508,6 +566,15 @@ paths:
         schema:
           type: string
           format: date-time
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
       - in: query
         name: is_wstk
         schema:
@@ -565,6 +632,14 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - DISABLED
+          - OFFLINE
+      - in: query
         name: uri
         schema:
           type: string
@@ -572,6 +647,10 @@ paths:
         name: uri__isnull
         schema:
           type: boolean
+      - in: query
+        name: wstk_part
+        schema:
+          type: string
       tags:
       - devices
       security:
@@ -599,6 +678,15 @@ paths:
         schema:
           type: string
           format: date-time
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
       - in: query
         name: is_wstk
         schema:
@@ -675,6 +763,14 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ACTIVE
+          - DISABLED
+          - OFFLINE
+      - in: query
         name: uri
         schema:
           type: string
@@ -682,6 +778,10 @@ paths:
         name: uri__isnull
         schema:
           type: boolean
+      - in: query
+        name: wstk_part
+        schema:
+          type: string
       tags:
       - devices
       security:
@@ -736,6 +836,19 @@ paths:
           items:
             type: integer
         explode: true
+        style: form
+      - in: query
+        name: enable_ahs
+        schema:
+          type: boolean
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
         style: form
       - in: query
         name: name
@@ -1179,6 +1292,43 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeviceGroup'
           description: ''
+  /api/groups/{id}/status/:
+    post:
+      operationId: groups_status_create
+      description: |-
+        Modify the device status.
+        A comment is required unless the new status is ACTIVE.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this device group.
+        required: true
+      tags:
+      - groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ResourceStatusRequest'
+        required: true
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceStatusRequest'
+          description: ''
   /api/groups/available/:
     get:
       operationId: groups_available_list
@@ -1191,6 +1341,19 @@ paths:
           items:
             type: integer
         explode: true
+        style: form
+      - in: query
+        name: enable_ahs
+        schema:
+          type: boolean
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
         style: form
       - in: query
         name: name
@@ -1266,6 +1429,19 @@ paths:
           items:
             type: integer
         explode: true
+        style: form
+      - in: query
+        name: enable_ahs
+        schema:
+          type: boolean
+      - in: query
+        name: id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
         style: form
       - in: query
         name: name
@@ -2360,6 +2536,7 @@ paths:
         name: name_or_id
         schema:
           type: string
+          pattern: '[^/]+'
         required: true
       tags:
       - permissions
@@ -2380,6 +2557,7 @@ paths:
         name: name_or_id
         schema:
           type: string
+          pattern: '[^/]+'
         required: true
       tags:
       - permissions
@@ -2412,6 +2590,7 @@ paths:
         name: name_or_id
         schema:
           type: string
+          pattern: '[^/]+'
         required: true
       tags:
       - permissions
@@ -2443,6 +2622,7 @@ paths:
         name: name_or_id
         schema:
           type: string
+          pattern: '[^/]+'
         required: true
       tags:
       - permissions
@@ -3115,14 +3295,41 @@ paths:
         explode: true
         style: form
       - in: query
+        name: cancel_existing
+        schema:
+          type: boolean
+      - in: query
         name: details
         schema:
           type: string
+      - in: query
+        name: device
+        schema:
+          type: number
+      - in: query
+        name: device_group
+        schema:
+          type: number
       - in: query
         name: id
         schema:
           type: string
           format: uuid
+      - in: query
+        name: include_resource_data
+        schema:
+          type: boolean
+          default: false
+        description: Whether to include the detailed data for all resources related
+          to the reservation.
+      - in: query
+        name: invert_priority
+        schema:
+          type: boolean
+      - in: query
+        name: label
+        schema:
+          type: number
       - name: ordering
         required: false
         in: query
@@ -3169,6 +3376,16 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ''
+          - ACT
+          - EXP
+          - FIN
+          - QUE
       - in: query
         name: t_completed
         schema:
@@ -3476,14 +3693,41 @@ paths:
         explode: true
         style: form
       - in: query
+        name: cancel_existing
+        schema:
+          type: boolean
+      - in: query
         name: details
         schema:
           type: string
+      - in: query
+        name: device
+        schema:
+          type: number
+      - in: query
+        name: device_group
+        schema:
+          type: number
       - in: query
         name: id
         schema:
           type: string
           format: uuid
+      - in: query
+        name: include_resource_data
+        schema:
+          type: boolean
+          default: false
+        description: Whether to include the detailed data for all resources related
+          to the reservation.
+      - in: query
+        name: invert_priority
+        schema:
+          type: boolean
+      - in: query
+        name: label
+        schema:
+          type: number
       - in: query
         name: max_history
         schema:
@@ -3537,6 +3781,16 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ''
+          - ACT
+          - EXP
+          - FIN
+          - QUE
       - in: query
         name: t_completed
         schema:
@@ -3646,14 +3900,41 @@ paths:
         explode: true
         style: form
       - in: query
+        name: cancel_existing
+        schema:
+          type: boolean
+      - in: query
         name: details
         schema:
           type: string
+      - in: query
+        name: device
+        schema:
+          type: number
+      - in: query
+        name: device_group
+        schema:
+          type: number
       - in: query
         name: id
         schema:
           type: string
           format: uuid
+      - in: query
+        name: include_resource_data
+        schema:
+          type: boolean
+          default: false
+        description: Whether to include the detailed data for all resources related
+          to the reservation.
+      - in: query
+        name: invert_priority
+        schema:
+          type: boolean
+      - in: query
+        name: label
+        schema:
+          type: number
       - in: query
         name: max_history
         schema:
@@ -3707,6 +3988,16 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: status
+        schema:
+          type: string
+          enum:
+          - ''
+          - ACT
+          - EXP
+          - FIN
+          - QUE
       - in: query
         name: t_completed
         schema:
@@ -4742,6 +5033,8 @@ components:
           type: string
           maxLength: 100
           pattern: ^[-a-zA-Z0-9_]+$
+        enable_ahs:
+          type: boolean
         metadata:
           type: object
           additionalProperties: {}
@@ -4778,6 +5071,8 @@ components:
           type: string
           maxLength: 100
           pattern: ^[-a-zA-Z0-9_]+$
+        enable_ahs:
+          type: boolean
         metadata:
           type: object
           additionalProperties: {}
@@ -4818,6 +5113,8 @@ components:
         online:
           type: boolean
           title: Is online
+        status:
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           type: string
           format: date-time
@@ -4830,6 +5127,10 @@ components:
           type: object
           additionalProperties: {}
           title: Additional data
+        wstk_part:
+          type: string
+          nullable: true
+          title: WSTK part number
       required:
       - date_created
       - id
@@ -5404,6 +5705,8 @@ components:
           type: string
           maxLength: 100
           pattern: ^[-a-zA-Z0-9_]+$
+        enable_ahs:
+          type: boolean
         metadata:
           type: object
           additionalProperties: {}
@@ -5557,9 +5860,9 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - delete
           - view
           - add
+          - delete
           - change
     PatchedRoom:
       type: object
@@ -5640,6 +5943,8 @@ components:
         online:
           type: boolean
           title: Is online
+        status:
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           type: string
           format: date-time
@@ -5652,6 +5957,10 @@ components:
           type: object
           additionalProperties: {}
           title: Additional data
+        wstk_part:
+          type: string
+          nullable: true
+          title: WSTK part number
     PermissionGroup:
       type: object
       properties:
@@ -5701,6 +6010,9 @@ components:
           type: object
           additionalProperties: {}
           title: Additional data
+        invert_priority:
+          type: boolean
+          default: false
     ReservationSessionSerializerReadOnly:
       type: object
       properties:
@@ -5722,11 +6034,34 @@ components:
         status:
           type: string
           readOnly: true
+          nullable: true
+        queue_position:
+          type: integer
+          nullable: true
+          readOnly: true
+        queue:
+          type: array
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+        resource_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+          readOnly: true
         details:
           type: string
           readOnly: true
         use_watchdog:
           type: boolean
+        invert_priority:
+          type: boolean
+          readOnly: true
+        cancel_existing:
+          type: boolean
+          readOnly: true
+          nullable: true
         t_requested:
           type: string
           format: date-time
@@ -5779,14 +6114,19 @@ components:
       required:
       - a_device_groups
       - a_devices
+      - cancel_existing
       - details
       - id
+      - invert_priority
       - is_satisfied
       - metadata
       - owner
+      - queue
+      - queue_position
       - r_device_group_labels
       - r_device_groups
       - r_devices
+      - resource_data
       - response_message
       - status
       - t_completed
@@ -5803,12 +6143,24 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - delete
           - view
           - add
+          - delete
           - change
       required:
       - id
+    ResourceStatusRequest:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        metadata:
+          type: object
+          additionalProperties: {}
+        comment:
+          type: string
+      required:
+      - status
     Room:
       type: object
       description: Serializer for the Room model
@@ -5857,6 +6209,12 @@ components:
       - lat
       - lon
       - name
+    StatusEnum:
+      enum:
+      - ACTIVE
+      - DISABLED
+      - OFFLINE
+      type: string
     Token:
       type: object
       properties:
@@ -5922,6 +6280,8 @@ components:
         online:
           type: boolean
           title: Is online
+        status:
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           type: string
           format: date-time
@@ -5934,6 +6294,10 @@ components:
           type: object
           additionalProperties: {}
           title: Additional data
+        wstk_part:
+          type: string
+          nullable: true
+          title: WSTK part number
       required:
       - date_created
       - id
