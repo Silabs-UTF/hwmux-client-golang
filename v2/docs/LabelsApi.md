@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## LabelsList
 
-> PaginatedLabelList LabelsList(ctx).DeviceGroups(deviceGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedLabelList LabelsList(ctx).DeviceGroups(deviceGroups).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -173,6 +173,7 @@ import (
 
 func main() {
     deviceGroups := []int32{int32(123)} // []int32 |  (optional)
+    includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
@@ -180,7 +181,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsApi.LabelsList(context.Background()).DeviceGroups(deviceGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsList(context.Background()).DeviceGroups(deviceGroups).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -202,6 +203,7 @@ Other parameters are passed through a pointer to a apiLabelsListRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **deviceGroups** | **[]int32** |  | 
+ **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
@@ -585,7 +587,7 @@ Name | Type | Description  | Notes
 
 ## LabelsRetrieve
 
-> Label LabelsRetrieve(ctx, id).Execute()
+> Label LabelsRetrieve(ctx, id).IncludePermissionGroups(includePermissionGroups).Execute()
 
 
 
@@ -605,10 +607,11 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device group label.
+    includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsApi.LabelsRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -634,6 +637,7 @@ Other parameters are passed through a pointer to a apiLabelsRetrieveRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
 
 ### Return type
 

@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **Devices** | Pointer to [**[]WriteOnlyDevice**](WriteOnlyDevice.md) |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
+**EnableAhs** | Pointer to **bool** |  | [optional] 
+**EnableAhsActions** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -132,6 +134,56 @@ SetPermissionGroups sets PermissionGroups field to given value.
 `func (o *NestedDeviceGroup) HasPermissionGroups() bool`
 
 HasPermissionGroups returns a boolean if a field has been set.
+
+### GetEnableAhs
+
+`func (o *NestedDeviceGroup) GetEnableAhs() bool`
+
+GetEnableAhs returns the EnableAhs field if non-nil, zero value otherwise.
+
+### GetEnableAhsOk
+
+`func (o *NestedDeviceGroup) GetEnableAhsOk() (*bool, bool)`
+
+GetEnableAhsOk returns a tuple with the EnableAhs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhs
+
+`func (o *NestedDeviceGroup) SetEnableAhs(v bool)`
+
+SetEnableAhs sets EnableAhs field to given value.
+
+### HasEnableAhs
+
+`func (o *NestedDeviceGroup) HasEnableAhs() bool`
+
+HasEnableAhs returns a boolean if a field has been set.
+
+### GetEnableAhsActions
+
+`func (o *NestedDeviceGroup) GetEnableAhsActions() bool`
+
+GetEnableAhsActions returns the EnableAhsActions field if non-nil, zero value otherwise.
+
+### GetEnableAhsActionsOk
+
+`func (o *NestedDeviceGroup) GetEnableAhsActionsOk() (*bool, bool)`
+
+GetEnableAhsActionsOk returns a tuple with the EnableAhsActions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhsActions
+
+`func (o *NestedDeviceGroup) SetEnableAhsActions(v bool)`
+
+SetEnableAhsActions sets EnableAhsActions field to given value.
+
+### HasEnableAhsActions
+
+`func (o *NestedDeviceGroup) HasEnableAhsActions() bool`
+
+HasEnableAhsActions returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

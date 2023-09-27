@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.19.0
+  version: 2.24.0
 paths:
   /api-token-auth/:
     post:
@@ -33,7 +33,7 @@ paths:
   /api/devices/:
     get:
       operationId: devices_list
-      description: Create or update with permissions field support
+      description: Adds object-level permissions management as detail views
       parameters:
       - in: query
         name: date_created
@@ -49,6 +49,17 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - in: query
+        name: include_permission_groups
+        schema:
+          type: boolean
+          default: false
+        description: If set to true, the permission groups associated with this resource
+          will be included in the response. Defaults to false.
+        examples:
+          IncludeAllPermissionGroups:
+            value: true
+            summary: Include all permission groups
       - in: query
         name: is_wstk
         schema:
@@ -139,7 +150,7 @@ paths:
           description: ''
     post:
       operationId: devices_create
-      description: Create or update with permissions field support
+      description: Adds object-level permissions management as detail views
       tags:
       - devices
       requestBody:
@@ -188,7 +199,7 @@ paths:
   /api/devices/{id}/:
     get:
       operationId: devices_retrieve
-      description: Create or update with permissions field support
+      description: Adds object-level permissions management as detail views
       parameters:
       - in: path
         name: id
@@ -196,6 +207,17 @@ paths:
           type: integer
         description: A unique integer value identifying this device.
         required: true
+      - in: query
+        name: include_permission_groups
+        schema:
+          type: boolean
+          default: false
+        description: If set to true, the permission groups associated with this resource
+          will be included in the response. Defaults to false.
+        examples:
+          IncludeAllPermissionGroups:
+            value: true
+            summary: Include all permission groups
       tags:
       - devices
       security:
@@ -210,7 +232,7 @@ paths:
           description: ''
     put:
       operationId: devices_update
-      description: Create or update with permissions field support
+      description: Adds object-level permissions management as detail views
       parameters:
       - in: path
         name: id
@@ -244,7 +266,7 @@ paths:
           description: ''
     patch:
       operationId: devices_partial_update
-      description: Create or update with permissions field support
+      description: Adds object-level permissions management as detail views
       parameters:
       - in: path
         name: id
@@ -277,7 +299,7 @@ paths:
           description: ''
     delete:
       operationId: devices_destroy
-      description: Create or update with permissions field support
+      description: Adds object-level permissions management as detail views
       parameters:
       - in: path
         name: id
@@ -576,6 +598,17 @@ paths:
         explode: false
         style: form
       - in: query
+        name: include_permission_groups
+        schema:
+          type: boolean
+          default: false
+        description: If set to true, the permission groups associated with this resource
+          will be included in the response. Defaults to false.
+        examples:
+          IncludeAllPermissionGroups:
+            value: true
+            summary: Include all permission groups
+      - in: query
         name: is_wstk
         schema:
           type: boolean
@@ -842,6 +875,10 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: enable_ahs_actions
+        schema:
+          type: boolean
+      - in: query
         name: id__in
         schema:
           type: array
@@ -850,6 +887,17 @@ paths:
         description: Multiple values may be separated by commas.
         explode: false
         style: form
+      - in: query
+        name: include_permission_groups
+        schema:
+          type: boolean
+          default: false
+        description: If set to true, the permission groups associated with this resource
+          will be included in the response. Defaults to false.
+        examples:
+          IncludeAllPermissionGroups:
+            value: true
+            summary: Include all permission groups
       - in: query
         name: name
         schema:
@@ -969,6 +1017,17 @@ paths:
           type: integer
         description: A unique integer value identifying this device group.
         required: true
+      - in: query
+        name: include_permission_groups
+        schema:
+          type: boolean
+          default: false
+        description: If set to true, the permission groups associated with this resource
+          will be included in the response. Defaults to false.
+        examples:
+          IncludeAllPermissionGroups:
+            value: true
+            summary: Include all permission groups
       tags:
       - groups
       security:
@@ -1347,6 +1406,10 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: enable_ahs_actions
+        schema:
+          type: boolean
+      - in: query
         name: id__in
         schema:
           type: array
@@ -1392,7 +1455,6 @@ paths:
   /api/groups/create-with-devices:
     post:
       operationId: groups_create_with_devices_create
-      description: Create or update with permissions field support
       tags:
       - groups
       requestBody:
@@ -1432,6 +1494,10 @@ paths:
         style: form
       - in: query
         name: enable_ahs
+        schema:
+          type: boolean
+      - in: query
+        name: enable_ahs_actions
         schema:
           type: boolean
       - in: query
@@ -1490,6 +1556,17 @@ paths:
             type: integer
         explode: true
         style: form
+      - in: query
+        name: include_permission_groups
+        schema:
+          type: boolean
+          default: false
+        description: If set to true, the permission groups associated with this resource
+          will be included in the response. Defaults to false.
+        examples:
+          IncludeAllPermissionGroups:
+            value: true
+            summary: Include all permission groups
       - in: query
         name: name
         schema:
@@ -1562,6 +1639,17 @@ paths:
           type: integer
         description: A unique integer value identifying this device group label.
         required: true
+      - in: query
+        name: include_permission_groups
+        schema:
+          type: boolean
+          default: false
+        description: If set to true, the permission groups associated with this resource
+          will be included in the response. Defaults to false.
+        examples:
+          IncludeAllPermissionGroups:
+            value: true
+            summary: Include all permission groups
       tags:
       - labels
       security:
@@ -5017,6 +5105,11 @@ components:
         id:
           type: integer
           readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          nullable: true
         devices:
           type: array
           items:
@@ -5029,11 +5122,16 @@ components:
         online:
           type: boolean
           readOnly: true
+        status:
+          type: string
+          readOnly: true
         name:
           type: string
           maxLength: 100
           pattern: ^[-a-zA-Z0-9_]+$
         enable_ahs:
+          type: boolean
+        enable_ahs_actions:
           type: boolean
         metadata:
           type: object
@@ -5045,12 +5143,18 @@ components:
       - is_reserved
       - name
       - online
+      - status
     DeviceGroupSerializerWithDevicePk:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          nullable: true
         devices:
           type: array
           items:
@@ -5062,16 +5166,16 @@ components:
         online:
           type: boolean
           readOnly: true
-        permission_groups:
-          type: array
-          items:
-            type: string
-          writeOnly: true
+        status:
+          type: string
+          readOnly: true
         name:
           type: string
           maxLength: 100
           pattern: ^[-a-zA-Z0-9_]+$
         enable_ahs:
+          type: boolean
+        enable_ahs_actions:
           type: boolean
         metadata:
           type: object
@@ -5082,6 +5186,7 @@ components:
       - is_reserved
       - name
       - online
+      - status
     DeviceSerializerPublic:
       type: object
       description: Serializes Device querysets to JSON
@@ -5089,6 +5194,11 @@ components:
         id:
           type: integer
           readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          nullable: true
         part:
           $ref: '#/components/schemas/Part'
         loc_desc:
@@ -5155,6 +5265,11 @@ components:
         id:
           type: integer
           readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          nullable: true
         device_groups:
           type: array
           items:
@@ -5177,15 +5292,15 @@ components:
         id:
           type: integer
           readOnly: true
-        device_groups:
-          type: array
-          items:
-            type: integer
         permission_groups:
           type: array
           items:
             type: string
-          writeOnly: true
+          nullable: true
+        device_groups:
+          type: array
+          items:
+            type: integer
         name:
           type: string
           maxLength: 100
@@ -5228,8 +5343,18 @@ components:
           $ref: '#/components/schemas/Part'
         location:
           type: integer
+        wstk_part:
+          type: string
+          nullable: true
+          title: WSTK part number
+        status:
+          $ref: '#/components/schemas/StatusEnum'
+        loc_desc:
+          type: string
+          readOnly: true
       required:
       - id
+      - loc_desc
       - location
       - part
     Location:
@@ -5387,6 +5512,10 @@ components:
           items:
             type: string
           writeOnly: true
+        enable_ahs:
+          type: boolean
+        enable_ahs_actions:
+          type: boolean
       required:
       - name
     ObjectPermissions:
@@ -5685,6 +5814,11 @@ components:
         id:
           type: integer
           readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          nullable: true
         devices:
           type: array
           items:
@@ -5696,16 +5830,16 @@ components:
         online:
           type: boolean
           readOnly: true
-        permission_groups:
-          type: array
-          items:
-            type: string
-          writeOnly: true
+        status:
+          type: string
+          readOnly: true
         name:
           type: string
           maxLength: 100
           pattern: ^[-a-zA-Z0-9_]+$
         enable_ahs:
+          type: boolean
+        enable_ahs_actions:
           type: boolean
         metadata:
           type: object
@@ -5717,15 +5851,15 @@ components:
         id:
           type: integer
           readOnly: true
-        device_groups:
-          type: array
-          items:
-            type: integer
         permission_groups:
           type: array
           items:
             type: string
-          writeOnly: true
+          nullable: true
+        device_groups:
+          type: array
+          items:
+            type: integer
         name:
           type: string
           maxLength: 100
@@ -5912,6 +6046,11 @@ components:
         id:
           type: integer
           readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
         part:
           type: string
         loc_desc:
@@ -5921,11 +6060,6 @@ components:
           type: boolean
           nullable: true
           readOnly: true
-        permission_groups:
-          type: array
-          items:
-            type: string
-          writeOnly: true
         location:
           $ref: '#/components/schemas/LocationSerializerWriteOnly'
         sn_or_name:
@@ -6249,6 +6383,11 @@ components:
         id:
           type: integer
           readOnly: true
+        permission_groups:
+          type: array
+          items:
+            type: string
+          writeOnly: true
         part:
           type: string
         loc_desc:
@@ -6258,11 +6397,6 @@ components:
           type: boolean
           nullable: true
           readOnly: true
-        permission_groups:
-          type: array
-          items:
-            type: string
-          writeOnly: true
         location:
           $ref: '#/components/schemas/LocationSerializerWriteOnly'
         sn_or_name:

@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
+**PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Part** | **string** |  | 
 **LocDesc** | **string** |  | [readonly] 
 **IsReserved** | **NullableBool** |  | [readonly] 
-**PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Location** | [**LocationSerializerWriteOnly**](LocationSerializerWriteOnly.md) |  | 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
@@ -58,6 +58,31 @@ and a boolean to check if the value has been set.
 
 SetId sets Id field to given value.
 
+
+### GetPermissionGroups
+
+`func (o *WriteOnlyDevice) GetPermissionGroups() []string`
+
+GetPermissionGroups returns the PermissionGroups field if non-nil, zero value otherwise.
+
+### GetPermissionGroupsOk
+
+`func (o *WriteOnlyDevice) GetPermissionGroupsOk() (*[]string, bool)`
+
+GetPermissionGroupsOk returns a tuple with the PermissionGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermissionGroups
+
+`func (o *WriteOnlyDevice) SetPermissionGroups(v []string)`
+
+SetPermissionGroups sets PermissionGroups field to given value.
+
+### HasPermissionGroups
+
+`func (o *WriteOnlyDevice) HasPermissionGroups() bool`
+
+HasPermissionGroups returns a boolean if a field has been set.
 
 ### GetPart
 
@@ -129,31 +154,6 @@ SetIsReserved sets IsReserved field to given value.
 `func (o *WriteOnlyDevice) UnsetIsReserved()`
 
 UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
-### GetPermissionGroups
-
-`func (o *WriteOnlyDevice) GetPermissionGroups() []string`
-
-GetPermissionGroups returns the PermissionGroups field if non-nil, zero value otherwise.
-
-### GetPermissionGroupsOk
-
-`func (o *WriteOnlyDevice) GetPermissionGroupsOk() (*[]string, bool)`
-
-GetPermissionGroupsOk returns a tuple with the PermissionGroups field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPermissionGroups
-
-`func (o *WriteOnlyDevice) SetPermissionGroups(v []string)`
-
-SetPermissionGroups sets PermissionGroups field to given value.
-
-### HasPermissionGroups
-
-`func (o *WriteOnlyDevice) HasPermissionGroups() bool`
-
-HasPermissionGroups returns a boolean if a field has been set.
-
 ### GetLocation
 
 `func (o *WriteOnlyDevice) GetLocation() LocationSerializerWriteOnly`

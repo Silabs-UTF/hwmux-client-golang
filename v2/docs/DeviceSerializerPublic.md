@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
+**PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Part** | [**Part**](Part.md) |  | 
 **LocDesc** | **string** |  | [readonly] 
 **IsReserved** | **NullableBool** |  | [readonly] 
@@ -57,6 +58,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetPermissionGroups
+
+`func (o *DeviceSerializerPublic) GetPermissionGroups() []string`
+
+GetPermissionGroups returns the PermissionGroups field if non-nil, zero value otherwise.
+
+### GetPermissionGroupsOk
+
+`func (o *DeviceSerializerPublic) GetPermissionGroupsOk() (*[]string, bool)`
+
+GetPermissionGroupsOk returns a tuple with the PermissionGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermissionGroups
+
+`func (o *DeviceSerializerPublic) SetPermissionGroups(v []string)`
+
+SetPermissionGroups sets PermissionGroups field to given value.
+
+### HasPermissionGroups
+
+`func (o *DeviceSerializerPublic) HasPermissionGroups() bool`
+
+HasPermissionGroups returns a boolean if a field has been set.
+
+### SetPermissionGroupsNil
+
+`func (o *DeviceSerializerPublic) SetPermissionGroupsNil(b bool)`
+
+ SetPermissionGroupsNil sets the value for PermissionGroups to be an explicit nil
+
+### UnsetPermissionGroups
+`func (o *DeviceSerializerPublic) UnsetPermissionGroups()`
+
+UnsetPermissionGroups ensures that no value is present for PermissionGroups, not even an explicit nil
 ### GetPart
 
 `func (o *DeviceSerializerPublic) GetPart() Part`

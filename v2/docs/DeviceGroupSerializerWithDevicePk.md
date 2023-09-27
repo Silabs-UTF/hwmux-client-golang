@@ -5,19 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
+**PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Devices** | Pointer to **[]int32** |  | [optional] 
 **IsReserved** | **NullableBool** |  | [readonly] 
 **Online** | **bool** |  | [readonly] 
-**PermissionGroups** | Pointer to **[]string** |  | [optional] 
+**Status** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
+**EnableAhsActions** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewDeviceGroupSerializerWithDevicePk
 
-`func NewDeviceGroupSerializerWithDevicePk(id int32, isReserved NullableBool, online bool, name string, ) *DeviceGroupSerializerWithDevicePk`
+`func NewDeviceGroupSerializerWithDevicePk(id int32, isReserved NullableBool, online bool, status string, name string, ) *DeviceGroupSerializerWithDevicePk`
 
 NewDeviceGroupSerializerWithDevicePk instantiates a new DeviceGroupSerializerWithDevicePk object
 This constructor will assign default values to properties that have it defined,
@@ -52,6 +54,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetPermissionGroups
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetPermissionGroups() []string`
+
+GetPermissionGroups returns the PermissionGroups field if non-nil, zero value otherwise.
+
+### GetPermissionGroupsOk
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetPermissionGroupsOk() (*[]string, bool)`
+
+GetPermissionGroupsOk returns a tuple with the PermissionGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermissionGroups
+
+`func (o *DeviceGroupSerializerWithDevicePk) SetPermissionGroups(v []string)`
+
+SetPermissionGroups sets PermissionGroups field to given value.
+
+### HasPermissionGroups
+
+`func (o *DeviceGroupSerializerWithDevicePk) HasPermissionGroups() bool`
+
+HasPermissionGroups returns a boolean if a field has been set.
+
+### SetPermissionGroupsNil
+
+`func (o *DeviceGroupSerializerWithDevicePk) SetPermissionGroupsNil(b bool)`
+
+ SetPermissionGroupsNil sets the value for PermissionGroups to be an explicit nil
+
+### UnsetPermissionGroups
+`func (o *DeviceGroupSerializerWithDevicePk) UnsetPermissionGroups()`
+
+UnsetPermissionGroups ensures that no value is present for PermissionGroups, not even an explicit nil
 ### GetDevices
 
 `func (o *DeviceGroupSerializerWithDevicePk) GetDevices() []int32`
@@ -127,30 +164,25 @@ and a boolean to check if the value has been set.
 SetOnline sets Online field to given value.
 
 
-### GetPermissionGroups
+### GetStatus
 
-`func (o *DeviceGroupSerializerWithDevicePk) GetPermissionGroups() []string`
+`func (o *DeviceGroupSerializerWithDevicePk) GetStatus() string`
 
-GetPermissionGroups returns the PermissionGroups field if non-nil, zero value otherwise.
+GetStatus returns the Status field if non-nil, zero value otherwise.
 
-### GetPermissionGroupsOk
+### GetStatusOk
 
-`func (o *DeviceGroupSerializerWithDevicePk) GetPermissionGroupsOk() (*[]string, bool)`
+`func (o *DeviceGroupSerializerWithDevicePk) GetStatusOk() (*string, bool)`
 
-GetPermissionGroupsOk returns a tuple with the PermissionGroups field if it's non-nil, zero value otherwise
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPermissionGroups
+### SetStatus
 
-`func (o *DeviceGroupSerializerWithDevicePk) SetPermissionGroups(v []string)`
+`func (o *DeviceGroupSerializerWithDevicePk) SetStatus(v string)`
 
-SetPermissionGroups sets PermissionGroups field to given value.
+SetStatus sets Status field to given value.
 
-### HasPermissionGroups
-
-`func (o *DeviceGroupSerializerWithDevicePk) HasPermissionGroups() bool`
-
-HasPermissionGroups returns a boolean if a field has been set.
 
 ### GetName
 
@@ -196,6 +228,31 @@ SetEnableAhs sets EnableAhs field to given value.
 `func (o *DeviceGroupSerializerWithDevicePk) HasEnableAhs() bool`
 
 HasEnableAhs returns a boolean if a field has been set.
+
+### GetEnableAhsActions
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetEnableAhsActions() bool`
+
+GetEnableAhsActions returns the EnableAhsActions field if non-nil, zero value otherwise.
+
+### GetEnableAhsActionsOk
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetEnableAhsActionsOk() (*bool, bool)`
+
+GetEnableAhsActionsOk returns a tuple with the EnableAhsActions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhsActions
+
+`func (o *DeviceGroupSerializerWithDevicePk) SetEnableAhsActions(v bool)`
+
+SetEnableAhsActions sets EnableAhsActions field to given value.
+
+### HasEnableAhsActions
+
+`func (o *DeviceGroupSerializerWithDevicePk) HasEnableAhsActions() bool`
+
+HasEnableAhsActions returns a boolean if a field has been set.
 
 ### GetMetadata
 

@@ -12,12 +12,15 @@ Name | Type | Description | Notes
 **Online** | Pointer to **bool** |  | [optional] 
 **Part** | [**Part**](Part.md) |  | 
 **Location** | **int32** |  | 
+**WstkPart** | Pointer to **NullableString** |  | [optional] 
+**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
+**LocDesc** | **string** |  | [readonly] 
 
 ## Methods
 
 ### NewLightDevice
 
-`func NewLightDevice(id int32, part Part, location int32, ) *LightDevice`
+`func NewLightDevice(id int32, part Part, location int32, locDesc string, ) *LightDevice`
 
 NewLightDevice instantiates a new LightDevice object
 This constructor will assign default values to properties that have it defined,
@@ -235,6 +238,86 @@ and a boolean to check if the value has been set.
 `func (o *LightDevice) SetLocation(v int32)`
 
 SetLocation sets Location field to given value.
+
+
+### GetWstkPart
+
+`func (o *LightDevice) GetWstkPart() string`
+
+GetWstkPart returns the WstkPart field if non-nil, zero value otherwise.
+
+### GetWstkPartOk
+
+`func (o *LightDevice) GetWstkPartOk() (*string, bool)`
+
+GetWstkPartOk returns a tuple with the WstkPart field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWstkPart
+
+`func (o *LightDevice) SetWstkPart(v string)`
+
+SetWstkPart sets WstkPart field to given value.
+
+### HasWstkPart
+
+`func (o *LightDevice) HasWstkPart() bool`
+
+HasWstkPart returns a boolean if a field has been set.
+
+### SetWstkPartNil
+
+`func (o *LightDevice) SetWstkPartNil(b bool)`
+
+ SetWstkPartNil sets the value for WstkPart to be an explicit nil
+
+### UnsetWstkPart
+`func (o *LightDevice) UnsetWstkPart()`
+
+UnsetWstkPart ensures that no value is present for WstkPart, not even an explicit nil
+### GetStatus
+
+`func (o *LightDevice) GetStatus() StatusEnum`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *LightDevice) GetStatusOk() (*StatusEnum, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *LightDevice) SetStatus(v StatusEnum)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *LightDevice) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### GetLocDesc
+
+`func (o *LightDevice) GetLocDesc() string`
+
+GetLocDesc returns the LocDesc field if non-nil, zero value otherwise.
+
+### GetLocDescOk
+
+`func (o *LightDevice) GetLocDescOk() (*string, bool)`
+
+GetLocDescOk returns a tuple with the LocDesc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocDesc
+
+`func (o *LightDevice) SetLocDesc(v string)`
+
+SetLocDesc sets LocDesc field to given value.
 
 
 

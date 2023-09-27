@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## DevicesList
 
-> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -182,6 +182,7 @@ import (
 func main() {
     dateCreated := time.Now() // time.Time |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
+    includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -201,7 +202,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -224,6 +225,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateCreated** | **time.Time** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
+ **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -261,7 +263,7 @@ Name | Type | Description  | Notes
 
 ## DevicesListMyList
 
-> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -283,6 +285,7 @@ import (
 func main() {
     dateCreated := time.Now() // time.Time |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
+    includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -302,7 +305,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesListMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -325,6 +328,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateCreated** | **time.Time** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
+ **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -858,7 +862,7 @@ Name | Type | Description  | Notes
 
 ## DevicesRetrieve
 
-> DeviceSerializerPublic DevicesRetrieve(ctx, id).Execute()
+> DeviceSerializerPublic DevicesRetrieve(ctx, id).IncludePermissionGroups(includePermissionGroups).Execute()
 
 
 
@@ -878,10 +882,11 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device.
+    includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -907,6 +912,7 @@ Other parameters are passed through a pointer to a apiDevicesRetrieveRequest str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
 
 ### Return type
 
