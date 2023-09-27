@@ -5,18 +5,21 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
+**PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Devices** | [**[]LightDevice**](LightDevice.md) |  | [readonly] 
 **IsReserved** | **NullableBool** |  | [readonly] 
 **Online** | **bool** |  | [readonly] 
+**Status** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
+**EnableAhsActions** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewDeviceGroup
 
-`func NewDeviceGroup(id int32, devices []LightDevice, isReserved NullableBool, online bool, name string, ) *DeviceGroup`
+`func NewDeviceGroup(id int32, devices []LightDevice, isReserved NullableBool, online bool, status string, name string, ) *DeviceGroup`
 
 NewDeviceGroup instantiates a new DeviceGroup object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +54,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetPermissionGroups
+
+`func (o *DeviceGroup) GetPermissionGroups() []string`
+
+GetPermissionGroups returns the PermissionGroups field if non-nil, zero value otherwise.
+
+### GetPermissionGroupsOk
+
+`func (o *DeviceGroup) GetPermissionGroupsOk() (*[]string, bool)`
+
+GetPermissionGroupsOk returns a tuple with the PermissionGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermissionGroups
+
+`func (o *DeviceGroup) SetPermissionGroups(v []string)`
+
+SetPermissionGroups sets PermissionGroups field to given value.
+
+### HasPermissionGroups
+
+`func (o *DeviceGroup) HasPermissionGroups() bool`
+
+HasPermissionGroups returns a boolean if a field has been set.
+
+### SetPermissionGroupsNil
+
+`func (o *DeviceGroup) SetPermissionGroupsNil(b bool)`
+
+ SetPermissionGroupsNil sets the value for PermissionGroups to be an explicit nil
+
+### UnsetPermissionGroups
+`func (o *DeviceGroup) UnsetPermissionGroups()`
+
+UnsetPermissionGroups ensures that no value is present for PermissionGroups, not even an explicit nil
 ### GetDevices
 
 `func (o *DeviceGroup) GetDevices() []LightDevice`
@@ -121,6 +159,26 @@ and a boolean to check if the value has been set.
 SetOnline sets Online field to given value.
 
 
+### GetStatus
+
+`func (o *DeviceGroup) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *DeviceGroup) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *DeviceGroup) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+
 ### GetName
 
 `func (o *DeviceGroup) GetName() string`
@@ -165,6 +223,31 @@ SetEnableAhs sets EnableAhs field to given value.
 `func (o *DeviceGroup) HasEnableAhs() bool`
 
 HasEnableAhs returns a boolean if a field has been set.
+
+### GetEnableAhsActions
+
+`func (o *DeviceGroup) GetEnableAhsActions() bool`
+
+GetEnableAhsActions returns the EnableAhsActions field if non-nil, zero value otherwise.
+
+### GetEnableAhsActionsOk
+
+`func (o *DeviceGroup) GetEnableAhsActionsOk() (*bool, bool)`
+
+GetEnableAhsActionsOk returns a tuple with the EnableAhsActions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhsActions
+
+`func (o *DeviceGroup) SetEnableAhsActions(v bool)`
+
+SetEnableAhsActions sets EnableAhsActions field to given value.
+
+### HasEnableAhsActions
+
+`func (o *DeviceGroup) HasEnableAhsActions() bool`
+
+HasEnableAhsActions returns a boolean if a field has been set.
 
 ### GetMetadata
 

@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 ## GroupsAvailableList
 
-> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -47,6 +47,7 @@ import (
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
     enableAhs := true // bool |  (optional)
+    enableAhsActions := true // bool |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
@@ -55,7 +56,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsAvailableList(context.Background()).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsAvailableList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsAvailableList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -78,6 +79,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **devices** | **[]int32** |  | 
  **enableAhs** | **bool** |  | 
+ **enableAhsActions** | **bool** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
@@ -123,7 +125,7 @@ import (
 )
 
 func main() {
-    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
+    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Status_example", "Name_example") // DeviceGroupSerializerWithDevicePk | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -171,8 +173,6 @@ Name | Type | Description  | Notes
 ## GroupsCreateWithDevicesCreate
 
 > DeviceGroup GroupsCreateWithDevicesCreate(ctx).NestedDeviceGroup(nestedDeviceGroup).Execute()
-
-
 
 
 
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 ## GroupsList
 
-> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -325,7 +325,9 @@ import (
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
     enableAhs := true // bool |  (optional)
+    enableAhsActions := true // bool |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
+    includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
@@ -333,7 +335,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -356,7 +358,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **devices** | **[]int32** |  | 
  **enableAhs** | **bool** |  | 
+ **enableAhsActions** | **bool** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
+ **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
@@ -382,7 +386,7 @@ Name | Type | Description  | Notes
 
 ## GroupsMyList
 
-> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -403,6 +407,7 @@ import (
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
     enableAhs := true // bool |  (optional)
+    enableAhsActions := true // bool |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
@@ -411,7 +416,7 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsMyList(context.Background()).Devices(devices).EnableAhs(enableAhs).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsMyList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -434,6 +439,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **devices** | **[]int32** |  | 
  **enableAhs** | **bool** |  | 
+ **enableAhsActions** | **bool** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
@@ -1026,7 +1032,7 @@ Name | Type | Description  | Notes
 
 ## GroupsRetrieve
 
-> DeviceGroup GroupsRetrieve(ctx, id).Execute()
+> DeviceGroup GroupsRetrieve(ctx, id).IncludePermissionGroups(includePermissionGroups).Execute()
 
 
 
@@ -1046,10 +1052,11 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device group.
+    includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1075,6 +1082,7 @@ Other parameters are passed through a pointer to a apiGroupsRetrieveRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
 
 ### Return type
 
@@ -1188,7 +1196,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device group.
-    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
+    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Status_example", "Name_example") // DeviceGroupSerializerWithDevicePk | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
-**DeviceGroups** | **[]int32** |  | 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
+**DeviceGroups** | **[]int32** |  | 
 **Name** | **string** |  | 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -49,26 +49,6 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetDeviceGroups
-
-`func (o *LabelSerializerWithPermissions) GetDeviceGroups() []int32`
-
-GetDeviceGroups returns the DeviceGroups field if non-nil, zero value otherwise.
-
-### GetDeviceGroupsOk
-
-`func (o *LabelSerializerWithPermissions) GetDeviceGroupsOk() (*[]int32, bool)`
-
-GetDeviceGroupsOk returns a tuple with the DeviceGroups field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeviceGroups
-
-`func (o *LabelSerializerWithPermissions) SetDeviceGroups(v []int32)`
-
-SetDeviceGroups sets DeviceGroups field to given value.
-
-
 ### GetPermissionGroups
 
 `func (o *LabelSerializerWithPermissions) GetPermissionGroups() []string`
@@ -93,6 +73,36 @@ SetPermissionGroups sets PermissionGroups field to given value.
 `func (o *LabelSerializerWithPermissions) HasPermissionGroups() bool`
 
 HasPermissionGroups returns a boolean if a field has been set.
+
+### SetPermissionGroupsNil
+
+`func (o *LabelSerializerWithPermissions) SetPermissionGroupsNil(b bool)`
+
+ SetPermissionGroupsNil sets the value for PermissionGroups to be an explicit nil
+
+### UnsetPermissionGroups
+`func (o *LabelSerializerWithPermissions) UnsetPermissionGroups()`
+
+UnsetPermissionGroups ensures that no value is present for PermissionGroups, not even an explicit nil
+### GetDeviceGroups
+
+`func (o *LabelSerializerWithPermissions) GetDeviceGroups() []int32`
+
+GetDeviceGroups returns the DeviceGroups field if non-nil, zero value otherwise.
+
+### GetDeviceGroupsOk
+
+`func (o *LabelSerializerWithPermissions) GetDeviceGroupsOk() (*[]int32, bool)`
+
+GetDeviceGroupsOk returns a tuple with the DeviceGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeviceGroups
+
+`func (o *LabelSerializerWithPermissions) SetDeviceGroups(v []int32)`
+
+SetDeviceGroups sets DeviceGroups field to given value.
+
 
 ### GetName
 

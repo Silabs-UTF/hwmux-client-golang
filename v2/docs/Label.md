@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
+**PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **DeviceGroups** | **[]int32** |  | 
 **Name** | **string** |  | 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -48,6 +49,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetPermissionGroups
+
+`func (o *Label) GetPermissionGroups() []string`
+
+GetPermissionGroups returns the PermissionGroups field if non-nil, zero value otherwise.
+
+### GetPermissionGroupsOk
+
+`func (o *Label) GetPermissionGroupsOk() (*[]string, bool)`
+
+GetPermissionGroupsOk returns a tuple with the PermissionGroups field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermissionGroups
+
+`func (o *Label) SetPermissionGroups(v []string)`
+
+SetPermissionGroups sets PermissionGroups field to given value.
+
+### HasPermissionGroups
+
+`func (o *Label) HasPermissionGroups() bool`
+
+HasPermissionGroups returns a boolean if a field has been set.
+
+### SetPermissionGroupsNil
+
+`func (o *Label) SetPermissionGroupsNil(b bool)`
+
+ SetPermissionGroupsNil sets the value for PermissionGroups to be an explicit nil
+
+### UnsetPermissionGroups
+`func (o *Label) UnsetPermissionGroups()`
+
+UnsetPermissionGroups ensures that no value is present for PermissionGroups, not even an explicit nil
 ### GetDeviceGroups
 
 `func (o *Label) GetDeviceGroups() []int32`
