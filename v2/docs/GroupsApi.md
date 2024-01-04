@@ -1,32 +1,32 @@
-# \GroupsApi
+# \GroupsAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GroupsAvailableList**](GroupsApi.md#GroupsAvailableList) | **Get** /api/groups/available/ | 
-[**GroupsCreate**](GroupsApi.md#GroupsCreate) | **Post** /api/groups/ | 
-[**GroupsCreateWithDevicesCreate**](GroupsApi.md#GroupsCreateWithDevicesCreate) | **Post** /api/groups/create-with-devices | 
-[**GroupsDestroy**](GroupsApi.md#GroupsDestroy) | **Delete** /api/groups/{id}/ | 
-[**GroupsList**](GroupsApi.md#GroupsList) | **Get** /api/groups/ | 
-[**GroupsMyList**](GroupsApi.md#GroupsMyList) | **Get** /api/groups/my/ | 
-[**GroupsPartialUpdate**](GroupsApi.md#GroupsPartialUpdate) | **Patch** /api/groups/{id}/ | 
-[**GroupsPermissionsPartialUpdate**](GroupsApi.md#GroupsPermissionsPartialUpdate) | **Patch** /api/groups/{id}/permissions/ | 
-[**GroupsPermissionsRetrieve**](GroupsApi.md#GroupsPermissionsRetrieve) | **Get** /api/groups/{id}/permissions/ | 
-[**GroupsPermissionsUpdate**](GroupsApi.md#GroupsPermissionsUpdate) | **Put** /api/groups/{id}/permissions/ | 
-[**GroupsReleaseByNameUpdate**](GroupsApi.md#GroupsReleaseByNameUpdate) | **Put** /api/groups/{group_name}/release_by_name/ | 
-[**GroupsReleaseUpdate**](GroupsApi.md#GroupsReleaseUpdate) | **Put** /api/groups/{id}/release/ | 
-[**GroupsReserveByNameUpdate**](GroupsApi.md#GroupsReserveByNameUpdate) | **Put** /api/groups/{group_name}/reserve_by_name/ | 
-[**GroupsReserveUpdate**](GroupsApi.md#GroupsReserveUpdate) | **Put** /api/groups/{id}/reserve/ | 
-[**GroupsRetrieve**](GroupsApi.md#GroupsRetrieve) | **Get** /api/groups/{id}/ | 
-[**GroupsStatusCreate**](GroupsApi.md#GroupsStatusCreate) | **Post** /api/groups/{id}/status/ | 
-[**GroupsUpdate**](GroupsApi.md#GroupsUpdate) | **Put** /api/groups/{id}/ | 
+[**GroupsAvailableList**](GroupsAPI.md#GroupsAvailableList) | **Get** /api/groups/available/ | 
+[**GroupsCreate**](GroupsAPI.md#GroupsCreate) | **Post** /api/groups/ | 
+[**GroupsCreateWithDevicesCreate**](GroupsAPI.md#GroupsCreateWithDevicesCreate) | **Post** /api/groups/create-with-devices | 
+[**GroupsDestroy**](GroupsAPI.md#GroupsDestroy) | **Delete** /api/groups/{id}/ | 
+[**GroupsList**](GroupsAPI.md#GroupsList) | **Get** /api/groups/ | 
+[**GroupsMyList**](GroupsAPI.md#GroupsMyList) | **Get** /api/groups/my/ | 
+[**GroupsPartialUpdate**](GroupsAPI.md#GroupsPartialUpdate) | **Patch** /api/groups/{id}/ | 
+[**GroupsPermissionsPartialUpdate**](GroupsAPI.md#GroupsPermissionsPartialUpdate) | **Patch** /api/groups/{id}/permissions/ | 
+[**GroupsPermissionsRetrieve**](GroupsAPI.md#GroupsPermissionsRetrieve) | **Get** /api/groups/{id}/permissions/ | 
+[**GroupsPermissionsUpdate**](GroupsAPI.md#GroupsPermissionsUpdate) | **Put** /api/groups/{id}/permissions/ | 
+[**GroupsReleaseByNameUpdate**](GroupsAPI.md#GroupsReleaseByNameUpdate) | **Put** /api/groups/{group_name}/release_by_name/ | 
+[**GroupsReleaseUpdate**](GroupsAPI.md#GroupsReleaseUpdate) | **Put** /api/groups/{id}/release/ | 
+[**GroupsReserveByNameUpdate**](GroupsAPI.md#GroupsReserveByNameUpdate) | **Put** /api/groups/{group_name}/reserve_by_name/ | 
+[**GroupsReserveUpdate**](GroupsAPI.md#GroupsReserveUpdate) | **Put** /api/groups/{id}/reserve/ | 
+[**GroupsRetrieve**](GroupsAPI.md#GroupsRetrieve) | **Get** /api/groups/{id}/ | 
+[**GroupsStatusCreate**](GroupsAPI.md#GroupsStatusCreate) | **Post** /api/groups/{id}/status/ | 
+[**GroupsUpdate**](GroupsAPI.md#GroupsUpdate) | **Put** /api/groups/{id}/ | 
 
 
 
 ## GroupsAvailableList
 
-> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -41,13 +41,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
     enableAhs := true // bool |  (optional)
     enableAhsActions := true // bool |  (optional)
+    enableAhsCas := true // bool |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
@@ -56,13 +57,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsAvailableList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsAvailableList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsAvailableList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsAvailableList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsAvailableList`: PaginatedDeviceGroupList
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsAvailableList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsAvailableList`: %v\n", resp)
 }
 ```
 
@@ -80,6 +81,7 @@ Name | Type | Description  | Notes
  **devices** | **[]int32** |  | 
  **enableAhs** | **bool** |  | 
  **enableAhsActions** | **bool** |  | 
+ **enableAhsCas** | **bool** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
@@ -121,7 +123,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -129,13 +131,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsCreate(context.Background()).DeviceGroupSerializerWithDevicePk(deviceGroupSerializerWithDevicePk).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsCreate(context.Background()).DeviceGroupSerializerWithDevicePk(deviceGroupSerializerWithDevicePk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsCreate`: DeviceGroupSerializerWithDevicePk
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsCreate`: %v\n", resp)
 }
 ```
 
@@ -185,7 +187,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -193,13 +195,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsCreateWithDevicesCreate(context.Background()).NestedDeviceGroup(nestedDeviceGroup).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsCreateWithDevicesCreate(context.Background()).NestedDeviceGroup(nestedDeviceGroup).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsCreateWithDevicesCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsCreateWithDevicesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsCreateWithDevicesCreate`: DeviceGroup
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsCreateWithDevicesCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsCreateWithDevicesCreate`: %v\n", resp)
 }
 ```
 
@@ -251,7 +253,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -259,9 +261,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsDestroy(context.Background(), id).Execute()
+    r, err := apiClient.GroupsAPI.GroupsDestroy(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -304,7 +306,7 @@ Name | Type | Description  | Notes
 
 ## GroupsList
 
-> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -319,13 +321,15 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
     enableAhs := true // bool |  (optional)
     enableAhsActions := true // bool |  (optional)
+    enableAhsCas := true // bool |  (optional)
+    forceMv := "forceMv_example" // string | Specifies the behavior of the force_mv attribute. DEFAULT : Default condition which retrieve data from the Materialized view unless ax exception occurs where we fall back to postgres. ON : Force the data to be retrieved from the Materialized view. OFF : Force the data to be retrieved from the Postgres database (optional) (default to "DEFAULT")
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
     name := "name_example" // string |  (optional)
@@ -335,13 +339,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsList`: PaginatedDeviceGroupList
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsList`: %v\n", resp)
 }
 ```
 
@@ -359,6 +363,8 @@ Name | Type | Description  | Notes
  **devices** | **[]int32** |  | 
  **enableAhs** | **bool** |  | 
  **enableAhsActions** | **bool** |  | 
+ **enableAhsCas** | **bool** |  | 
+ **forceMv** | **string** | Specifies the behavior of the force_mv attribute. DEFAULT : Default condition which retrieve data from the Materialized view unless ax exception occurs where we fall back to postgres. ON : Force the data to be retrieved from the Materialized view. OFF : Force the data to be retrieved from the Postgres database | [default to &quot;DEFAULT&quot;]
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
  **name** | **string** |  | 
@@ -386,7 +392,7 @@ Name | Type | Description  | Notes
 
 ## GroupsMyList
 
-> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
 
 
 
@@ -401,13 +407,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
     devices := []int32{int32(123)} // []int32 |  (optional)
     enableAhs := true // bool |  (optional)
     enableAhsActions := true // bool |  (optional)
+    enableAhsCas := true // bool |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
@@ -416,13 +423,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsMyList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsMyList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsMyList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsMyList`: PaginatedDeviceGroupList
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsMyList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsMyList`: %v\n", resp)
 }
 ```
 
@@ -440,6 +447,7 @@ Name | Type | Description  | Notes
  **devices** | **[]int32** |  | 
  **enableAhs** | **bool** |  | 
  **enableAhsActions** | **bool** |  | 
+ **enableAhsCas** | **bool** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
@@ -481,7 +489,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -490,13 +498,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsPartialUpdate(context.Background(), id).PatchedDeviceGroupSerializerWithDevicePk(patchedDeviceGroupSerializerWithDevicePk).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsPartialUpdate(context.Background(), id).PatchedDeviceGroupSerializerWithDevicePk(patchedDeviceGroupSerializerWithDevicePk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsPartialUpdate`: DeviceGroupSerializerWithDevicePk
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -553,7 +561,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -562,13 +570,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsPermissionsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsPermissionsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsPermissionsPartialUpdate`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsPermissionsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsPermissionsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -625,7 +633,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -633,13 +641,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsPermissionsRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsPermissionsRetrieve(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsPermissionsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsPermissionsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsPermissionsRetrieve`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsPermissionsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsPermissionsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -695,7 +703,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -704,13 +712,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsPermissionsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsPermissionsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsPermissionsUpdate`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsPermissionsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsPermissionsUpdate`: %v\n", resp)
 }
 ```
 
@@ -765,7 +773,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -773,13 +781,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsReleaseByNameUpdate(context.Background(), groupName).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsReleaseByNameUpdate(context.Background(), groupName).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsReleaseByNameUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsReleaseByNameUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsReleaseByNameUpdate`: DeviceGroup
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsReleaseByNameUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsReleaseByNameUpdate`: %v\n", resp)
 }
 ```
 
@@ -835,7 +843,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -843,13 +851,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsReleaseUpdate(context.Background(), id).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsReleaseUpdate(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsReleaseUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsReleaseUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsReleaseUpdate`: DeviceGroup
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsReleaseUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsReleaseUpdate`: %v\n", resp)
 }
 ```
 
@@ -903,7 +911,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -912,13 +920,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsReserveByNameUpdate(context.Background(), groupName).Details(details).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsReserveByNameUpdate(context.Background(), groupName).Details(details).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsReserveByNameUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsReserveByNameUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsReserveByNameUpdate`: DeviceGroup
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsReserveByNameUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsReserveByNameUpdate`: %v\n", resp)
 }
 ```
 
@@ -975,7 +983,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -984,13 +992,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsReserveUpdate(context.Background(), id).Details(details).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsReserveUpdate(context.Background(), id).Details(details).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsReserveUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsReserveUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsReserveUpdate`: DeviceGroup
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsReserveUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsReserveUpdate`: %v\n", resp)
 }
 ```
 
@@ -1047,7 +1055,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -1056,13 +1064,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsRetrieve`: DeviceGroup
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -1119,7 +1127,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -1128,13 +1136,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsStatusCreate(context.Background(), id).ResourceStatusRequest(resourceStatusRequest).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsStatusCreate(context.Background(), id).ResourceStatusRequest(resourceStatusRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsStatusCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsStatusCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsStatusCreate`: ResourceStatusRequest
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsStatusCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsStatusCreate`: %v\n", resp)
 }
 ```
 
@@ -1191,7 +1199,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -1200,13 +1208,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsUpdate(context.Background(), id).DeviceGroupSerializerWithDevicePk(deviceGroupSerializerWithDevicePk).Execute()
+    resp, r, err := apiClient.GroupsAPI.GroupsUpdate(context.Background(), id).DeviceGroupSerializerWithDevicePk(deviceGroupSerializerWithDevicePk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsAPI.GroupsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GroupsUpdate`: DeviceGroupSerializerWithDevicePk
-    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `GroupsAPI.GroupsUpdate`: %v\n", resp)
 }
 ```
 

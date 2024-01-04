@@ -1,21 +1,21 @@
-# \PartFamiliesApi
+# \PartFamiliesAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PartFamiliesCreate**](PartFamiliesApi.md#PartFamiliesCreate) | **Post** /api/part-families/ | 
-[**PartFamiliesDestroy**](PartFamiliesApi.md#PartFamiliesDestroy) | **Delete** /api/part-families/{name}/ | 
-[**PartFamiliesList**](PartFamiliesApi.md#PartFamiliesList) | **Get** /api/part-families/ | 
-[**PartFamiliesPartialUpdate**](PartFamiliesApi.md#PartFamiliesPartialUpdate) | **Patch** /api/part-families/{name}/ | 
-[**PartFamiliesPartsCreate**](PartFamiliesApi.md#PartFamiliesPartsCreate) | **Post** /api/part-families/{part_family_pk}/parts/ | 
-[**PartFamiliesPartsDestroy**](PartFamiliesApi.md#PartFamiliesPartsDestroy) | **Delete** /api/part-families/{part_family_pk}/parts/{id}/ | 
-[**PartFamiliesPartsList**](PartFamiliesApi.md#PartFamiliesPartsList) | **Get** /api/part-families/{part_family_pk}/parts/ | 
-[**PartFamiliesPartsPartialUpdate**](PartFamiliesApi.md#PartFamiliesPartsPartialUpdate) | **Patch** /api/part-families/{part_family_pk}/parts/{id}/ | 
-[**PartFamiliesPartsRetrieve**](PartFamiliesApi.md#PartFamiliesPartsRetrieve) | **Get** /api/part-families/{part_family_pk}/parts/{id}/ | 
-[**PartFamiliesPartsUpdate**](PartFamiliesApi.md#PartFamiliesPartsUpdate) | **Put** /api/part-families/{part_family_pk}/parts/{id}/ | 
-[**PartFamiliesRetrieve**](PartFamiliesApi.md#PartFamiliesRetrieve) | **Get** /api/part-families/{name}/ | 
-[**PartFamiliesUpdate**](PartFamiliesApi.md#PartFamiliesUpdate) | **Put** /api/part-families/{name}/ | 
+[**PartFamiliesCreate**](PartFamiliesAPI.md#PartFamiliesCreate) | **Post** /api/part-families/ | 
+[**PartFamiliesDestroy**](PartFamiliesAPI.md#PartFamiliesDestroy) | **Delete** /api/part-families/{name}/ | 
+[**PartFamiliesList**](PartFamiliesAPI.md#PartFamiliesList) | **Get** /api/part-families/ | 
+[**PartFamiliesPartialUpdate**](PartFamiliesAPI.md#PartFamiliesPartialUpdate) | **Patch** /api/part-families/{name}/ | 
+[**PartFamiliesPartsCreate**](PartFamiliesAPI.md#PartFamiliesPartsCreate) | **Post** /api/part-families/{part_family_pk}/parts/ | 
+[**PartFamiliesPartsDestroy**](PartFamiliesAPI.md#PartFamiliesPartsDestroy) | **Delete** /api/part-families/{part_family_pk}/parts/{id}/ | 
+[**PartFamiliesPartsList**](PartFamiliesAPI.md#PartFamiliesPartsList) | **Get** /api/part-families/{part_family_pk}/parts/ | 
+[**PartFamiliesPartsPartialUpdate**](PartFamiliesAPI.md#PartFamiliesPartsPartialUpdate) | **Patch** /api/part-families/{part_family_pk}/parts/{id}/ | 
+[**PartFamiliesPartsRetrieve**](PartFamiliesAPI.md#PartFamiliesPartsRetrieve) | **Get** /api/part-families/{part_family_pk}/parts/{id}/ | 
+[**PartFamiliesPartsUpdate**](PartFamiliesAPI.md#PartFamiliesPartsUpdate) | **Put** /api/part-families/{part_family_pk}/parts/{id}/ | 
+[**PartFamiliesRetrieve**](PartFamiliesAPI.md#PartFamiliesRetrieve) | **Get** /api/part-families/{name}/ | 
+[**PartFamiliesUpdate**](PartFamiliesAPI.md#PartFamiliesUpdate) | **Put** /api/part-families/{name}/ | 
 
 
 
@@ -34,7 +34,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -42,13 +42,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesCreate(context.Background()).PartFamily(partFamily).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesCreate(context.Background()).PartFamily(partFamily).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesCreate`: PartFamily
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesCreate`: %v\n", resp)
 }
 ```
 
@@ -98,7 +98,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -106,9 +106,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesDestroy(context.Background(), name).Execute()
+    r, err := apiClient.PartFamiliesAPI.PartFamiliesDestroy(context.Background(), name).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -164,7 +164,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -177,13 +177,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesList(context.Background()).Description(description).Name(name).Ordering(ordering).Page(page).RegexPattern(regexPattern).Search(search).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesList(context.Background()).Description(description).Name(name).Ordering(ordering).Page(page).RegexPattern(regexPattern).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesList`: PaginatedPartFamilyList
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesList`: %v\n", resp)
 }
 ```
 
@@ -238,7 +238,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -247,13 +247,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesPartialUpdate(context.Background(), name).PatchedPartFamily(patchedPartFamily).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesPartialUpdate(context.Background(), name).PatchedPartFamily(patchedPartFamily).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesPartialUpdate`: PartFamily
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -308,7 +308,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -317,13 +317,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesPartsCreate(context.Background(), partFamilyPk).Part(part).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesPartsCreate(context.Background(), partFamilyPk).Part(part).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesPartsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesPartsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesPartsCreate`: Part
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesPartsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesPartsCreate`: %v\n", resp)
 }
 ```
 
@@ -378,7 +378,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -387,9 +387,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesPartsDestroy(context.Background(), id, partFamilyPk).Execute()
+    r, err := apiClient.PartFamiliesAPI.PartFamiliesPartsDestroy(context.Background(), id, partFamilyPk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesPartsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesPartsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -447,7 +447,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -464,13 +464,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesPartsList(context.Background(), partFamilyPk).BoardNo(boardNo).ChipNo(chipNo).Ordering(ordering).Page(page).PartFamily(partFamily).PartNo(partNo).Revision(revision).Search(search).Variant(variant).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesPartsList(context.Background(), partFamilyPk).BoardNo(boardNo).ChipNo(chipNo).Ordering(ordering).Page(page).PartFamily(partFamily).PartNo(partNo).Revision(revision).Search(search).Variant(variant).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesPartsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesPartsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesPartsList`: PaginatedPartList
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesPartsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesPartsList`: %v\n", resp)
 }
 ```
 
@@ -533,7 +533,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -543,13 +543,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesPartsPartialUpdate(context.Background(), id, partFamilyPk).PatchedPart(patchedPart).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesPartsPartialUpdate(context.Background(), id, partFamilyPk).PatchedPart(patchedPart).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesPartsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesPartsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesPartsPartialUpdate`: Part
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesPartsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesPartsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -606,7 +606,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -615,13 +615,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesPartsRetrieve(context.Background(), id, partFamilyPk).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesPartsRetrieve(context.Background(), id, partFamilyPk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesPartsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesPartsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesPartsRetrieve`: Part
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesPartsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesPartsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -677,7 +677,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -687,13 +687,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesPartsUpdate(context.Background(), id, partFamilyPk).Part(part).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesPartsUpdate(context.Background(), id, partFamilyPk).Part(part).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesPartsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesPartsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesPartsUpdate`: Part
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesPartsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesPartsUpdate`: %v\n", resp)
 }
 ```
 
@@ -750,7 +750,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -758,13 +758,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesRetrieve(context.Background(), name).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesRetrieve(context.Background(), name).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesRetrieve`: PartFamily
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesRetrieve`: %v\n", resp)
 }
 ```
 
@@ -818,7 +818,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -827,13 +827,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartFamiliesApi.PartFamiliesUpdate(context.Background(), name).PartFamily(partFamily).Execute()
+    resp, r, err := apiClient.PartFamiliesAPI.PartFamiliesUpdate(context.Background(), name).PartFamily(partFamily).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesApi.PartFamiliesUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartFamiliesAPI.PartFamiliesUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartFamiliesUpdate`: PartFamily
-    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesApi.PartFamiliesUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartFamiliesAPI.PartFamiliesUpdate`: %v\n", resp)
 }
 ```
 

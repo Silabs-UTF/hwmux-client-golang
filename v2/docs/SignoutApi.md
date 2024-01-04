@@ -1,10 +1,10 @@
-# \SignoutApi
+# \SignoutAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SignoutRetrieve**](SignoutApi.md#SignoutRetrieve) | **Get** /signout/ | 
+[**SignoutRetrieve**](SignoutAPI.md#SignoutRetrieve) | **Get** /signout/ | 
 
 
 
@@ -25,16 +25,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SignoutApi.SignoutRetrieve(context.Background()).Execute()
+    r, err := apiClient.SignoutAPI.SignoutRetrieve(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SignoutApi.SignoutRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SignoutAPI.SignoutRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

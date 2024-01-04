@@ -1,12 +1,12 @@
-# \LogsApi
+# \LogsAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**LogsDestroy**](LogsApi.md#LogsDestroy) | **Delete** /api/logs/{id} | 
-[**LogsList**](LogsApi.md#LogsList) | **Get** /api/logs/ | 
-[**LogsRetrieve**](LogsApi.md#LogsRetrieve) | **Get** /api/logs/{id}/ | 
+[**LogsDestroy**](LogsAPI.md#LogsDestroy) | **Delete** /api/logs/{id} | 
+[**LogsList**](LogsAPI.md#LogsList) | **Get** /api/logs/ | 
+[**LogsRetrieve**](LogsAPI.md#LogsRetrieve) | **Get** /api/logs/{id}/ | 
 
 
 
@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -33,9 +33,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LogsApi.LogsDestroy(context.Background(), id).Execute()
+    r, err := apiClient.LogsAPI.LogsDestroy(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LogsApi.LogsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.LogsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -92,7 +92,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -113,13 +113,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LogsApi.LogsList(context.Background()).CausedBy(causedBy).DateAfter(dateAfter).DateBefore(dateBefore).Datetime(datetime).Details(details).Device(device).DeviceSnOrName(deviceSnOrName).DeviceGroup(deviceGroup).DeviceGroupName(deviceGroupName).DeviceGroupLabel(deviceGroupLabel).Event(event).Owner(owner).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.LogsAPI.LogsList(context.Background()).CausedBy(causedBy).DateAfter(dateAfter).DateBefore(dateBefore).Datetime(datetime).Details(details).Device(device).DeviceSnOrName(deviceSnOrName).DeviceGroup(deviceGroup).DeviceGroupName(deviceGroupName).DeviceGroupLabel(deviceGroupLabel).Event(event).Owner(owner).Page(page).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LogsApi.LogsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.LogsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LogsList`: PaginatedLogList
-    fmt.Fprintf(os.Stdout, "Response from `LogsApi.LogsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LogsAPI.LogsList`: %v\n", resp)
 }
 ```
 
@@ -182,7 +182,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -190,13 +190,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LogsApi.LogsRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.LogsAPI.LogsRetrieve(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LogsApi.LogsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LogsAPI.LogsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LogsRetrieve`: Log
-    fmt.Fprintf(os.Stdout, "Response from `LogsApi.LogsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LogsAPI.LogsRetrieve`: %v\n", resp)
 }
 ```
 

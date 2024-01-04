@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
+**EnableAhsCas** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -184,6 +185,31 @@ SetEnableAhsActions sets EnableAhsActions field to given value.
 `func (o *NestedDeviceGroup) HasEnableAhsActions() bool`
 
 HasEnableAhsActions returns a boolean if a field has been set.
+
+### GetEnableAhsCas
+
+`func (o *NestedDeviceGroup) GetEnableAhsCas() bool`
+
+GetEnableAhsCas returns the EnableAhsCas field if non-nil, zero value otherwise.
+
+### GetEnableAhsCasOk
+
+`func (o *NestedDeviceGroup) GetEnableAhsCasOk() (*bool, bool)`
+
+GetEnableAhsCasOk returns a tuple with the EnableAhsCas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhsCas
+
+`func (o *NestedDeviceGroup) SetEnableAhsCas(v bool)`
+
+SetEnableAhsCas sets EnableAhsCas field to given value.
+
+### HasEnableAhsCas
+
+`func (o *NestedDeviceGroup) HasEnableAhsCas() bool`
+
+HasEnableAhsCas returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

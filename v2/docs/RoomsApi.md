@@ -1,11 +1,11 @@
-# \RoomsApi
+# \RoomsAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RoomsList**](RoomsApi.md#RoomsList) | **Get** /api/rooms/ | 
-[**RoomsRetrieve**](RoomsApi.md#RoomsRetrieve) | **Get** /api/rooms/{name}/ | 
+[**RoomsList**](RoomsAPI.md#RoomsList) | **Get** /api/rooms/ | 
+[**RoomsRetrieve**](RoomsAPI.md#RoomsRetrieve) | **Get** /api/rooms/{name}/ | 
 
 
 
@@ -24,7 +24,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -37,13 +37,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoomsApi.RoomsList(context.Background()).Description(description).Name(name).Ordering(ordering).Page(page).Search(search).Site(site).Execute()
+    resp, r, err := apiClient.RoomsAPI.RoomsList(context.Background()).Description(description).Name(name).Ordering(ordering).Page(page).Search(search).Site(site).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RoomsApi.RoomsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RoomsAPI.RoomsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `RoomsList`: PaginatedRoomList
-    fmt.Fprintf(os.Stdout, "Response from `RoomsApi.RoomsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RoomsAPI.RoomsList`: %v\n", resp)
 }
 ```
 
@@ -98,7 +98,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -106,13 +106,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.RoomsApi.RoomsRetrieve(context.Background(), name).Execute()
+    resp, r, err := apiClient.RoomsAPI.RoomsRetrieve(context.Background(), name).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `RoomsApi.RoomsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `RoomsAPI.RoomsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `RoomsRetrieve`: Room
-    fmt.Fprintf(os.Stdout, "Response from `RoomsApi.RoomsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `RoomsAPI.RoomsRetrieve`: %v\n", resp)
 }
 ```
 

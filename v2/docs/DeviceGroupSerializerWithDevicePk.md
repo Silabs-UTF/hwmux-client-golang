@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
+**EnableAhsCas** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -253,6 +254,31 @@ SetEnableAhsActions sets EnableAhsActions field to given value.
 `func (o *DeviceGroupSerializerWithDevicePk) HasEnableAhsActions() bool`
 
 HasEnableAhsActions returns a boolean if a field has been set.
+
+### GetEnableAhsCas
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetEnableAhsCas() bool`
+
+GetEnableAhsCas returns the EnableAhsCas field if non-nil, zero value otherwise.
+
+### GetEnableAhsCasOk
+
+`func (o *DeviceGroupSerializerWithDevicePk) GetEnableAhsCasOk() (*bool, bool)`
+
+GetEnableAhsCasOk returns a tuple with the EnableAhsCas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhsCas
+
+`func (o *DeviceGroupSerializerWithDevicePk) SetEnableAhsCas(v bool)`
+
+SetEnableAhsCas sets EnableAhsCas field to given value.
+
+### HasEnableAhsCas
+
+`func (o *DeviceGroupSerializerWithDevicePk) HasEnableAhsCas() bool`
+
+HasEnableAhsCas returns a boolean if a field has been set.
 
 ### GetMetadata
 
