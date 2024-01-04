@@ -1,19 +1,19 @@
-# \ReservationsApi
+# \ReservationsAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ReservationsActionableList**](ReservationsApi.md#ReservationsActionableList) | **Get** /api/reservations/actionable/ | 
-[**ReservationsActiveList**](ReservationsApi.md#ReservationsActiveList) | **Get** /api/reservations/active/ | 
-[**ReservationsCancelUpdate**](ReservationsApi.md#ReservationsCancelUpdate) | **Put** /api/reservations/{id}/cancel/ | 
-[**ReservationsCreate**](ReservationsApi.md#ReservationsCreate) | **Post** /api/reservations/ | 
-[**ReservationsList**](ReservationsApi.md#ReservationsList) | **Get** /api/reservations/ | 
-[**ReservationsMetadataPartialUpdate**](ReservationsApi.md#ReservationsMetadataPartialUpdate) | **Patch** /api/reservations/{id}/metadata/ | 
-[**ReservationsMetadataUpdate**](ReservationsApi.md#ReservationsMetadataUpdate) | **Put** /api/reservations/{id}/metadata/ | 
-[**ReservationsReleaseUpdate**](ReservationsApi.md#ReservationsReleaseUpdate) | **Put** /api/reservations/{id}/release/ | 
-[**ReservationsRetrieve**](ReservationsApi.md#ReservationsRetrieve) | **Get** /api/reservations/{id}/ | 
-[**ReservationsUpdate**](ReservationsApi.md#ReservationsUpdate) | **Put** /api/reservations/{id}/ | 
+[**ReservationsActionableList**](ReservationsAPI.md#ReservationsActionableList) | **Get** /api/reservations/actionable/ | 
+[**ReservationsActiveList**](ReservationsAPI.md#ReservationsActiveList) | **Get** /api/reservations/active/ | 
+[**ReservationsCancelUpdate**](ReservationsAPI.md#ReservationsCancelUpdate) | **Put** /api/reservations/{id}/cancel/ | 
+[**ReservationsCreate**](ReservationsAPI.md#ReservationsCreate) | **Post** /api/reservations/ | 
+[**ReservationsList**](ReservationsAPI.md#ReservationsList) | **Get** /api/reservations/ | 
+[**ReservationsMetadataPartialUpdate**](ReservationsAPI.md#ReservationsMetadataPartialUpdate) | **Patch** /api/reservations/{id}/metadata/ | 
+[**ReservationsMetadataUpdate**](ReservationsAPI.md#ReservationsMetadataUpdate) | **Put** /api/reservations/{id}/metadata/ | 
+[**ReservationsReleaseUpdate**](ReservationsAPI.md#ReservationsReleaseUpdate) | **Put** /api/reservations/{id}/release/ | 
+[**ReservationsRetrieve**](ReservationsAPI.md#ReservationsRetrieve) | **Get** /api/reservations/{id}/ | 
+[**ReservationsUpdate**](ReservationsAPI.md#ReservationsUpdate) | **Put** /api/reservations/{id}/ | 
 
 
 
@@ -33,7 +33,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -75,13 +75,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsActionableList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsActionableList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsActionableList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsActionableList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsActionableList`: PaginatedReservationSessionSerializerReadOnlyList
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsActionableList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsActionableList`: %v\n", resp)
 }
 ```
 
@@ -166,7 +166,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -208,13 +208,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsActiveList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsActiveList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).MaxHistory(maxHistory).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsActiveList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsActiveList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsActiveList`: PaginatedReservationSessionSerializerReadOnlyList
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsActiveList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsActiveList`: %v\n", resp)
 }
 ```
 
@@ -300,7 +300,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -308,13 +308,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsCancelUpdate(context.Background(), id).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsCancelUpdate(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsCancelUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsCancelUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsCancelUpdate`: ReservationSessionSerializerReadOnly
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsCancelUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsCancelUpdate`: %v\n", resp)
 }
 ```
 
@@ -368,7 +368,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -376,13 +376,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsCreate(context.Background()).ReservationRequest(reservationRequest).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsCreate(context.Background()).ReservationRequest(reservationRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsCreate`: ReservationSessionSerializerReadOnly
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsCreate`: %v\n", resp)
 }
 ```
 
@@ -433,7 +433,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -474,13 +474,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsList(context.Background()).ADeviceGroups(aDeviceGroups).ADevices(aDevices).CancelExisting(cancelExisting).Details(details).Device(device).DeviceGroup(deviceGroup).Id(id).IncludeResourceData(includeResourceData).InvertPriority(invertPriority).Label(label).Ordering(ordering).Owner(owner).Page(page).RDeviceGroupLabels(rDeviceGroupLabels).RDeviceGroups(rDeviceGroups).RDevices(rDevices).Search(search).Status(status).TCompleted(tCompleted).TCompletedAfter(tCompletedAfter).TCompletedBefore(tCompletedBefore).TCompletedIsnull(tCompletedIsnull).TLeaseExpires(tLeaseExpires).TLeaseExpiresAfter(tLeaseExpiresAfter).TLeaseExpiresBefore(tLeaseExpiresBefore).TLeaseExpiresIsnull(tLeaseExpiresIsnull).TRequested(tRequested).TRequestedAfter(tRequestedAfter).TRequestedBefore(tRequestedBefore).TSatisfied(tSatisfied).TSatisfiedAfter(tSatisfiedAfter).TSatisfiedBefore(tSatisfiedBefore).TSatisfiedIsnull(tSatisfiedIsnull).UseWatchdog(useWatchdog).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsList`: PaginatedReservationSessionSerializerReadOnlyList
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsList`: %v\n", resp)
 }
 ```
 
@@ -565,7 +565,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -574,13 +574,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsMetadataPartialUpdate(context.Background(), id).RequestBody(requestBody).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsMetadataPartialUpdate(context.Background(), id).RequestBody(requestBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsMetadataPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsMetadataPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsMetadataPartialUpdate`: ReservationSessionSerializerReadOnly
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsMetadataPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsMetadataPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -637,7 +637,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -646,13 +646,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsMetadataUpdate(context.Background(), id).RequestBody(requestBody).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsMetadataUpdate(context.Background(), id).RequestBody(requestBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsMetadataUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsMetadataUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsMetadataUpdate`: ReservationSessionSerializerReadOnly
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsMetadataUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsMetadataUpdate`: %v\n", resp)
 }
 ```
 
@@ -709,7 +709,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -717,13 +717,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsReleaseUpdate(context.Background(), id).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsReleaseUpdate(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsReleaseUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsReleaseUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsReleaseUpdate`: ReservationSessionSerializerReadOnly
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsReleaseUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsReleaseUpdate`: %v\n", resp)
 }
 ```
 
@@ -777,7 +777,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -785,13 +785,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsRetrieve(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsRetrieve`: ReservationSessionSerializerReadOnly
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -847,7 +847,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -855,13 +855,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.ReservationsApi.ReservationsUpdate(context.Background(), id).Execute()
+    resp, r, err := apiClient.ReservationsAPI.ReservationsUpdate(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsApi.ReservationsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ReservationsAPI.ReservationsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ReservationsUpdate`: ReservationSessionSerializerReadOnly
-    fmt.Fprintf(os.Stdout, "Response from `ReservationsApi.ReservationsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `ReservationsAPI.ReservationsUpdate`: %v\n", resp)
 }
 ```
 

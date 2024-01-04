@@ -1,10 +1,10 @@
-# \CallbackApi
+# \CallbackAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CallbackRetrieve**](CallbackApi.md#CallbackRetrieve) | **Get** /callback/ | 
+[**CallbackRetrieve**](CallbackAPI.md#CallbackRetrieve) | **Get** /callback/ | 
 
 
 
@@ -25,16 +25,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.CallbackApi.CallbackRetrieve(context.Background()).Execute()
+    r, err := apiClient.CallbackAPI.CallbackRetrieve(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `CallbackApi.CallbackRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `CallbackAPI.CallbackRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

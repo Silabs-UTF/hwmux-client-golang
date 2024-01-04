@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | [readonly] 
-**Owner** | [**NullableReservationSessionSerializerReadOnlyOwner**](ReservationSessionSerializerReadOnlyOwner.md) |  | 
+**Owner** | [**NullableUser**](User.md) |  | [readonly] 
 **IsSatisfied** | **bool** |  | [readonly] 
 **ResponseMessage** | **string** |  | [readonly] 
 **Status** | **NullableString** |  | [readonly] 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewReservationSessionSerializerReadOnly
 
-`func NewReservationSessionSerializerReadOnly(id string, owner NullableReservationSessionSerializerReadOnlyOwner, isSatisfied bool, responseMessage string, status NullableString, queuePosition NullableInt32, queue []string, resourceData map[string]interface{}, details string, invertPriority bool, cancelExisting NullableBool, tRequested time.Time, tSatisfied NullableTime, tCompleted NullableTime, tLeaseExpires NullableTime, metadata map[string]interface{}, rDevices []int32, rDeviceGroups []int32, rDeviceGroupLabels []int32, aDevices []int32, aDeviceGroups []int32, ) *ReservationSessionSerializerReadOnly`
+`func NewReservationSessionSerializerReadOnly(id string, owner NullableUser, isSatisfied bool, responseMessage string, status NullableString, queuePosition NullableInt32, queue []string, resourceData map[string]interface{}, details string, invertPriority bool, cancelExisting NullableBool, tRequested time.Time, tSatisfied NullableTime, tCompleted NullableTime, tLeaseExpires NullableTime, metadata map[string]interface{}, rDevices []int32, rDeviceGroups []int32, rDeviceGroupLabels []int32, aDevices []int32, aDeviceGroups []int32, ) *ReservationSessionSerializerReadOnly`
 
 NewReservationSessionSerializerReadOnly instantiates a new ReservationSessionSerializerReadOnly object
 This constructor will assign default values to properties that have it defined,
@@ -68,20 +68,20 @@ SetId sets Id field to given value.
 
 ### GetOwner
 
-`func (o *ReservationSessionSerializerReadOnly) GetOwner() ReservationSessionSerializerReadOnlyOwner`
+`func (o *ReservationSessionSerializerReadOnly) GetOwner() User`
 
 GetOwner returns the Owner field if non-nil, zero value otherwise.
 
 ### GetOwnerOk
 
-`func (o *ReservationSessionSerializerReadOnly) GetOwnerOk() (*ReservationSessionSerializerReadOnlyOwner, bool)`
+`func (o *ReservationSessionSerializerReadOnly) GetOwnerOk() (*User, bool)`
 
 GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwner
 
-`func (o *ReservationSessionSerializerReadOnly) SetOwner(v ReservationSessionSerializerReadOnlyOwner)`
+`func (o *ReservationSessionSerializerReadOnly) SetOwner(v User)`
 
 SetOwner sets Owner field to given value.
 

@@ -1,25 +1,25 @@
-# \DevicesApi
+# \DevicesAPI
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DevicesCreate**](DevicesApi.md#DevicesCreate) | **Post** /api/devices/ | 
-[**DevicesDestroy**](DevicesApi.md#DevicesDestroy) | **Delete** /api/devices/{id}/ | 
-[**DevicesList**](DevicesApi.md#DevicesList) | **Get** /api/devices/ | 
-[**DevicesListMyList**](DevicesApi.md#DevicesListMyList) | **Get** /api/devices/list_my/ | 
-[**DevicesLocationRetrieve**](DevicesApi.md#DevicesLocationRetrieve) | **Get** /api/devices/{device_pk}/location/ | 
-[**DevicesPartialUpdate**](DevicesApi.md#DevicesPartialUpdate) | **Patch** /api/devices/{id}/ | 
-[**DevicesPermissionsPartialUpdate**](DevicesApi.md#DevicesPermissionsPartialUpdate) | **Patch** /api/devices/{id}/permissions/ | 
-[**DevicesPermissionsRetrieve**](DevicesApi.md#DevicesPermissionsRetrieve) | **Get** /api/devices/{id}/permissions/ | 
-[**DevicesPermissionsUpdate**](DevicesApi.md#DevicesPermissionsUpdate) | **Put** /api/devices/{id}/permissions/ | 
-[**DevicesReleaseUpdate**](DevicesApi.md#DevicesReleaseUpdate) | **Put** /api/devices/{id}/release/ | 
-[**DevicesReserveUpdate**](DevicesApi.md#DevicesReserveUpdate) | **Put** /api/devices/{id}/reserve/ | 
-[**DevicesRetrieve**](DevicesApi.md#DevicesRetrieve) | **Get** /api/devices/{id}/ | 
-[**DevicesSearchList**](DevicesApi.md#DevicesSearchList) | **Get** /api/devices/search/ | 
-[**DevicesSetOfflineCreate**](DevicesApi.md#DevicesSetOfflineCreate) | **Post** /api/devices/set_offline/ | 
-[**DevicesStatusCreate**](DevicesApi.md#DevicesStatusCreate) | **Post** /api/devices/{id}/status/ | 
-[**DevicesUpdate**](DevicesApi.md#DevicesUpdate) | **Put** /api/devices/{id}/ | 
+[**DevicesCreate**](DevicesAPI.md#DevicesCreate) | **Post** /api/devices/ | 
+[**DevicesDestroy**](DevicesAPI.md#DevicesDestroy) | **Delete** /api/devices/{id}/ | 
+[**DevicesList**](DevicesAPI.md#DevicesList) | **Get** /api/devices/ | 
+[**DevicesListMyList**](DevicesAPI.md#DevicesListMyList) | **Get** /api/devices/list_my/ | 
+[**DevicesLocationRetrieve**](DevicesAPI.md#DevicesLocationRetrieve) | **Get** /api/devices/{device_pk}/location/ | 
+[**DevicesPartialUpdate**](DevicesAPI.md#DevicesPartialUpdate) | **Patch** /api/devices/{id}/ | 
+[**DevicesPermissionsPartialUpdate**](DevicesAPI.md#DevicesPermissionsPartialUpdate) | **Patch** /api/devices/{id}/permissions/ | 
+[**DevicesPermissionsRetrieve**](DevicesAPI.md#DevicesPermissionsRetrieve) | **Get** /api/devices/{id}/permissions/ | 
+[**DevicesPermissionsUpdate**](DevicesAPI.md#DevicesPermissionsUpdate) | **Put** /api/devices/{id}/permissions/ | 
+[**DevicesReleaseUpdate**](DevicesAPI.md#DevicesReleaseUpdate) | **Put** /api/devices/{id}/release/ | 
+[**DevicesReserveUpdate**](DevicesAPI.md#DevicesReserveUpdate) | **Put** /api/devices/{id}/reserve/ | 
+[**DevicesRetrieve**](DevicesAPI.md#DevicesRetrieve) | **Get** /api/devices/{id}/ | 
+[**DevicesSearchList**](DevicesAPI.md#DevicesSearchList) | **Get** /api/devices/search/ | 
+[**DevicesSetOfflineCreate**](DevicesAPI.md#DevicesSetOfflineCreate) | **Post** /api/devices/set_offline/ | 
+[**DevicesStatusCreate**](DevicesAPI.md#DevicesStatusCreate) | **Post** /api/devices/{id}/status/ | 
+[**DevicesUpdate**](DevicesAPI.md#DevicesUpdate) | **Put** /api/devices/{id}/ | 
 
 
 
@@ -41,7 +41,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -49,13 +49,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesCreate(context.Background()).WriteOnlyDevice(writeOnlyDevice).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesCreate(context.Background()).WriteOnlyDevice(writeOnlyDevice).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesCreate`: WriteOnlyDevice
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesCreate`: %v\n", resp)
 }
 ```
 
@@ -107,7 +107,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -115,9 +115,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesDestroy(context.Background(), id).Execute()
+    r, err := apiClient.DevicesAPI.DevicesDestroy(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## DevicesList
 
-> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -176,11 +176,12 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
     dateCreated := time.Now() // time.Time |  (optional)
+    forceMv := "forceMv_example" // string | Specifies the behavior of the force_mv attribute. DEFAULT : Default condition which retrieve data from the Materialized view unless ax exception occurs where we fall back to postgres. ON : Force the data to be retrieved from the Materialized view. OFF : Force the data to be retrieved from the Postgres database (optional) (default to "DEFAULT")
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
     isWstk := true // bool |  (optional)
@@ -202,13 +203,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesList(context.Background()).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesList`: PaginatedDeviceSerializerPublicList
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesList`: %v\n", resp)
 }
 ```
 
@@ -224,6 +225,7 @@ Other parameters are passed through a pointer to a apiDevicesListRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateCreated** | **time.Time** |  | 
+ **forceMv** | **string** | Specifies the behavior of the force_mv attribute. DEFAULT : Default condition which retrieve data from the Materialized view unless ax exception occurs where we fall back to postgres. ON : Force the data to be retrieved from the Materialized view. OFF : Force the data to be retrieved from the Postgres database | [default to &quot;DEFAULT&quot;]
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
  **isWstk** | **bool** |  | 
@@ -279,7 +281,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -305,13 +307,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesListMyList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesListMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesListMyList`: PaginatedDeviceSerializerPublicList
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesListMyList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesListMyList`: %v\n", resp)
 }
 ```
 
@@ -379,7 +381,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -387,13 +389,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesLocationRetrieve(context.Background(), devicePk).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesLocationRetrieve(context.Background(), devicePk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesLocationRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesLocationRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesLocationRetrieve`: Location
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesLocationRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesLocationRetrieve`: %v\n", resp)
 }
 ```
 
@@ -449,7 +451,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -458,13 +460,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesPartialUpdate(context.Background(), id).PatchedWriteOnlyDevice(patchedWriteOnlyDevice).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesPartialUpdate(context.Background(), id).PatchedWriteOnlyDevice(patchedWriteOnlyDevice).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesPartialUpdate`: WriteOnlyDevice
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -521,7 +523,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -530,13 +532,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesPermissionsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesPermissionsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesPermissionsPartialUpdate`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesPermissionsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesPermissionsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -593,7 +595,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -601,13 +603,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesPermissionsRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesPermissionsRetrieve(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesPermissionsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesPermissionsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesPermissionsRetrieve`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesPermissionsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesPermissionsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -663,7 +665,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -672,13 +674,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesPermissionsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesPermissionsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesPermissionsUpdate`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesPermissionsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesPermissionsUpdate`: %v\n", resp)
 }
 ```
 
@@ -735,7 +737,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -743,13 +745,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesReleaseUpdate(context.Background(), id).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesReleaseUpdate(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesReleaseUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesReleaseUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesReleaseUpdate`: DeviceSerializerPublic
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesReleaseUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesReleaseUpdate`: %v\n", resp)
 }
 ```
 
@@ -805,7 +807,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -814,13 +816,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesReserveUpdate(context.Background(), id).Details(details).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesReserveUpdate(context.Background(), id).Details(details).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesReserveUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesReserveUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesReserveUpdate`: DeviceSerializerPublic
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesReserveUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesReserveUpdate`: %v\n", resp)
 }
 ```
 
@@ -877,7 +879,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -886,13 +888,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesRetrieve`: DeviceSerializerPublic
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesRetrieve`: %v\n", resp)
 }
 ```
 
@@ -950,7 +952,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -976,13 +978,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesSearchList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesSearchList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesSearchList`: PaginatedDeviceSerializerPublicList
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesSearchList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesSearchList`: %v\n", resp)
 }
 ```
 
@@ -1053,7 +1055,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -1061,13 +1063,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesSetOfflineCreate(context.Background()).WriteOnlyDevice(writeOnlyDevice).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesSetOfflineCreate(context.Background()).WriteOnlyDevice(writeOnlyDevice).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesSetOfflineCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesSetOfflineCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesSetOfflineCreate`: WriteOnlyDevice
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesSetOfflineCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesSetOfflineCreate`: %v\n", resp)
 }
 ```
 
@@ -1119,7 +1121,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -1128,13 +1130,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesStatusCreate(context.Background(), id).ResourceStatusRequest(resourceStatusRequest).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesStatusCreate(context.Background(), id).ResourceStatusRequest(resourceStatusRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesStatusCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesStatusCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesStatusCreate`: ResourceStatusRequest
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesStatusCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesStatusCreate`: %v\n", resp)
 }
 ```
 
@@ -1192,7 +1194,7 @@ import (
     "fmt"
     "os"
     "time"
-    openapiclient "./openapi"
+    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
 )
 
 func main() {
@@ -1201,13 +1203,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesUpdate(context.Background(), id).WriteOnlyDevice(writeOnlyDevice).Execute()
+    resp, r, err := apiClient.DevicesAPI.DevicesUpdate(context.Background(), id).WriteOnlyDevice(writeOnlyDevice).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DevicesAPI.DevicesUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DevicesUpdate`: WriteOnlyDevice
-    fmt.Fprintf(os.Stdout, "Response from `DevicesApi.DevicesUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `DevicesAPI.DevicesUpdate`: %v\n", resp)
 }
 ```
 

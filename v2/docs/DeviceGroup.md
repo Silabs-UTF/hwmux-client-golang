@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
+**EnableAhsCas** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -248,6 +249,31 @@ SetEnableAhsActions sets EnableAhsActions field to given value.
 `func (o *DeviceGroup) HasEnableAhsActions() bool`
 
 HasEnableAhsActions returns a boolean if a field has been set.
+
+### GetEnableAhsCas
+
+`func (o *DeviceGroup) GetEnableAhsCas() bool`
+
+GetEnableAhsCas returns the EnableAhsCas field if non-nil, zero value otherwise.
+
+### GetEnableAhsCasOk
+
+`func (o *DeviceGroup) GetEnableAhsCasOk() (*bool, bool)`
+
+GetEnableAhsCasOk returns a tuple with the EnableAhsCas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableAhsCas
+
+`func (o *DeviceGroup) SetEnableAhsCas(v bool)`
+
+SetEnableAhsCas sets EnableAhsCas field to given value.
+
+### HasEnableAhsCas
+
+`func (o *DeviceGroup) HasEnableAhsCas() bool`
+
+HasEnableAhsCas returns a boolean if a field has been set.
 
 ### GetMetadata
 
