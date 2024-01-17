@@ -1,10 +1,10 @@
-# \TokenAuthAPI
+# \TokenAuthApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TokenAuthCreate**](TokenAuthAPI.md#TokenAuthCreate) | **Post** /api-token-auth/ | 
+[**TokenAuthCreate**](TokenAuthApi.md#TokenAuthCreate) | **Post** /api-token-auth/ | 
 
 
 
@@ -23,7 +23,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -33,13 +33,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.TokenAuthAPI.TokenAuthCreate(context.Background()).Username(username).Password(password).Token(token).Execute()
+    resp, r, err := apiClient.TokenAuthApi.TokenAuthCreate(context.Background()).Username(username).Password(password).Token(token).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TokenAuthAPI.TokenAuthCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TokenAuthApi.TokenAuthCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `TokenAuthCreate`: AuthToken
-    fmt.Fprintf(os.Stdout, "Response from `TokenAuthAPI.TokenAuthCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `TokenAuthApi.TokenAuthCreate`: %v\n", resp)
 }
 ```
 

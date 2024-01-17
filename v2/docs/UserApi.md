@@ -1,20 +1,20 @@
-# \UserAPI
+# \UserApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**UserCreate**](UserAPI.md#UserCreate) | **Post** /api/user/ | 
-[**UserCurrentRetrieve**](UserAPI.md#UserCurrentRetrieve) | **Get** /api/user/current/ | 
-[**UserCurrentTokenCreate**](UserAPI.md#UserCurrentTokenCreate) | **Post** /api/user/current/token/ | 
-[**UserCurrentTokenRetrieve**](UserAPI.md#UserCurrentTokenRetrieve) | **Get** /api/user/current/token/ | 
-[**UserDestroy**](UserAPI.md#UserDestroy) | **Delete** /api/user/{username_or_id}/ | 
-[**UserList**](UserAPI.md#UserList) | **Get** /api/user/ | 
-[**UserPartialUpdate**](UserAPI.md#UserPartialUpdate) | **Patch** /api/user/{username_or_id}/ | 
-[**UserRetrieve**](UserAPI.md#UserRetrieve) | **Get** /api/user/{username_or_id}/ | 
-[**UserTokenCreate**](UserAPI.md#UserTokenCreate) | **Post** /api/user/{username_or_id}/token/ | 
-[**UserTokenRetrieve**](UserAPI.md#UserTokenRetrieve) | **Get** /api/user/{username_or_id}/token/ | 
-[**UserUpdate**](UserAPI.md#UserUpdate) | **Put** /api/user/{username_or_id}/ | 
+[**UserCreate**](UserApi.md#UserCreate) | **Post** /api/user/ | 
+[**UserCurrentRetrieve**](UserApi.md#UserCurrentRetrieve) | **Get** /api/user/current/ | 
+[**UserCurrentTokenCreate**](UserApi.md#UserCurrentTokenCreate) | **Post** /api/user/current/token/ | 
+[**UserCurrentTokenRetrieve**](UserApi.md#UserCurrentTokenRetrieve) | **Get** /api/user/current/token/ | 
+[**UserDestroy**](UserApi.md#UserDestroy) | **Delete** /api/user/{username_or_id}/ | 
+[**UserList**](UserApi.md#UserList) | **Get** /api/user/ | 
+[**UserPartialUpdate**](UserApi.md#UserPartialUpdate) | **Patch** /api/user/{username_or_id}/ | 
+[**UserRetrieve**](UserApi.md#UserRetrieve) | **Get** /api/user/{username_or_id}/ | 
+[**UserTokenCreate**](UserApi.md#UserTokenCreate) | **Post** /api/user/{username_or_id}/token/ | 
+[**UserTokenRetrieve**](UserApi.md#UserTokenRetrieve) | **Get** /api/user/{username_or_id}/token/ | 
+[**UserUpdate**](UserApi.md#UserUpdate) | **Put** /api/user/{username_or_id}/ | 
 
 
 
@@ -33,7 +33,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -41,13 +41,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserCreate(context.Background()).LoggedInUser(loggedInUser).Execute()
+    resp, r, err := apiClient.UserApi.UserCreate(context.Background()).LoggedInUser(loggedInUser).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserCreate`: LoggedInUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserCreate`: %v\n", resp)
 }
 ```
 
@@ -97,20 +97,20 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserCurrentRetrieve(context.Background()).Execute()
+    resp, r, err := apiClient.UserApi.UserCurrentRetrieve(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserCurrentRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserCurrentRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserCurrentRetrieve`: LoggedInUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserCurrentRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserCurrentRetrieve`: %v\n", resp)
 }
 ```
 
@@ -158,20 +158,20 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserCurrentTokenCreate(context.Background()).Execute()
+    resp, r, err := apiClient.UserApi.UserCurrentTokenCreate(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserCurrentTokenCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserCurrentTokenCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserCurrentTokenCreate`: Token
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserCurrentTokenCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserCurrentTokenCreate`: %v\n", resp)
 }
 ```
 
@@ -219,20 +219,20 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserCurrentTokenRetrieve(context.Background()).Execute()
+    resp, r, err := apiClient.UserApi.UserCurrentTokenRetrieve(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserCurrentTokenRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserCurrentTokenRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserCurrentTokenRetrieve`: Token
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserCurrentTokenRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserCurrentTokenRetrieve`: %v\n", resp)
 }
 ```
 
@@ -278,7 +278,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -286,9 +286,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.UserAPI.UserDestroy(context.Background(), usernameOrId).Execute()
+    resp, r, err := apiClient.UserApi.UserDestroy(context.Background(), usernameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -344,7 +344,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -359,13 +359,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserList(context.Background()).Email(email).FirstName(firstName).LastName(lastName).Ordering(ordering).Page(page).Search(search).UserGroup(userGroup).Username(username).Execute()
+    resp, r, err := apiClient.UserApi.UserList(context.Background()).Email(email).FirstName(firstName).LastName(lastName).Ordering(ordering).Page(page).Search(search).UserGroup(userGroup).Username(username).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserList`: PaginatedLoggedInUserList
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserList`: %v\n", resp)
 }
 ```
 
@@ -422,7 +422,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -431,13 +431,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserPartialUpdate(context.Background(), usernameOrId).PatchedLoggedInUser(patchedLoggedInUser).Execute()
+    resp, r, err := apiClient.UserApi.UserPartialUpdate(context.Background(), usernameOrId).PatchedLoggedInUser(patchedLoggedInUser).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserPartialUpdate`: LoggedInUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -492,7 +492,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -500,13 +500,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserRetrieve(context.Background(), usernameOrId).Execute()
+    resp, r, err := apiClient.UserApi.UserRetrieve(context.Background(), usernameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserRetrieve`: LoggedInUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserRetrieve`: %v\n", resp)
 }
 ```
 
@@ -562,7 +562,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -570,13 +570,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserTokenCreate(context.Background(), usernameOrId).Execute()
+    resp, r, err := apiClient.UserApi.UserTokenCreate(context.Background(), usernameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserTokenCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserTokenCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserTokenCreate`: Token
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserTokenCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserTokenCreate`: %v\n", resp)
 }
 ```
 
@@ -632,7 +632,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -640,13 +640,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserTokenRetrieve(context.Background(), usernameOrId).Execute()
+    resp, r, err := apiClient.UserApi.UserTokenRetrieve(context.Background(), usernameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserTokenRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserTokenRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserTokenRetrieve`: Token
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserTokenRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserTokenRetrieve`: %v\n", resp)
 }
 ```
 
@@ -700,7 +700,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -709,13 +709,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.UserAPI.UserUpdate(context.Background(), usernameOrId).LoggedInUser(loggedInUser).Execute()
+    resp, r, err := apiClient.UserApi.UserUpdate(context.Background(), usernameOrId).LoggedInUser(loggedInUser).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `UserAPI.UserUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `UserApi.UserUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UserUpdate`: LoggedInUser
-    fmt.Fprintf(os.Stdout, "Response from `UserAPI.UserUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `UserApi.UserUpdate`: %v\n", resp)
 }
 ```
 

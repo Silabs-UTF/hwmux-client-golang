@@ -1,19 +1,19 @@
-# \LabelsAPI
+# \LabelsApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**LabelsCreate**](LabelsAPI.md#LabelsCreate) | **Post** /api/labels/ | 
-[**LabelsDestroy**](LabelsAPI.md#LabelsDestroy) | **Delete** /api/labels/{id}/ | 
-[**LabelsList**](LabelsAPI.md#LabelsList) | **Get** /api/labels/ | 
-[**LabelsPartialUpdate**](LabelsAPI.md#LabelsPartialUpdate) | **Patch** /api/labels/{id}/ | 
-[**LabelsPermissionsPartialUpdate**](LabelsAPI.md#LabelsPermissionsPartialUpdate) | **Patch** /api/labels/{id}/permissions/ | 
-[**LabelsPermissionsRetrieve**](LabelsAPI.md#LabelsPermissionsRetrieve) | **Get** /api/labels/{id}/permissions/ | 
-[**LabelsPermissionsUpdate**](LabelsAPI.md#LabelsPermissionsUpdate) | **Put** /api/labels/{id}/permissions/ | 
-[**LabelsReserveAnyUpdate**](LabelsAPI.md#LabelsReserveAnyUpdate) | **Put** /api/labels/{id}/reserve_any/ | 
-[**LabelsRetrieve**](LabelsAPI.md#LabelsRetrieve) | **Get** /api/labels/{id}/ | 
-[**LabelsUpdate**](LabelsAPI.md#LabelsUpdate) | **Put** /api/labels/{id}/ | 
+[**LabelsCreate**](LabelsApi.md#LabelsCreate) | **Post** /api/labels/ | 
+[**LabelsDestroy**](LabelsApi.md#LabelsDestroy) | **Delete** /api/labels/{id}/ | 
+[**LabelsList**](LabelsApi.md#LabelsList) | **Get** /api/labels/ | 
+[**LabelsPartialUpdate**](LabelsApi.md#LabelsPartialUpdate) | **Patch** /api/labels/{id}/ | 
+[**LabelsPermissionsPartialUpdate**](LabelsApi.md#LabelsPermissionsPartialUpdate) | **Patch** /api/labels/{id}/permissions/ | 
+[**LabelsPermissionsRetrieve**](LabelsApi.md#LabelsPermissionsRetrieve) | **Get** /api/labels/{id}/permissions/ | 
+[**LabelsPermissionsUpdate**](LabelsApi.md#LabelsPermissionsUpdate) | **Put** /api/labels/{id}/permissions/ | 
+[**LabelsReserveAnyUpdate**](LabelsApi.md#LabelsReserveAnyUpdate) | **Put** /api/labels/{id}/reserve_any/ | 
+[**LabelsRetrieve**](LabelsApi.md#LabelsRetrieve) | **Get** /api/labels/{id}/ | 
+[**LabelsUpdate**](LabelsApi.md#LabelsUpdate) | **Put** /api/labels/{id}/ | 
 
 
 
@@ -34,7 +34,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -42,13 +42,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsCreate(context.Background()).LabelSerializerWithPermissions(labelSerializerWithPermissions).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsCreate(context.Background()).LabelSerializerWithPermissions(labelSerializerWithPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsCreate`: LabelSerializerWithPermissions
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsCreate`: %v\n", resp)
 }
 ```
 
@@ -100,7 +100,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -108,9 +108,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.LabelsAPI.LabelsDestroy(context.Background(), id).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsDestroy(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -168,7 +168,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -182,13 +182,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsList(context.Background()).DeviceGroups(deviceGroups).ForceMv(forceMv).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsList(context.Background()).DeviceGroups(deviceGroups).ForceMv(forceMv).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsList`: PaginatedLabelList
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsList`: %v\n", resp)
 }
 ```
 
@@ -246,7 +246,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -255,13 +255,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsPartialUpdate(context.Background(), id).PatchedLabelSerializerWithPermissions(patchedLabelSerializerWithPermissions).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsPartialUpdate(context.Background(), id).PatchedLabelSerializerWithPermissions(patchedLabelSerializerWithPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsPartialUpdate`: LabelSerializerWithPermissions
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -318,7 +318,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -327,13 +327,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsPermissionsPartialUpdate(context.Background(), id).PatchedObjectPermissions(patchedObjectPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsPermissionsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsPermissionsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsPermissionsPartialUpdate`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsPermissionsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsPermissionsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -390,7 +390,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -398,13 +398,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsPermissionsRetrieve(context.Background(), id).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsPermissionsRetrieve(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsPermissionsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsPermissionsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsPermissionsRetrieve`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsPermissionsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsPermissionsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -460,7 +460,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -469,13 +469,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsPermissionsUpdate(context.Background(), id).ObjectPermissions(objectPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsPermissionsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsPermissionsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsPermissionsUpdate`: ObjectPermissions
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsPermissionsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsPermissionsUpdate`: %v\n", resp)
 }
 ```
 
@@ -532,7 +532,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -541,13 +541,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsReserveAnyUpdate(context.Background(), id).Details(details).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsReserveAnyUpdate(context.Background(), id).Details(details).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsReserveAnyUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsReserveAnyUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsReserveAnyUpdate`: DeviceGroup
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsReserveAnyUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsReserveAnyUpdate`: %v\n", resp)
 }
 ```
 
@@ -604,7 +604,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -613,13 +613,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsRetrieve(context.Background(), id).IncludePermissionGroups(includePermissionGroups).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsRetrieve`: Label
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -676,7 +676,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -685,13 +685,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsAPI.LabelsUpdate(context.Background(), id).LabelSerializerWithPermissions(labelSerializerWithPermissions).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsUpdate(context.Background(), id).LabelSerializerWithPermissions(labelSerializerWithPermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `LabelsAPI.LabelsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `LabelsUpdate`: LabelSerializerWithPermissions
-    fmt.Fprintf(os.Stdout, "Response from `LabelsAPI.LabelsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `LabelsApi.LabelsUpdate`: %v\n", resp)
 }
 ```
 

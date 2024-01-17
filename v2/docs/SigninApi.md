@@ -1,10 +1,10 @@
-# \SigninAPI
+# \SigninApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SigninRetrieve**](SigninAPI.md#SigninRetrieve) | **Get** /signin/ | 
+[**SigninRetrieve**](SigninApi.md#SigninRetrieve) | **Get** /signin/ | 
 
 
 
@@ -25,16 +25,16 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SigninAPI.SigninRetrieve(context.Background()).Execute()
+    resp, r, err := apiClient.SigninApi.SigninRetrieve(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SigninAPI.SigninRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SigninApi.SigninRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

@@ -1,32 +1,32 @@
-# \PermissionsAPI
+# \PermissionsApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PermissionsGroupsCreate**](PermissionsAPI.md#PermissionsGroupsCreate) | **Post** /api/permissions/groups/ | 
-[**PermissionsGroupsDestroy**](PermissionsAPI.md#PermissionsGroupsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/ | 
-[**PermissionsGroupsDeviceGroupsCreate**](PermissionsAPI.md#PermissionsGroupsDeviceGroupsCreate) | **Post** /api/permissions/groups/{name_or_id}/device_groups/ | 
-[**PermissionsGroupsDeviceGroupsDestroy**](PermissionsAPI.md#PermissionsGroupsDeviceGroupsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
-[**PermissionsGroupsDeviceGroupsList**](PermissionsAPI.md#PermissionsGroupsDeviceGroupsList) | **Get** /api/permissions/groups/{name_or_id}/device_groups/ | 
-[**PermissionsGroupsDeviceGroupsPartialUpdate**](PermissionsAPI.md#PermissionsGroupsDeviceGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
-[**PermissionsGroupsDeviceGroupsUpdate**](PermissionsAPI.md#PermissionsGroupsDeviceGroupsUpdate) | **Put** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
-[**PermissionsGroupsDevicesCreate**](PermissionsAPI.md#PermissionsGroupsDevicesCreate) | **Post** /api/permissions/groups/{name_or_id}/devices/ | 
-[**PermissionsGroupsDevicesDestroy**](PermissionsAPI.md#PermissionsGroupsDevicesDestroy) | **Delete** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
-[**PermissionsGroupsDevicesList**](PermissionsAPI.md#PermissionsGroupsDevicesList) | **Get** /api/permissions/groups/{name_or_id}/devices/ | 
-[**PermissionsGroupsDevicesPartialUpdate**](PermissionsAPI.md#PermissionsGroupsDevicesPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
-[**PermissionsGroupsDevicesUpdate**](PermissionsAPI.md#PermissionsGroupsDevicesUpdate) | **Put** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
-[**PermissionsGroupsLabelsCreate**](PermissionsAPI.md#PermissionsGroupsLabelsCreate) | **Post** /api/permissions/groups/{name_or_id}/labels/ | 
-[**PermissionsGroupsLabelsDestroy**](PermissionsAPI.md#PermissionsGroupsLabelsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
-[**PermissionsGroupsLabelsList**](PermissionsAPI.md#PermissionsGroupsLabelsList) | **Get** /api/permissions/groups/{name_or_id}/labels/ | 
-[**PermissionsGroupsLabelsPartialUpdate**](PermissionsAPI.md#PermissionsGroupsLabelsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
-[**PermissionsGroupsLabelsUpdate**](PermissionsAPI.md#PermissionsGroupsLabelsUpdate) | **Put** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
-[**PermissionsGroupsList**](PermissionsAPI.md#PermissionsGroupsList) | **Get** /api/permissions/groups/ | 
-[**PermissionsGroupsPartialUpdate**](PermissionsAPI.md#PermissionsGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/ | 
-[**PermissionsGroupsRetrieve**](PermissionsAPI.md#PermissionsGroupsRetrieve) | **Get** /api/permissions/groups/{name_or_id}/ | 
-[**PermissionsGroupsUpdate**](PermissionsAPI.md#PermissionsGroupsUpdate) | **Put** /api/permissions/groups/{name_or_id}/ | 
-[**PermissionsGroupsUsersCreate**](PermissionsAPI.md#PermissionsGroupsUsersCreate) | **Post** /api/permissions/groups/{name_or_id}/users/ | 
-[**PermissionsGroupsUsersDestroy**](PermissionsAPI.md#PermissionsGroupsUsersDestroy) | **Delete** /api/permissions/groups/{name_or_id}/users/{username_or_id}/ | 
+[**PermissionsGroupsCreate**](PermissionsApi.md#PermissionsGroupsCreate) | **Post** /api/permissions/groups/ | 
+[**PermissionsGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsDeviceGroupsCreate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsCreate) | **Post** /api/permissions/groups/{name_or_id}/device_groups/ | 
+[**PermissionsGroupsDeviceGroupsDestroy**](PermissionsApi.md#PermissionsGroupsDeviceGroupsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
+[**PermissionsGroupsDeviceGroupsList**](PermissionsApi.md#PermissionsGroupsDeviceGroupsList) | **Get** /api/permissions/groups/{name_or_id}/device_groups/ | 
+[**PermissionsGroupsDeviceGroupsPartialUpdate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
+[**PermissionsGroupsDeviceGroupsUpdate**](PermissionsApi.md#PermissionsGroupsDeviceGroupsUpdate) | **Put** /api/permissions/groups/{name_or_id}/device_groups/{id}/ | 
+[**PermissionsGroupsDevicesCreate**](PermissionsApi.md#PermissionsGroupsDevicesCreate) | **Post** /api/permissions/groups/{name_or_id}/devices/ | 
+[**PermissionsGroupsDevicesDestroy**](PermissionsApi.md#PermissionsGroupsDevicesDestroy) | **Delete** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
+[**PermissionsGroupsDevicesList**](PermissionsApi.md#PermissionsGroupsDevicesList) | **Get** /api/permissions/groups/{name_or_id}/devices/ | 
+[**PermissionsGroupsDevicesPartialUpdate**](PermissionsApi.md#PermissionsGroupsDevicesPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
+[**PermissionsGroupsDevicesUpdate**](PermissionsApi.md#PermissionsGroupsDevicesUpdate) | **Put** /api/permissions/groups/{name_or_id}/devices/{id}/ | 
+[**PermissionsGroupsLabelsCreate**](PermissionsApi.md#PermissionsGroupsLabelsCreate) | **Post** /api/permissions/groups/{name_or_id}/labels/ | 
+[**PermissionsGroupsLabelsDestroy**](PermissionsApi.md#PermissionsGroupsLabelsDestroy) | **Delete** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
+[**PermissionsGroupsLabelsList**](PermissionsApi.md#PermissionsGroupsLabelsList) | **Get** /api/permissions/groups/{name_or_id}/labels/ | 
+[**PermissionsGroupsLabelsPartialUpdate**](PermissionsApi.md#PermissionsGroupsLabelsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
+[**PermissionsGroupsLabelsUpdate**](PermissionsApi.md#PermissionsGroupsLabelsUpdate) | **Put** /api/permissions/groups/{name_or_id}/labels/{id}/ | 
+[**PermissionsGroupsList**](PermissionsApi.md#PermissionsGroupsList) | **Get** /api/permissions/groups/ | 
+[**PermissionsGroupsPartialUpdate**](PermissionsApi.md#PermissionsGroupsPartialUpdate) | **Patch** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsRetrieve**](PermissionsApi.md#PermissionsGroupsRetrieve) | **Get** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsUpdate**](PermissionsApi.md#PermissionsGroupsUpdate) | **Put** /api/permissions/groups/{name_or_id}/ | 
+[**PermissionsGroupsUsersCreate**](PermissionsApi.md#PermissionsGroupsUsersCreate) | **Post** /api/permissions/groups/{name_or_id}/users/ | 
+[**PermissionsGroupsUsersDestroy**](PermissionsApi.md#PermissionsGroupsUsersDestroy) | **Delete** /api/permissions/groups/{name_or_id}/users/{username_or_id}/ | 
 
 
 
@@ -45,7 +45,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -53,13 +53,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsCreate(context.Background()).PermissionGroup(permissionGroup).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsCreate(context.Background()).PermissionGroup(permissionGroup).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsCreate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsCreate`: %v\n", resp)
 }
 ```
 
@@ -109,7 +109,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -117,9 +117,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsAPI.PermissionsGroupsDestroy(context.Background(), nameOrId).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDestroy(context.Background(), nameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -175,7 +175,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -184,13 +184,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDeviceGroupsCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDeviceGroupsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDeviceGroupsCreate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDeviceGroupsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDeviceGroupsCreate`: %v\n", resp)
 }
 ```
 
@@ -245,7 +245,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -254,9 +254,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsAPI.PermissionsGroupsDeviceGroupsDestroy(context.Background(), id, nameOrId).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsDestroy(context.Background(), id, nameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDeviceGroupsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -314,7 +314,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -324,13 +324,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDeviceGroupsList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDeviceGroupsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDeviceGroupsList`: PaginatedDeviceGroupList
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDeviceGroupsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDeviceGroupsList`: %v\n", resp)
 }
 ```
 
@@ -386,7 +386,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -396,13 +396,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDeviceGroupsPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDeviceGroupsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDeviceGroupsPartialUpdate`: ResourcePermissions
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDeviceGroupsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDeviceGroupsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -459,7 +459,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -469,13 +469,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDeviceGroupsUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDeviceGroupsUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDeviceGroupsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDeviceGroupsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDeviceGroupsUpdate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDeviceGroupsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDeviceGroupsUpdate`: %v\n", resp)
 }
 ```
 
@@ -532,7 +532,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -541,13 +541,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDevicesCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDevicesCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDevicesCreate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDevicesCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDevicesCreate`: %v\n", resp)
 }
 ```
 
@@ -602,7 +602,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -611,9 +611,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsAPI.PermissionsGroupsDevicesDestroy(context.Background(), id, nameOrId).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesDestroy(context.Background(), id, nameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDevicesDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -671,7 +671,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -681,13 +681,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDevicesList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDevicesList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDevicesList`: PaginatedDeviceSerializerPublicList
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDevicesList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDevicesList`: %v\n", resp)
 }
 ```
 
@@ -743,7 +743,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -753,13 +753,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDevicesPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDevicesPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDevicesPartialUpdate`: ResourcePermissions
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDevicesPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDevicesPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -816,7 +816,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -826,13 +826,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsDevicesUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsDevicesUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsDevicesUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsDevicesUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsDevicesUpdate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsDevicesUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsDevicesUpdate`: %v\n", resp)
 }
 ```
 
@@ -889,7 +889,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -898,13 +898,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsLabelsCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsCreate(context.Background(), nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsLabelsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsLabelsCreate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsLabelsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsLabelsCreate`: %v\n", resp)
 }
 ```
 
@@ -959,7 +959,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -968,9 +968,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsAPI.PermissionsGroupsLabelsDestroy(context.Background(), id, nameOrId).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsDestroy(context.Background(), id, nameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsLabelsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1028,7 +1028,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1038,13 +1038,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsLabelsList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsList(context.Background(), nameOrId).Page(page).Perms(perms).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsLabelsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsLabelsList`: PaginatedLabelList
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsLabelsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsLabelsList`: %v\n", resp)
 }
 ```
 
@@ -1100,7 +1100,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1110,13 +1110,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsLabelsPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsPartialUpdate(context.Background(), id, nameOrId).PatchedResourcePermissions(patchedResourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsLabelsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsLabelsPartialUpdate`: ResourcePermissions
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsLabelsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsLabelsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -1173,7 +1173,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1183,13 +1183,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsLabelsUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsLabelsUpdate(context.Background(), id, nameOrId).ResourcePermissions(resourcePermissions).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsLabelsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsLabelsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsLabelsUpdate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsLabelsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsLabelsUpdate`: %v\n", resp)
 }
 ```
 
@@ -1246,7 +1246,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1256,13 +1256,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsList(context.Background()).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsList(context.Background()).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsList`: PaginatedPermissionGroupList
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsList`: %v\n", resp)
 }
 ```
 
@@ -1314,7 +1314,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1323,13 +1323,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsPartialUpdate(context.Background(), nameOrId).PatchedPermissionGroup(patchedPermissionGroup).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsPartialUpdate(context.Background(), nameOrId).PatchedPermissionGroup(patchedPermissionGroup).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsPartialUpdate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -1384,7 +1384,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1392,13 +1392,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsRetrieve(context.Background(), nameOrId).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsRetrieve(context.Background(), nameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsRetrieve`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -1452,7 +1452,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1461,13 +1461,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsUpdate(context.Background(), nameOrId).PermissionGroup(permissionGroup).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUpdate(context.Background(), nameOrId).PermissionGroup(permissionGroup).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsUpdate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsUpdate`: %v\n", resp)
 }
 ```
 
@@ -1522,7 +1522,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1531,13 +1531,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PermissionsAPI.PermissionsGroupsUsersCreate(context.Background(), nameOrId).User(user).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUsersCreate(context.Background(), nameOrId).User(user).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsUsersCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsUsersCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PermissionsGroupsUsersCreate`: PermissionGroup
-    fmt.Fprintf(os.Stdout, "Response from `PermissionsAPI.PermissionsGroupsUsersCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PermissionsApi.PermissionsGroupsUsersCreate`: %v\n", resp)
 }
 ```
 
@@ -1592,7 +1592,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -1601,9 +1601,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.PermissionsAPI.PermissionsGroupsUsersDestroy(context.Background(), nameOrId, usernameOrId).Execute()
+    resp, r, err := apiClient.PermissionsApi.PermissionsGroupsUsersDestroy(context.Background(), nameOrId, usernameOrId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsAPI.PermissionsGroupsUsersDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PermissionsApi.PermissionsGroupsUsersDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }

@@ -1,11 +1,11 @@
-# \PartsAPI
+# \PartsApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PartsList**](PartsAPI.md#PartsList) | **Get** /api/parts/ | 
-[**PartsRetrieve**](PartsAPI.md#PartsRetrieve) | **Get** /api/parts/{part_no}/ | 
+[**PartsList**](PartsApi.md#PartsList) | **Get** /api/parts/ | 
+[**PartsRetrieve**](PartsApi.md#PartsRetrieve) | **Get** /api/parts/{part_no}/ | 
 
 
 
@@ -24,7 +24,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -40,13 +40,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartsAPI.PartsList(context.Background()).BoardNo(boardNo).ChipNo(chipNo).Ordering(ordering).Page(page).PartFamily(partFamily).PartNo(partNo).Revision(revision).Search(search).Variant(variant).Execute()
+    resp, r, err := apiClient.PartsApi.PartsList(context.Background()).BoardNo(boardNo).ChipNo(chipNo).Ordering(ordering).Page(page).PartFamily(partFamily).PartNo(partNo).Revision(revision).Search(search).Variant(variant).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartsAPI.PartsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartsApi.PartsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartsList`: PaginatedPartList
-    fmt.Fprintf(os.Stdout, "Response from `PartsAPI.PartsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartsApi.PartsList`: %v\n", resp)
 }
 ```
 
@@ -104,7 +104,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -112,13 +112,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.PartsAPI.PartsRetrieve(context.Background(), partNo).Execute()
+    resp, r, err := apiClient.PartsApi.PartsRetrieve(context.Background(), partNo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `PartsAPI.PartsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `PartsApi.PartsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PartsRetrieve`: Part
-    fmt.Fprintf(os.Stdout, "Response from `PartsAPI.PartsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `PartsApi.PartsRetrieve`: %v\n", resp)
 }
 ```
 
