@@ -1,10 +1,10 @@
-# \SchemaAPI
+# \SchemaApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SchemaDownloadRetrieve**](SchemaAPI.md#SchemaDownloadRetrieve) | **Get** /schema/download | 
+[**SchemaDownloadRetrieve**](SchemaApi.md#SchemaDownloadRetrieve) | **Get** /schema/download | 
 
 
 
@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -34,13 +34,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SchemaAPI.SchemaDownloadRetrieve(context.Background()).Format(format).Lang(lang).Execute()
+    resp, r, err := apiClient.SchemaApi.SchemaDownloadRetrieve(context.Background()).Format(format).Lang(lang).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SchemaAPI.SchemaDownloadRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SchemaApi.SchemaDownloadRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SchemaDownloadRetrieve`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `SchemaAPI.SchemaDownloadRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SchemaApi.SchemaDownloadRetrieve`: %v\n", resp)
 }
 ```
 

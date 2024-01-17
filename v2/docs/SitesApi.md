@@ -1,21 +1,21 @@
-# \SitesAPI
+# \SitesApi
 
 All URIs are relative to *https://hwmux.silabs.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SitesCreate**](SitesAPI.md#SitesCreate) | **Post** /api/sites/ | 
-[**SitesDestroy**](SitesAPI.md#SitesDestroy) | **Delete** /api/sites/{name}/ | 
-[**SitesList**](SitesAPI.md#SitesList) | **Get** /api/sites/ | 
-[**SitesPartialUpdate**](SitesAPI.md#SitesPartialUpdate) | **Patch** /api/sites/{name}/ | 
-[**SitesRetrieve**](SitesAPI.md#SitesRetrieve) | **Get** /api/sites/{name}/ | 
-[**SitesRoomsCreate**](SitesAPI.md#SitesRoomsCreate) | **Post** /api/sites/{site_pk}/rooms/ | 
-[**SitesRoomsDestroy**](SitesAPI.md#SitesRoomsDestroy) | **Delete** /api/sites/{site_pk}/rooms/{id}/ | 
-[**SitesRoomsList**](SitesAPI.md#SitesRoomsList) | **Get** /api/sites/{site_pk}/rooms/ | 
-[**SitesRoomsPartialUpdate**](SitesAPI.md#SitesRoomsPartialUpdate) | **Patch** /api/sites/{site_pk}/rooms/{id}/ | 
-[**SitesRoomsRetrieve**](SitesAPI.md#SitesRoomsRetrieve) | **Get** /api/sites/{site_pk}/rooms/{id}/ | 
-[**SitesRoomsUpdate**](SitesAPI.md#SitesRoomsUpdate) | **Put** /api/sites/{site_pk}/rooms/{id}/ | 
-[**SitesUpdate**](SitesAPI.md#SitesUpdate) | **Put** /api/sites/{name}/ | 
+[**SitesCreate**](SitesApi.md#SitesCreate) | **Post** /api/sites/ | 
+[**SitesDestroy**](SitesApi.md#SitesDestroy) | **Delete** /api/sites/{name}/ | 
+[**SitesList**](SitesApi.md#SitesList) | **Get** /api/sites/ | 
+[**SitesPartialUpdate**](SitesApi.md#SitesPartialUpdate) | **Patch** /api/sites/{name}/ | 
+[**SitesRetrieve**](SitesApi.md#SitesRetrieve) | **Get** /api/sites/{name}/ | 
+[**SitesRoomsCreate**](SitesApi.md#SitesRoomsCreate) | **Post** /api/sites/{site_pk}/rooms/ | 
+[**SitesRoomsDestroy**](SitesApi.md#SitesRoomsDestroy) | **Delete** /api/sites/{site_pk}/rooms/{id}/ | 
+[**SitesRoomsList**](SitesApi.md#SitesRoomsList) | **Get** /api/sites/{site_pk}/rooms/ | 
+[**SitesRoomsPartialUpdate**](SitesApi.md#SitesRoomsPartialUpdate) | **Patch** /api/sites/{site_pk}/rooms/{id}/ | 
+[**SitesRoomsRetrieve**](SitesApi.md#SitesRoomsRetrieve) | **Get** /api/sites/{site_pk}/rooms/{id}/ | 
+[**SitesRoomsUpdate**](SitesApi.md#SitesRoomsUpdate) | **Put** /api/sites/{site_pk}/rooms/{id}/ | 
+[**SitesUpdate**](SitesApi.md#SitesUpdate) | **Put** /api/sites/{name}/ | 
 
 
 
@@ -34,7 +34,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -42,13 +42,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesCreate(context.Background()).Site(site).Execute()
+    resp, r, err := apiClient.SitesApi.SitesCreate(context.Background()).Site(site).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesCreate`: Site
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesCreate`: %v\n", resp)
 }
 ```
 
@@ -98,7 +98,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -106,9 +106,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SitesAPI.SitesDestroy(context.Background(), name).Execute()
+    resp, r, err := apiClient.SitesApi.SitesDestroy(context.Background(), name).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -164,7 +164,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -174,13 +174,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesList(context.Background()).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.SitesApi.SitesList(context.Background()).Ordering(ordering).Page(page).Search(search).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesList`: PaginatedSiteList
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesList`: %v\n", resp)
 }
 ```
 
@@ -232,7 +232,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -241,13 +241,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesPartialUpdate(context.Background(), name).PatchedSite(patchedSite).Execute()
+    resp, r, err := apiClient.SitesApi.SitesPartialUpdate(context.Background(), name).PatchedSite(patchedSite).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesPartialUpdate`: Site
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -302,7 +302,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -310,13 +310,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesRetrieve(context.Background(), name).Execute()
+    resp, r, err := apiClient.SitesApi.SitesRetrieve(context.Background(), name).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesRetrieve`: Site
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesRetrieve`: %v\n", resp)
 }
 ```
 
@@ -370,7 +370,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -379,13 +379,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesRoomsCreate(context.Background(), sitePk).Room(room).Execute()
+    resp, r, err := apiClient.SitesApi.SitesRoomsCreate(context.Background(), sitePk).Room(room).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesRoomsCreate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesRoomsCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesRoomsCreate`: Room
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesRoomsCreate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesRoomsCreate`: %v\n", resp)
 }
 ```
 
@@ -440,7 +440,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -449,9 +449,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.SitesAPI.SitesRoomsDestroy(context.Background(), id, sitePk).Execute()
+    resp, r, err := apiClient.SitesApi.SitesRoomsDestroy(context.Background(), id, sitePk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesRoomsDestroy``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesRoomsDestroy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -509,7 +509,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -523,13 +523,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesRoomsList(context.Background(), sitePk).Description(description).Name(name).Ordering(ordering).Page(page).Search(search).Site(site).Execute()
+    resp, r, err := apiClient.SitesApi.SitesRoomsList(context.Background(), sitePk).Description(description).Name(name).Ordering(ordering).Page(page).Search(search).Site(site).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesRoomsList``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesRoomsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesRoomsList`: PaginatedRoomList
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesRoomsList`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesRoomsList`: %v\n", resp)
 }
 ```
 
@@ -589,7 +589,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -599,13 +599,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesRoomsPartialUpdate(context.Background(), id, sitePk).PatchedRoom(patchedRoom).Execute()
+    resp, r, err := apiClient.SitesApi.SitesRoomsPartialUpdate(context.Background(), id, sitePk).PatchedRoom(patchedRoom).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesRoomsPartialUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesRoomsPartialUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesRoomsPartialUpdate`: Room
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesRoomsPartialUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesRoomsPartialUpdate`: %v\n", resp)
 }
 ```
 
@@ -662,7 +662,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -671,13 +671,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesRoomsRetrieve(context.Background(), id, sitePk).Execute()
+    resp, r, err := apiClient.SitesApi.SitesRoomsRetrieve(context.Background(), id, sitePk).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesRoomsRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesRoomsRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesRoomsRetrieve`: Room
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesRoomsRetrieve`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesRoomsRetrieve`: %v\n", resp)
 }
 ```
 
@@ -733,7 +733,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -743,13 +743,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesRoomsUpdate(context.Background(), id, sitePk).Room(room).Execute()
+    resp, r, err := apiClient.SitesApi.SitesRoomsUpdate(context.Background(), id, sitePk).Room(room).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesRoomsUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesRoomsUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesRoomsUpdate`: Room
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesRoomsUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesRoomsUpdate`: %v\n", resp)
 }
 ```
 
@@ -806,7 +806,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "github.com/Silabs-UTF/hwmux-client-golang/v2"
+    openapiclient "./openapi"
 )
 
 func main() {
@@ -815,13 +815,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SitesAPI.SitesUpdate(context.Background(), name).Site(site).Execute()
+    resp, r, err := apiClient.SitesApi.SitesUpdate(context.Background(), name).Site(site).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SitesAPI.SitesUpdate``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `SitesApi.SitesUpdate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SitesUpdate`: Site
-    fmt.Fprintf(os.Stdout, "Response from `SitesAPI.SitesUpdate`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `SitesApi.SitesUpdate`: %v\n", resp)
 }
 ```
 

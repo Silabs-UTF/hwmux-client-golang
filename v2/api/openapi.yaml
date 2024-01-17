@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.26.1
+  version: 2.27.0
 servers:
 - description: HW Mux Server
   url: https://hwmux.silabs.net
@@ -6108,10 +6108,10 @@ components:
             metadata:
               key: ""
             board_no: board_no
-            variant: ""
+            variant: variant
             chip_no: chip_no
             part_family: ""
-            revision: ""
+            revision: revision
           online: true
           location: 1
           id: 6
@@ -6128,10 +6128,10 @@ components:
             metadata:
               key: ""
             board_no: board_no
-            variant: ""
+            variant: variant
             chip_no: chip_no
             part_family: ""
-            revision: ""
+            revision: revision
           online: true
           location: 1
           id: 6
@@ -6271,10 +6271,10 @@ components:
           metadata:
             key: ""
           board_no: board_no
-          variant: ""
+          variant: variant
           chip_no: chip_no
           part_family: ""
-          revision: ""
+          revision: revision
         uri: uri
         is_reserved: true
         wstk_part: wstk_part
@@ -6443,10 +6443,10 @@ components:
           metadata:
             key: ""
           board_no: board_no
-          variant: ""
+          variant: variant
           chip_no: chip_no
           part_family: ""
-          revision: ""
+          revision: revision
         online: true
         location: 1
         id: 6
@@ -6789,10 +6789,10 @@ components:
               metadata:
                 key: ""
               board_no: board_no
-              variant: ""
+              variant: variant
               chip_no: chip_no
               part_family: ""
-              revision: ""
+              revision: revision
             online: true
             location: 1
             id: 6
@@ -6809,10 +6809,10 @@ components:
               metadata:
                 key: ""
               board_no: board_no
-              variant: ""
+              variant: variant
               chip_no: chip_no
               part_family: ""
-              revision: ""
+              revision: revision
             online: true
             location: 1
             id: 6
@@ -6843,10 +6843,10 @@ components:
               metadata:
                 key: ""
               board_no: board_no
-              variant: ""
+              variant: variant
               chip_no: chip_no
               part_family: ""
-              revision: ""
+              revision: revision
             online: true
             location: 1
             id: 6
@@ -6863,10 +6863,10 @@ components:
               metadata:
                 key: ""
               board_no: board_no
-              variant: ""
+              variant: variant
               chip_no: chip_no
               part_family: ""
-              revision: ""
+              revision: revision
             online: true
             location: 1
             id: 6
@@ -6920,10 +6920,10 @@ components:
             metadata:
               key: ""
             board_no: board_no
-            variant: ""
+            variant: variant
             chip_no: chip_no
             part_family: ""
-            revision: ""
+            revision: revision
           uri: uri
           is_reserved: true
           wstk_part: wstk_part
@@ -6945,10 +6945,10 @@ components:
             metadata:
               key: ""
             board_no: board_no
-            variant: ""
+            variant: variant
             chip_no: chip_no
             part_family: ""
-            revision: ""
+            revision: revision
           uri: uri
           is_reserved: true
           wstk_part: wstk_part
@@ -7162,18 +7162,18 @@ components:
           metadata:
             key: ""
           board_no: board_no
-          variant: ""
+          variant: variant
           chip_no: chip_no
           part_family: ""
-          revision: ""
+          revision: revision
         - part_no: part_no
           metadata:
             key: ""
           board_no: board_no
-          variant: ""
+          variant: variant
           chip_no: chip_no
           part_family: ""
-          revision: ""
+          revision: revision
       properties:
         count:
           example: 123
@@ -7234,7 +7234,7 @@ components:
         previous: http://api.example.org/accounts/?page=2
         count: 123
         results:
-        - owner: ""
+        - owner: null
           queue_position: 0
           t_completed: 2000-01-23T04:56:07.000+00:00
           metadata:
@@ -7270,7 +7270,7 @@ components:
           - queue
           status: status
           invert_priority: true
-        - owner: ""
+        - owner: null
           queue_position: 0
           t_completed: 2000-01-23T04:56:07.000+00:00
           metadata:
@@ -7404,10 +7404,10 @@ components:
         metadata:
           key: ""
         board_no: board_no
-        variant: ""
+        variant: variant
         chip_no: chip_no
         part_family: ""
-        revision: ""
+        revision: revision
       properties:
         part_no:
           pattern: "^[-a-zA-Z0-9_]+$"
@@ -7634,10 +7634,10 @@ components:
         metadata:
           key: ""
         board_no: board_no
-        variant: ""
+        variant: variant
         chip_no: chip_no
         part_family: ""
-        revision: ""
+        revision: revision
       properties:
         part_no:
           pattern: "^[-a-zA-Z0-9_]+$"
@@ -7725,10 +7725,10 @@ components:
           type: integer
         permissions:
           default:
+          - view
+          - add
           - delete
           - change
-          - add
-          - view
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -7942,7 +7942,7 @@ components:
       type: object
     ReservationSessionSerializerReadOnly:
       example:
-        owner: ""
+        owner: null
         queue_position: 0
         t_completed: 2000-01-23T04:56:07.000+00:00
         metadata:
@@ -7984,10 +7984,7 @@ components:
           readOnly: true
           type: string
         owner:
-          allOf:
-          - $ref: '#/components/schemas/User'
-          nullable: true
-          readOnly: true
+          $ref: '#/components/schemas/ReservationSessionSerializerReadOnly_owner'
         is_satisfied:
           readOnly: true
           type: boolean
@@ -8108,10 +8105,10 @@ components:
           type: integer
         permissions:
           default:
+          - view
+          - add
           - delete
           - change
-          - add
-          - view
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -8322,6 +8319,11 @@ components:
       - location
       - part
       type: object
+    ReservationSessionSerializerReadOnly_owner:
+      allOf:
+      - $ref: '#/components/schemas/User'
+      nullable: true
+      readOnly: true
   securitySchemes:
     cookieAuth:
       in: cookie
