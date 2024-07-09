@@ -6,15 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**Lon** | **float32** |  | 
-**Lat** | **float32** |  | 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Lon** | **float64** |  | 
+**Lat** | **float64** |  | 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewSite
 
-`func NewSite(name string, lon float32, lat float32, ) *Site`
+`func NewSite(name string, lon float64, lat float64, ) *Site`
 
 NewSite instantiates a new Site object
 This constructor will assign default values to properties that have it defined,
@@ -76,60 +76,60 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetLon
 
-`func (o *Site) GetLon() float32`
+`func (o *Site) GetLon() float64`
 
 GetLon returns the Lon field if non-nil, zero value otherwise.
 
 ### GetLonOk
 
-`func (o *Site) GetLonOk() (*float32, bool)`
+`func (o *Site) GetLonOk() (*float64, bool)`
 
 GetLonOk returns a tuple with the Lon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLon
 
-`func (o *Site) SetLon(v float32)`
+`func (o *Site) SetLon(v float64)`
 
 SetLon sets Lon field to given value.
 
 
 ### GetLat
 
-`func (o *Site) GetLat() float32`
+`func (o *Site) GetLat() float64`
 
 GetLat returns the Lat field if non-nil, zero value otherwise.
 
 ### GetLatOk
 
-`func (o *Site) GetLatOk() (*float32, bool)`
+`func (o *Site) GetLatOk() (*float64, bool)`
 
 GetLatOk returns a tuple with the Lat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLat
 
-`func (o *Site) SetLat(v float32)`
+`func (o *Site) SetLat(v float64)`
 
 SetLat sets Lat field to given value.
 
 
 ### GetMetadata
 
-`func (o *Site) GetMetadata() map[string]interface{}`
+`func (o *Site) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *Site) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *Site) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *Site) SetMetadata(v map[string]interface{})`
+`func (o *Site) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -139,6 +139,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *Site) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *Site) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

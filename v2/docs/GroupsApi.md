@@ -1,6 +1,6 @@
 # \GroupsApi
 
-All URIs are relative to *https://hwmux.silabs.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GroupsCreateWithDevicesCreate**](GroupsApi.md#GroupsCreateWithDevicesCreate) | **Post** /api/groups/create-with-devices | 
 [**GroupsDestroy**](GroupsApi.md#GroupsDestroy) | **Delete** /api/groups/{id}/ | 
 [**GroupsList**](GroupsApi.md#GroupsList) | **Get** /api/groups/ | 
+[**GroupsLocationRetrieve**](GroupsApi.md#GroupsLocationRetrieve) | **Get** /api/groups/{device_group_pk}/location/ | 
 [**GroupsMyList**](GroupsApi.md#GroupsMyList) | **Get** /api/groups/my/ | 
 [**GroupsPartialUpdate**](GroupsApi.md#GroupsPartialUpdate) | **Patch** /api/groups/{id}/ | 
 [**GroupsPermissionsPartialUpdate**](GroupsApi.md#GroupsPermissionsPartialUpdate) | **Patch** /api/groups/{id}/permissions/ | 
@@ -26,7 +27,7 @@ Method | HTTP request | Description
 
 ## GroupsAvailableList
 
-> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsAvailableList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Room(room).Search(search).Site(site).Source(source).Execute()
 
 
 
@@ -53,11 +54,14 @@ func main() {
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
+    room := "room_example" // string |  (optional)
     search := "search_example" // string | A search term. (optional)
+    site := "site_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsAvailableList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsAvailableList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Room(room).Search(search).Site(site).Source(source).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsAvailableList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -86,7 +90,10 @@ Name | Type | Description  | Notes
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
+ **room** | **string** |  | 
  **search** | **string** | A search term. | 
+ **site** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
 
 ### Return type
 
@@ -127,7 +134,7 @@ import (
 )
 
 func main() {
-    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Status_example", "Name_example") // DeviceGroupSerializerWithDevicePk | 
+    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, "Status_example", []string{"LocDesc_example"}, false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -306,7 +313,7 @@ Name | Type | Description  | Notes
 
 ## GroupsList
 
-> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Room(room).Search(search).Site(site).Source(source).Execute()
 
 
 
@@ -335,11 +342,14 @@ func main() {
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
+    room := "room_example" // string |  (optional)
     search := "search_example" // string | A search term. (optional)
+    site := "site_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Room(room).Search(search).Site(site).Source(source).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -370,7 +380,10 @@ Name | Type | Description  | Notes
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
+ **room** | **string** |  | 
  **search** | **string** | A search term. | 
+ **site** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
 
 ### Return type
 
@@ -390,9 +403,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GroupsLocationRetrieve
+
+> GroupLocation GroupsLocationRetrieve(ctx, deviceGroupPk).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    deviceGroupPk := "deviceGroupPk_example" // string | 
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupsApi.GroupsLocationRetrieve(context.Background(), deviceGroupPk).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsLocationRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GroupsLocationRetrieve`: GroupLocation
+    fmt.Fprintf(os.Stdout, "Response from `GroupsApi.GroupsLocationRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**deviceGroupPk** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGroupsLocationRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**GroupLocation**](GroupLocation.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GroupsMyList
 
-> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedDeviceGroupList GroupsMyList(ctx).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Room(room).Search(search).Site(site).Source(source).Execute()
 
 
 
@@ -419,11 +500,14 @@ func main() {
     name := "name_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
+    room := "room_example" // string |  (optional)
     search := "search_example" // string | A search term. (optional)
+    site := "site_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupsApi.GroupsMyList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.GroupsApi.GroupsMyList(context.Background()).Devices(devices).EnableAhs(enableAhs).EnableAhsActions(enableAhsActions).EnableAhsCas(enableAhsCas).IdIn(idIn).Name(name).Ordering(ordering).Page(page).Room(room).Search(search).Site(site).Source(source).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupsApi.GroupsMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -452,7 +536,10 @@ Name | Type | Description  | Notes
  **name** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
+ **room** | **string** |  | 
  **search** | **string** | A search term. | 
+ **site** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
 
 ### Return type
 
@@ -1132,7 +1219,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device group.
-    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.StatusEnum("ACTIVE")) // ResourceStatusRequest | 
+    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.ResourceStatusRequestStatusEnum("ACTIVE")) // ResourceStatusRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1204,7 +1291,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device group.
-    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, false, "Status_example", "Name_example") // DeviceGroupSerializerWithDevicePk | 
+    deviceGroupSerializerWithDevicePk := *openapiclient.NewDeviceGroupSerializerWithDevicePk(int32(123), false, "Status_example", []string{"LocDesc_example"}, false, "Name_example") // DeviceGroupSerializerWithDevicePk | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

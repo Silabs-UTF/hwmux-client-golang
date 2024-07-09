@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Variant** | Pointer to **string** |  | [optional] [default to ""]
 **Revision** | Pointer to **string** |  | [optional] [default to ""]
 **ChipNo** | Pointer to **NullableString** |  | [optional] 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
@@ -203,20 +203,20 @@ HasChipNo returns a boolean if a field has been set.
 UnsetChipNo ensures that no value is present for ChipNo, not even an explicit nil
 ### GetMetadata
 
-`func (o *PatchedPart) GetMetadata() map[string]interface{}`
+`func (o *PatchedPart) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *PatchedPart) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *PatchedPart) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *PatchedPart) SetMetadata(v map[string]interface{})`
+`func (o *PatchedPart) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -226,6 +226,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *PatchedPart) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *PatchedPart) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

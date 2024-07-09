@@ -8,7 +8,8 @@ Name | Type | Description | Notes
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **DeviceGroups** | **[]int32** |  | 
 **Name** | **string** |  | 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
+**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
 
 ## Methods
 
@@ -126,20 +127,20 @@ SetName sets Name field to given value.
 
 ### GetMetadata
 
-`func (o *LabelSerializerWithPermissions) GetMetadata() map[string]interface{}`
+`func (o *LabelSerializerWithPermissions) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *LabelSerializerWithPermissions) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *LabelSerializerWithPermissions) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *LabelSerializerWithPermissions) SetMetadata(v map[string]interface{})`
+`func (o *LabelSerializerWithPermissions) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -159,6 +160,31 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *LabelSerializerWithPermissions) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetSource
+
+`func (o *LabelSerializerWithPermissions) GetSource() DeviceGroupSource`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *LabelSerializerWithPermissions) GetSourceOk() (*DeviceGroupSource, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *LabelSerializerWithPermissions) SetSource(v DeviceGroupSource)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *LabelSerializerWithPermissions) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

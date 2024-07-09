@@ -1,4 +1,4 @@
-# StatusEnum
+# ResourceStatusRequestStatusEnum
 
 ## Enum
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Room** | [**Room**](Room.md) |  | [readonly] 
 **Description** | Pointer to **string** |  | [optional] 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 **Device** | **int32** |  | 
 
 ## Methods
@@ -96,20 +96,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetMetadata
 
-`func (o *Location) GetMetadata() map[string]interface{}`
+`func (o *Location) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *Location) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *Location) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *Location) SetMetadata(v map[string]interface{})`
+`func (o *Location) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -119,6 +119,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *Location) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *Location) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetDevice
 
 `func (o *Location) GetDevice() int32`

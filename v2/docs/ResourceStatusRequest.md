@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**StatusEnum**](StatusEnum.md) |  | 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Status** | [**ResourceStatusRequestStatusEnum**](ResourceStatusRequestStatusEnum.md) |  | 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 **Comment** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewResourceStatusRequest
 
-`func NewResourceStatusRequest(status StatusEnum, ) *ResourceStatusRequest`
+`func NewResourceStatusRequest(status ResourceStatusRequestStatusEnum, ) *ResourceStatusRequest`
 
 NewResourceStatusRequest instantiates a new ResourceStatusRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,40 +29,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *ResourceStatusRequest) GetStatus() StatusEnum`
+`func (o *ResourceStatusRequest) GetStatus() ResourceStatusRequestStatusEnum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ResourceStatusRequest) GetStatusOk() (*StatusEnum, bool)`
+`func (o *ResourceStatusRequest) GetStatusOk() (*ResourceStatusRequestStatusEnum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ResourceStatusRequest) SetStatus(v StatusEnum)`
+`func (o *ResourceStatusRequest) SetStatus(v ResourceStatusRequestStatusEnum)`
 
 SetStatus sets Status field to given value.
 
 
 ### GetMetadata
 
-`func (o *ResourceStatusRequest) GetMetadata() map[string]interface{}`
+`func (o *ResourceStatusRequest) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *ResourceStatusRequest) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *ResourceStatusRequest) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *ResourceStatusRequest) SetMetadata(v map[string]interface{})`
+`func (o *ResourceStatusRequest) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -72,6 +72,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *ResourceStatusRequest) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ResourceStatusRequest) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetComment
 
 `func (o *ResourceStatusRequest) GetComment() string`

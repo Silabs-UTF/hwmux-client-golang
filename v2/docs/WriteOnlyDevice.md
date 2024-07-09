@@ -11,13 +11,14 @@ Name | Type | Description | Notes
 **IsReserved** | **NullableBool** |  | [readonly] 
 **Location** | [**LocationSerializerWriteOnly**](LocationSerializerWriteOnly.md) |  | 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
+**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
-**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
+**Status** | Pointer to [**StatusF39Enum**](StatusF39Enum.md) |  | [optional] 
 **LastUpdate** | **time.Time** |  | [readonly] 
 **DateCreated** | **time.Time** |  | [readonly] 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 **WstkPart** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -209,6 +210,31 @@ HasSnOrName returns a boolean if a field has been set.
 `func (o *WriteOnlyDevice) UnsetSnOrName()`
 
 UnsetSnOrName ensures that no value is present for SnOrName, not even an explicit nil
+### GetSource
+
+`func (o *WriteOnlyDevice) GetSource() DeviceGroupSource`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *WriteOnlyDevice) GetSourceOk() (*DeviceGroupSource, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *WriteOnlyDevice) SetSource(v DeviceGroupSource)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *WriteOnlyDevice) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 ### GetIsWstk
 
 `func (o *WriteOnlyDevice) GetIsWstk() bool`
@@ -296,20 +322,20 @@ HasOnline returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *WriteOnlyDevice) GetStatus() StatusEnum`
+`func (o *WriteOnlyDevice) GetStatus() StatusF39Enum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WriteOnlyDevice) GetStatusOk() (*StatusEnum, bool)`
+`func (o *WriteOnlyDevice) GetStatusOk() (*StatusF39Enum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WriteOnlyDevice) SetStatus(v StatusEnum)`
+`func (o *WriteOnlyDevice) SetStatus(v StatusF39Enum)`
 
 SetStatus sets Status field to given value.
 
@@ -361,20 +387,20 @@ SetDateCreated sets DateCreated field to given value.
 
 ### GetMetadata
 
-`func (o *WriteOnlyDevice) GetMetadata() map[string]interface{}`
+`func (o *WriteOnlyDevice) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *WriteOnlyDevice) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *WriteOnlyDevice) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *WriteOnlyDevice) SetMetadata(v map[string]interface{})`
+`func (o *WriteOnlyDevice) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -384,6 +410,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *WriteOnlyDevice) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *WriteOnlyDevice) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetWstkPart
 
 `func (o *WriteOnlyDevice) GetWstkPart() string`
