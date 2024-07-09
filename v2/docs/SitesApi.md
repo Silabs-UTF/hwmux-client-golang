@@ -1,6 +1,6 @@
 # \SitesApi
 
-All URIs are relative to *https://hwmux.silabs.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,7 +38,7 @@ import (
 )
 
 func main() {
-    site := *openapiclient.NewSite("Name_example", float32(123), float32(123)) // Site | 
+    site := *openapiclient.NewSite("Name_example", float64(123), float64(123)) // Site | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -811,7 +811,7 @@ import (
 
 func main() {
     name := "name_example" // string | A unique value identifying this site.
-    site := *openapiclient.NewSite("Name_example", float32(123), float32(123)) // Site | 
+    site := *openapiclient.NewSite("Name_example", float64(123), float64(123)) // Site | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

@@ -11,13 +11,14 @@ Name | Type | Description | Notes
 **IsReserved** | Pointer to **NullableBool** |  | [optional] [readonly] 
 **Location** | Pointer to [**LocationSerializerWriteOnly**](LocationSerializerWriteOnly.md) |  | [optional] 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
+**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
-**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
+**Status** | Pointer to [**StatusF39Enum**](StatusF39Enum.md) |  | [optional] 
 **LastUpdate** | Pointer to **time.Time** |  | [optional] [readonly] 
 **DateCreated** | Pointer to **time.Time** |  | [optional] [readonly] 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 **WstkPart** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -234,6 +235,31 @@ HasSnOrName returns a boolean if a field has been set.
 `func (o *PatchedWriteOnlyDevice) UnsetSnOrName()`
 
 UnsetSnOrName ensures that no value is present for SnOrName, not even an explicit nil
+### GetSource
+
+`func (o *PatchedWriteOnlyDevice) GetSource() DeviceGroupSource`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *PatchedWriteOnlyDevice) GetSourceOk() (*DeviceGroupSource, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *PatchedWriteOnlyDevice) SetSource(v DeviceGroupSource)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *PatchedWriteOnlyDevice) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 ### GetIsWstk
 
 `func (o *PatchedWriteOnlyDevice) GetIsWstk() bool`
@@ -321,20 +347,20 @@ HasOnline returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *PatchedWriteOnlyDevice) GetStatus() StatusEnum`
+`func (o *PatchedWriteOnlyDevice) GetStatus() StatusF39Enum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWriteOnlyDevice) GetStatusOk() (*StatusEnum, bool)`
+`func (o *PatchedWriteOnlyDevice) GetStatusOk() (*StatusF39Enum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWriteOnlyDevice) SetStatus(v StatusEnum)`
+`func (o *PatchedWriteOnlyDevice) SetStatus(v StatusF39Enum)`
 
 SetStatus sets Status field to given value.
 
@@ -396,20 +422,20 @@ HasDateCreated returns a boolean if a field has been set.
 
 ### GetMetadata
 
-`func (o *PatchedWriteOnlyDevice) GetMetadata() map[string]interface{}`
+`func (o *PatchedWriteOnlyDevice) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *PatchedWriteOnlyDevice) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *PatchedWriteOnlyDevice) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *PatchedWriteOnlyDevice) SetMetadata(v map[string]interface{})`
+`func (o *PatchedWriteOnlyDevice) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -419,6 +445,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *PatchedWriteOnlyDevice) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *PatchedWriteOnlyDevice) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetWstkPart
 
 `func (o *PatchedWriteOnlyDevice) GetWstkPart() string`

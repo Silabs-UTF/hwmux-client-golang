@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Event** | [**EventEnum**](EventEnum.md) |  | 
 **Datetime** | **time.Time** |  | [readonly] 
 **Details** | Pointer to **string** |  | [optional] 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 **DeviceGroupLabel** | Pointer to **NullableInt32** |  | [optional] 
 **CausedBy** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -201,20 +201,20 @@ HasDetails returns a boolean if a field has been set.
 
 ### GetMetadata
 
-`func (o *Log) GetMetadata() map[string]interface{}`
+`func (o *Log) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *Log) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *Log) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *Log) SetMetadata(v map[string]interface{})`
+`func (o *Log) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -224,6 +224,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *Log) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *Log) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetDeviceGroupLabel
 
 `func (o *Log) GetDeviceGroupLabel() int32`

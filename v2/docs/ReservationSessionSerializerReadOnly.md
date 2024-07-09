@@ -12,6 +12,10 @@ Name | Type | Description | Notes
 **QueuePosition** | **NullableInt32** |  | [readonly] 
 **Queue** | **[]string** |  | [readonly] 
 **ResourceData** | **map[string]interface{}** |  | [readonly] 
+**QueuedTimeSec** | **NullableInt32** |  | [readonly] 
+**ActiveTimeSec** | **NullableInt32** |  | [readonly] 
+**CompletedTimeSec** | **NullableInt32** |  | [readonly] 
+**LeaseExpireTimeSec** | **NullableInt32** |  | [readonly] 
 **Details** | **string** |  | [readonly] 
 **UseWatchdog** | Pointer to **bool** |  | [optional] 
 **InvertPriority** | **bool** |  | [readonly] 
@@ -20,7 +24,7 @@ Name | Type | Description | Notes
 **TSatisfied** | **NullableTime** |  | [readonly] 
 **TCompleted** | **NullableTime** |  | [readonly] 
 **TLeaseExpires** | **NullableTime** |  | [readonly] 
-**Metadata** | **map[string]interface{}** |  | [readonly] 
+**Metadata** | **interface{}** |  | [readonly] 
 **RDevices** | **[]int32** |  | [readonly] 
 **RDeviceGroups** | **[]int32** |  | [readonly] 
 **RDeviceGroupLabels** | **[]int32** |  | [readonly] 
@@ -31,7 +35,7 @@ Name | Type | Description | Notes
 
 ### NewReservationSessionSerializerReadOnly
 
-`func NewReservationSessionSerializerReadOnly(id string, owner NullableReservationSessionSerializerReadOnlyOwner, isSatisfied bool, responseMessage string, status NullableString, queuePosition NullableInt32, queue []string, resourceData map[string]interface{}, details string, invertPriority bool, cancelExisting NullableBool, tRequested time.Time, tSatisfied NullableTime, tCompleted NullableTime, tLeaseExpires NullableTime, metadata map[string]interface{}, rDevices []int32, rDeviceGroups []int32, rDeviceGroupLabels []int32, aDevices []int32, aDeviceGroups []int32, ) *ReservationSessionSerializerReadOnly`
+`func NewReservationSessionSerializerReadOnly(id string, owner NullableReservationSessionSerializerReadOnlyOwner, isSatisfied bool, responseMessage string, status NullableString, queuePosition NullableInt32, queue []string, resourceData map[string]interface{}, queuedTimeSec NullableInt32, activeTimeSec NullableInt32, completedTimeSec NullableInt32, leaseExpireTimeSec NullableInt32, details string, invertPriority bool, cancelExisting NullableBool, tRequested time.Time, tSatisfied NullableTime, tCompleted NullableTime, tLeaseExpires NullableTime, metadata interface{}, rDevices []int32, rDeviceGroups []int32, rDeviceGroupLabels []int32, aDevices []int32, aDeviceGroups []int32, ) *ReservationSessionSerializerReadOnly`
 
 NewReservationSessionSerializerReadOnly instantiates a new ReservationSessionSerializerReadOnly object
 This constructor will assign default values to properties that have it defined,
@@ -256,6 +260,126 @@ SetResourceData sets ResourceData field to given value.
 `func (o *ReservationSessionSerializerReadOnly) UnsetResourceData()`
 
 UnsetResourceData ensures that no value is present for ResourceData, not even an explicit nil
+### GetQueuedTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) GetQueuedTimeSec() int32`
+
+GetQueuedTimeSec returns the QueuedTimeSec field if non-nil, zero value otherwise.
+
+### GetQueuedTimeSecOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetQueuedTimeSecOk() (*int32, bool)`
+
+GetQueuedTimeSecOk returns a tuple with the QueuedTimeSec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueuedTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) SetQueuedTimeSec(v int32)`
+
+SetQueuedTimeSec sets QueuedTimeSec field to given value.
+
+
+### SetQueuedTimeSecNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetQueuedTimeSecNil(b bool)`
+
+ SetQueuedTimeSecNil sets the value for QueuedTimeSec to be an explicit nil
+
+### UnsetQueuedTimeSec
+`func (o *ReservationSessionSerializerReadOnly) UnsetQueuedTimeSec()`
+
+UnsetQueuedTimeSec ensures that no value is present for QueuedTimeSec, not even an explicit nil
+### GetActiveTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) GetActiveTimeSec() int32`
+
+GetActiveTimeSec returns the ActiveTimeSec field if non-nil, zero value otherwise.
+
+### GetActiveTimeSecOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetActiveTimeSecOk() (*int32, bool)`
+
+GetActiveTimeSecOk returns a tuple with the ActiveTimeSec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) SetActiveTimeSec(v int32)`
+
+SetActiveTimeSec sets ActiveTimeSec field to given value.
+
+
+### SetActiveTimeSecNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetActiveTimeSecNil(b bool)`
+
+ SetActiveTimeSecNil sets the value for ActiveTimeSec to be an explicit nil
+
+### UnsetActiveTimeSec
+`func (o *ReservationSessionSerializerReadOnly) UnsetActiveTimeSec()`
+
+UnsetActiveTimeSec ensures that no value is present for ActiveTimeSec, not even an explicit nil
+### GetCompletedTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) GetCompletedTimeSec() int32`
+
+GetCompletedTimeSec returns the CompletedTimeSec field if non-nil, zero value otherwise.
+
+### GetCompletedTimeSecOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetCompletedTimeSecOk() (*int32, bool)`
+
+GetCompletedTimeSecOk returns a tuple with the CompletedTimeSec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompletedTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) SetCompletedTimeSec(v int32)`
+
+SetCompletedTimeSec sets CompletedTimeSec field to given value.
+
+
+### SetCompletedTimeSecNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetCompletedTimeSecNil(b bool)`
+
+ SetCompletedTimeSecNil sets the value for CompletedTimeSec to be an explicit nil
+
+### UnsetCompletedTimeSec
+`func (o *ReservationSessionSerializerReadOnly) UnsetCompletedTimeSec()`
+
+UnsetCompletedTimeSec ensures that no value is present for CompletedTimeSec, not even an explicit nil
+### GetLeaseExpireTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) GetLeaseExpireTimeSec() int32`
+
+GetLeaseExpireTimeSec returns the LeaseExpireTimeSec field if non-nil, zero value otherwise.
+
+### GetLeaseExpireTimeSecOk
+
+`func (o *ReservationSessionSerializerReadOnly) GetLeaseExpireTimeSecOk() (*int32, bool)`
+
+GetLeaseExpireTimeSecOk returns a tuple with the LeaseExpireTimeSec field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLeaseExpireTimeSec
+
+`func (o *ReservationSessionSerializerReadOnly) SetLeaseExpireTimeSec(v int32)`
+
+SetLeaseExpireTimeSec sets LeaseExpireTimeSec field to given value.
+
+
+### SetLeaseExpireTimeSecNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetLeaseExpireTimeSecNil(b bool)`
+
+ SetLeaseExpireTimeSecNil sets the value for LeaseExpireTimeSec to be an explicit nil
+
+### UnsetLeaseExpireTimeSec
+`func (o *ReservationSessionSerializerReadOnly) UnsetLeaseExpireTimeSec()`
+
+UnsetLeaseExpireTimeSec ensures that no value is present for LeaseExpireTimeSec, not even an explicit nil
 ### GetDetails
 
 `func (o *ReservationSessionSerializerReadOnly) GetDetails() string`
@@ -463,24 +587,34 @@ SetTLeaseExpires sets TLeaseExpires field to given value.
 UnsetTLeaseExpires ensures that no value is present for TLeaseExpires, not even an explicit nil
 ### GetMetadata
 
-`func (o *ReservationSessionSerializerReadOnly) GetMetadata() map[string]interface{}`
+`func (o *ReservationSessionSerializerReadOnly) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *ReservationSessionSerializerReadOnly) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *ReservationSessionSerializerReadOnly) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *ReservationSessionSerializerReadOnly) SetMetadata(v map[string]interface{})`
+`func (o *ReservationSessionSerializerReadOnly) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
 
+### SetMetadataNil
+
+`func (o *ReservationSessionSerializerReadOnly) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *ReservationSessionSerializerReadOnly) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetRDevices
 
 `func (o *ReservationSessionSerializerReadOnly) GetRDevices() []int32`

@@ -6,11 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Devices** | Pointer to [**[]WriteOnlyDevice**](WriteOnlyDevice.md) |  | [optional] 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
 **EnableAhsCas** | Pointer to **bool** |  | [optional] 
+**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
 
 ## Methods
 
@@ -78,20 +79,20 @@ HasDevices returns a boolean if a field has been set.
 
 ### GetMetadata
 
-`func (o *NestedDeviceGroup) GetMetadata() map[string]interface{}`
+`func (o *NestedDeviceGroup) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *NestedDeviceGroup) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *NestedDeviceGroup) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *NestedDeviceGroup) SetMetadata(v map[string]interface{})`
+`func (o *NestedDeviceGroup) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -210,6 +211,31 @@ SetEnableAhsCas sets EnableAhsCas field to given value.
 `func (o *NestedDeviceGroup) HasEnableAhsCas() bool`
 
 HasEnableAhsCas returns a boolean if a field has been set.
+
+### GetSource
+
+`func (o *NestedDeviceGroup) GetSource() DeviceGroupSource`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *NestedDeviceGroup) GetSourceOk() (*DeviceGroupSource, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *NestedDeviceGroup) SetSource(v DeviceGroupSource)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *NestedDeviceGroup) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

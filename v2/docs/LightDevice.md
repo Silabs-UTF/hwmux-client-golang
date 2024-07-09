@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
-**Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Metadata** | Pointer to **interface{}** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
 **Part** | [**Part**](Part.md) |  | 
 **Location** | **int32** |  | 
 **WstkPart** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
+**Status** | Pointer to [**StatusF39Enum**](StatusF39Enum.md) |  | [optional] 
 **LocDesc** | **string** |  | [readonly] 
 
 ## Methods
@@ -152,20 +152,20 @@ HasIsWstk returns a boolean if a field has been set.
 
 ### GetMetadata
 
-`func (o *LightDevice) GetMetadata() map[string]interface{}`
+`func (o *LightDevice) GetMetadata() interface{}`
 
 GetMetadata returns the Metadata field if non-nil, zero value otherwise.
 
 ### GetMetadataOk
 
-`func (o *LightDevice) GetMetadataOk() (*map[string]interface{}, bool)`
+`func (o *LightDevice) GetMetadataOk() (*interface{}, bool)`
 
 GetMetadataOk returns a tuple with the Metadata field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMetadata
 
-`func (o *LightDevice) SetMetadata(v map[string]interface{})`
+`func (o *LightDevice) SetMetadata(v interface{})`
 
 SetMetadata sets Metadata field to given value.
 
@@ -175,6 +175,16 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### SetMetadataNil
+
+`func (o *LightDevice) SetMetadataNil(b bool)`
+
+ SetMetadataNil sets the value for Metadata to be an explicit nil
+
+### UnsetMetadata
+`func (o *LightDevice) UnsetMetadata()`
+
+UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetOnline
 
 `func (o *LightDevice) GetOnline() bool`
@@ -277,20 +287,20 @@ HasWstkPart returns a boolean if a field has been set.
 UnsetWstkPart ensures that no value is present for WstkPart, not even an explicit nil
 ### GetStatus
 
-`func (o *LightDevice) GetStatus() StatusEnum`
+`func (o *LightDevice) GetStatus() StatusF39Enum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *LightDevice) GetStatusOk() (*StatusEnum, bool)`
+`func (o *LightDevice) GetStatusOk() (*StatusF39Enum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *LightDevice) SetStatus(v StatusEnum)`
+`func (o *LightDevice) SetStatus(v StatusF39Enum)`
 
 SetStatus sets Status field to given value.
 

@@ -1,6 +1,6 @@
 # \SigninApi
 
-All URIs are relative to *https://hwmux.silabs.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
