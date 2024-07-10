@@ -28,7 +28,7 @@ type WriteOnlyDevice struct {
 	IsWstk *bool `json:"is_wstk,omitempty"`
 	Uri NullableString `json:"uri,omitempty"`
 	Online *bool `json:"online,omitempty"`
-	Status *StatusF39Enum `json:"status,omitempty"`
+	Status *StatusEnum `json:"status,omitempty"`
 	LastUpdate time.Time `json:"last_update"`
 	DateCreated time.Time `json:"date_created"`
 	Metadata interface{} `json:"metadata,omitempty"`
@@ -394,9 +394,9 @@ func (o *WriteOnlyDevice) SetOnline(v bool) {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *WriteOnlyDevice) GetStatus() StatusF39Enum {
+func (o *WriteOnlyDevice) GetStatus() StatusEnum {
 	if o == nil || isNil(o.Status) {
-		var ret StatusF39Enum
+		var ret StatusEnum
 		return ret
 	}
 	return *o.Status
@@ -404,7 +404,7 @@ func (o *WriteOnlyDevice) GetStatus() StatusF39Enum {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WriteOnlyDevice) GetStatusOk() (*StatusF39Enum, bool) {
+func (o *WriteOnlyDevice) GetStatusOk() (*StatusEnum, bool) {
 	if o == nil || isNil(o.Status) {
     return nil, false
 	}
@@ -420,8 +420,8 @@ func (o *WriteOnlyDevice) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given StatusF39Enum and assigns it to the Status field.
-func (o *WriteOnlyDevice) SetStatus(v StatusF39Enum) {
+// SetStatus gets a reference to the given StatusEnum and assigns it to the Status field.
+func (o *WriteOnlyDevice) SetStatus(v StatusEnum) {
 	o.Status = &v
 }
 

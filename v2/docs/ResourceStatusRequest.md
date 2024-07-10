@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | [**ResourceStatusRequestStatusEnum**](ResourceStatusRequestStatusEnum.md) |  | 
+**Status** | [**StatusEnum**](StatusEnum.md) |  | 
 **Metadata** | Pointer to **interface{}** |  | [optional] 
 **Comment** | Pointer to **string** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewResourceStatusRequest
 
-`func NewResourceStatusRequest(status ResourceStatusRequestStatusEnum, ) *ResourceStatusRequest`
+`func NewResourceStatusRequest(status StatusEnum, ) *ResourceStatusRequest`
 
 NewResourceStatusRequest instantiates a new ResourceStatusRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *ResourceStatusRequest) GetStatus() ResourceStatusRequestStatusEnum`
+`func (o *ResourceStatusRequest) GetStatus() StatusEnum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ResourceStatusRequest) GetStatusOk() (*ResourceStatusRequestStatusEnum, bool)`
+`func (o *ResourceStatusRequest) GetStatusOk() (*StatusEnum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ResourceStatusRequest) SetStatus(v ResourceStatusRequestStatusEnum)`
+`func (o *ResourceStatusRequest) SetStatus(v StatusEnum)`
 
 SetStatus sets Status field to given value.
 

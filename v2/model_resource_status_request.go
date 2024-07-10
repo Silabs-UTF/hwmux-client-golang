@@ -16,7 +16,7 @@ import (
 
 // ResourceStatusRequest struct for ResourceStatusRequest
 type ResourceStatusRequest struct {
-	Status ResourceStatusRequestStatusEnum `json:"status"`
+	Status StatusEnum `json:"status"`
 	Metadata interface{} `json:"metadata,omitempty"`
 	Comment *string `json:"comment,omitempty"`
 }
@@ -25,7 +25,7 @@ type ResourceStatusRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewResourceStatusRequest(status ResourceStatusRequestStatusEnum) *ResourceStatusRequest {
+func NewResourceStatusRequest(status StatusEnum) *ResourceStatusRequest {
 	this := ResourceStatusRequest{}
 	this.Status = status
 	return &this
@@ -40,9 +40,9 @@ func NewResourceStatusRequestWithDefaults() *ResourceStatusRequest {
 }
 
 // GetStatus returns the Status field value
-func (o *ResourceStatusRequest) GetStatus() ResourceStatusRequestStatusEnum {
+func (o *ResourceStatusRequest) GetStatus() StatusEnum {
 	if o == nil {
-		var ret ResourceStatusRequestStatusEnum
+		var ret StatusEnum
 		return ret
 	}
 
@@ -51,7 +51,7 @@ func (o *ResourceStatusRequest) GetStatus() ResourceStatusRequestStatusEnum {
 
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *ResourceStatusRequest) GetStatusOk() (*ResourceStatusRequestStatusEnum, bool) {
+func (o *ResourceStatusRequest) GetStatusOk() (*StatusEnum, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *ResourceStatusRequest) GetStatusOk() (*ResourceStatusRequestStatusEnum,
 }
 
 // SetStatus sets field value
-func (o *ResourceStatusRequest) SetStatus(v ResourceStatusRequestStatusEnum) {
+func (o *ResourceStatusRequest) SetStatus(v StatusEnum) {
 	o.Status = v
 }
 

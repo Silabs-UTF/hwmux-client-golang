@@ -5500,7 +5500,7 @@ components:
           type: boolean
           title: Is online
         status:
-          $ref: '#/components/schemas/StatusF39Enum'
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           type: string
           format: date-time
@@ -5657,7 +5657,7 @@ components:
           nullable: true
           title: WSTK part number
         status:
-          $ref: '#/components/schemas/StatusF39Enum'
+          $ref: '#/components/schemas/StatusEnum'
         loc_desc:
           type: string
           readOnly: true
@@ -6421,7 +6421,7 @@ components:
           type: boolean
           title: Is online
         status:
-          $ref: '#/components/schemas/StatusF39Enum'
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           type: string
           format: date-time
@@ -6654,22 +6654,12 @@ components:
       type: object
       properties:
         status:
-          $ref: '#/components/schemas/ResourceStatusRequestStatusEnum'
+          $ref: '#/components/schemas/StatusEnum'
         metadata: {}
         comment:
           type: string
       required:
       - status
-    ResourceStatusRequestStatusEnum:
-      enum:
-      - ACTIVE
-      - DISABLED
-      - OFFLINE
-      type: string
-      description: |-
-        * `ACTIVE` - ACTIVE
-        * `DISABLED` - DISABLED
-        * `OFFLINE` - OFFLINE
     Room:
       type: object
       description: Serializer for the Room model
@@ -6726,7 +6716,7 @@ components:
         * `XML` - XML
         * `UI` - UI
         * `OTHER` - Other
-    StatusF39Enum:
+    StatusEnum:
       enum:
       - ACTIVE
       - DISABLED
@@ -6806,7 +6796,7 @@ components:
           type: boolean
           title: Is online
         status:
-          $ref: '#/components/schemas/StatusF39Enum'
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           type: string
           format: date-time

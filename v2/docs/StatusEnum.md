@@ -1,4 +1,4 @@
-# StatusF39Enum
+# StatusEnum
 
 ## Enum
 
