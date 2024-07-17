@@ -7,14 +7,16 @@ Name | Type | Description | Notes
 **Id** | Pointer to **int32** |  | [optional] [readonly] 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Devices** | Pointer to **[]int32** |  | [optional] 
-**IsReserved** | Pointer to **NullableBool** |  | [optional] [readonly] 
 **Online** | Pointer to **bool** |  | [optional] [readonly] 
 **Status** | Pointer to **string** |  | [optional] [readonly] 
+**LocDesc** | Pointer to **[]string** |  | [optional] [readonly] 
+**IsReserved** | Pointer to **NullableBool** |  | [optional] [readonly] 
 **Name** | Pointer to **string** |  | [optional] 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
 **EnableAhsCas** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
 
 ## Methods
 
@@ -120,41 +122,6 @@ SetDevices sets Devices field to given value.
 
 HasDevices returns a boolean if a field has been set.
 
-### GetIsReserved
-
-`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetIsReserved() bool`
-
-GetIsReserved returns the IsReserved field if non-nil, zero value otherwise.
-
-### GetIsReservedOk
-
-`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetIsReservedOk() (*bool, bool)`
-
-GetIsReservedOk returns a tuple with the IsReserved field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsReserved
-
-`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetIsReserved(v bool)`
-
-SetIsReserved sets IsReserved field to given value.
-
-### HasIsReserved
-
-`func (o *PatchedDeviceGroupSerializerWithDevicePk) HasIsReserved() bool`
-
-HasIsReserved returns a boolean if a field has been set.
-
-### SetIsReservedNil
-
-`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetIsReservedNil(b bool)`
-
- SetIsReservedNil sets the value for IsReserved to be an explicit nil
-
-### UnsetIsReserved
-`func (o *PatchedDeviceGroupSerializerWithDevicePk) UnsetIsReserved()`
-
-UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
 ### GetOnline
 
 `func (o *PatchedDeviceGroupSerializerWithDevicePk) GetOnline() bool`
@@ -205,6 +172,66 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### GetLocDesc
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetLocDesc() []string`
+
+GetLocDesc returns the LocDesc field if non-nil, zero value otherwise.
+
+### GetLocDescOk
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetLocDescOk() (*[]string, bool)`
+
+GetLocDescOk returns a tuple with the LocDesc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocDesc
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetLocDesc(v []string)`
+
+SetLocDesc sets LocDesc field to given value.
+
+### HasLocDesc
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) HasLocDesc() bool`
+
+HasLocDesc returns a boolean if a field has been set.
+
+### GetIsReserved
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetIsReserved() bool`
+
+GetIsReserved returns the IsReserved field if non-nil, zero value otherwise.
+
+### GetIsReservedOk
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetIsReservedOk() (*bool, bool)`
+
+GetIsReservedOk returns a tuple with the IsReserved field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsReserved
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetIsReserved(v bool)`
+
+SetIsReserved sets IsReserved field to given value.
+
+### HasIsReserved
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) HasIsReserved() bool`
+
+HasIsReserved returns a boolean if a field has been set.
+
+### SetIsReservedNil
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetIsReservedNil(b bool)`
+
+ SetIsReservedNil sets the value for IsReserved to be an explicit nil
+
+### UnsetIsReserved
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) UnsetIsReserved()`
+
+UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
 ### GetName
 
 `func (o *PatchedDeviceGroupSerializerWithDevicePk) GetName() string`
@@ -340,6 +367,31 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *PatchedDeviceGroupSerializerWithDevicePk) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetSource
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetSource() DeviceGroupSource`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) GetSourceOk() (*DeviceGroupSource, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) SetSource(v DeviceGroupSource)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *PatchedDeviceGroupSerializerWithDevicePk) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

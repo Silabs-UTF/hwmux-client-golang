@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **LocDesc** | **string** |  | [readonly] 
 **IsReserved** | **NullableBool** |  | [readonly] 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
+**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
@@ -198,6 +199,31 @@ HasSnOrName returns a boolean if a field has been set.
 `func (o *DeviceSerializerPublic) UnsetSnOrName()`
 
 UnsetSnOrName ensures that no value is present for SnOrName, not even an explicit nil
+### GetSource
+
+`func (o *DeviceSerializerPublic) GetSource() DeviceGroupSource`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *DeviceSerializerPublic) GetSourceOk() (*DeviceGroupSource, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *DeviceSerializerPublic) SetSource(v DeviceGroupSource)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *DeviceSerializerPublic) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 ### GetIsWstk
 
 `func (o *DeviceSerializerPublic) GetIsWstk() bool`

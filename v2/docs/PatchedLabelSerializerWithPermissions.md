@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **DeviceGroups** | Pointer to **[]int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
 
 ## Methods
 
@@ -174,6 +175,31 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *PatchedLabelSerializerWithPermissions) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetSource
+
+`func (o *PatchedLabelSerializerWithPermissions) GetSource() DeviceGroupSource`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *PatchedLabelSerializerWithPermissions) GetSourceOk() (*DeviceGroupSource, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *PatchedLabelSerializerWithPermissions) SetSource(v DeviceGroupSource)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *PatchedLabelSerializerWithPermissions) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

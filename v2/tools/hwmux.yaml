@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.27.0
+  version: 2.31.4
 paths:
   /api-token-auth/:
     post:
@@ -131,6 +131,20 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: source
+        schema:
+          type: string
+          enum:
+          - OTHER
+          - TERRAFORM
+          - UI
+          - XML
+        description: |-
+          * `TERRAFORM` - Terraform
+          * `XML` - XML
+          * `UI` - UI
+          * `OTHER` - Other
+      - in: query
         name: status
         schema:
           type: string
@@ -138,6 +152,10 @@ paths:
           - ACTIVE
           - DISABLED
           - OFFLINE
+        description: |-
+          * `ACTIVE` - Active
+          * `DISABLED` - Disabled
+          * `OFFLINE` - Offline
       - in: query
         name: uri
         schema:
@@ -679,6 +697,20 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: source
+        schema:
+          type: string
+          enum:
+          - OTHER
+          - TERRAFORM
+          - UI
+          - XML
+        description: |-
+          * `TERRAFORM` - Terraform
+          * `XML` - XML
+          * `UI` - UI
+          * `OTHER` - Other
+      - in: query
         name: status
         schema:
           type: string
@@ -686,6 +718,10 @@ paths:
           - ACTIVE
           - DISABLED
           - OFFLINE
+        description: |-
+          * `ACTIVE` - Active
+          * `DISABLED` - Disabled
+          * `OFFLINE` - Offline
       - in: query
         name: uri
         schema:
@@ -810,6 +846,20 @@ paths:
         schema:
           type: boolean
       - in: query
+        name: source
+        schema:
+          type: string
+          enum:
+          - OTHER
+          - TERRAFORM
+          - UI
+          - XML
+        description: |-
+          * `TERRAFORM` - Terraform
+          * `XML` - XML
+          * `UI` - UI
+          * `OTHER` - Other
+      - in: query
         name: status
         schema:
           type: string
@@ -817,6 +867,10 @@ paths:
           - ACTIVE
           - DISABLED
           - OFFLINE
+        description: |-
+          * `ACTIVE` - Active
+          * `DISABLED` - Disabled
+          * `OFFLINE` - Offline
       - in: query
         name: uri
         schema:
@@ -946,12 +1000,34 @@ paths:
         description: A page number within the paginated result set.
         schema:
           type: integer
+      - in: query
+        name: room
+        schema:
+          type: string
       - name: search
         required: false
         in: query
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: site
+        schema:
+          type: string
+      - in: query
+        name: source
+        schema:
+          type: string
+          enum:
+          - OTHER
+          - TERRAFORM
+          - UI
+          - XML
+        description: |-
+          * `TERRAFORM` - Terraform
+          * `XML` - XML
+          * `UI` - UI
+          * `OTHER` - Other
       tags:
       - groups
       security:
@@ -990,6 +1066,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeviceGroupSerializerWithDevicePk'
+          description: ''
+  /api/groups/{device_group_pk}/location/:
+    get:
+      operationId: groups_location_retrieve
+      parameters:
+      - in: path
+        name: device_group_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - groups
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupLocation'
           description: ''
   /api/groups/{group_name}/release_by_name/:
     put:
@@ -1470,12 +1567,34 @@ paths:
         description: A page number within the paginated result set.
         schema:
           type: integer
+      - in: query
+        name: room
+        schema:
+          type: string
       - name: search
         required: false
         in: query
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: site
+        schema:
+          type: string
+      - in: query
+        name: source
+        schema:
+          type: string
+          enum:
+          - OTHER
+          - TERRAFORM
+          - UI
+          - XML
+        description: |-
+          * `TERRAFORM` - Terraform
+          * `XML` - XML
+          * `UI` - UI
+          * `OTHER` - Other
       tags:
       - groups
       security:
@@ -1565,12 +1684,34 @@ paths:
         description: A page number within the paginated result set.
         schema:
           type: integer
+      - in: query
+        name: room
+        schema:
+          type: string
       - name: search
         required: false
         in: query
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: site
+        schema:
+          type: string
+      - in: query
+        name: source
+        schema:
+          type: string
+          enum:
+          - OTHER
+          - TERRAFORM
+          - UI
+          - XML
+        description: |-
+          * `TERRAFORM` - Terraform
+          * `XML` - XML
+          * `UI` - UI
+          * `OTHER` - Other
       tags:
       - groups
       security:
@@ -1643,6 +1784,20 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: source
+        schema:
+          type: string
+          enum:
+          - OTHER
+          - TERRAFORM
+          - UI
+          - XML
+        description: |-
+          * `TERRAFORM` - Terraform
+          * `XML` - XML
+          * `UI` - UI
+          * `OTHER` - Other
       tags:
       - labels
       security:
@@ -2064,6 +2219,15 @@ paths:
           - QUE
           - REL
           - RES
+        description: |-
+          * `RES` - Reserved
+          * `REL` - Released
+          * `OFF` - Taken offline
+          * `ON` - Brought online
+          * `CR` - Created
+          * `MOD` - Modified
+          * `QUE` - Waiting for resources
+          * `ERR` - Reservation error
       - in: query
         name: owner
         schema:
@@ -2678,7 +2842,7 @@ paths:
         name: name_or_id
         schema:
           type: string
-          pattern: '[^/]+'
+          pattern: ^[^/]+$
         required: true
       tags:
       - permissions
@@ -2699,7 +2863,7 @@ paths:
         name: name_or_id
         schema:
           type: string
-          pattern: '[^/]+'
+          pattern: ^[^/]+$
         required: true
       tags:
       - permissions
@@ -2732,7 +2896,7 @@ paths:
         name: name_or_id
         schema:
           type: string
-          pattern: '[^/]+'
+          pattern: ^[^/]+$
         required: true
       tags:
       - permissions
@@ -2764,7 +2928,7 @@ paths:
         name: name_or_id
         schema:
           type: string
-          pattern: '[^/]+'
+          pattern: ^[^/]+$
         required: true
       tags:
       - permissions
@@ -3472,6 +3636,10 @@ paths:
         name: label
         schema:
           type: number
+      - in: query
+        name: lease_duration_s
+        schema:
+          type: integer
       - name: ordering
         required: false
         in: query
@@ -3528,6 +3696,12 @@ paths:
           - EXP
           - FIN
           - QUE
+        description: |-
+          * `ACT` - Active
+          * `FIN` - Finished
+          * `QUE` - Queued
+          * `EXP` - Expired
+          * `` - Any
       - in: query
         name: t_completed
         schema:
@@ -3871,6 +4045,10 @@ paths:
         schema:
           type: number
       - in: query
+        name: lease_duration_s
+        schema:
+          type: integer
+      - in: query
         name: max_history
         schema:
           type: string
@@ -3933,6 +4111,12 @@ paths:
           - EXP
           - FIN
           - QUE
+        description: |-
+          * `ACT` - Active
+          * `FIN` - Finished
+          * `QUE` - Queued
+          * `EXP` - Expired
+          * `` - Any
       - in: query
         name: t_completed
         schema:
@@ -4078,6 +4262,10 @@ paths:
         schema:
           type: number
       - in: query
+        name: lease_duration_s
+        schema:
+          type: integer
+      - in: query
         name: max_history
         schema:
           type: string
@@ -4140,6 +4328,12 @@ paths:
           - EXP
           - FIN
           - QUE
+        description: |-
+          * `ACT` - Active
+          * `FIN` - Finished
+          * `QUE` - Queued
+          * `EXP` - Expired
+          * `` - Any
       - in: query
         name: t_completed
         schema:
@@ -4920,8 +5114,7 @@ paths:
   /api/user/current/token/:
     get:
       operationId: user_current_token_retrieve
-      description: "Gets the current user's API token. Generates one if none available.\n\
-        \        "
+      description: Gets the current user's API token. Generates one if none available.
       tags:
       - user
       security:
@@ -4998,6 +5191,7 @@ paths:
           - br
           - bs
           - ca
+          - ckb
           - cs
           - cy
           - da
@@ -5050,6 +5244,7 @@ paths:
           - ml
           - mn
           - mr
+          - ms
           - my
           - nb
           - ne
@@ -5153,6 +5348,9 @@ components:
       - password
       - token
       - username
+    BlankEnum:
+      enum:
+      - ''
     DeviceGroup:
       type: object
       properties:
@@ -5169,15 +5367,20 @@ components:
           items:
             $ref: '#/components/schemas/LightDevice'
           readOnly: true
-        is_reserved:
-          type: boolean
-          nullable: true
-          readOnly: true
         online:
           type: boolean
           readOnly: true
         status:
           type: string
+          readOnly: true
+        loc_desc:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        is_reserved:
+          type: boolean
+          nullable: true
           readOnly: true
         name:
           type: string
@@ -5193,10 +5396,15 @@ components:
           type: object
           additionalProperties: {}
           nullable: true
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
       required:
       - devices
       - id
       - is_reserved
+      - loc_desc
       - name
       - online
       - status
@@ -5215,15 +5423,20 @@ components:
           type: array
           items:
             type: integer
-        is_reserved:
-          type: boolean
-          nullable: true
-          readOnly: true
         online:
           type: boolean
           readOnly: true
         status:
           type: string
+          readOnly: true
+        loc_desc:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        is_reserved:
+          type: boolean
+          nullable: true
           readOnly: true
         name:
           type: string
@@ -5239,9 +5452,14 @@ components:
           type: object
           additionalProperties: {}
           nullable: true
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
       required:
       - id
       - is_reserved
+      - loc_desc
       - name
       - online
       - status
@@ -5271,6 +5489,10 @@ components:
           nullable: true
           title: Device name or serial number
           maxLength: 255
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
         is_wstk:
           type: boolean
           title: If the device is a WSTK
@@ -5317,6 +5539,41 @@ components:
       - QUE
       - ERR
       type: string
+      description: |-
+        * `RES` - Reserved
+        * `REL` - Released
+        * `OFF` - Taken offline
+        * `ON` - Brought online
+        * `CR` - Created
+        * `MOD` - Modified
+        * `QUE` - Waiting for resources
+        * `ERR` - Reservation error
+    GroupLocation:
+      type: object
+      description: Serializer for the GroupLocation model
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        rooms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Room'
+          readOnly: true
+        description:
+          type: string
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+          title: Additional data
+        device_group:
+          type: integer
+          title: Location of the Device Group
+      required:
+      - device_group
+      - id
+      - rooms
     Label:
       type: object
       properties:
@@ -5340,6 +5597,10 @@ components:
           type: object
           additionalProperties: {}
           nullable: true
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
       required:
       - device_groups
       - id
@@ -5367,6 +5628,10 @@ components:
           type: object
           additionalProperties: {}
           nullable: true
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
       required:
       - device_groups
       - id
@@ -5576,6 +5841,10 @@ components:
           type: boolean
         enable_ahs_cas:
           type: boolean
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
       required:
       - name
     ObjectPermissions:
@@ -5592,6 +5861,9 @@ components:
       - users
     PaginatedDeviceGroupList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5612,6 +5884,9 @@ components:
             $ref: '#/components/schemas/DeviceGroup'
     PaginatedDeviceSerializerPublicList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5632,6 +5907,9 @@ components:
             $ref: '#/components/schemas/DeviceSerializerPublic'
     PaginatedLabelList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5652,6 +5930,9 @@ components:
             $ref: '#/components/schemas/Label'
     PaginatedLogList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5672,6 +5953,9 @@ components:
             $ref: '#/components/schemas/Log'
     PaginatedLoggedInUserList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5692,6 +5976,9 @@ components:
             $ref: '#/components/schemas/LoggedInUser'
     PaginatedPartFamilyList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5712,6 +5999,9 @@ components:
             $ref: '#/components/schemas/PartFamily'
     PaginatedPartList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5732,6 +6022,9 @@ components:
             $ref: '#/components/schemas/Part'
     PaginatedPermissionGroupList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5752,6 +6045,9 @@ components:
             $ref: '#/components/schemas/PermissionGroup'
     PaginatedReservationSessionSerializerReadOnlyList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5772,6 +6068,9 @@ components:
             $ref: '#/components/schemas/ReservationSessionSerializerReadOnly'
     PaginatedRoomList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5792,6 +6091,9 @@ components:
             $ref: '#/components/schemas/Room'
     PaginatedSiteList:
       type: object
+      required:
+      - count
+      - results
       properties:
         count:
           type: integer
@@ -5883,15 +6185,20 @@ components:
           type: array
           items:
             type: integer
-        is_reserved:
-          type: boolean
-          nullable: true
-          readOnly: true
         online:
           type: boolean
           readOnly: true
         status:
           type: string
+          readOnly: true
+        loc_desc:
+          type: array
+          items:
+            type: string
+          readOnly: true
+        is_reserved:
+          type: boolean
+          nullable: true
           readOnly: true
         name:
           type: string
@@ -5907,6 +6214,10 @@ components:
           type: object
           additionalProperties: {}
           nullable: true
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
     PatchedLabelSerializerWithPermissions:
       type: object
       properties:
@@ -5930,6 +6241,10 @@ components:
           type: object
           additionalProperties: {}
           nullable: true
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
     PatchedLoggedInUser:
       type: object
       properties:
@@ -6056,8 +6371,8 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - view
           - add
+          - view
           - delete
           - change
     PatchedRoom:
@@ -6091,11 +6406,11 @@ components:
           maxLength: 255
         lon:
           type: number
-          format: float
+          format: double
           title: Longitude in WGS84
         lat:
           type: number
-          format: float
+          format: double
           title: Latitude in WGS84
         metadata:
           type: object
@@ -6129,6 +6444,10 @@ components:
           nullable: true
           title: Device name or serial number
           maxLength: 255
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
         is_wstk:
           type: boolean
           title: If the device is a WSTK
@@ -6182,6 +6501,11 @@ components:
       - add
       - delete
       type: string
+      description: |-
+        * `view` - view
+        * `change` - change
+        * `add` - add
+        * `delete` - delete
     ReservationRequest:
       type: object
       properties:
@@ -6209,6 +6533,11 @@ components:
         invert_priority:
           type: boolean
           default: false
+        lease_duration_s:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
     ReservationSessionSerializerReadOnly:
       type: object
       properties:
@@ -6244,6 +6573,22 @@ components:
         resource_data:
           type: object
           additionalProperties: {}
+          nullable: true
+          readOnly: true
+        queued_time_sec:
+          type: integer
+          nullable: true
+          readOnly: true
+        active_time_sec:
+          type: integer
+          nullable: true
+          readOnly: true
+        completed_time_sec:
+          type: integer
+          nullable: true
+          readOnly: true
+        lease_expire_time_sec:
+          type: integer
           nullable: true
           readOnly: true
         details:
@@ -6310,15 +6655,19 @@ components:
       required:
       - a_device_groups
       - a_devices
+      - active_time_sec
       - cancel_existing
+      - completed_time_sec
       - details
       - id
       - invert_priority
       - is_satisfied
+      - lease_expire_time_sec
       - metadata
       - owner
       - queue
       - queue_position
+      - queued_time_sec
       - r_device_group_labels
       - r_device_groups
       - r_devices
@@ -6339,8 +6688,8 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - view
           - add
+          - view
           - delete
           - change
       required:
@@ -6391,11 +6740,11 @@ components:
           maxLength: 255
         lon:
           type: number
-          format: float
+          format: double
           title: Longitude in WGS84
         lat:
           type: number
-          format: float
+          format: double
           title: Latitude in WGS84
         metadata:
           type: object
@@ -6405,12 +6754,28 @@ components:
       - lat
       - lon
       - name
+    SourceEnum:
+      enum:
+      - TERRAFORM
+      - XML
+      - UI
+      - OTHER
+      type: string
+      description: |-
+        * `TERRAFORM` - Terraform
+        * `XML` - XML
+        * `UI` - UI
+        * `OTHER` - Other
     StatusEnum:
       enum:
       - ACTIVE
       - DISABLED
       - OFFLINE
       type: string
+      description: |-
+        * `ACTIVE` - Active
+        * `DISABLED` - Disabled
+        * `OFFLINE` - Offline
     Token:
       type: object
       properties:
@@ -6466,6 +6831,10 @@ components:
           nullable: true
           title: Device name or serial number
           maxLength: 255
+        source:
+          oneOf:
+          - $ref: '#/components/schemas/SourceEnum'
+          - $ref: '#/components/schemas/BlankEnum'
         is_wstk:
           type: boolean
           title: If the device is a WSTK

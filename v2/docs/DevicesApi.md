@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## DevicesList
 
-> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -196,14 +196,15 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
-    status := "status_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
+    status := "status_example" // string | * `ACTIVE` - Active * `DISABLED` - Disabled * `OFFLINE` - Offline (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
     wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -240,7 +241,8 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
- **status** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
+ **status** | **string** | * &#x60;ACTIVE&#x60; - Active * &#x60;DISABLED&#x60; - Disabled * &#x60;OFFLINE&#x60; - Offline | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
  **wstkPart** | **string** |  | 
@@ -265,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## DevicesListMyList
 
-> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -300,14 +302,15 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
-    status := "status_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
+    status := "status_example" // string | * `ACTIVE` - Active * `DISABLED` - Disabled * `OFFLINE` - Offline (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
     wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesListMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -343,7 +346,8 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
- **status** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
+ **status** | **string** | * &#x60;ACTIVE&#x60; - Active * &#x60;DISABLED&#x60; - Disabled * &#x60;OFFLINE&#x60; - Offline | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
  **wstkPart** | **string** |  | 
@@ -936,7 +940,7 @@ Name | Type | Description  | Notes
 
 ## DevicesSearchList
 
-> PaginatedDeviceSerializerPublicList DevicesSearchList(ctx).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesSearchList(ctx).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -971,14 +975,15 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
-    status := "status_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
+    status := "status_example" // string | * `ACTIVE` - Active * `DISABLED` - Disabled * `OFFLINE` - Offline (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
     wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesSearchList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1014,7 +1019,8 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
- **status** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
+ **status** | **string** | * &#x60;ACTIVE&#x60; - Active * &#x60;DISABLED&#x60; - Disabled * &#x60;OFFLINE&#x60; - Offline | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
  **wstkPart** | **string** |  | 

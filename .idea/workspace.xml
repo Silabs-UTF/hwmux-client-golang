@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="556082ee-1edd-48ad-9e71-f52c36bec436" name="Changes" comment="New client that involves new changes of the source field">
+      <change afterPath="$PROJECT_DIR$/v2/docs/BlankEnum.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/docs/DeviceGroupSource.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/docs/GroupLocation.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/docs/SourceEnum.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/model_blank_enum.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/model_device_group_source.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/model_group_location.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/model_source_enum.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/tools/generate_package.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/.openapi-generator/FILES" beforeDir="false" afterPath="$PROJECT_DIR$/v2/.openapi-generator/FILES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api/openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_callback.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_callback.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_devices.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_devices.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_groups.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_groups.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_labels.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_labels.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_logs.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_logs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_part_families.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_part_families.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_parts.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_parts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_permissions.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_permissions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_reservations.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_reservations.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_rooms.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_rooms.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_schema.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_schema.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_signin.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_signin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_signout.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_signout.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_sites.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_sites.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_token_auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_token_auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/api_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/api_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/configuration.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/configuration.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/CallbackApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/CallbackApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/DeviceGroup.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/DeviceGroup.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/DeviceGroupSerializerWithDevicePk.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/DeviceGroupSerializerWithDevicePk.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/DeviceSerializerPublic.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/DeviceSerializerPublic.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/DevicesApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/DevicesApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/GroupsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/GroupsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/Label.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/Label.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/LabelSerializerWithPermissions.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/LabelSerializerWithPermissions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/LabelsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/LabelsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/LightDevice.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/LightDevice.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/Location.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/Location.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/LocationSerializerWriteOnly.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/LocationSerializerWriteOnly.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/Log.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/Log.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/LogsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/LogsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/NestedDeviceGroup.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/NestedDeviceGroup.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedDeviceGroupList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedDeviceGroupList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedDeviceSerializerPublicList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedDeviceSerializerPublicList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedLabelList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedLabelList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedLogList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedLogList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedLoggedInUserList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedLoggedInUserList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedPartFamilyList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedPartFamilyList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedPartList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedPartList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedPermissionGroupList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedPermissionGroupList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedReservationSessionSerializerReadOnlyList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedReservationSessionSerializerReadOnlyList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedRoomList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedRoomList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PaginatedSiteList.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PaginatedSiteList.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/Part.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/Part.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PartFamiliesApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PartFamiliesApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PartFamily.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PartFamily.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PartsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PartsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedDeviceGroupSerializerWithDevicePk.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedDeviceGroupSerializerWithDevicePk.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedLabelSerializerWithPermissions.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedLabelSerializerWithPermissions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedPart.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedPart.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedPartFamily.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedPartFamily.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedResourcePermissions.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedResourcePermissions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedRoom.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedRoom.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedSite.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedSite.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PatchedWriteOnlyDevice.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PatchedWriteOnlyDevice.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/PermissionsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/PermissionsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/ReservationRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/ReservationRequest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/ReservationSessionSerializerReadOnly.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/ReservationSessionSerializerReadOnly.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/ReservationsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/ReservationsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/ResourcePermissions.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/ResourcePermissions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/ResourceStatusRequest.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/ResourceStatusRequest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/Room.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/Room.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/RoomsApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/RoomsApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/SchemaApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/SchemaApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/SigninApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/SigninApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/SignoutApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/SignoutApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/Site.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/Site.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/SitesApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/SitesApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/TokenAuthApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/TokenAuthApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/UserApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/UserApi.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/docs/WriteOnlyDevice.md" beforeDir="false" afterPath="$PROJECT_DIR$/v2/docs/WriteOnlyDevice.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_auth_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_auth_token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_device_group.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_device_group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_device_group_serializer_with_device_pk.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_device_group_serializer_with_device_pk.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_device_serializer_public.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_device_serializer_public.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_event_enum.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_event_enum.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_label.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_label.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_label_serializer_with_permissions.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_label_serializer_with_permissions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_light_device.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_light_device.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_location.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_location.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_location_serializer_write_only.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_location_serializer_write_only.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_logged_in_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_logged_in_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_nested_device_group.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_nested_device_group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_object_permissions.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_object_permissions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_device_group_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_device_group_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_device_serializer_public_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_device_serializer_public_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_label_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_label_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_log_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_log_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_logged_in_user_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_logged_in_user_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_part_family_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_part_family_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_part_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_part_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_permission_group_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_permission_group_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_reservation_session_serializer_read_only_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_reservation_session_serializer_read_only_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_room_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_room_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_paginated_site_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_paginated_site_list.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_part.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_part.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_part_family.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_part_family.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_device_group_serializer_with_device_pk.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_device_group_serializer_with_device_pk.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_label_serializer_with_permissions.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_label_serializer_with_permissions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_logged_in_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_logged_in_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_object_permissions.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_object_permissions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_part.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_part.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_part_family.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_part_family.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_permission_group.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_permission_group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_resource_permissions.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_resource_permissions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_room.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_room.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_site.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_site.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_patched_write_only_device.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_patched_write_only_device.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_permission_group.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_permission_group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_permissions_enum.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_permissions_enum.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_reservation_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_reservation_request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_reservation_session_serializer_read_only.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_reservation_session_serializer_read_only.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_reservation_session_serializer_read_only_owner.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_reservation_session_serializer_read_only_owner.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_resource_permissions.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_resource_permissions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_resource_status_request.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_resource_status_request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_room.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_room.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_site.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_site.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_status_enum.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_status_enum.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_token.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_token.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/model_write_only_device.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/model_write_only_device.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/tools/hwmux.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tools/hwmux.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/v2/utils.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="source-field-new-release" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2gHDWbCHSQLYwSdkLPsY28QQZ3d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Regen-client-for-source",
+    "last_opened_file_path": "C:/Working/Projects/Infra_IOT/efrpool",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "diff.external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="556082ee-1edd-48ad-9e71-f52c36bec436" name="Changes" comment="" />
+      <created>1715345641681</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715345641681</updated>
+      <workItem from="1715345642917" duration="2731000" />
+      <workItem from="1715662903741" duration="2822000" />
+      <workItem from="1716379272279" duration="1308000" />
+      <workItem from="1716697619644" duration="2877000" />
+      <workItem from="1716702982944" duration="1232000" />
+      <workItem from="1717586451933" duration="681000" />
+      <workItem from="1720466182282" duration="8439000" />
+      <workItem from="1720539440960" duration="216000" />
+      <workItem from="1721211295082" duration="2531000" />
+    </task>
+    <task id="LOCAL-00001" summary="New client that involves new changes of the source field">
+      <option name="closed" value="true" />
+      <created>1720532437588</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720532437588</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New client that involves new changes of the source field" />
+    <option name="LAST_COMMIT_MESSAGE" value="New client that involves new changes of the source field" />
+  </component>
+</project>
