@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **EnableAhs** | Pointer to **bool** |  | [optional] 
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
 **EnableAhsCas** | Pointer to **bool** |  | [optional] 
-**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
 
 ## Methods
 
@@ -214,20 +214,20 @@ HasEnableAhsCas returns a boolean if a field has been set.
 
 ### GetSource
 
-`func (o *NestedDeviceGroup) GetSource() DeviceGroupSource`
+`func (o *NestedDeviceGroup) GetSource() SourceEnum`
 
 GetSource returns the Source field if non-nil, zero value otherwise.
 
 ### GetSourceOk
 
-`func (o *NestedDeviceGroup) GetSourceOk() (*DeviceGroupSource, bool)`
+`func (o *NestedDeviceGroup) GetSourceOk() (*SourceEnum, bool)`
 
 GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSource
 
-`func (o *NestedDeviceGroup) SetSource(v DeviceGroupSource)`
+`func (o *NestedDeviceGroup) SetSource(v SourceEnum)`
 
 SetSource sets Source field to given value.
 

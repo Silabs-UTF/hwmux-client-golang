@@ -19,47 +19,45 @@ import (
 )
 
 
-// SignoutApiService SignoutApi service
-type SignoutApiService service
+// DjangoLoginApiService DjangoLoginApi service
+type DjangoLoginApiService service
 
-type ApiSignoutRetrieveRequest struct {
+type ApiDjangoLoginCreateRequest struct {
 	ctx context.Context
-	ApiService *SignoutApiService
+	ApiService *DjangoLoginApiService
 }
 
-func (r ApiSignoutRetrieveRequest) Execute() (*http.Response, error) {
-	return r.ApiService.SignoutRetrieveExecute(r)
+func (r ApiDjangoLoginCreateRequest) Execute() (*http.Response, error) {
+	return r.ApiService.DjangoLoginCreateExecute(r)
 }
 
 /*
-SignoutRetrieve Method for SignoutRetrieve
-
-Logs the user out of the session
+DjangoLoginCreate Method for DjangoLoginCreate
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSignoutRetrieveRequest
+ @return ApiDjangoLoginCreateRequest
 */
-func (a *SignoutApiService) SignoutRetrieve(ctx context.Context) ApiSignoutRetrieveRequest {
-	return ApiSignoutRetrieveRequest{
+func (a *DjangoLoginApiService) DjangoLoginCreate(ctx context.Context) ApiDjangoLoginCreateRequest {
+	return ApiDjangoLoginCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SignoutApiService) SignoutRetrieveExecute(r ApiSignoutRetrieveRequest) (*http.Response, error) {
+func (a *DjangoLoginApiService) DjangoLoginCreateExecute(r ApiDjangoLoginCreateRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SignoutApiService.SignoutRetrieve")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DjangoLoginApiService.DjangoLoginCreate")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/signout/"
+	localVarPath := localBasePath + "/django_login/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

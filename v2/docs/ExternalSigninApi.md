@@ -1,16 +1,16 @@
-# \SignoutApi
+# \ExternalSigninApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SignoutRetrieve**](SignoutApi.md#SignoutRetrieve) | **Get** /signout/ | 
+[**ExternalSigninRetrieve**](ExternalSigninApi.md#ExternalSigninRetrieve) | **Get** /external_signin/ | 
 
 
 
-## SignoutRetrieve
+## ExternalSigninRetrieve
 
-> SignoutRetrieve(ctx).Execute()
+> ExternalSigninRetrieve(ctx).Execute()
 
 
 
@@ -32,9 +32,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SignoutApi.SignoutRetrieve(context.Background()).Execute()
+    resp, r, err := apiClient.ExternalSigninApi.ExternalSigninRetrieve(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SignoutApi.SignoutRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `ExternalSigninApi.ExternalSigninRetrieve``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -46,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiSignoutRetrieveRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiExternalSigninRetrieveRequest struct via the builder pattern
 
 
 ### Return type

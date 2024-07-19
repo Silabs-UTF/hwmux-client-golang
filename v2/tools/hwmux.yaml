@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.31.4
+  version: 2.32.0
 paths:
   /api-token-auth/:
     post:
@@ -5159,6 +5159,31 @@ paths:
       responses:
         '200':
           description: No response body
+  /django_login/:
+    post:
+      operationId: django_login_create
+      tags:
+      - django_login
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /external_signin/:
+    get:
+      operationId: external_signin_retrieve
+      description: Gets the auth flow and responds with the authority uri
+      tags:
+      - external_signin
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
   /schema/download:
     get:
       operationId: schema_download_retrieve
@@ -5348,9 +5373,6 @@ components:
       - password
       - token
       - username
-    BlankEnum:
-      enum:
-      - ''
     DeviceGroup:
       type: object
       properties:
@@ -5397,9 +5419,7 @@ components:
           additionalProperties: {}
           nullable: true
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - devices
       - id
@@ -5453,9 +5473,7 @@ components:
           additionalProperties: {}
           nullable: true
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - id
       - is_reserved
@@ -5490,9 +5508,7 @@ components:
           title: Device name or serial number
           maxLength: 255
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
         is_wstk:
           type: boolean
           title: If the device is a WSTK
@@ -5598,9 +5614,7 @@ components:
           additionalProperties: {}
           nullable: true
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - device_groups
       - id
@@ -5629,9 +5643,7 @@ components:
           additionalProperties: {}
           nullable: true
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - device_groups
       - id
@@ -5842,9 +5854,7 @@ components:
         enable_ahs_cas:
           type: boolean
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - name
     ObjectPermissions:
@@ -6215,9 +6225,7 @@ components:
           additionalProperties: {}
           nullable: true
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
     PatchedLabelSerializerWithPermissions:
       type: object
       properties:
@@ -6242,9 +6250,7 @@ components:
           additionalProperties: {}
           nullable: true
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
     PatchedLoggedInUser:
       type: object
       properties:
@@ -6371,10 +6377,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - add
-          - view
           - delete
+          - add
           - change
+          - view
     PatchedRoom:
       type: object
       description: Serializer for the Room model
@@ -6445,9 +6451,7 @@ components:
           title: Device name or serial number
           maxLength: 255
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
         is_wstk:
           type: boolean
           title: If the device is a WSTK
@@ -6688,10 +6692,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - add
-          - view
           - delete
+          - add
           - change
+          - view
       required:
       - id
     ResourceStatusRequest:
@@ -6832,9 +6836,7 @@ components:
           title: Device name or serial number
           maxLength: 255
         source:
-          oneOf:
-          - $ref: '#/components/schemas/SourceEnum'
-          - $ref: '#/components/schemas/BlankEnum'
+          $ref: '#/components/schemas/SourceEnum'
         is_wstk:
           type: boolean
           title: If the device is a WSTK
@@ -6882,5 +6884,5 @@ components:
       name: Authorization
       description: Token-based authentication with required prefix "Token"
 servers:
-- url: https://hwmux.silabs.net
-  description: HW Mux Server
+- url: http://localhost
+  description: Localhost

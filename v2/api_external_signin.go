@@ -19,47 +19,47 @@ import (
 )
 
 
-// SignoutApiService SignoutApi service
-type SignoutApiService service
+// ExternalSigninApiService ExternalSigninApi service
+type ExternalSigninApiService service
 
-type ApiSignoutRetrieveRequest struct {
+type ApiExternalSigninRetrieveRequest struct {
 	ctx context.Context
-	ApiService *SignoutApiService
+	ApiService *ExternalSigninApiService
 }
 
-func (r ApiSignoutRetrieveRequest) Execute() (*http.Response, error) {
-	return r.ApiService.SignoutRetrieveExecute(r)
+func (r ApiExternalSigninRetrieveRequest) Execute() (*http.Response, error) {
+	return r.ApiService.ExternalSigninRetrieveExecute(r)
 }
 
 /*
-SignoutRetrieve Method for SignoutRetrieve
+ExternalSigninRetrieve Method for ExternalSigninRetrieve
 
-Logs the user out of the session
+Gets the auth flow and responds with the authority uri
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSignoutRetrieveRequest
+ @return ApiExternalSigninRetrieveRequest
 */
-func (a *SignoutApiService) SignoutRetrieve(ctx context.Context) ApiSignoutRetrieveRequest {
-	return ApiSignoutRetrieveRequest{
+func (a *ExternalSigninApiService) ExternalSigninRetrieve(ctx context.Context) ApiExternalSigninRetrieveRequest {
+	return ApiExternalSigninRetrieveRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-func (a *SignoutApiService) SignoutRetrieveExecute(r ApiSignoutRetrieveRequest) (*http.Response, error) {
+func (a *ExternalSigninApiService) ExternalSigninRetrieveExecute(r ApiExternalSigninRetrieveRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SignoutApiService.SignoutRetrieve")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExternalSigninApiService.ExternalSigninRetrieve")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/signout/"
+	localVarPath := localBasePath + "/external_signin/"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -1,18 +1,16 @@
-# \SignoutApi
+# \DjangoLoginApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SignoutRetrieve**](SignoutApi.md#SignoutRetrieve) | **Get** /signout/ | 
+[**DjangoLoginCreate**](DjangoLoginApi.md#DjangoLoginCreate) | **Post** /django_login/ | 
 
 
 
-## SignoutRetrieve
+## DjangoLoginCreate
 
-> SignoutRetrieve(ctx).Execute()
-
-
+> DjangoLoginCreate(ctx).Execute()
 
 
 
@@ -32,9 +30,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SignoutApi.SignoutRetrieve(context.Background()).Execute()
+    resp, r, err := apiClient.DjangoLoginApi.DjangoLoginCreate(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `SignoutApi.SignoutRetrieve``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `DjangoLoginApi.DjangoLoginCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -46,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiSignoutRetrieveRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDjangoLoginCreateRequest struct via the builder pattern
 
 
 ### Return type

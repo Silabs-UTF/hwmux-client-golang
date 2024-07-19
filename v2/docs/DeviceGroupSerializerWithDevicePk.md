@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
 **EnableAhsCas** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
-**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
 
 ## Methods
 
@@ -339,20 +339,20 @@ HasMetadata returns a boolean if a field has been set.
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetSource
 
-`func (o *DeviceGroupSerializerWithDevicePk) GetSource() DeviceGroupSource`
+`func (o *DeviceGroupSerializerWithDevicePk) GetSource() SourceEnum`
 
 GetSource returns the Source field if non-nil, zero value otherwise.
 
 ### GetSourceOk
 
-`func (o *DeviceGroupSerializerWithDevicePk) GetSourceOk() (*DeviceGroupSource, bool)`
+`func (o *DeviceGroupSerializerWithDevicePk) GetSourceOk() (*SourceEnum, bool)`
 
 GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSource
 
-`func (o *DeviceGroupSerializerWithDevicePk) SetSource(v DeviceGroupSource)`
+`func (o *DeviceGroupSerializerWithDevicePk) SetSource(v SourceEnum)`
 
 SetSource sets Source field to given value.
 

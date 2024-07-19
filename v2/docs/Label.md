@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DeviceGroups** | **[]int32** |  | 
 **Name** | **string** |  | 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
-**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
 
 ## Methods
 
@@ -162,20 +162,20 @@ HasMetadata returns a boolean if a field has been set.
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
 ### GetSource
 
-`func (o *Label) GetSource() DeviceGroupSource`
+`func (o *Label) GetSource() SourceEnum`
 
 GetSource returns the Source field if non-nil, zero value otherwise.
 
 ### GetSourceOk
 
-`func (o *Label) GetSourceOk() (*DeviceGroupSource, bool)`
+`func (o *Label) GetSourceOk() (*SourceEnum, bool)`
 
 GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSource
 
-`func (o *Label) SetSource(v DeviceGroupSource)`
+`func (o *Label) SetSource(v SourceEnum)`
 
 SetSource sets Source field to given value.
 

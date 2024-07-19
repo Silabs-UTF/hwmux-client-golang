@@ -1,10 +1,10 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.31.4
+  version: 2.32.0
 servers:
-- description: HW Mux Server
-  url: https://hwmux.silabs.net
+- description: Localhost
+  url: http://localhost
 paths:
   /api-token-auth/:
     post:
@@ -6139,6 +6139,31 @@ paths:
       - {}
       tags:
       - callback
+  /django_login/:
+    post:
+      operationId: django_login_create
+      responses:
+        "200":
+          description: No response body
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      tags:
+      - django_login
+  /external_signin/:
+    get:
+      description: Gets the auth flow and responds with the authority uri
+      operationId: external_signin_retrieve
+      responses:
+        "200":
+          description: No response body
+      security:
+      - cookieAuth: []
+      - tokenAuth: []
+      - {}
+      tags:
+      - external_signin
   /schema/download:
     get:
       description: |-
@@ -6338,10 +6363,6 @@ components:
       - token
       - username
       type: object
-    BlankEnum:
-      enum:
-      - ""
-      type: string
     DeviceGroup:
       example:
         metadata:
@@ -6446,7 +6467,7 @@ components:
           nullable: true
           type: object
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - devices
       - id
@@ -6521,7 +6542,7 @@ components:
           nullable: true
           type: object
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - id
       - is_reserved
@@ -6583,7 +6604,7 @@ components:
           title: Device name or serial number
           type: string
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
         is_wstk:
           title: If the device is a WSTK
           type: boolean
@@ -6718,7 +6739,7 @@ components:
           nullable: true
           type: object
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - device_groups
       - id
@@ -6759,7 +6780,7 @@ components:
           nullable: true
           type: object
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - device_groups
       - id
@@ -7088,7 +7109,7 @@ components:
         enable_ahs_cas:
           type: boolean
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
       required:
       - name
       type: object
@@ -7927,7 +7948,7 @@ components:
           nullable: true
           type: object
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
       type: object
     PatchedLabelSerializerWithPermissions:
       example:
@@ -7964,7 +7985,7 @@ components:
           nullable: true
           type: object
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
       type: object
     PatchedLoggedInUser:
       example:
@@ -8131,10 +8152,10 @@ components:
           type: integer
         permissions:
           default:
-          - add
-          - view
           - delete
+          - add
           - change
+          - view
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -8246,7 +8267,7 @@ components:
           title: Device name or serial number
           type: string
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
         is_wstk:
           title: If the device is a WSTK
           type: boolean
@@ -8549,10 +8570,10 @@ components:
           type: integer
         permissions:
           default:
-          - add
-          - view
           - delete
+          - add
           - change
+          - view
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -8744,7 +8765,7 @@ components:
           title: Device name or serial number
           type: string
         source:
-          $ref: '#/components/schemas/DeviceGroup_source'
+          $ref: '#/components/schemas/SourceEnum'
         is_wstk:
           title: If the device is a WSTK
           type: boolean
@@ -8782,10 +8803,6 @@ components:
       - location
       - part
       type: object
-    DeviceGroup_source:
-      oneOf:
-      - $ref: '#/components/schemas/SourceEnum'
-      - $ref: '#/components/schemas/BlankEnum'
     ReservationSessionSerializerReadOnly_owner:
       allOf:
       - $ref: '#/components/schemas/User'

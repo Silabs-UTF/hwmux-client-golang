@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **IsReserved** | Pointer to **NullableBool** |  | [optional] [readonly] 
 **Location** | Pointer to [**LocationSerializerWriteOnly**](LocationSerializerWriteOnly.md) |  | [optional] 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
-**Source** | Pointer to [**DeviceGroupSource**](DeviceGroupSource.md) |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
@@ -237,20 +237,20 @@ HasSnOrName returns a boolean if a field has been set.
 UnsetSnOrName ensures that no value is present for SnOrName, not even an explicit nil
 ### GetSource
 
-`func (o *PatchedWriteOnlyDevice) GetSource() DeviceGroupSource`
+`func (o *PatchedWriteOnlyDevice) GetSource() SourceEnum`
 
 GetSource returns the Source field if non-nil, zero value otherwise.
 
 ### GetSourceOk
 
-`func (o *PatchedWriteOnlyDevice) GetSourceOk() (*DeviceGroupSource, bool)`
+`func (o *PatchedWriteOnlyDevice) GetSourceOk() (*SourceEnum, bool)`
 
 GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSource
 
-`func (o *PatchedWriteOnlyDevice) SetSource(v DeviceGroupSource)`
+`func (o *PatchedWriteOnlyDevice) SetSource(v SourceEnum)`
 
 SetSource sets Source field to given value.
 
