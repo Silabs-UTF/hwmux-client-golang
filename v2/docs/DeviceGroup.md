@@ -7,20 +7,22 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **PermissionGroups** | Pointer to **[]string** |  | [optional] 
 **Devices** | [**[]LightDevice**](LightDevice.md) |  | [readonly] 
-**IsReserved** | **NullableBool** |  | [readonly] 
 **Online** | **bool** |  | [readonly] 
 **Status** | **string** |  | [readonly] 
+**LocDesc** | **[]string** |  | [readonly] 
+**IsReserved** | **NullableBool** |  | [readonly] 
 **Name** | **string** |  | 
 **EnableAhs** | Pointer to **bool** |  | [optional] 
 **EnableAhsActions** | Pointer to **bool** |  | [optional] 
 **EnableAhsCas** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
 
 ## Methods
 
 ### NewDeviceGroup
 
-`func NewDeviceGroup(id int32, devices []LightDevice, isReserved NullableBool, online bool, status string, name string, ) *DeviceGroup`
+`func NewDeviceGroup(id int32, devices []LightDevice, online bool, status string, locDesc []string, isReserved NullableBool, name string, ) *DeviceGroup`
 
 NewDeviceGroup instantiates a new DeviceGroup object
 This constructor will assign default values to properties that have it defined,
@@ -110,36 +112,6 @@ and a boolean to check if the value has been set.
 SetDevices sets Devices field to given value.
 
 
-### GetIsReserved
-
-`func (o *DeviceGroup) GetIsReserved() bool`
-
-GetIsReserved returns the IsReserved field if non-nil, zero value otherwise.
-
-### GetIsReservedOk
-
-`func (o *DeviceGroup) GetIsReservedOk() (*bool, bool)`
-
-GetIsReservedOk returns a tuple with the IsReserved field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsReserved
-
-`func (o *DeviceGroup) SetIsReserved(v bool)`
-
-SetIsReserved sets IsReserved field to given value.
-
-
-### SetIsReservedNil
-
-`func (o *DeviceGroup) SetIsReservedNil(b bool)`
-
- SetIsReservedNil sets the value for IsReserved to be an explicit nil
-
-### UnsetIsReserved
-`func (o *DeviceGroup) UnsetIsReserved()`
-
-UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
 ### GetOnline
 
 `func (o *DeviceGroup) GetOnline() bool`
@@ -180,6 +152,56 @@ and a boolean to check if the value has been set.
 SetStatus sets Status field to given value.
 
 
+### GetLocDesc
+
+`func (o *DeviceGroup) GetLocDesc() []string`
+
+GetLocDesc returns the LocDesc field if non-nil, zero value otherwise.
+
+### GetLocDescOk
+
+`func (o *DeviceGroup) GetLocDescOk() (*[]string, bool)`
+
+GetLocDescOk returns a tuple with the LocDesc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocDesc
+
+`func (o *DeviceGroup) SetLocDesc(v []string)`
+
+SetLocDesc sets LocDesc field to given value.
+
+
+### GetIsReserved
+
+`func (o *DeviceGroup) GetIsReserved() bool`
+
+GetIsReserved returns the IsReserved field if non-nil, zero value otherwise.
+
+### GetIsReservedOk
+
+`func (o *DeviceGroup) GetIsReservedOk() (*bool, bool)`
+
+GetIsReservedOk returns a tuple with the IsReserved field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsReserved
+
+`func (o *DeviceGroup) SetIsReserved(v bool)`
+
+SetIsReserved sets IsReserved field to given value.
+
+
+### SetIsReservedNil
+
+`func (o *DeviceGroup) SetIsReservedNil(b bool)`
+
+ SetIsReservedNil sets the value for IsReserved to be an explicit nil
+
+### UnsetIsReserved
+`func (o *DeviceGroup) UnsetIsReserved()`
+
+UnsetIsReserved ensures that no value is present for IsReserved, not even an explicit nil
 ### GetName
 
 `func (o *DeviceGroup) GetName() string`
@@ -310,6 +332,31 @@ HasMetadata returns a boolean if a field has been set.
 `func (o *DeviceGroup) UnsetMetadata()`
 
 UnsetMetadata ensures that no value is present for Metadata, not even an explicit nil
+### GetSource
+
+`func (o *DeviceGroup) GetSource() SourceEnum`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *DeviceGroup) GetSourceOk() (*SourceEnum, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *DeviceGroup) SetSource(v SourceEnum)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *DeviceGroup) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

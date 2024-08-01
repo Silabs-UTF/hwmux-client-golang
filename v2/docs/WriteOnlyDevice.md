@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **IsReserved** | **NullableBool** |  | [readonly] 
 **Location** | [**LocationSerializerWriteOnly**](LocationSerializerWriteOnly.md) |  | 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
@@ -209,6 +210,31 @@ HasSnOrName returns a boolean if a field has been set.
 `func (o *WriteOnlyDevice) UnsetSnOrName()`
 
 UnsetSnOrName ensures that no value is present for SnOrName, not even an explicit nil
+### GetSource
+
+`func (o *WriteOnlyDevice) GetSource() SourceEnum`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *WriteOnlyDevice) GetSourceOk() (*SourceEnum, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *WriteOnlyDevice) SetSource(v SourceEnum)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *WriteOnlyDevice) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
 ### GetIsWstk
 
 `func (o *WriteOnlyDevice) GetIsWstk() bool`

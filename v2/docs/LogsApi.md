@@ -106,7 +106,7 @@ func main() {
     deviceGroup := int32(56) // int32 |  (optional)
     deviceGroupName := "deviceGroupName_example" // string |  (optional)
     deviceGroupLabel := int32(56) // int32 |  (optional)
-    event := "event_example" // string |  (optional)
+    event := "event_example" // string | * `RES` - Reserved * `REL` - Released * `OFF` - Taken offline * `ON` - Brought online * `CR` - Created * `MOD` - Modified * `QUE` - Waiting for resources * `ERR` - Reservation error (optional)
     owner := "owner_example" // string | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
     search := "search_example" // string | A search term. (optional)
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
  **deviceGroup** | **int32** |  | 
  **deviceGroupName** | **string** |  | 
  **deviceGroupLabel** | **int32** |  | 
- **event** | **string** |  | 
+ **event** | **string** | * &#x60;RES&#x60; - Reserved * &#x60;REL&#x60; - Released * &#x60;OFF&#x60; - Taken offline * &#x60;ON&#x60; - Brought online * &#x60;CR&#x60; - Created * &#x60;MOD&#x60; - Modified * &#x60;QUE&#x60; - Waiting for resources * &#x60;ERR&#x60; - Reservation error | 
  **owner** | **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | 
  **page** | **int32** | A page number within the paginated result set. | 
  **search** | **string** | A search term. | 

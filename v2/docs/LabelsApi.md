@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## LabelsList
 
-> PaginatedLabelList LabelsList(ctx).DeviceGroups(deviceGroups).ForceMv(forceMv).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+> PaginatedLabelList LabelsList(ctx).DeviceGroups(deviceGroups).ForceMv(forceMv).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Source(source).Execute()
 
 
 
@@ -179,10 +179,11 @@ func main() {
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
     search := "search_example" // string | A search term. (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LabelsApi.LabelsList(context.Background()).DeviceGroups(deviceGroups).ForceMv(forceMv).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Execute()
+    resp, r, err := apiClient.LabelsApi.LabelsList(context.Background()).DeviceGroups(deviceGroups).ForceMv(forceMv).IncludePermissionGroups(includePermissionGroups).Name(name).Ordering(ordering).Page(page).Search(search).Source(source).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LabelsApi.LabelsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -210,6 +211,7 @@ Name | Type | Description  | Notes
  **ordering** | **string** | Which field to use when ordering the results. | 
  **page** | **int32** | A page number within the paginated result set. | 
  **search** | **string** | A search term. | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
 
 ### Return type
 
