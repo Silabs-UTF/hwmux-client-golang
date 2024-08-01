@@ -3,6 +3,8 @@ README.md
 api/openapi.yaml
 api_callback.go
 api_devices.go
+api_django_login.go
+api_external_signin.go
 api_groups.go
 api_labels.go
 api_logs.go
@@ -25,7 +27,10 @@ docs/DeviceGroup.md
 docs/DeviceGroupSerializerWithDevicePk.md
 docs/DeviceSerializerPublic.md
 docs/DevicesApi.md
+docs/DjangoLoginApi.md
 docs/EventEnum.md
+docs/ExternalSigninApi.md
+docs/GroupLocation.md
 docs/GroupsApi.md
 docs/Label.md
 docs/LabelSerializerWithPermissions.md
@@ -80,6 +85,7 @@ docs/SigninApi.md
 docs/SignoutApi.md
 docs/Site.md
 docs/SitesApi.md
+docs/SourceEnum.md
 docs/StatusEnum.md
 docs/Token.md
 docs/TokenAuthApi.md
@@ -93,6 +99,7 @@ model_device_group.go
 model_device_group_serializer_with_device_pk.go
 model_device_serializer_public.go
 model_event_enum.go
+model_group_location.go
 model_label.go
 model_label_serializer_with_permissions.go
 model_light_device.go
@@ -135,9 +142,12 @@ model_resource_permissions.go
 model_resource_status_request.go
 model_room.go
 model_site.go
+model_source_enum.go
 model_status_enum.go
 model_token.go
 model_user.go
 model_write_only_device.go
 response.go
+test/api_django_login_test.go
+test/api_external_signin_test.go
 utils.go

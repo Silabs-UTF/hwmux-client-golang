@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Lon** | Pointer to **float32** |  | [optional] 
-**Lat** | Pointer to **float32** |  | [optional] 
+**Lon** | Pointer to **float64** |  | [optional] 
+**Lat** | Pointer to **float64** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -81,20 +81,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetLon
 
-`func (o *PatchedSite) GetLon() float32`
+`func (o *PatchedSite) GetLon() float64`
 
 GetLon returns the Lon field if non-nil, zero value otherwise.
 
 ### GetLonOk
 
-`func (o *PatchedSite) GetLonOk() (*float32, bool)`
+`func (o *PatchedSite) GetLonOk() (*float64, bool)`
 
 GetLonOk returns a tuple with the Lon field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLon
 
-`func (o *PatchedSite) SetLon(v float32)`
+`func (o *PatchedSite) SetLon(v float64)`
 
 SetLon sets Lon field to given value.
 
@@ -106,20 +106,20 @@ HasLon returns a boolean if a field has been set.
 
 ### GetLat
 
-`func (o *PatchedSite) GetLat() float32`
+`func (o *PatchedSite) GetLat() float64`
 
 GetLat returns the Lat field if non-nil, zero value otherwise.
 
 ### GetLatOk
 
-`func (o *PatchedSite) GetLatOk() (*float32, bool)`
+`func (o *PatchedSite) GetLatOk() (*float64, bool)`
 
 GetLatOk returns a tuple with the Lat field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLat
 
-`func (o *PatchedSite) SetLat(v float32)`
+`func (o *PatchedSite) SetLat(v float64)`
 
 SetLat sets Lat field to given value.
 
