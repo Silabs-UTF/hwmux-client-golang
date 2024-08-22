@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  namespace: infra-sw
+  name: hwmux-clinet-golang
+  title: Hwmux Client Golang
+  description: Hwmux Client Golang
+spec:
+  type: library
+  lifecycle: production
+  owner: group:infrasw-fs
+  system: hwmux
