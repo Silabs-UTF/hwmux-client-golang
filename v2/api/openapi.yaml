@@ -6759,6 +6759,7 @@ components:
             chip_no: chip_no
             part_family: ""
             revision: revision
+          socketed_chip: socketed_chip
           online: true
           location: 1
           id: 6
@@ -6779,6 +6780,7 @@ components:
             chip_no: chip_no
             part_family: ""
             revision: revision
+          socketed_chip: socketed_chip
           online: true
           location: 1
           id: 6
@@ -7202,6 +7204,7 @@ components:
           chip_no: chip_no
           part_family: ""
           revision: revision
+        socketed_chip: socketed_chip
         online: true
         location: 1
         id: 6
@@ -7244,6 +7247,10 @@ components:
           $ref: '#/components/schemas/StatusF44Enum'
         loc_desc:
           readOnly: true
+          type: string
+        socketed_chip:
+          maxLength: 255
+          title: Socket Chip number
           type: string
       required:
       - id
@@ -7645,6 +7652,7 @@ components:
               chip_no: chip_no
               part_family: ""
               revision: revision
+            socketed_chip: socketed_chip
             online: true
             location: 1
             id: 6
@@ -7665,6 +7673,7 @@ components:
               chip_no: chip_no
               part_family: ""
               revision: revision
+            socketed_chip: socketed_chip
             online: true
             location: 1
             id: 6
@@ -7704,6 +7713,7 @@ components:
               chip_no: chip_no
               part_family: ""
               revision: revision
+            socketed_chip: socketed_chip
             online: true
             location: 1
             id: 6
@@ -7724,6 +7734,7 @@ components:
               chip_no: chip_no
               part_family: ""
               revision: revision
+            socketed_chip: socketed_chip
             online: true
             location: 1
             id: 6
@@ -8718,10 +8729,10 @@ components:
           type: integer
         permissions:
           default:
+          - view
           - add
           - delete
           - change
-          - view
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -9186,10 +9197,10 @@ components:
           type: integer
         permissions:
           default:
+          - view
           - add
           - delete
           - change
-          - view
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array

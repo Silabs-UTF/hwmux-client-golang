@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **WstkPart** | Pointer to **NullableString** |  | [optional] 
 **Status** | Pointer to [**StatusF44Enum**](StatusF44Enum.md) |  | [optional] 
 **LocDesc** | **string** |  | [readonly] 
+**SocketedChip** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -319,6 +320,31 @@ and a boolean to check if the value has been set.
 
 SetLocDesc sets LocDesc field to given value.
 
+
+### GetSocketedChip
+
+`func (o *LightDevice) GetSocketedChip() string`
+
+GetSocketedChip returns the SocketedChip field if non-nil, zero value otherwise.
+
+### GetSocketedChipOk
+
+`func (o *LightDevice) GetSocketedChipOk() (*string, bool)`
+
+GetSocketedChipOk returns a tuple with the SocketedChip field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocketedChip
+
+`func (o *LightDevice) SetSocketedChip(v string)`
+
+SetSocketedChip sets SocketedChip field to given value.
+
+### HasSocketedChip
+
+`func (o *LightDevice) HasSocketedChip() bool`
+
+HasSocketedChip returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

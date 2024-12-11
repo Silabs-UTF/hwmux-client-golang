@@ -27,6 +27,7 @@ type LightDevice struct {
 	WstkPart NullableString `json:"wstk_part,omitempty"`
 	Status *StatusF44Enum `json:"status,omitempty"`
 	LocDesc string `json:"loc_desc"`
+	SocketedChip *string `json:"socketed_chip,omitempty"`
 }
 
 // NewLightDevice instantiates a new LightDevice object
@@ -400,6 +401,38 @@ func (o *LightDevice) SetLocDesc(v string) {
 	o.LocDesc = v
 }
 
+// GetSocketedChip returns the SocketedChip field value if set, zero value otherwise.
+func (o *LightDevice) GetSocketedChip() string {
+	if o == nil || isNil(o.SocketedChip) {
+		var ret string
+		return ret
+	}
+	return *o.SocketedChip
+}
+
+// GetSocketedChipOk returns a tuple with the SocketedChip field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LightDevice) GetSocketedChipOk() (*string, bool) {
+	if o == nil || isNil(o.SocketedChip) {
+    return nil, false
+	}
+	return o.SocketedChip, true
+}
+
+// HasSocketedChip returns a boolean if a field has been set.
+func (o *LightDevice) HasSocketedChip() bool {
+	if o != nil && !isNil(o.SocketedChip) {
+		return true
+	}
+
+	return false
+}
+
+// SetSocketedChip gets a reference to the given string and assigns it to the SocketedChip field.
+func (o *LightDevice) SetSocketedChip(v string) {
+	o.SocketedChip = &v
+}
+
 func (o LightDevice) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -434,6 +467,9 @@ func (o LightDevice) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["loc_desc"] = o.LocDesc
+	}
+	if !isNil(o.SocketedChip) {
+		toSerialize["socketed_chip"] = o.SocketedChip
 	}
 	return json.Marshal(toSerialize)
 }

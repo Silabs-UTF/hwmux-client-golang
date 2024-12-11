@@ -5980,6 +5980,10 @@ components:
         loc_desc:
           type: string
           readOnly: true
+        socketed_chip:
+          type: string
+          title: Socket Chip number
+          maxLength: 255
       required:
       - id
       - loc_desc
@@ -6771,10 +6775,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
+          - view
           - add
           - delete
           - change
-          - view
     PatchedRoom:
       type: object
       description: Serializer for the Room model
@@ -7134,10 +7138,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
+          - view
           - add
           - delete
           - change
-          - view
       required:
       - id
     ResourceStatusRequest:

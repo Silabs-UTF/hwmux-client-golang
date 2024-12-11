@@ -178,7 +178,4 @@ model_token.go
 model_user.go
 model_write_only_device.go
 response.go
-test/api_django_login_test.go
-test/api_external_signin_test.go
-test/api_outbox_test.go
 utils.go
