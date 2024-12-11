@@ -11,13 +11,16 @@ Name | Type | Description | Notes
 **IsReserved** | **NullableBool** |  | [readonly] 
 **Location** | [**LocationSerializerWriteOnly**](LocationSerializerWriteOnly.md) |  | 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
+**SocketedChip** | Pointer to **string** |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
-**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
+**Status** | Pointer to [**StatusF44Enum**](StatusF44Enum.md) |  | [optional] 
 **LastUpdate** | **time.Time** |  | [readonly] 
 **DateCreated** | **time.Time** |  | [readonly] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**IsReservedFilter** | Pointer to **bool** |  | [optional] 
 **WstkPart** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -209,6 +212,56 @@ HasSnOrName returns a boolean if a field has been set.
 `func (o *WriteOnlyDevice) UnsetSnOrName()`
 
 UnsetSnOrName ensures that no value is present for SnOrName, not even an explicit nil
+### GetSource
+
+`func (o *WriteOnlyDevice) GetSource() SourceEnum`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *WriteOnlyDevice) GetSourceOk() (*SourceEnum, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *WriteOnlyDevice) SetSource(v SourceEnum)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *WriteOnlyDevice) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
+### GetSocketedChip
+
+`func (o *WriteOnlyDevice) GetSocketedChip() string`
+
+GetSocketedChip returns the SocketedChip field if non-nil, zero value otherwise.
+
+### GetSocketedChipOk
+
+`func (o *WriteOnlyDevice) GetSocketedChipOk() (*string, bool)`
+
+GetSocketedChipOk returns a tuple with the SocketedChip field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocketedChip
+
+`func (o *WriteOnlyDevice) SetSocketedChip(v string)`
+
+SetSocketedChip sets SocketedChip field to given value.
+
+### HasSocketedChip
+
+`func (o *WriteOnlyDevice) HasSocketedChip() bool`
+
+HasSocketedChip returns a boolean if a field has been set.
+
 ### GetIsWstk
 
 `func (o *WriteOnlyDevice) GetIsWstk() bool`
@@ -296,20 +349,20 @@ HasOnline returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *WriteOnlyDevice) GetStatus() StatusEnum`
+`func (o *WriteOnlyDevice) GetStatus() StatusF44Enum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WriteOnlyDevice) GetStatusOk() (*StatusEnum, bool)`
+`func (o *WriteOnlyDevice) GetStatusOk() (*StatusF44Enum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WriteOnlyDevice) SetStatus(v StatusEnum)`
+`func (o *WriteOnlyDevice) SetStatus(v StatusF44Enum)`
 
 SetStatus sets Status field to given value.
 
@@ -383,6 +436,31 @@ SetMetadata sets Metadata field to given value.
 `func (o *WriteOnlyDevice) HasMetadata() bool`
 
 HasMetadata returns a boolean if a field has been set.
+
+### GetIsReservedFilter
+
+`func (o *WriteOnlyDevice) GetIsReservedFilter() bool`
+
+GetIsReservedFilter returns the IsReservedFilter field if non-nil, zero value otherwise.
+
+### GetIsReservedFilterOk
+
+`func (o *WriteOnlyDevice) GetIsReservedFilterOk() (*bool, bool)`
+
+GetIsReservedFilterOk returns a tuple with the IsReservedFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsReservedFilter
+
+`func (o *WriteOnlyDevice) SetIsReservedFilter(v bool)`
+
+SetIsReservedFilter sets IsReservedFilter field to given value.
+
+### HasIsReservedFilter
+
+`func (o *WriteOnlyDevice) HasIsReservedFilter() bool`
+
+HasIsReservedFilter returns a boolean if a field has been set.
 
 ### GetWstkPart
 

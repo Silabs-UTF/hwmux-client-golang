@@ -7,13 +7,21 @@
 
 * `REL` (value: `"REL"`)
 
+* `CAN` (value: `"CAN"`)
+
 * `OFF` (value: `"OFF"`)
+
+* `ACT` (value: `"ACT"`)
+
+* `DIS` (value: `"DIS"`)
 
 * `ON` (value: `"ON"`)
 
 * `CR` (value: `"CR"`)
 
 * `MOD` (value: `"MOD"`)
+
+* `DEL` (value: `"DEL"`)
 
 * `QUE` (value: `"QUE"`)
 

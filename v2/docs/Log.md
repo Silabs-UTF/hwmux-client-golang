@@ -6,12 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Owner** | **string** |  | [readonly] 
-**Device** | **NullableString** |  | [readonly] 
-**DeviceGroup** | **NullableString** |  | [readonly] 
 **Event** | [**EventEnum**](EventEnum.md) |  | 
 **Datetime** | **time.Time** |  | [readonly] 
+**ResourceName** | Pointer to **NullableString** |  | [optional] 
+**ResourceType** | Pointer to [**NullableLogResourceType**](LogResourceType.md) |  | [optional] 
+**Status** | Pointer to [**LogStatusEnum**](LogStatusEnum.md) |  | [optional] 
 **Details** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**Device** | Pointer to **NullableInt32** |  | [optional] 
+**DeviceGroup** | Pointer to **NullableInt32** |  | [optional] 
 **DeviceGroupLabel** | Pointer to **NullableInt32** |  | [optional] 
 **CausedBy** | Pointer to **NullableInt32** |  | [optional] 
 
@@ -19,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewLog
 
-`func NewLog(id int32, owner string, device NullableString, deviceGroup NullableString, event EventEnum, datetime time.Time, ) *Log`
+`func NewLog(id int32, owner string, event EventEnum, datetime time.Time, ) *Log`
 
 NewLog instantiates a new Log object
 This constructor will assign default values to properties that have it defined,
@@ -74,66 +77,6 @@ and a boolean to check if the value has been set.
 SetOwner sets Owner field to given value.
 
 
-### GetDevice
-
-`func (o *Log) GetDevice() string`
-
-GetDevice returns the Device field if non-nil, zero value otherwise.
-
-### GetDeviceOk
-
-`func (o *Log) GetDeviceOk() (*string, bool)`
-
-GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDevice
-
-`func (o *Log) SetDevice(v string)`
-
-SetDevice sets Device field to given value.
-
-
-### SetDeviceNil
-
-`func (o *Log) SetDeviceNil(b bool)`
-
- SetDeviceNil sets the value for Device to be an explicit nil
-
-### UnsetDevice
-`func (o *Log) UnsetDevice()`
-
-UnsetDevice ensures that no value is present for Device, not even an explicit nil
-### GetDeviceGroup
-
-`func (o *Log) GetDeviceGroup() string`
-
-GetDeviceGroup returns the DeviceGroup field if non-nil, zero value otherwise.
-
-### GetDeviceGroupOk
-
-`func (o *Log) GetDeviceGroupOk() (*string, bool)`
-
-GetDeviceGroupOk returns a tuple with the DeviceGroup field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeviceGroup
-
-`func (o *Log) SetDeviceGroup(v string)`
-
-SetDeviceGroup sets DeviceGroup field to given value.
-
-
-### SetDeviceGroupNil
-
-`func (o *Log) SetDeviceGroupNil(b bool)`
-
- SetDeviceGroupNil sets the value for DeviceGroup to be an explicit nil
-
-### UnsetDeviceGroup
-`func (o *Log) UnsetDeviceGroup()`
-
-UnsetDeviceGroup ensures that no value is present for DeviceGroup, not even an explicit nil
 ### GetEvent
 
 `func (o *Log) GetEvent() EventEnum`
@@ -173,6 +116,101 @@ and a boolean to check if the value has been set.
 
 SetDatetime sets Datetime field to given value.
 
+
+### GetResourceName
+
+`func (o *Log) GetResourceName() string`
+
+GetResourceName returns the ResourceName field if non-nil, zero value otherwise.
+
+### GetResourceNameOk
+
+`func (o *Log) GetResourceNameOk() (*string, bool)`
+
+GetResourceNameOk returns a tuple with the ResourceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceName
+
+`func (o *Log) SetResourceName(v string)`
+
+SetResourceName sets ResourceName field to given value.
+
+### HasResourceName
+
+`func (o *Log) HasResourceName() bool`
+
+HasResourceName returns a boolean if a field has been set.
+
+### SetResourceNameNil
+
+`func (o *Log) SetResourceNameNil(b bool)`
+
+ SetResourceNameNil sets the value for ResourceName to be an explicit nil
+
+### UnsetResourceName
+`func (o *Log) UnsetResourceName()`
+
+UnsetResourceName ensures that no value is present for ResourceName, not even an explicit nil
+### GetResourceType
+
+`func (o *Log) GetResourceType() LogResourceType`
+
+GetResourceType returns the ResourceType field if non-nil, zero value otherwise.
+
+### GetResourceTypeOk
+
+`func (o *Log) GetResourceTypeOk() (*LogResourceType, bool)`
+
+GetResourceTypeOk returns a tuple with the ResourceType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceType
+
+`func (o *Log) SetResourceType(v LogResourceType)`
+
+SetResourceType sets ResourceType field to given value.
+
+### HasResourceType
+
+`func (o *Log) HasResourceType() bool`
+
+HasResourceType returns a boolean if a field has been set.
+
+### SetResourceTypeNil
+
+`func (o *Log) SetResourceTypeNil(b bool)`
+
+ SetResourceTypeNil sets the value for ResourceType to be an explicit nil
+
+### UnsetResourceType
+`func (o *Log) UnsetResourceType()`
+
+UnsetResourceType ensures that no value is present for ResourceType, not even an explicit nil
+### GetStatus
+
+`func (o *Log) GetStatus() LogStatusEnum`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *Log) GetStatusOk() (*LogStatusEnum, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *Log) SetStatus(v LogStatusEnum)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *Log) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetDetails
 
@@ -224,6 +262,76 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
+### GetDevice
+
+`func (o *Log) GetDevice() int32`
+
+GetDevice returns the Device field if non-nil, zero value otherwise.
+
+### GetDeviceOk
+
+`func (o *Log) GetDeviceOk() (*int32, bool)`
+
+GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDevice
+
+`func (o *Log) SetDevice(v int32)`
+
+SetDevice sets Device field to given value.
+
+### HasDevice
+
+`func (o *Log) HasDevice() bool`
+
+HasDevice returns a boolean if a field has been set.
+
+### SetDeviceNil
+
+`func (o *Log) SetDeviceNil(b bool)`
+
+ SetDeviceNil sets the value for Device to be an explicit nil
+
+### UnsetDevice
+`func (o *Log) UnsetDevice()`
+
+UnsetDevice ensures that no value is present for Device, not even an explicit nil
+### GetDeviceGroup
+
+`func (o *Log) GetDeviceGroup() int32`
+
+GetDeviceGroup returns the DeviceGroup field if non-nil, zero value otherwise.
+
+### GetDeviceGroupOk
+
+`func (o *Log) GetDeviceGroupOk() (*int32, bool)`
+
+GetDeviceGroupOk returns a tuple with the DeviceGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeviceGroup
+
+`func (o *Log) SetDeviceGroup(v int32)`
+
+SetDeviceGroup sets DeviceGroup field to given value.
+
+### HasDeviceGroup
+
+`func (o *Log) HasDeviceGroup() bool`
+
+HasDeviceGroup returns a boolean if a field has been set.
+
+### SetDeviceGroupNil
+
+`func (o *Log) SetDeviceGroupNil(b bool)`
+
+ SetDeviceGroupNil sets the value for DeviceGroup to be an explicit nil
+
+### UnsetDeviceGroup
+`func (o *Log) UnsetDeviceGroup()`
+
+UnsetDeviceGroup ensures that no value is present for DeviceGroup, not even an explicit nil
 ### GetDeviceGroupLabel
 
 `func (o *Log) GetDeviceGroupLabel() int32`
