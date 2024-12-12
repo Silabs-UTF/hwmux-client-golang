@@ -8730,9 +8730,9 @@ components:
         permissions:
           default:
           - view
+          - change
           - add
           - delete
-          - change
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -9198,9 +9198,9 @@ components:
         permissions:
           default:
           - view
+          - change
           - add
           - delete
-          - change
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
