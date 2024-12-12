@@ -25,7 +25,7 @@ type LightDevice struct {
 	Part Part `json:"part"`
 	Location int32 `json:"location"`
 	WstkPart NullableString `json:"wstk_part,omitempty"`
-	Status *StatusF44Enum `json:"status,omitempty"`
+	Status *StatusEnum `json:"status,omitempty"`
 	LocDesc string `json:"loc_desc"`
 	SocketedChip *string `json:"socketed_chip,omitempty"`
 }
@@ -346,9 +346,9 @@ func (o *LightDevice) UnsetWstkPart() {
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *LightDevice) GetStatus() StatusF44Enum {
+func (o *LightDevice) GetStatus() StatusEnum {
 	if o == nil || isNil(o.Status) {
-		var ret StatusF44Enum
+		var ret StatusEnum
 		return ret
 	}
 	return *o.Status
@@ -356,7 +356,7 @@ func (o *LightDevice) GetStatus() StatusF44Enum {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LightDevice) GetStatusOk() (*StatusF44Enum, bool) {
+func (o *LightDevice) GetStatusOk() (*StatusEnum, bool) {
 	if o == nil || isNil(o.Status) {
     return nil, false
 	}
@@ -372,8 +372,8 @@ func (o *LightDevice) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given StatusF44Enum and assigns it to the Status field.
-func (o *LightDevice) SetStatus(v StatusF44Enum) {
+// SetStatus gets a reference to the given StatusEnum and assigns it to the Status field.
+func (o *LightDevice) SetStatus(v StatusEnum) {
 	o.Status = &v
 }
 

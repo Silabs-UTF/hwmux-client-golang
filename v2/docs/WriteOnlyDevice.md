@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
-**Status** | Pointer to [**StatusF44Enum**](StatusF44Enum.md) |  | [optional] 
+**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
 **LastUpdate** | **time.Time** |  | [readonly] 
 **DateCreated** | **time.Time** |  | [readonly] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -349,20 +349,20 @@ HasOnline returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *WriteOnlyDevice) GetStatus() StatusF44Enum`
+`func (o *WriteOnlyDevice) GetStatus() StatusEnum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WriteOnlyDevice) GetStatusOk() (*StatusF44Enum, bool)`
+`func (o *WriteOnlyDevice) GetStatusOk() (*StatusEnum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WriteOnlyDevice) SetStatus(v StatusF44Enum)`
+`func (o *WriteOnlyDevice) SetStatus(v StatusEnum)`
 
 SetStatus sets Status field to given value.
 

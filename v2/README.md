@@ -274,7 +274,7 @@ Class | Method | HTTP request | Description
  - [Site](docs/Site.md)
  - [SourceEnum](docs/SourceEnum.md)
  - [StateEnum](docs/StateEnum.md)
- - [StatusF44Enum](docs/StatusF44Enum.md)
+ - [StatusEnum](docs/StatusEnum.md)
  - [Token](docs/Token.md)
  - [User](docs/User.md)
  - [WriteOnlyDevice](docs/WriteOnlyDevice.md)

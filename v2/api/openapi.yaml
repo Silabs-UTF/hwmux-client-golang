@@ -7008,7 +7008,7 @@ components:
           title: Is online
           type: boolean
         status:
-          $ref: '#/components/schemas/StatusF44Enum'
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           format: date-time
           readOnly: true
@@ -7244,7 +7244,7 @@ components:
           title: WSTK part number
           type: string
         status:
-          $ref: '#/components/schemas/StatusF44Enum'
+          $ref: '#/components/schemas/StatusEnum'
         loc_desc:
           readOnly: true
           type: string
@@ -8862,7 +8862,7 @@ components:
           title: Is online
           type: boolean
         status:
-          $ref: '#/components/schemas/StatusF44Enum'
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           format: date-time
           readOnly: true
@@ -9215,7 +9215,7 @@ components:
         status: null
       properties:
         status:
-          $ref: '#/components/schemas/StatusF44Enum'
+          $ref: '#/components/schemas/StatusEnum'
         metadata:
           additionalProperties: {}
           type: object
@@ -9347,7 +9347,7 @@ components:
       - EXP
       - FAIL
       type: string
-    StatusF44Enum:
+    StatusEnum:
       description: |-
         * `ACTIVE` - Active
         * `DISABLED` - Disabled
@@ -9460,7 +9460,7 @@ components:
           title: Is online
           type: boolean
         status:
-          $ref: '#/components/schemas/StatusF44Enum'
+          $ref: '#/components/schemas/StatusEnum'
         last_update:
           format: date-time
           readOnly: true
