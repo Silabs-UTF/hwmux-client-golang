@@ -11,13 +11,16 @@ Name | Type | Description | Notes
 **IsReserved** | Pointer to **NullableBool** |  | [optional] [readonly] 
 **Location** | Pointer to [**LocationSerializerWriteOnly**](LocationSerializerWriteOnly.md) |  | [optional] 
 **SnOrName** | Pointer to **NullableString** |  | [optional] 
+**Source** | Pointer to [**SourceEnum**](SourceEnum.md) |  | [optional] 
+**SocketedChip** | Pointer to **string** |  | [optional] 
 **IsWstk** | Pointer to **bool** |  | [optional] 
 **Uri** | Pointer to **NullableString** |  | [optional] 
 **Online** | Pointer to **bool** |  | [optional] 
-**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
+**Status** | Pointer to [**StatusF44Enum**](StatusF44Enum.md) |  | [optional] 
 **LastUpdate** | Pointer to **time.Time** |  | [optional] [readonly] 
 **DateCreated** | Pointer to **time.Time** |  | [optional] [readonly] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
+**IsReservedFilter** | Pointer to **bool** |  | [optional] 
 **WstkPart** | Pointer to **NullableString** |  | [optional] 
 
 ## Methods
@@ -234,6 +237,56 @@ HasSnOrName returns a boolean if a field has been set.
 `func (o *PatchedWriteOnlyDevice) UnsetSnOrName()`
 
 UnsetSnOrName ensures that no value is present for SnOrName, not even an explicit nil
+### GetSource
+
+`func (o *PatchedWriteOnlyDevice) GetSource() SourceEnum`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *PatchedWriteOnlyDevice) GetSourceOk() (*SourceEnum, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *PatchedWriteOnlyDevice) SetSource(v SourceEnum)`
+
+SetSource sets Source field to given value.
+
+### HasSource
+
+`func (o *PatchedWriteOnlyDevice) HasSource() bool`
+
+HasSource returns a boolean if a field has been set.
+
+### GetSocketedChip
+
+`func (o *PatchedWriteOnlyDevice) GetSocketedChip() string`
+
+GetSocketedChip returns the SocketedChip field if non-nil, zero value otherwise.
+
+### GetSocketedChipOk
+
+`func (o *PatchedWriteOnlyDevice) GetSocketedChipOk() (*string, bool)`
+
+GetSocketedChipOk returns a tuple with the SocketedChip field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSocketedChip
+
+`func (o *PatchedWriteOnlyDevice) SetSocketedChip(v string)`
+
+SetSocketedChip sets SocketedChip field to given value.
+
+### HasSocketedChip
+
+`func (o *PatchedWriteOnlyDevice) HasSocketedChip() bool`
+
+HasSocketedChip returns a boolean if a field has been set.
+
 ### GetIsWstk
 
 `func (o *PatchedWriteOnlyDevice) GetIsWstk() bool`
@@ -321,20 +374,20 @@ HasOnline returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *PatchedWriteOnlyDevice) GetStatus() StatusEnum`
+`func (o *PatchedWriteOnlyDevice) GetStatus() StatusF44Enum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWriteOnlyDevice) GetStatusOk() (*StatusEnum, bool)`
+`func (o *PatchedWriteOnlyDevice) GetStatusOk() (*StatusF44Enum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWriteOnlyDevice) SetStatus(v StatusEnum)`
+`func (o *PatchedWriteOnlyDevice) SetStatus(v StatusF44Enum)`
 
 SetStatus sets Status field to given value.
 
@@ -418,6 +471,31 @@ SetMetadata sets Metadata field to given value.
 `func (o *PatchedWriteOnlyDevice) HasMetadata() bool`
 
 HasMetadata returns a boolean if a field has been set.
+
+### GetIsReservedFilter
+
+`func (o *PatchedWriteOnlyDevice) GetIsReservedFilter() bool`
+
+GetIsReservedFilter returns the IsReservedFilter field if non-nil, zero value otherwise.
+
+### GetIsReservedFilterOk
+
+`func (o *PatchedWriteOnlyDevice) GetIsReservedFilterOk() (*bool, bool)`
+
+GetIsReservedFilterOk returns a tuple with the IsReservedFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsReservedFilter
+
+`func (o *PatchedWriteOnlyDevice) SetIsReservedFilter(v bool)`
+
+SetIsReservedFilter sets IsReservedFilter field to given value.
+
+### HasIsReservedFilter
+
+`func (o *PatchedWriteOnlyDevice) HasIsReservedFilter() bool`
+
+HasIsReservedFilter returns a boolean if a field has been set.
 
 ### GetWstkPart
 

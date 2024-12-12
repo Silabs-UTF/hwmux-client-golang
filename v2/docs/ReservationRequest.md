@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **UseWatchdog** | Pointer to **bool** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
 **InvertPriority** | Pointer to **bool** |  | [optional] [default to false]
+**LeaseDurationS** | Pointer to **NullableInt32** |  | [optional] 
 
 ## Methods
 
@@ -206,6 +207,41 @@ SetInvertPriority sets InvertPriority field to given value.
 
 HasInvertPriority returns a boolean if a field has been set.
 
+### GetLeaseDurationS
+
+`func (o *ReservationRequest) GetLeaseDurationS() int32`
+
+GetLeaseDurationS returns the LeaseDurationS field if non-nil, zero value otherwise.
+
+### GetLeaseDurationSOk
+
+`func (o *ReservationRequest) GetLeaseDurationSOk() (*int32, bool)`
+
+GetLeaseDurationSOk returns a tuple with the LeaseDurationS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLeaseDurationS
+
+`func (o *ReservationRequest) SetLeaseDurationS(v int32)`
+
+SetLeaseDurationS sets LeaseDurationS field to given value.
+
+### HasLeaseDurationS
+
+`func (o *ReservationRequest) HasLeaseDurationS() bool`
+
+HasLeaseDurationS returns a boolean if a field has been set.
+
+### SetLeaseDurationSNil
+
+`func (o *ReservationRequest) SetLeaseDurationSNil(b bool)`
+
+ SetLeaseDurationSNil sets the value for LeaseDurationS to be an explicit nil
+
+### UnsetLeaseDurationS
+`func (o *ReservationRequest) UnsetLeaseDurationS()`
+
+UnsetLeaseDurationS ensures that no value is present for LeaseDurationS, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

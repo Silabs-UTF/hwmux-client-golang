@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## DevicesList
 
-> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesList(ctx).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsReserved(isReserved).IsReservedFilter(isReservedFilter).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).SocketedChip(socketedChip).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -184,6 +184,8 @@ func main() {
     forceMv := "forceMv_example" // string | Specifies the behavior of the force_mv attribute. DEFAULT : Default condition which retrieve data from the Materialized view unless ax exception occurs where we fall back to postgres. ON : Force the data to be retrieved from the Materialized view. OFF : Force the data to be retrieved from the Postgres database (optional) (default to "DEFAULT")
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
+    isReserved := true // bool |  (optional)
+    isReservedFilter := true // bool |  (optional)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -196,14 +198,16 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
-    status := "status_example" // string |  (optional)
+    socketedChip := "socketedChip_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
+    status := "status_example" // string | * `ACTIVE` - Active * `DISABLED` - Disabled * `OFFLINE` - Offline (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
     wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesList(context.Background()).DateCreated(dateCreated).ForceMv(forceMv).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsReserved(isReserved).IsReservedFilter(isReservedFilter).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).SocketedChip(socketedChip).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -228,6 +232,8 @@ Name | Type | Description  | Notes
  **forceMv** | **string** | Specifies the behavior of the force_mv attribute. DEFAULT : Default condition which retrieve data from the Materialized view unless ax exception occurs where we fall back to postgres. ON : Force the data to be retrieved from the Materialized view. OFF : Force the data to be retrieved from the Postgres database | [default to &quot;DEFAULT&quot;]
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
+ **isReserved** | **bool** |  | 
+ **isReservedFilter** | **bool** |  | 
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -240,7 +246,9 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
- **status** | **string** |  | 
+ **socketedChip** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
+ **status** | **string** | * &#x60;ACTIVE&#x60; - Active * &#x60;DISABLED&#x60; - Disabled * &#x60;OFFLINE&#x60; - Offline | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
  **wstkPart** | **string** |  | 
@@ -265,7 +273,7 @@ Name | Type | Description  | Notes
 
 ## DevicesListMyList
 
-> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesListMyList(ctx).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsReserved(isReserved).IsReservedFilter(isReservedFilter).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).SocketedChip(socketedChip).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -288,6 +296,8 @@ func main() {
     dateCreated := time.Now() // time.Time |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
     includePermissionGroups := true // bool | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. (optional) (default to false)
+    isReserved := true // bool |  (optional)
+    isReservedFilter := true // bool |  (optional)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -300,14 +310,16 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
-    status := "status_example" // string |  (optional)
+    socketedChip := "socketedChip_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
+    status := "status_example" // string | * `ACTIVE` - Active * `DISABLED` - Disabled * `OFFLINE` - Offline (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
     wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesListMyList(context.Background()).DateCreated(dateCreated).IdIn(idIn).IncludePermissionGroups(includePermissionGroups).IsReserved(isReserved).IsReservedFilter(isReservedFilter).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).SocketedChip(socketedChip).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesListMyList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -331,6 +343,8 @@ Name | Type | Description  | Notes
  **dateCreated** | **time.Time** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
  **includePermissionGroups** | **bool** | If set to true, the permission groups associated with this resource will be included in the response. Defaults to false. | [default to false]
+ **isReserved** | **bool** |  | 
+ **isReservedFilter** | **bool** |  | 
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -343,7 +357,9 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
- **status** | **string** |  | 
+ **socketedChip** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
+ **status** | **string** | * &#x60;ACTIVE&#x60; - Active * &#x60;DISABLED&#x60; - Disabled * &#x60;OFFLINE&#x60; - Offline | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
  **wstkPart** | **string** |  | 
@@ -936,7 +952,7 @@ Name | Type | Description  | Notes
 
 ## DevicesSearchList
 
-> PaginatedDeviceSerializerPublicList DevicesSearchList(ctx).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+> PaginatedDeviceSerializerPublicList DevicesSearchList(ctx).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsReserved(isReserved).IsReservedFilter(isReservedFilter).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).SocketedChip(socketedChip).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
 
 
 
@@ -959,6 +975,8 @@ func main() {
     searchKeyValuePairs := "part_no=unknown&is_soc=True" // string | 
     dateCreated := time.Now() // time.Time |  (optional)
     idIn := []string{"Inner_example"} // []string | Multiple values may be separated by commas. (optional)
+    isReserved := true // bool |  (optional)
+    isReservedFilter := true // bool |  (optional)
     isWstk := true // bool |  (optional)
     lastUpdate := time.Now() // time.Time |  (optional)
     online := true // bool |  (optional)
@@ -971,14 +989,16 @@ func main() {
     site := "site_example" // string |  (optional)
     snOrName := "snOrName_example" // string |  (optional)
     snOrNameIsnull := true // bool |  (optional)
-    status := "status_example" // string |  (optional)
+    socketedChip := "socketedChip_example" // string |  (optional)
+    source := "source_example" // string | * `TERRAFORM` - Terraform * `XML` - XML * `UI` - UI * `OTHER` - Other (optional)
+    status := "status_example" // string | * `ACTIVE` - Active * `DISABLED` - Disabled * `OFFLINE` - Offline (optional)
     uri := "uri_example" // string |  (optional)
     uriIsnull := true // bool |  (optional)
     wstkPart := "wstkPart_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DevicesApi.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
+    resp, r, err := apiClient.DevicesApi.DevicesSearchList(context.Background()).SearchKeyValuePairs(searchKeyValuePairs).DateCreated(dateCreated).IdIn(idIn).IsReserved(isReserved).IsReservedFilter(isReservedFilter).IsWstk(isWstk).LastUpdate(lastUpdate).Online(online).Ordering(ordering).Page(page).Part(part).PartFamily(partFamily).Room(room).Search(search).Site(site).SnOrName(snOrName).SnOrNameIsnull(snOrNameIsnull).SocketedChip(socketedChip).Source(source).Status(status).Uri(uri).UriIsnull(uriIsnull).WstkPart(wstkPart).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DevicesApi.DevicesSearchList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1002,6 +1022,8 @@ Name | Type | Description  | Notes
  **searchKeyValuePairs** | **string** |  | 
  **dateCreated** | **time.Time** |  | 
  **idIn** | **[]string** | Multiple values may be separated by commas. | 
+ **isReserved** | **bool** |  | 
+ **isReservedFilter** | **bool** |  | 
  **isWstk** | **bool** |  | 
  **lastUpdate** | **time.Time** |  | 
  **online** | **bool** |  | 
@@ -1014,7 +1036,9 @@ Name | Type | Description  | Notes
  **site** | **string** |  | 
  **snOrName** | **string** |  | 
  **snOrNameIsnull** | **bool** |  | 
- **status** | **string** |  | 
+ **socketedChip** | **string** |  | 
+ **source** | **string** | * &#x60;TERRAFORM&#x60; - Terraform * &#x60;XML&#x60; - XML * &#x60;UI&#x60; - UI * &#x60;OTHER&#x60; - Other | 
+ **status** | **string** | * &#x60;ACTIVE&#x60; - Active * &#x60;DISABLED&#x60; - Disabled * &#x60;OFFLINE&#x60; - Offline | 
  **uri** | **string** |  | 
  **uriIsnull** | **bool** |  | 
  **wstkPart** | **string** |  | 
@@ -1126,7 +1150,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device.
-    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.StatusEnum("ACTIVE")) // ResourceStatusRequest | 
+    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.StatusF44Enum("ACTIVE")) // ResourceStatusRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
