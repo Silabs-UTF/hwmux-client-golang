@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Part** | [**Part**](Part.md) |  | 
 **Location** | **int32** |  | 
 **WstkPart** | Pointer to **NullableString** |  | [optional] 
-**Status** | Pointer to [**StatusF44Enum**](StatusF44Enum.md) |  | [optional] 
+**Status** | Pointer to [**StatusEnum**](StatusEnum.md) |  | [optional] 
 **LocDesc** | **string** |  | [readonly] 
 **SocketedChip** | Pointer to **string** |  | [optional] 
 
@@ -278,20 +278,20 @@ HasWstkPart returns a boolean if a field has been set.
 UnsetWstkPart ensures that no value is present for WstkPart, not even an explicit nil
 ### GetStatus
 
-`func (o *LightDevice) GetStatus() StatusF44Enum`
+`func (o *LightDevice) GetStatus() StatusEnum`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *LightDevice) GetStatusOk() (*StatusF44Enum, bool)`
+`func (o *LightDevice) GetStatusOk() (*StatusEnum, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *LightDevice) SetStatus(v StatusF44Enum)`
+`func (o *LightDevice) SetStatus(v StatusEnum)`
 
 SetStatus sets Status field to given value.
 

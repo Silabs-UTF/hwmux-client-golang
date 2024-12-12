@@ -1150,7 +1150,7 @@ import (
 
 func main() {
     id := int32(56) // int32 | A unique integer value identifying this device.
-    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.StatusF44Enum("ACTIVE")) // ResourceStatusRequest | 
+    resourceStatusRequest := *openapiclient.NewResourceStatusRequest(openapiclient.StatusEnum("ACTIVE")) // ResourceStatusRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
