@@ -6775,8 +6775,8 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - view
           - change
+          - view
           - add
           - delete
     PatchedRoom:
@@ -7138,8 +7138,8 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - view
           - change
+          - view
           - add
           - delete
       required:

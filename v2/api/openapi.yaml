@@ -8729,8 +8729,8 @@ components:
           type: integer
         permissions:
           default:
-          - view
           - change
+          - view
           - add
           - delete
           items:
@@ -9197,8 +9197,8 @@ components:
           type: integer
         permissions:
           default:
-          - view
           - change
+          - view
           - add
           - delete
           items:
