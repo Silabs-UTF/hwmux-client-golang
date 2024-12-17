@@ -6799,10 +6799,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - view
-          - delete
           - add
+          - view
           - change
+          - delete
     PatchedRoom:
       type: object
       description: Serializer for the Room model
@@ -7162,10 +7162,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - view
-          - delete
           - add
+          - view
           - change
+          - delete
       required:
       - id
     ResourceStatusRequest:

@@ -8777,10 +8777,10 @@ components:
           type: integer
         permissions:
           default:
-          - view
-          - delete
           - add
+          - view
           - change
+          - delete
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
@@ -9245,10 +9245,10 @@ components:
           type: integer
         permissions:
           default:
-          - view
-          - delete
           - add
+          - view
           - change
+          - delete
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           type: array
