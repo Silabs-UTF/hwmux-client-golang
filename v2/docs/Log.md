@@ -9,14 +9,15 @@ Name | Type | Description | Notes
 **Event** | [**EventEnum**](EventEnum.md) |  | 
 **Datetime** | **time.Time** |  | [readonly] 
 **ResourceName** | Pointer to **NullableString** |  | [optional] 
+**ResourceNameList** | Pointer to **[]string** |  | [optional] 
 **ResourceType** | Pointer to [**NullableLogResourceType**](LogResourceType.md) |  | [optional] 
 **Status** | Pointer to [**LogStatusEnum**](LogStatusEnum.md) |  | [optional] 
 **Details** | Pointer to **string** |  | [optional] 
 **Metadata** | Pointer to **map[string]interface{}** |  | [optional] 
-**Device** | Pointer to **NullableInt32** |  | [optional] 
-**DeviceGroup** | Pointer to **NullableInt32** |  | [optional] 
-**DeviceGroupLabel** | Pointer to **NullableInt32** |  | [optional] 
 **CausedBy** | Pointer to **NullableInt32** |  | [optional] 
+**Device** | Pointer to **[]int32** |  | [optional] 
+**DeviceGroup** | Pointer to **[]int32** |  | [optional] 
+**DeviceGroupLabel** | Pointer to **[]int32** |  | [optional] 
 
 ## Methods
 
@@ -152,6 +153,31 @@ HasResourceName returns a boolean if a field has been set.
 `func (o *Log) UnsetResourceName()`
 
 UnsetResourceName ensures that no value is present for ResourceName, not even an explicit nil
+### GetResourceNameList
+
+`func (o *Log) GetResourceNameList() []string`
+
+GetResourceNameList returns the ResourceNameList field if non-nil, zero value otherwise.
+
+### GetResourceNameListOk
+
+`func (o *Log) GetResourceNameListOk() (*[]string, bool)`
+
+GetResourceNameListOk returns a tuple with the ResourceNameList field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceNameList
+
+`func (o *Log) SetResourceNameList(v []string)`
+
+SetResourceNameList sets ResourceNameList field to given value.
+
+### HasResourceNameList
+
+`func (o *Log) HasResourceNameList() bool`
+
+HasResourceNameList returns a boolean if a field has been set.
+
 ### GetResourceType
 
 `func (o *Log) GetResourceType() LogResourceType`
@@ -262,111 +288,6 @@ SetMetadata sets Metadata field to given value.
 
 HasMetadata returns a boolean if a field has been set.
 
-### GetDevice
-
-`func (o *Log) GetDevice() int32`
-
-GetDevice returns the Device field if non-nil, zero value otherwise.
-
-### GetDeviceOk
-
-`func (o *Log) GetDeviceOk() (*int32, bool)`
-
-GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDevice
-
-`func (o *Log) SetDevice(v int32)`
-
-SetDevice sets Device field to given value.
-
-### HasDevice
-
-`func (o *Log) HasDevice() bool`
-
-HasDevice returns a boolean if a field has been set.
-
-### SetDeviceNil
-
-`func (o *Log) SetDeviceNil(b bool)`
-
- SetDeviceNil sets the value for Device to be an explicit nil
-
-### UnsetDevice
-`func (o *Log) UnsetDevice()`
-
-UnsetDevice ensures that no value is present for Device, not even an explicit nil
-### GetDeviceGroup
-
-`func (o *Log) GetDeviceGroup() int32`
-
-GetDeviceGroup returns the DeviceGroup field if non-nil, zero value otherwise.
-
-### GetDeviceGroupOk
-
-`func (o *Log) GetDeviceGroupOk() (*int32, bool)`
-
-GetDeviceGroupOk returns a tuple with the DeviceGroup field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeviceGroup
-
-`func (o *Log) SetDeviceGroup(v int32)`
-
-SetDeviceGroup sets DeviceGroup field to given value.
-
-### HasDeviceGroup
-
-`func (o *Log) HasDeviceGroup() bool`
-
-HasDeviceGroup returns a boolean if a field has been set.
-
-### SetDeviceGroupNil
-
-`func (o *Log) SetDeviceGroupNil(b bool)`
-
- SetDeviceGroupNil sets the value for DeviceGroup to be an explicit nil
-
-### UnsetDeviceGroup
-`func (o *Log) UnsetDeviceGroup()`
-
-UnsetDeviceGroup ensures that no value is present for DeviceGroup, not even an explicit nil
-### GetDeviceGroupLabel
-
-`func (o *Log) GetDeviceGroupLabel() int32`
-
-GetDeviceGroupLabel returns the DeviceGroupLabel field if non-nil, zero value otherwise.
-
-### GetDeviceGroupLabelOk
-
-`func (o *Log) GetDeviceGroupLabelOk() (*int32, bool)`
-
-GetDeviceGroupLabelOk returns a tuple with the DeviceGroupLabel field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeviceGroupLabel
-
-`func (o *Log) SetDeviceGroupLabel(v int32)`
-
-SetDeviceGroupLabel sets DeviceGroupLabel field to given value.
-
-### HasDeviceGroupLabel
-
-`func (o *Log) HasDeviceGroupLabel() bool`
-
-HasDeviceGroupLabel returns a boolean if a field has been set.
-
-### SetDeviceGroupLabelNil
-
-`func (o *Log) SetDeviceGroupLabelNil(b bool)`
-
- SetDeviceGroupLabelNil sets the value for DeviceGroupLabel to be an explicit nil
-
-### UnsetDeviceGroupLabel
-`func (o *Log) UnsetDeviceGroupLabel()`
-
-UnsetDeviceGroupLabel ensures that no value is present for DeviceGroupLabel, not even an explicit nil
 ### GetCausedBy
 
 `func (o *Log) GetCausedBy() int32`
@@ -402,6 +323,81 @@ HasCausedBy returns a boolean if a field has been set.
 `func (o *Log) UnsetCausedBy()`
 
 UnsetCausedBy ensures that no value is present for CausedBy, not even an explicit nil
+### GetDevice
+
+`func (o *Log) GetDevice() []int32`
+
+GetDevice returns the Device field if non-nil, zero value otherwise.
+
+### GetDeviceOk
+
+`func (o *Log) GetDeviceOk() (*[]int32, bool)`
+
+GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDevice
+
+`func (o *Log) SetDevice(v []int32)`
+
+SetDevice sets Device field to given value.
+
+### HasDevice
+
+`func (o *Log) HasDevice() bool`
+
+HasDevice returns a boolean if a field has been set.
+
+### GetDeviceGroup
+
+`func (o *Log) GetDeviceGroup() []int32`
+
+GetDeviceGroup returns the DeviceGroup field if non-nil, zero value otherwise.
+
+### GetDeviceGroupOk
+
+`func (o *Log) GetDeviceGroupOk() (*[]int32, bool)`
+
+GetDeviceGroupOk returns a tuple with the DeviceGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeviceGroup
+
+`func (o *Log) SetDeviceGroup(v []int32)`
+
+SetDeviceGroup sets DeviceGroup field to given value.
+
+### HasDeviceGroup
+
+`func (o *Log) HasDeviceGroup() bool`
+
+HasDeviceGroup returns a boolean if a field has been set.
+
+### GetDeviceGroupLabel
+
+`func (o *Log) GetDeviceGroupLabel() []int32`
+
+GetDeviceGroupLabel returns the DeviceGroupLabel field if non-nil, zero value otherwise.
+
+### GetDeviceGroupLabelOk
+
+`func (o *Log) GetDeviceGroupLabelOk() (*[]int32, bool)`
+
+GetDeviceGroupLabelOk returns a tuple with the DeviceGroupLabel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeviceGroupLabel
+
+`func (o *Log) SetDeviceGroupLabel(v []int32)`
+
+SetDeviceGroupLabel sets DeviceGroupLabel field to given value.
+
+### HasDeviceGroupLabel
+
+`func (o *Log) HasDeviceGroupLabel() bool`
+
+HasDeviceGroupLabel returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

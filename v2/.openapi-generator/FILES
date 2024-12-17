@@ -173,7 +173,7 @@ model_saga_status_enum.go
 model_site.go
 model_source_enum.go
 model_state_enum.go
-model_status_f44_enum.go
+model_status_enum.go
 model_token.go
 model_user.go
 model_write_only_device.go
