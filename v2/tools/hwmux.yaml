@@ -5992,7 +5992,7 @@ components:
           nullable: true
           title: WSTK part number
         status:
-          $ref: '#/components/schemas/StatusF44Enum'
+          $ref: '#/components/schemas/StatusEnum'
         loc_desc:
           type: string
           readOnly: true
