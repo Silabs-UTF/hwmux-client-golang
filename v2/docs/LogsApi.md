@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## LogsList
 
-> PaginatedLogList LogsList(ctx).CausedBy(causedBy).DateAfter(dateAfter).DateBefore(dateBefore).Datetime(datetime).Details(details).Device(device).DeviceSnOrName(deviceSnOrName).DeviceGroup(deviceGroup).DeviceGroupName(deviceGroupName).DeviceGroupLabel(deviceGroupLabel).DeviceGroupLabelName(deviceGroupLabelName).Event(event).Ordering(ordering).Owner(owner).Page(page).ResourceName(resourceName).ResourceType(resourceType).Search(search).Status(status).Execute()
+> PaginatedLogList LogsList(ctx).CausedBy(causedBy).DateAfter(dateAfter).DateBefore(dateBefore).Datetime(datetime).Details(details).Device(device).DeviceSnOrName(deviceSnOrName).DeviceGroup(deviceGroup).DeviceGroupName(deviceGroupName).DeviceGroupLabel(deviceGroupLabel).DeviceGroupLabelName(deviceGroupLabelName).Event(event).Ordering(ordering).Owner(owner).Page(page).ResourceName(resourceName).ResourceNameList(resourceNameList).ResourceType(resourceType).Search(search).Status(status).Execute()
 
 
 
@@ -101,24 +101,25 @@ func main() {
     dateBefore := time.Now() // time.Time |  (optional)
     datetime := time.Now() // time.Time |  (optional)
     details := "details_example" // string |  (optional)
-    device := int32(56) // int32 |  (optional)
+    device := []int32{int32(123)} // []int32 |  (optional)
     deviceSnOrName := "deviceSnOrName_example" // string |  (optional)
-    deviceGroup := int32(56) // int32 |  (optional)
+    deviceGroup := []int32{int32(123)} // []int32 |  (optional)
     deviceGroupName := "deviceGroupName_example" // string |  (optional)
-    deviceGroupLabel := int32(56) // int32 |  (optional)
+    deviceGroupLabel := []int32{int32(123)} // []int32 |  (optional)
     deviceGroupLabelName := "deviceGroupLabelName_example" // string |  (optional)
     event := "event_example" // string |  (optional)
     ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
     owner := "owner_example" // string | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. (optional)
     page := int32(56) // int32 | A page number within the paginated result set. (optional)
     resourceName := "resourceName_example" // string |  (optional)
+    resourceNameList := "resourceNameList_example" // string |  (optional)
     resourceType := "resourceType_example" // string |  (optional)
     search := "search_example" // string | A search term. (optional)
     status := "status_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.LogsApi.LogsList(context.Background()).CausedBy(causedBy).DateAfter(dateAfter).DateBefore(dateBefore).Datetime(datetime).Details(details).Device(device).DeviceSnOrName(deviceSnOrName).DeviceGroup(deviceGroup).DeviceGroupName(deviceGroupName).DeviceGroupLabel(deviceGroupLabel).DeviceGroupLabelName(deviceGroupLabelName).Event(event).Ordering(ordering).Owner(owner).Page(page).ResourceName(resourceName).ResourceType(resourceType).Search(search).Status(status).Execute()
+    resp, r, err := apiClient.LogsApi.LogsList(context.Background()).CausedBy(causedBy).DateAfter(dateAfter).DateBefore(dateBefore).Datetime(datetime).Details(details).Device(device).DeviceSnOrName(deviceSnOrName).DeviceGroup(deviceGroup).DeviceGroupName(deviceGroupName).DeviceGroupLabel(deviceGroupLabel).DeviceGroupLabelName(deviceGroupLabelName).Event(event).Ordering(ordering).Owner(owner).Page(page).ResourceName(resourceName).ResourceNameList(resourceNameList).ResourceType(resourceType).Search(search).Status(status).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `LogsApi.LogsList``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -144,17 +145,18 @@ Name | Type | Description  | Notes
  **dateBefore** | **time.Time** |  | 
  **datetime** | **time.Time** |  | 
  **details** | **string** |  | 
- **device** | **int32** |  | 
+ **device** | **[]int32** |  | 
  **deviceSnOrName** | **string** |  | 
- **deviceGroup** | **int32** |  | 
+ **deviceGroup** | **[]int32** |  | 
  **deviceGroupName** | **string** |  | 
- **deviceGroupLabel** | **int32** |  | 
+ **deviceGroupLabel** | **[]int32** |  | 
  **deviceGroupLabelName** | **string** |  | 
  **event** | **string** |  | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **owner** | **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | 
  **page** | **int32** | A page number within the paginated result set. | 
  **resourceName** | **string** |  | 
+ **resourceNameList** | **string** |  | 
  **resourceType** | **string** |  | 
  **search** | **string** | A search term. | 
  **status** | **string** |  | 

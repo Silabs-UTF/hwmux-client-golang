@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.36.0
+  version: 2.37.0
 paths:
   /api-token-auth/:
     post:
@@ -2249,7 +2249,11 @@ paths:
       - in: query
         name: device
         schema:
-          type: integer
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
       - in: query
         name: device__sn_or_name
         schema:
@@ -2257,7 +2261,11 @@ paths:
       - in: query
         name: device_group
         schema:
-          type: integer
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
       - in: query
         name: device_group__name
         schema:
@@ -2265,7 +2273,11 @@ paths:
       - in: query
         name: device_group_label
         schema:
-          type: integer
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
       - in: query
         name: device_group_label__name
         schema:
@@ -2294,6 +2306,10 @@ paths:
           type: integer
       - in: query
         name: resource_name
+        schema:
+          type: string
+      - in: query
+        name: resource_name_list
         schema:
           type: string
       - in: query
@@ -5976,7 +5992,7 @@ components:
           nullable: true
           title: WSTK part number
         status:
-          $ref: '#/components/schemas/StatusEnum'
+          $ref: '#/components/schemas/StatusF44Enum'
         loc_desc:
           type: string
           readOnly: true
@@ -6052,6 +6068,11 @@ components:
           type: string
           nullable: true
           maxLength: 255
+        resource_name_list:
+          type: array
+          items:
+            type: string
+            maxLength: 255
         resource_type:
           nullable: true
           oneOf:
@@ -6067,18 +6088,21 @@ components:
           type: object
           additionalProperties: {}
           title: Additional data
-        device:
-          type: integer
-          nullable: true
-        device_group:
-          type: integer
-          nullable: true
-        device_group_label:
-          type: integer
-          nullable: true
         caused_by:
           type: integer
           nullable: true
+        device:
+          type: array
+          items:
+            type: integer
+        device_group:
+          type: array
+          items:
+            type: integer
+        device_group_label:
+          type: array
+          items:
+            type: integer
       required:
       - datetime
       - event
@@ -6775,10 +6799,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - change
           - view
-          - add
           - delete
+          - add
+          - change
     PatchedRoom:
       type: object
       description: Serializer for the Room model
@@ -7138,10 +7162,10 @@ components:
           items:
             $ref: '#/components/schemas/PermissionsEnum'
           default:
-          - change
           - view
-          - add
           - delete
+          - add
+          - change
       required:
       - id
     ResourceStatusRequest:

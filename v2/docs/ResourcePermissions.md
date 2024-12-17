@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | 
-**Permissions** | Pointer to [**[]PermissionsEnum**](PermissionsEnum.md) |  | [optional] [default to ["change","view","add","delete"]]
+**Permissions** | Pointer to [**[]PermissionsEnum**](PermissionsEnum.md) |  | [optional] [default to ["view","delete","add","change"]]
 
 ## Methods
 
