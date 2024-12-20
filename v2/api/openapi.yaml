@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: HW Mux Reservation System
-  version: 2.36.0
+  version: 2.37.0
 servers:
 - description: HW Mux Server
   url: https://hwmux.silabs.net
@@ -2678,7 +2678,9 @@ paths:
         name: device
         required: false
         schema:
-          type: integer
+          items:
+            type: integer
+          type: array
         style: form
       - explode: true
         in: query
@@ -2692,7 +2694,9 @@ paths:
         name: device_group
         required: false
         schema:
-          type: integer
+          items:
+            type: integer
+          type: array
         style: form
       - explode: true
         in: query
@@ -2706,7 +2710,9 @@ paths:
         name: device_group_label
         required: false
         schema:
-          type: integer
+          items:
+            type: integer
+          type: array
         style: form
       - explode: true
         in: query
@@ -2750,6 +2756,13 @@ paths:
       - explode: true
         in: query
         name: resource_name
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: resource_name_list
         required: false
         schema:
           type: string
@@ -7320,16 +7333,25 @@ components:
         owner: owner
         metadata:
           key: ""
-        caused_by: 5
-        device_group: 1
+        caused_by: 6
+        device_group:
+        - 5
+        - 5
         resource_type: null
-        device_group_label: 5
+        device_group_label:
+        - 5
+        - 5
+        resource_name_list:
+        - resource_name_list
+        - resource_name_list
         datetime: 2000-01-23T04:56:07.000+00:00
         details: details
         id: 0
         event: null
         resource_name: resource_name
-        device: 6
+        device:
+        - 1
+        - 1
         status: null
       properties:
         id:
@@ -7348,6 +7370,11 @@ components:
           maxLength: 255
           nullable: true
           type: string
+        resource_name_list:
+          items:
+            maxLength: 255
+            type: string
+          type: array
         resource_type:
           $ref: '#/components/schemas/Log_resource_type'
         status:
@@ -7359,18 +7386,21 @@ components:
           additionalProperties: {}
           title: Additional data
           type: object
-        device:
-          nullable: true
-          type: integer
-        device_group:
-          nullable: true
-          type: integer
-        device_group_label:
-          nullable: true
-          type: integer
         caused_by:
           nullable: true
           type: integer
+        device:
+          items:
+            type: integer
+          type: array
+        device_group:
+          items:
+            type: integer
+          type: array
+        device_group_label:
+          items:
+            type: integer
+          type: array
       required:
       - datetime
       - event
@@ -7923,30 +7953,48 @@ components:
         - owner: owner
           metadata:
             key: ""
-          caused_by: 5
-          device_group: 1
+          caused_by: 6
+          device_group:
+          - 5
+          - 5
           resource_type: null
-          device_group_label: 5
+          device_group_label:
+          - 5
+          - 5
+          resource_name_list:
+          - resource_name_list
+          - resource_name_list
           datetime: 2000-01-23T04:56:07.000+00:00
           details: details
           id: 0
           event: null
           resource_name: resource_name
-          device: 6
+          device:
+          - 1
+          - 1
           status: null
         - owner: owner
           metadata:
             key: ""
-          caused_by: 5
-          device_group: 1
+          caused_by: 6
+          device_group:
+          - 5
+          - 5
           resource_type: null
-          device_group_label: 5
+          device_group_label:
+          - 5
+          - 5
+          resource_name_list:
+          - resource_name_list
+          - resource_name_list
           datetime: 2000-01-23T04:56:07.000+00:00
           details: details
           id: 0
           event: null
           resource_name: resource_name
-          device: 6
+          device:
+          - 1
+          - 1
           status: null
       properties:
         count:
@@ -8729,9 +8777,9 @@ components:
           type: integer
         permissions:
           default:
-          - change
-          - view
           - add
+          - view
+          - change
           - delete
           items:
             $ref: '#/components/schemas/PermissionsEnum'
@@ -9197,9 +9245,9 @@ components:
           type: integer
         permissions:
           default:
-          - change
-          - view
           - add
+          - view
+          - change
           - delete
           items:
             $ref: '#/components/schemas/PermissionsEnum'
